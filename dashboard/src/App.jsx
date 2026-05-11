@@ -50,6 +50,23 @@ function formatPercent(val) {
   return (val * 100).toFixed(1) + '%'
 }
 
+function parseMoneyInput(val) {
+  if (!val) return null
+  const s = val.toLowerCase().replace(/[^0-9.tbm-]/g, '')
+  if (!s) return null
+  const multiplier = s.endsWith('t') ? 1e12 : s.endsWith('b') ? 1e9 : s.endsWith('m') ? 1e6 : 1
+  const num = parseFloat(s.replace(/[tbm]/g, ''))
+  if (isNaN(num)) return null
+  return num * multiplier
+}
+
+function parsePercentInput(val) {
+  if (!val) return null
+  const num = parseFloat(val.replace('%', ''))
+  if (isNaN(num)) return null
+  return num / 100
+}
+
 const CustomTooltip = ({ active, payload, label }) => {
   if (!active || !payload) return null
   return (
@@ -89,6 +106,12 @@ export default function App() {
   const [searchTerm, setSearchTerm] = useState('')
   const [subSearchTerm, setSubSearchTerm] = useState('')
   const [subSectorFilter, setSubSectorFilter] = useState('All')
+
+  // Table sort & filters
+  const [sectorSort, setSectorSort] = useState({ column: 'NetIncome', direction: 'desc' })
+  const [subSort, setSubSort] = useState({ column: 'NetIncome', direction: 'desc' })
+  const [sectorFilters, setSectorFilters] = useState({ minProfit: '', maxProfit: '', minGrowth: '', maxGrowth: '' })
+  const [subFilters, setSubFilters] = useState({ minProfit: '', maxProfit: '', minGrowth: '', maxGrowth: '' })
 
   useEffect(() => {
     fetch('./data.json')
@@ -445,49 +468,130 @@ export default function App() {
             <Activity size={20} className="text-indigo-600" />
             <h2 className="text-lg font-bold text-slate-800">Detail per Sektor ({latestYear} vs {latestYear - 1})</h2>
           </div>
+          <div className="mb-4 flex gap-3 flex-wrap items-end">
+            <div className="flex gap-2 items-center">
+              <label className="text-xs text-slate-500">Profit:</label>
+              <input
+                type="text"
+                placeholder="Min"
+                value={sectorFilters.minProfit}
+                onChange={(e) => setSectorFilters({...sectorFilters, minProfit: e.target.value})}
+                className="w-24 px-2 py-1.5 border border-slate-200 rounded text-xs focus:outline-none focus:ring-1 focus:ring-indigo-500"
+              />
+              <span className="text-slate-400">-</span>
+              <input
+                type="text"
+                placeholder="Max"
+                value={sectorFilters.maxProfit}
+                onChange={(e) => setSectorFilters({...sectorFilters, maxProfit: e.target.value})}
+                className="w-24 px-2 py-1.5 border border-slate-200 rounded text-xs focus:outline-none focus:ring-1 focus:ring-indigo-500"
+              />
+            </div>
+            <div className="flex gap-2 items-center">
+              <label className="text-xs text-slate-500">Growth:</label>
+              <input
+                type="text"
+                placeholder="Min %"
+                value={sectorFilters.minGrowth}
+                onChange={(e) => setSectorFilters({...sectorFilters, minGrowth: e.target.value})}
+                className="w-20 px-2 py-1.5 border border-slate-200 rounded text-xs focus:outline-none focus:ring-1 focus:ring-indigo-500"
+              />
+              <span className="text-slate-400">-</span>
+              <input
+                type="text"
+                placeholder="Max %"
+                value={sectorFilters.maxGrowth}
+                onChange={(e) => setSectorFilters({...sectorFilters, maxGrowth: e.target.value})}
+                className="w-20 px-2 py-1.5 border border-slate-200 rounded text-xs focus:outline-none focus:ring-1 focus:ring-indigo-500"
+              />
+            </div>
+            <button
+              onClick={() => setSectorFilters({ minProfit: '', maxProfit: '', minGrowth: '', maxGrowth: '' })}
+              className="text-xs text-indigo-600 hover:text-indigo-800 underline"
+            >
+              Reset filters
+            </button>
+          </div>
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b border-slate-200 text-left text-slate-500">
-                  <th className="py-2 pr-4 font-medium">Sektor</th>
-                  <th className="py-2 pr-4 font-medium text-right">Profit {latestYear}</th>
-                  <th className="py-2 pr-4 font-medium text-right">Profit {latestYear - 1}</th>
-                  <th className="py-2 pr-4 font-medium text-right">Improvement</th>
-                  <th className="py-2 pr-4 font-medium text-right">Growth Rate</th>
-                  <th className="py-2 font-medium text-right">Share</th>
+                  <th className="py-2 pr-4 font-medium cursor-pointer hover:text-indigo-600" onClick={() => setSectorSort({ column: 'Sektor', direction: sectorSort.column === 'Sektor' && sectorSort.direction === 'asc' ? 'desc' : 'asc' })}>
+                    Sektor {sectorSort.column === 'Sektor' && (sectorSort.direction === 'asc' ? '↑' : '↓')}
+                  </th>
+                  <th className="py-2 pr-4 font-medium text-right cursor-pointer hover:text-indigo-600" onClick={() => setSectorSort({ column: 'Current', direction: sectorSort.column === 'Current' && sectorSort.direction === 'asc' ? 'desc' : 'asc' })}>
+                    Profit {latestYear} {sectorSort.column === 'Current' && (sectorSort.direction === 'asc' ? '↑' : '↓')}
+                  </th>
+                  <th className="py-2 pr-4 font-medium text-right cursor-pointer hover:text-indigo-600" onClick={() => setSectorSort({ column: 'Previous', direction: sectorSort.column === 'Previous' && sectorSort.direction === 'asc' ? 'desc' : 'asc' })}>
+                    Profit {latestYear - 1} {sectorSort.column === 'Previous' && (sectorSort.direction === 'asc' ? '↑' : '↓')}
+                  </th>
+                  <th className="py-2 pr-4 font-medium text-right cursor-pointer hover:text-indigo-600" onClick={() => setSectorSort({ column: 'Improvement', direction: sectorSort.column === 'Improvement' && sectorSort.direction === 'asc' ? 'desc' : 'asc' })}>
+                    Improvement {sectorSort.column === 'Improvement' && (sectorSort.direction === 'asc' ? '↑' : '↓')}
+                  </th>
+                  <th className="py-2 pr-4 font-medium text-right cursor-pointer hover:text-indigo-600" onClick={() => setSectorSort({ column: 'GrowthRate', direction: sectorSort.column === 'GrowthRate' && sectorSort.direction === 'asc' ? 'desc' : 'asc' })}>
+                    Growth Rate {sectorSort.column === 'GrowthRate' && (sectorSort.direction === 'asc' ? '↑' : '↓')}
+                  </th>
+                  <th className="py-2 font-medium text-right cursor-pointer hover:text-indigo-600" onClick={() => setSectorSort({ column: 'Share', direction: sectorSort.column === 'Share' && sectorSort.direction === 'asc' ? 'desc' : 'asc' })}>
+                    Share {sectorSort.column === 'Share' && (sectorSort.direction === 'asc' ? '↑' : '↓')}
+                  </th>
                 </tr>
               </thead>
               <tbody>
-                {sectorGrowthSorted.map((s) => {
-                  const latestEntry = sectorLatestSorted.find(x => x.Sektor === s.Sektor)
-                  const share = totalLatestProfit ? (latestEntry?.NetIncome || 0) / totalLatestProfit : 0
-                  return (
-                    <tr
-                      key={s.Sektor}
-                      className="border-b border-slate-100 hover:bg-blue-50 cursor-pointer transition-colors"
-                      onClick={() => setSelectedSector(s.Sektor)}
-                    >
-                      <td className="py-2.5 pr-4">
-                        <div className="flex items-center gap-2">
-                          <div
-                            className="w-3 h-3 rounded-full"
-                            style={{ backgroundColor: SECTOR_COLORS[s.Sektor] || '#cbd5e1' }}
-                          />
-                          <span className="font-medium text-slate-700">{s.Sektor}</span>
-                        </div>
-                      </td>
-                      <td className="py-2.5 pr-4 text-right font-medium text-slate-800">{formatMoneyShort(s.Current)}</td>
-                      <td className="py-2.5 pr-4 text-right text-slate-500">{formatMoneyShort(s.Previous)}</td>
-                      <td className={`py-2.5 pr-4 text-right font-medium ${s.Improvement >= 0 ? 'text-emerald-600' : 'text-red-500'}`}>
-                        {s.Improvement >= 0 ? '+' : ''}{formatMoneyShort(s.Improvement)}
-                      </td>
-                      <td className={`py-2.5 pr-4 text-right font-medium ${s.GrowthRate >= 0 ? 'text-emerald-600' : 'text-red-500'}`}>
-                        {formatPercent(s.GrowthRate)}
-                      </td>
-                      <td className="py-2.5 text-right text-slate-500">{formatPercent(share)}</td>
-                    </tr>
-                  )
-                })}
+                {sectorGrowthSorted
+                  .filter(s => {
+                    const minProfit = parseMoneyInput(sectorFilters.minProfit)
+                    const maxProfit = parseMoneyInput(sectorFilters.maxProfit)
+                    const minGrowth = parsePercentInput(sectorFilters.minGrowth)
+                    const maxGrowth = parsePercentInput(sectorFilters.maxGrowth)
+                    if (minProfit !== null && s.Current < minProfit) return false
+                    if (maxProfit !== null && s.Current > maxProfit) return false
+                    if (minGrowth !== null && s.GrowthRate < minGrowth) return false
+                    if (maxGrowth !== null && s.GrowthRate > maxGrowth) return false
+                    return true
+                  })
+                  .sort((a, b) => {
+                    let cmp = 0
+                    if (sectorSort.column === 'Sektor') {
+                      cmp = a.Sektor.localeCompare(b.Sektor)
+                    } else if (sectorSort.column === 'Share') {
+                      const shareA = totalLatestProfit ? (sectorLatestSorted.find(x => x.Sektor === a.Sektor)?.NetIncome || 0) / totalLatestProfit : 0
+                      const shareB = totalLatestProfit ? (sectorLatestSorted.find(x => x.Sektor === b.Sektor)?.NetIncome || 0) / totalLatestProfit : 0
+                      cmp = shareA - shareB
+                    } else {
+                      cmp = a[sectorSort.column] - b[sectorSort.column]
+                    }
+                    return sectorSort.direction === 'asc' ? cmp : -cmp
+                  })
+                  .map((s) => {
+                    const latestEntry = sectorLatestSorted.find(x => x.Sektor === s.Sektor)
+                    const share = totalLatestProfit ? (latestEntry?.NetIncome || 0) / totalLatestProfit : 0
+                    return (
+                      <tr
+                        key={s.Sektor}
+                        className="border-b border-slate-100 hover:bg-blue-50 cursor-pointer transition-colors"
+                        onClick={() => setSelectedSector(s.Sektor)}
+                      >
+                        <td className="py-2.5 pr-4">
+                          <div className="flex items-center gap-2">
+                            <div
+                              className="w-3 h-3 rounded-full"
+                              style={{ backgroundColor: SECTOR_COLORS[s.Sektor] || '#cbd5e1' }}
+                            />
+                            <span className="font-medium text-slate-700">{s.Sektor}</span>
+                          </div>
+                        </td>
+                        <td className="py-2.5 pr-4 text-right font-medium text-slate-800">{formatMoneyShort(s.Current)}</td>
+                        <td className="py-2.5 pr-4 text-right text-slate-500">{formatMoneyShort(s.Previous)}</td>
+                        <td className={`py-2.5 pr-4 text-right font-medium ${s.Improvement >= 0 ? 'text-emerald-600' : 'text-red-500'}`}>
+                          {s.Improvement >= 0 ? '+' : ''}{formatMoneyShort(s.Improvement)}
+                        </td>
+                        <td className={`py-2.5 pr-4 text-right font-medium ${s.GrowthRate >= 0 ? 'text-emerald-600' : 'text-red-500'}`}>
+                          {formatPercent(s.GrowthRate)}
+                        </td>
+                        <td className="py-2.5 text-right text-slate-500">{formatPercent(share)}</td>
+                      </tr>
+                    )
+                  })}
               </tbody>
             </table>
           </div>
@@ -499,7 +603,7 @@ export default function App() {
             <Activity size={20} className="text-violet-600" />
             <h2 className="text-lg font-bold text-slate-800">Detail per Subindustri ({latestYear} vs {latestYear - 1})</h2>
           </div>
-          <div className="mb-3 flex gap-3 flex-wrap">
+          <div className="mb-3 flex gap-3 flex-wrap items-end">
             <input
               type="text"
               placeholder="Cari subindustri..."
@@ -518,19 +622,75 @@ export default function App() {
                 <option key={sector} value={sector}>{sector}</option>
               ))}
             </select>
+            <div className="flex gap-2 items-center">
+              <label className="text-xs text-slate-500">Profit:</label>
+              <input
+                type="text"
+                placeholder="Min"
+                value={subFilters.minProfit}
+                onChange={(e) => setSubFilters({...subFilters, minProfit: e.target.value})}
+                className="w-24 px-2 py-1.5 border border-slate-200 rounded text-xs focus:outline-none focus:ring-1 focus:ring-violet-500"
+              />
+              <span className="text-slate-400">-</span>
+              <input
+                type="text"
+                placeholder="Max"
+                value={subFilters.maxProfit}
+                onChange={(e) => setSubFilters({...subFilters, maxProfit: e.target.value})}
+                className="w-24 px-2 py-1.5 border border-slate-200 rounded text-xs focus:outline-none focus:ring-1 focus:ring-violet-500"
+              />
+            </div>
+            <div className="flex gap-2 items-center">
+              <label className="text-xs text-slate-500">Growth:</label>
+              <input
+                type="text"
+                placeholder="Min %"
+                value={subFilters.minGrowth}
+                onChange={(e) => setSubFilters({...subFilters, minGrowth: e.target.value})}
+                className="w-20 px-2 py-1.5 border border-slate-200 rounded text-xs focus:outline-none focus:ring-1 focus:ring-violet-500"
+              />
+              <span className="text-slate-400">-</span>
+              <input
+                type="text"
+                placeholder="Max %"
+                value={subFilters.maxGrowth}
+                onChange={(e) => setSubFilters({...subFilters, maxGrowth: e.target.value})}
+                className="w-20 px-2 py-1.5 border border-slate-200 rounded text-xs focus:outline-none focus:ring-1 focus:ring-violet-500"
+              />
+            </div>
+            <button
+              onClick={() => setSubFilters({ minProfit: '', maxProfit: '', minGrowth: '', maxGrowth: '' })}
+              className="text-xs text-violet-600 hover:text-violet-800 underline"
+            >
+              Reset filters
+            </button>
           </div>
           <div className="overflow-x-auto max-h-[500px] overflow-y-auto">
             <table className="w-full text-sm">
               <thead className="sticky top-0 bg-white z-10">
                 <tr className="border-b border-slate-200 text-left text-slate-500">
                   <th className="py-2 pr-3 font-medium">#</th>
-                  <th className="py-2 pr-4 font-medium">Subindustri</th>
-                  <th className="py-2 pr-4 font-medium">Sektor</th>
-                  <th className="py-2 pr-4 font-medium text-right">Profit {latestYear}</th>
-                  <th className="py-2 pr-4 font-medium text-right">Profit {latestYear - 1}</th>
-                  <th className="py-2 pr-4 font-medium text-right">Improvement</th>
-                  <th className="py-2 pr-4 font-medium text-right">Growth Rate</th>
-                  <th className="py-2 font-medium text-right">Share</th>
+                  <th className="py-2 pr-4 font-medium cursor-pointer hover:text-violet-600" onClick={() => setSubSort({ column: 'Subindustri', direction: subSort.column === 'Subindustri' && subSort.direction === 'asc' ? 'desc' : 'asc' })}>
+                    Subindustri {subSort.column === 'Subindustri' && (subSort.direction === 'asc' ? '↑' : '↓')}
+                  </th>
+                  <th className="py-2 pr-4 font-medium cursor-pointer hover:text-violet-600" onClick={() => setSubSort({ column: 'Sektor', direction: subSort.column === 'Sektor' && subSort.direction === 'asc' ? 'desc' : 'asc' })}>
+                    Sektor {subSort.column === 'Sektor' && (subSort.direction === 'asc' ? '↑' : '↓')}
+                  </th>
+                  <th className="py-2 pr-4 font-medium text-right cursor-pointer hover:text-violet-600" onClick={() => setSubSort({ column: 'NetIncome', direction: subSort.column === 'NetIncome' && subSort.direction === 'asc' ? 'desc' : 'asc' })}>
+                    Profit {latestYear} {subSort.column === 'NetIncome' && (subSort.direction === 'asc' ? '↑' : '↓')}
+                  </th>
+                  <th className="py-2 pr-4 font-medium text-right cursor-pointer hover:text-violet-600" onClick={() => setSubSort({ column: 'PrevNetIncome', direction: subSort.column === 'PrevNetIncome' && subSort.direction === 'asc' ? 'desc' : 'asc' })}>
+                    Profit {latestYear - 1} {subSort.column === 'PrevNetIncome' && (subSort.direction === 'asc' ? '↑' : '↓')}
+                  </th>
+                  <th className="py-2 pr-4 font-medium text-right cursor-pointer hover:text-violet-600" onClick={() => setSubSort({ column: 'Improvement', direction: subSort.column === 'Improvement' && subSort.direction === 'asc' ? 'desc' : 'asc' })}>
+                    Improvement {subSort.column === 'Improvement' && (subSort.direction === 'asc' ? '↑' : '↓')}
+                  </th>
+                  <th className="py-2 pr-4 font-medium text-right cursor-pointer hover:text-violet-600" onClick={() => setSubSort({ column: 'GrowthRate', direction: subSort.column === 'GrowthRate' && subSort.direction === 'asc' ? 'desc' : 'asc' })}>
+                    Growth Rate {subSort.column === 'GrowthRate' && (subSort.direction === 'asc' ? '↑' : '↓')}
+                  </th>
+                  <th className="py-2 font-medium text-right cursor-pointer hover:text-violet-600" onClick={() => setSubSort({ column: 'Share', direction: subSort.column === 'Share' && subSort.direction === 'asc' ? 'desc' : 'asc' })}>
+                    Share {subSort.column === 'Share' && (subSort.direction === 'asc' ? '↑' : '↓')}
+                  </th>
                 </tr>
               </thead>
               <tbody>
@@ -538,7 +698,30 @@ export default function App() {
                   .filter(s => {
                     const matchesSearch = !subSearchTerm || s.Subindustri.toLowerCase().includes(subSearchTerm.toLowerCase()) || s.Sektor.toLowerCase().includes(subSearchTerm.toLowerCase())
                     const matchesSector = subSectorFilter === 'All' || s.Sektor === subSectorFilter
+                    const minProfit = parseMoneyInput(subFilters.minProfit)
+                    const maxProfit = parseMoneyInput(subFilters.maxProfit)
+                    const minGrowth = parsePercentInput(subFilters.minGrowth)
+                    const maxGrowth = parsePercentInput(subFilters.maxGrowth)
+                    if (minProfit !== null && s.NetIncome < minProfit) return false
+                    if (maxProfit !== null && s.NetIncome > maxProfit) return false
+                    if (minGrowth !== null && (s.GrowthRate || 0) < minGrowth) return false
+                    if (maxGrowth !== null && (s.GrowthRate || 0) > maxGrowth) return false
                     return matchesSearch && matchesSector
+                  })
+                  .sort((a, b) => {
+                    let cmp = 0
+                    if (subSort.column === 'Subindustri') {
+                      cmp = a.Subindustri.localeCompare(b.Subindustri)
+                    } else if (subSort.column === 'Sektor') {
+                      cmp = a.Sektor.localeCompare(b.Sektor)
+                    } else if (subSort.column === 'Share') {
+                      const shareA = totalLatestProfit ? (a.NetIncome || 0) / totalLatestProfit : 0
+                      const shareB = totalLatestProfit ? (b.NetIncome || 0) / totalLatestProfit : 0
+                      cmp = shareA - shareB
+                    } else {
+                      cmp = (a[subSort.column] || 0) - (b[subSort.column] || 0)
+                    }
+                    return subSort.direction === 'asc' ? cmp : -cmp
                   })
                   .map((s, i) => {
                     const share = totalLatestProfit ? (s.NetIncome || 0) / totalLatestProfit : 0
