@@ -34,7 +34,7 @@ def parse_value(val):
         return None
 
 print("Reading CSV...")
-df = pd.read_csv('/Users/bni/Documents/lk-perusahaan/all_lk.csv', dtype=str)
+df = pd.read_csv('/Users/67620/scrap_sector/dashboard-lapkeu/all_lk.csv', dtype=str)
 print(f"Shape: {df.shape}")
 
 year_cols = [c for c in df.columns if c.isdigit()]
@@ -129,15 +129,16 @@ for sector in sectors:
         })
 
 # Subindustry growth rates (latest vs previous)
-subindustry_year = annual_long.groupby(['Sektor', 'Subindustri', 'Year'])['NetIncome'].sum().reset_index()
-subindustry_pivot = subindustry_year.pivot(index=['Sektor', 'Subindustri'], columns='Year', values='NetIncome')
+subindustry_year = annual_long.groupby(['Sektor', 'Industri', 'Subindustri', 'Year'])['NetIncome'].sum().reset_index()
+subindustry_pivot = subindustry_year.pivot(index=['Sektor', 'Industri', 'Subindustri'], columns='Year', values='NetIncome')
 subindustry_growth = []
-for (sector, subindustry), row in subindustry_pivot.iterrows():
+for (sector, industry, subindustry), row in subindustry_pivot.iterrows():
     curr = row.get(latest_year, None)
     prev = row.get(prev_year, None)
     if pd.notna(curr) and pd.notna(prev) and prev != 0:
         subindustry_growth.append({
             'Sektor': sector,
+            'Industri': industry,
             'Subindustri': subindustry,
             'GrowthRate': (curr - prev) / abs(prev),
             'Current': curr,
@@ -148,12 +149,13 @@ subindustry_growth = sorted(subindustry_growth, key=lambda x: x['GrowthRate'], r
 
 # Subindustry latest totals for detail table
 subindustry_latest = []
-for (sector, subindustry), row in subindustry_pivot.iterrows():
+for (sector, industry, subindustry), row in subindustry_pivot.iterrows():
     curr = row.get(latest_year, None)
     prev = row.get(prev_year, None)
     if pd.notna(curr):
         subindustry_latest.append({
             'Sektor': sector,
+            'Industri': industry,
             'Subindustri': subindustry,
             'NetIncome': curr,
             'PrevNetIncome': prev if pd.notna(prev) else None,
@@ -226,7 +228,7 @@ output = {
     'subindustryLatest': subindustry_latest
 }
 
-out_path = '/Users/bni/Documents/lk-perusahaan/dashboard_data.json'
+out_path = '/Users/67620/scrap_sector/dashboard-lapkeu/dashboard/public/data.json'
 with open(out_path, 'w') as f:
     json.dump(output, f)
 print(f"Saved to {out_path}")

@@ -1,0 +1,952 @@
+import { useEffect, useState, useMemo, useCallback } from 'react'
+import { MapContainer, TileLayer, GeoJSON, Popup } from 'react-leaflet'
+import { MapPin, Building2, Filter, Info, Briefcase, HelpCircle } from 'lucide-react'
+import 'leaflet/dist/leaflet.css'
+
+const GEOJSON_URL = './38 Provinsi Indonesia - Provinsi.json'
+
+const BKPM_COLORS = {
+  ENERGI: '#f59e0b',
+  KEUANGAN: '#06b6d4',
+  KONSTRUKSI: '#64748b',
+  PARIWISATA: '#ec4899',
+  PENGANGKUTAN: '#6366f1',
+  PERDAGANGAN: '#10b981',
+  PERIKANAN: '#0ea5e9',
+  PERINDUSTRIAN: '#f97316',
+  PERTAMBANGAN: '#78716c',
+  PERTANIAN: '#84cc16',
+}
+
+// Smart BKPM to PDB Macro Sector Mapping
+const BKPM_TO_PDB_MAPPING = {
+  PERTANIAN: {
+    pdbSector: "Pertanian, Kehutanan dan Perikanan",
+    description: "Mencakup subsektor pertanian tanaman pangan, perkebunan, peternakan, perburuan, dan jasa penunjang pertanian."
+  },
+  PERTAMBANGAN: {
+    pdbSector: "Pertambangan dan Penggalian",
+    description: "Mencakup pertambangan batu bara, minyak & gas bumi, bijih logam, serta penggalian batu, pasir, dan tanah liat."
+  },
+  PERINDUSTRIAN: {
+    pdbSector: "Industri Pengolahan",
+    description: "Mencakup pengolahan makanan, minuman, tekstil, pakaian jadi, kimia, farmasi, logam, mesin, otomotif, dan manufaktur lainnya."
+  },
+  ENERGI: {
+    pdbSector: "Pengadaan Listrik dan Gas",
+    description: "Mencakup pengadaan tenaga listrik, produksi & penyaluran gas bumi, pengolahan air bersih, serta daur ulang limbah."
+  },
+  KONSTRUKSI: {
+    pdbSector: "Konstruksi",
+    description: "Mencakup kegiatan konstruksi gedung, pekerjaan sipil (jalan tol, jembatan, bandara), serta instalasi mekanikal/elektrikal."
+  },
+  PERDAGANGAN: {
+    pdbSector: "Perdagangan Besar dan Eceran, Reparasi Mobil dan Sepeda Motor",
+    description: "Mencakup perdagangan grosir domestik/ekspor, eceran/ritel supermarket, serta jasa reparasi kendaraan bermotor."
+  },
+  PENGANGKUTAN: {
+    pdbSector: "Transportasi dan Pergudangan",
+    description: "Mencakup angkutan darat (jalan tol/kereta api), angkutan laut & udara, pergudangan logistik, serta kurir/pos."
+  },
+  PARIWISATA: {
+    pdbSector: "Penyediaan Akomodasi dan Makan Minum",
+    description: "Mencakup hotel bintang & non-bintang, penginapan jangka pendek, restoran, kafe, warung makan, serta jasa katering."
+  },
+  KEUANGAN: {
+    pdbSector: "Jasa Keuangan dan Asuransi",
+    description: "Mencakup perantara keuangan (bank pemerintah & swasta), asuransi jiwa/umum, reasuransi, dana pensiun, dan sekuritas."
+  },
+  PERIKANAN: {
+    pdbSector: "Pertanian, Kehutanan dan Perikanan",
+    description: "Mencakup kegiatan penangkapan ikan di laut bebas & perairan darat, budidaya tambak udang/ikan, serta pembenihan biota air."
+  }
+}
+
+function formatMoney(val) {
+  if (val === null || val === undefined || isNaN(val)) return '-'
+  const absVal = Math.abs(val)
+  const sign = val < 0 ? '-' : ''
+  if (absVal >= 1e12) return sign + 'Rp ' + (absVal / 1e12).toFixed(2) + ' T'
+  if (absVal >= 1e9) return sign + 'Rp ' + (absVal / 1e9).toFixed(2) + ' B'
+  if (absVal >= 1e6) return sign + 'Rp ' + (absVal / 1e6).toFixed(2) + ' M'
+  return sign + 'Rp ' + absVal.toLocaleString()
+}
+
+function normalizeSectorName(name) {
+  if (!name) return ""
+  let s = String(name).trim().toLowerCase()
+  s = s.replace(/;/g, ",").replace(/ dan /g, " & ")
+  s = s.replace(/[,\s]+/g, " ")
+  return s
+}
+
+function getSectorColorStyle(sectorName) {
+  if (!sectorName) return { backgroundColor: '#f1f5f9', color: '#475569', borderColor: '#cbd5e1' }
+  const str = String(sectorName).trim().toLowerCase()
+  let hash = 0
+  for (let i = 0; i < str.length; i++) {
+    hash = str.charCodeAt(i) + ((hash << 5) - hash)
+  }
+  const hues = [200, 220, 240, 260, 280, 300, 320, 340, 15, 35, 145, 170, 190]
+  const hue = hues[Math.abs(hash) % hues.length]
+  return {
+    backgroundColor: `hsl(${hue}, 85%, 96%)`,
+    color: `hsl(${hue}, 80%, 25%)`,
+    borderColor: `hsl(${hue}, 70%, 90%)`,
+    borderWidth: '1px',
+    borderStyle: 'solid'
+  }
+}
+
+function countForProvince(mapData, provinceName, selectedSectors) {
+  if (!mapData?.companiesByProvince?.[provinceName]) return 0
+  const companies = mapData.companiesByProvince[provinceName]
+  if (selectedSectors && selectedSectors.length === 0) return 0
+  if (!selectedSectors) return companies.length
+  return companies.filter(c => c.sektor_pdb && selectedSectors.includes(c.sektor_pdb)).length
+}
+
+const CHOROPLETH_STOPS = [
+  { t: 0, color: [241, 245, 249] },
+  { t: 0.15, color: [191, 219, 254] },
+  { t: 0.35, color: [96, 165, 250] },
+  { t: 0.55, color: [37, 99, 235] },
+  { t: 0.75, color: [29, 78, 216] },
+  { t: 1, color: [15, 23, 42] },
+]
+
+const CARTO_ATTRIBUTION =
+  '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+
+function getChoroplethColor(count, maxCount, mapMetric) {
+  if (!count || maxCount === 0) return '#f1f5f9'
+  
+  let t = 0
+  if (mapMetric === 'pdrb') {
+    // For macroeconomic values (PDRB), square root scaling gives the absolute best visual spread and contrast!
+    t = Math.sqrt(count) / Math.sqrt(maxCount)
+  } else {
+    // For highly skewed values (emiten count), log scale works beautifully
+    t = Math.log1p(count) / Math.log1p(maxCount)
+  }
+
+  let lower = CHOROPLETH_STOPS[0]
+  let upper = CHOROPLETH_STOPS[CHOROPLETH_STOPS.length - 1]
+  for (let i = 0; i < CHOROPLETH_STOPS.length - 1; i++) {
+    if (t >= CHOROPLETH_STOPS[i].t && t <= CHOROPLETH_STOPS[i + 1].t) {
+      lower = CHOROPLETH_STOPS[i]
+      upper = CHOROPLETH_STOPS[i + 1]
+      break
+    }
+  }
+  const span = upper.t - lower.t || 1
+  const localT = (t - lower.t) / span
+  const r = Math.round(lower.color[0] + localT * (upper.color[0] - lower.color[0]))
+  const g = Math.round(lower.color[1] + localT * (upper.color[1] - lower.color[1]))
+  const b = Math.round(lower.color[2] + localT * (upper.color[2] - lower.color[2]))
+  return `rgb(${r},${g},${b})`
+}
+
+function legendSampleCount(maxCount, fraction, mapMetric) {
+  if (maxCount <= 1) return maxCount
+  if (mapMetric === 'pdrb') {
+    // Square root scale milestones
+    const target = Math.sqrt(maxCount) * fraction
+    return Math.max(1, Math.round(target * target))
+  } else {
+    // Log scale milestones
+    const target = Math.log1p(maxCount) * fraction
+    return Math.max(1, Math.round(Math.expm1(target)))
+  }
+}
+
+function bubbleSize(count, min, max) {
+  if (max <= min) return { padX: 14, padY: 8, fontSize: 12, countSize: 11 }
+  const t = (count - min) / (max - min)
+  return {
+    padX: Math.round(10 + t * 10),
+    padY: Math.round(6 + t * 6),
+    fontSize: Math.round(10 + t * 3),
+    countSize: Math.round(10 + t * 2),
+  }
+}
+
+export default function MapTab() {
+  const [mapData, setMapData] = useState(null)
+  const [geoJson, setGeoJson] = useState(null)
+  const [selectedProvince, setSelectedProvince] = useState(null)
+  const [selectedSectors, setSelectedSectors] = useState([])
+  const [companySearch, setCompanySearch] = useState('')
+  const [provinceSectorFilter, setProvinceSectorFilter] = useState(null)
+  const [hoverProvince, setHoverProvince] = useState(null)
+  const [loadError, setLoadError] = useState(null)
+  const [popupLatLng, setPopupLatLng] = useState(null)
+  const [sortBy, setSortBy] = useState('laba') // 'laba', 'sektor', 'ticker'
+  const [sortOrder, setSortOrder] = useState('desc') // 'asc', 'desc'
+  
+  // Metric Coloring Mode: 'emiten' (listed companies count) or 'pdrb' (nominal regional GDP)
+  const [mapMetric, setMapMetric] = useState('emiten') 
+  
+  // Specific PDB Sector Filter (selected from top 5 list)
+  const [selectedPdbSectorFilter, setSelectedPdbSectorFilter] = useState(null)
+
+  const handleSort = (field) => {
+    if (sortBy === field) {
+      setSortOrder(prev => (prev === 'asc' ? 'desc' : 'asc'))
+    } else {
+      setSortBy(field)
+      setSortOrder(field === 'laba' ? 'desc' : 'asc')
+    }
+  }
+
+  useEffect(() => {
+    setLoadError(null)
+    Promise.all([
+      fetch('./map_province_data.json').then(r => {
+        if (!r.ok) throw new Error(`map_province_data.json: HTTP ${r.status}`)
+        return r.json()
+      }),
+      fetch(encodeURI(GEOJSON_URL)).then(r => {
+        if (!r.ok) throw new Error(`GeoJSON: HTTP ${r.status}`)
+        return r.json()
+      }),
+    ])
+      .then(([md, geo]) => {
+        setMapData(md)
+        setGeoJson(geo)
+        setSelectedSectors(md.pdbSectors || [])
+      })
+      .catch(err => {
+        console.error(err)
+        setLoadError(err.message || 'Gagal memuat data peta')
+      })
+  }, [])
+
+  const activeSingleSector = useMemo(() => {
+    // 1. Prioritize selectedPdbSectorFilter (from Top 5 list)
+    if (selectedPdbSectorFilter) return selectedPdbSectorFilter
+    // 2. Then provinceSectorFilter (from popup bubble)
+    if (provinceSectorFilter) return provinceSectorFilter
+    // 3. Then if selectedSectors has exactly 1 element
+    if (selectedSectors && selectedSectors.length === 1) return selectedSectors[0]
+    return null
+  }, [selectedPdbSectorFilter, provinceSectorFilter, selectedSectors])
+
+  const getProvincePdrbValue = useCallback((provStat, activeSector) => {
+    if (!provStat) return 0
+    if (!activeSector) return provStat.pdrb || 0
+    
+    // Match by exact or normalized name
+    if (provStat.sectors) {
+      const normActive = normalizeSectorName(activeSector)
+      for (const [secName, secVal] of Object.entries(provStat.sectors)) {
+        if (normalizeSectorName(secName) === normActive) {
+          return secVal
+        }
+      }
+    }
+    
+    // Fallback to top5Sectors if sectors map is not fully loaded/available
+    if (provStat.top5Sectors) {
+      const normActive = normalizeSectorName(activeSector)
+      const matched = provStat.top5Sectors.find(s => normalizeSectorName(s.sector) === normActive)
+      if (matched) return matched.value
+    }
+    
+    return 0
+  }, [])
+
+  // Automatically switch map metric to 'pdrb' when a single sector is selected
+  useEffect(() => {
+    if (selectedPdbSectorFilter || provinceSectorFilter || (selectedSectors && selectedSectors.length === 1)) {
+      setMapMetric('pdrb')
+    }
+  }, [selectedPdbSectorFilter, provinceSectorFilter, selectedSectors])
+
+  const maxCount = useMemo(() => {
+    if (!mapData || !geoJson) return 1
+    let max = 0
+    geoJson.features.forEach(f => {
+      const name = f.properties.PROVINSI
+      const c = countForProvince(mapData, name, selectedSectors)
+      if (c > max) max = c
+    })
+    return max || 1
+  }, [mapData, geoJson, selectedSectors])
+
+  const maxPdrb = useMemo(() => {
+    if (!mapData || !geoJson) return 1
+    let max = 0
+    geoJson.features.forEach(f => {
+      const name = f.properties.PROVINSI
+      const provStat = mapData.provinceStats[name]
+      const pdrb = getProvincePdrbValue(provStat, activeSingleSector)
+      if (pdrb > max) max = pdrb
+    })
+    return max || 1
+  }, [mapData, geoJson, activeSingleSector, getProvincePdrbValue])
+
+  const provinceCounts = useMemo(() => {
+    if (!mapData || !geoJson) return {}
+    const counts = {}
+    geoJson.features.forEach(f => {
+      const name = f.properties.PROVINSI
+      counts[name] = countForProvince(mapData, name, selectedSectors)
+    })
+    return counts
+  }, [mapData, geoJson, selectedSectors])
+
+  const provinceCompanies = useMemo(() => {
+    if (!mapData || !selectedProvince) return []
+    return mapData.companiesByProvince[selectedProvince] || []
+  }, [mapData, selectedProvince])
+
+  const selectedProvStats = useMemo(() => {
+    if (!mapData || !selectedProvince) return null
+    return mapData.provinceStats[selectedProvince] || null
+  }, [mapData, selectedProvince])
+
+  // Get Top 5 normalized sector names for the active province
+  const normalizedTop5Sectors = useMemo(() => {
+    if (!selectedProvStats || !selectedProvStats.top5Sectors) return []
+    return selectedProvStats.top5Sectors.map(s => normalizeSectorName(s.sector))
+  }, [selectedProvStats])
+
+  const provinceSectorBubbles = useMemo(() => {
+    if (!selectedProvStats || !selectedProvStats.top5Sectors) return []
+    const top5Names = selectedProvStats.top5Sectors.map(s => s.sector)
+    const top5Normalized = top5Names.map(s => normalizeSectorName(s))
+    const counts = {}
+    top5Names.forEach(name => {
+      counts[name] = 0
+    })
+    provinceCompanies.forEach(c => {
+      if (c.sektor_pdb) {
+        const norm = normalizeSectorName(c.sektor_pdb)
+        const matchIdx = top5Normalized.indexOf(norm)
+        if (matchIdx !== -1) {
+          const matchedName = top5Names[matchIdx]
+          counts[matchedName] = (counts[matchedName] || 0) + 1
+        }
+      }
+    })
+    return Object.entries(counts)
+      .map(([sector, count]) => ({ sector, count }))
+      .sort((a, b) => b.count - a.count)
+  }, [provinceCompanies, selectedProvStats])
+
+  const filteredCompanies = useMemo(() => {
+    if (!selectedProvince) return []
+    let list = [...provinceCompanies]
+    
+    // Identify if the user is actively filtering sectors
+    const isSidebarFiltered = selectedSectors && mapData?.pdbSectors && selectedSectors.length < mapData.pdbSectors.length
+    const hasActiveFilter = selectedPdbSectorFilter || provinceSectorFilter || isSidebarFiltered
+
+    // Only restrict to Top 5 PDRB sectors by default if the user is NOT actively filtering
+    if (!hasActiveFilter && normalizedTop5Sectors.length > 0) {
+      list = list.filter(c => {
+        if (!c.sektor_pdb) return false
+        const normCompanySec = normalizeSectorName(c.sektor_pdb)
+        return normalizedTop5Sectors.includes(normCompanySec)
+      })
+    }
+
+    // Filter by single selected PDB sector (from Top 5 list) if active
+    if (selectedPdbSectorFilter) {
+      const normFilter = normalizeSectorName(selectedPdbSectorFilter)
+      list = list.filter(c => c.sektor_pdb && normalizeSectorName(c.sektor_pdb) === normFilter)
+    }
+
+    // Filter by map popup bubble sector filter if active
+    if (provinceSectorFilter) {
+      const normFilter = normalizeSectorName(provinceSectorFilter)
+      list = list.filter(c => c.sektor_pdb && normalizeSectorName(c.sektor_pdb) === normFilter)
+    }
+
+    // Apply main PDB sector filters (from map checkboxes/pills)
+    if (selectedSectors && selectedSectors.length > 0) {
+      list = list.filter(c => c.sektor_pdb && selectedSectors.includes(c.sektor_pdb))
+    }
+    
+    if (companySearch) {
+      const q = companySearch.toLowerCase()
+      list = list.filter(
+        c =>
+          c.Ticker.toLowerCase().includes(q) ||
+          (c.NamaPerusahaan || '').toLowerCase().includes(q) ||
+          (c.Subindustri || '').toLowerCase().includes(q) ||
+          (c.sektor_pdb || '').toLowerCase().includes(q)
+      )
+    }
+
+    list.sort((a, b) => {
+      if (sortBy === 'laba') {
+        const valA = a.NetIncome
+        const valB = b.NetIncome
+        if (valA === null || valA === undefined) return 1
+        if (valB === null || valB === undefined) return -1
+        return sortOrder === 'asc' ? valA - valB : valB - valA
+      } else if (sortBy === 'sektor') {
+        const valA = a.sektor_pdb || ''
+        const valB = b.sektor_pdb || ''
+        if (valA === '') return 1
+        if (valB === '') return -1
+        return sortOrder === 'asc' ? valA.localeCompare(valB) : valB.localeCompare(valA)
+      } else {
+        const valA = a.Ticker || ''
+        const valB = b.Ticker || ''
+        return sortOrder === 'asc' ? valA.localeCompare(valB) : valB.localeCompare(valA)
+      }
+    })
+
+    return list
+  }, [provinceCompanies, selectedProvince, selectedSectors, provinceSectorFilter, companySearch, sortBy, sortOrder, normalizedTop5Sectors, selectedPdbSectorFilter])
+
+  const style = useCallback(
+    feature => {
+      const name = feature.properties.PROVINSI
+      const provStat = mapData?.provinceStats?.[name]
+      const count = mapMetric === 'emiten'
+        ? (provinceCounts[name] || 0)
+        : getProvincePdrbValue(provStat, activeSingleSector)
+      const maxVal = mapMetric === 'emiten' ? maxCount : maxPdrb
+      const selected = selectedProvince === name
+      return {
+        fillColor: getChoroplethColor(count, maxVal, mapMetric),
+        weight: selected ? 2.5 : 1,
+        opacity: 1,
+        color: selected ? '#1d4ed8' : '#64748b',
+        fillOpacity: selected ? 0.92 : 0.82,
+      }
+    },
+    [provinceCounts, maxCount, maxPdrb, mapMetric, mapData, selectedProvince, activeSingleSector, getProvincePdrbValue]
+  )
+
+  const onEachFeature = useCallback(
+    (feature, layer) => {
+      const name = feature.properties.PROVINSI
+      const count = provinceCounts[name] || 0
+      const provStat = mapData?.provinceStats?.[name]
+      const pdrbYear = provStat?.pdrbYear || '2026'
+
+      let tooltipContent = ''
+      if (mapMetric === 'emiten') {
+        tooltipContent = `<strong>${name}</strong><br/>🏢 ${count} emiten publik`
+      } else {
+        if (activeSingleSector) {
+          const pdrbVal = getProvincePdrbValue(provStat, activeSingleSector)
+          tooltipContent = `<strong>${name}</strong><br/>📈 PDRB ${activeSingleSector}: <strong>${formatMoney(pdrbVal)}</strong>`
+        } else {
+          const pdrbVal = provStat?.pdrb
+          const pdrbText = pdrbVal ? `${formatMoney(pdrbVal)} (${pdrbYear})` : '-'
+          tooltipContent = `<strong>${name}</strong><br/>📈 PDRB Total: <strong>${pdrbText}</strong>`
+        }
+      }
+
+      layer.bindTooltip(
+        tooltipContent,
+        { sticky: true }
+      )
+      layer.on({
+        mouseover: () => setHoverProvince(name),
+        mouseout: () => setHoverProvince(null),
+        click: (e) => {
+          setSelectedProvince(name)
+          setCompanySearch('')
+          setProvinceSectorFilter(null)
+          setSelectedPdbSectorFilter(null)
+          setPopupLatLng(e.latlng)
+        },
+      })
+    },
+    [provinceCounts, mapData, mapMetric, activeSingleSector, getProvincePdrbValue, setPopupLatLng, setSelectedProvince, setCompanySearch, setProvinceSectorFilter, setSelectedPdbSectorFilter]
+  )
+
+  const toggleSector = sector => {
+    setSelectedSectors(prev => {
+      if (prev.includes(sector)) {
+        return prev.filter(s => s !== sector)
+      }
+      return [...prev, sector]
+    })
+  }
+
+  const selectAllSectors = () => setSelectedSectors(mapData?.pdbSectors || [])
+  const selectNoneSectors = () => setSelectedSectors([])
+
+  if (loadError) {
+    return (
+      <div className="flex flex-col items-center justify-center py-32 px-4 text-center">
+        <p className="text-red-600 font-medium mb-2">Gagal memuat data peta</p>
+        <p className="text-sm text-slate-500 max-w-md mb-4">{loadError}</p>
+        <p className="text-xs text-slate-400">
+          Jika error menyebut NaN, jalankan ulang:{' '}
+          <code className="bg-slate-100 px-1 rounded">.venv/bin/python build_map_data.py</code>
+        </p>
+      </div>
+    )
+  }
+
+  if (!mapData || !geoJson) {
+    return (
+      <div className="flex items-center justify-center py-32 text-slate-500">
+        Memuat peta…
+      </div>
+    )
+  }
+
+  return (
+    <div className="space-y-4">
+      {/* Educational Mapping Banner */}
+      <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 flex gap-3 items-start shadow-sm">
+        <Info className="text-blue-600 flex-shrink-0 mt-0.5" size={18} />
+        <div>
+          <h3 className="font-semibold text-blue-900 text-sm">💡 Analisis Pemetaan Sektor 2026 & Sebaran Emiten</h3>
+          <p className="text-xs text-blue-700 mt-1 leading-normal">
+            Peta regional kini ditenagai secara penuh oleh data resmi <strong>PDRB Sektoral 2026</strong>. Ketika Anda memilih provinsi di peta, sistem akan otomatis melakukan penyaringan emiten publik untuk **hanya menampilkan emiten yang terdaftar di Top 5 Sektor PDRB tertinggi** di daerah bersangkutan. Anda dapat memfilter emiten secara spesifik dengan mengklik nama sektor unggulan di panel indikator ekonomi makro sebelah kanan.
+          </p>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 xl:grid-cols-3 gap-4">
+        <div className="xl:col-span-2 bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm flex flex-col">
+          {/* Header Map with Metric Toggle */}
+          <div className="px-4 py-3 border-b border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-slate-50/50">
+            <div className="flex items-center gap-2">
+              <MapPin size={18} className="text-blue-600 animate-bounce" />
+              <div>
+                <h2 className="font-semibold text-slate-800 text-sm sm:text-base leading-tight max-w-[340px] truncate" title={activeSingleSector ? `Peta Distribusi PDRB: Sektor ${activeSingleSector}` : 'Peta Distribusi Ekonomi Regional (PDRB Total 2026)'}>
+                  {activeSingleSector
+                    ? `Peta Distribusi PDRB: ${activeSingleSector}`
+                    : 'Peta Distribusi Ekonomi Regional (PDRB Total 2026)'
+                  }
+                </h2>
+                <p className="text-[10px] text-slate-500 font-medium">
+                  {hoverProvince
+                    ? `${hoverProvince}: ${provinceCounts[hoverProvince] || 0} emiten terdaftar`
+                    : 'Arahkan kursor atau klik wilayah untuk menjelajah'}
+                </p>
+              </div>
+            </div>
+
+            {/* Sliding Pill Metric Toggle */}
+            <div className="flex items-center gap-0.5 bg-slate-150 p-0.5 rounded-lg border border-slate-200/80 shadow-inner">
+              <button
+                type="button"
+                onClick={() => setMapMetric('emiten')}
+                className={`text-xs px-3 py-1 rounded-md font-semibold transition-all cursor-pointer ${
+                  mapMetric === 'emiten'
+                    ? 'bg-white text-blue-700 shadow-sm border border-slate-200'
+                    : 'text-slate-500 hover:text-slate-800'
+                }`}
+              >
+                🏢 Emiten Publik ({mapData.meta?.locatedCompanies || 0})
+              </button>
+              <button
+                type="button"
+                onClick={() => setMapMetric('pdrb')}
+                className={`text-xs px-3 py-1 rounded-md font-semibold transition-all cursor-pointer ${
+                  mapMetric === 'pdrb'
+                    ? 'bg-white text-blue-700 shadow-sm border border-slate-200'
+                    : 'text-slate-500 hover:text-slate-800'
+                }`}
+              >
+                {activeSingleSector ? '📈 Nilai PDRB Sektor' : '📈 Nilai PDRB Total 2026'}
+              </button>
+            </div>
+          </div>
+
+          <div className="h-[520px] relative z-0">
+            <MapContainer center={[-2.5, 118]} zoom={5} className="h-full w-full" scrollWheelZoom>
+              <TileLayer
+                attribution={CARTO_ATTRIBUTION}
+                url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
+                subdomains="abcd"
+                maxZoom={20}
+              />
+              <GeoJSON
+                key={selectedSectors.join(',') + (selectedProvince || '') + mapMetric}
+                data={geoJson}
+                style={style}
+                onEachFeature={onEachFeature}
+              />
+              {selectedProvince && popupLatLng && (
+                <Popup
+                  position={popupLatLng}
+                  onClose={() => {
+                    setSelectedProvince(null)
+                    setPopupLatLng(null)
+                    setProvinceSectorFilter(null)
+                    setSelectedPdbSectorFilter(null)
+                  }}
+                >
+                  <div className="p-1 min-w-[240px] max-w-[320px] text-slate-800">
+                    <div className="flex items-center gap-1.5 mb-1 border-b border-slate-100 pb-1">
+                      <Building2 size={14} className="text-blue-600 animate-pulse" />
+                      <h3 className="font-bold text-slate-800 text-sm leading-tight">
+                        {selectedProvince}
+                      </h3>
+                    </div>
+                    
+                    {/* PopUp Summary */}
+                    {selectedProvStats && (
+                      <div className="mb-2 bg-slate-50 p-1.5 rounded border border-slate-100 text-[10px] space-y-0.5 text-slate-600">
+                        {selectedProvStats.pdrb && (
+                          <div>📈 PDRB 2026: <strong className="text-slate-800">{formatMoney(selectedProvStats.pdrb)}</strong></div>
+                        )}
+                        {selectedProvStats.umr && (
+                          <div>💰 UMR BKPM: <strong className="text-slate-800">{selectedProvStats.umr} ({selectedProvStats.umrYear})</strong></div>
+                        )}
+                        <div>🏢 Emiten Terdaftar: <strong className="text-slate-800">{provinceCompanies.length} emiten</strong></div>
+                      </div>
+                    )}
+
+                    <p className="text-[9px] text-slate-400 mb-1.5 font-bold uppercase tracking-wider">
+                      PILAH EMITEN DI SEKTOR PDB / PDRB:
+                    </p>
+                    <div className="flex flex-wrap gap-1.5 justify-start max-h-[160px] overflow-y-auto pr-1">
+                      {provinceSectorBubbles.map(({ sector, count }) => {
+                        const active = provinceSectorFilter === sector
+                        const style = getSectorColorStyle(sector)
+                        return (
+                          <button
+                            key={sector}
+                            type="button"
+                            title={`${sector}: ${count} emiten`}
+                            onClick={(e) => {
+                              e.stopPropagation()
+                              setProvinceSectorFilter(prev => (prev === sector ? null : sector))
+                            }}
+                            className={`rounded-full font-semibold text-[9px] px-2.5 py-1 shadow-sm transition-all hover:scale-105 hover:shadow-md cursor-pointer border ${
+                              active
+                                ? 'ring-2 ring-offset-1 ring-slate-800 scale-105 font-bold'
+                                : 'opacity-75 hover:opacity-100'
+                            }`}
+                            style={style}
+                          >
+                            {sector} ({count})
+                          </button>
+                        )
+                      })}
+                    </div>
+                  </div>
+                </Popup>
+              )}
+            </MapContainer>
+          </div>
+          
+          {/* Map Legend */}
+          <div className="px-4 py-2 border-t border-slate-100 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-slate-500">
+            <span className="text-slate-400 font-medium">Gradasi ({mapMetric === 'emiten' ? 'Volume Emiten' : 'Volume PDRB'}):</span>
+            <span>Rendah</span>
+            <div
+              className="flex-1 min-w-[120px] h-2.5 rounded-full border border-slate-200/50 shadow-inner"
+              style={{
+                background: `linear-gradient(to right, ${CHOROPLETH_STOPS.map(s => {
+                  const [r, g, b] = s.color
+                  return `rgb(${r},${g},${b}) ${s.t * 100}%`
+                }).join(', ')})`,
+              }}
+            />
+            <span className="font-semibold text-slate-700">
+              {mapMetric === 'emiten'
+                ? `${legendSampleCount(maxCount, 0.35, 'emiten')} → ${legendSampleCount(maxCount, 0.7, 'emiten')} → ${maxCount} emiten`
+                : `${formatMoney(legendSampleCount(maxPdrb, 0.35, 'pdrb'))} → ${formatMoney(legendSampleCount(maxPdrb, 0.7, 'pdrb'))} → ${formatMoney(maxPdrb)}`
+              }
+            </span>
+            <span className="text-slate-400">|</span>
+            <span className="font-medium text-slate-600 truncate max-w-[200px]" title={activeSingleSector ? `Sektor: ${activeSingleSector}` : 'Sumber: PDRB 2026 Excel'}>
+              {mapMetric === 'emiten' 
+                ? `Laba ${mapData.latestYear}`
+                : activeSingleSector 
+                  ? `Sektor: ${activeSingleSector}` 
+                  : 'Sumber: PDRB 2026 Excel'
+              }
+            </span>
+          </div>
+        </div>
+
+        {/* Sidebar Controls & Premium Metrics Panel */}
+        <div className="space-y-4">
+          <div className="bg-white rounded-xl border border-slate-200 p-4 shadow-sm">
+            <div className="flex items-center gap-2 mb-3">
+              <Filter size={16} className="text-violet-600" />
+              <h3 className="font-semibold text-slate-800 text-sm">Filter Sektor PDB / PDRB (Peta)</h3>
+              <div className="ml-auto flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={selectAllSectors}
+                  className="text-xs text-blue-600 hover:underline focus:outline-none cursor-pointer"
+                >
+                  Semua
+                </button>
+                <span className="text-slate-300 text-xs">|</span>
+                <button
+                  type="button"
+                  onClick={selectNoneSectors}
+                  className="text-xs text-slate-500 hover:underline focus:outline-none cursor-pointer"
+                >
+                  Kosongkan
+                </button>
+              </div>
+            </div>
+            <div className="flex flex-wrap gap-1.5 max-h-[140px] overflow-y-auto pr-1">
+              {mapData.pdbSectors.map(sector => {
+                const active = selectedSectors.includes(sector)
+                const style = getSectorColorStyle(sector)
+                return (
+                  <button
+                    key={sector}
+                    type="button"
+                    onClick={() => toggleSector(sector)}
+                    className={`text-[10px] px-2.5 py-1 rounded-full border transition-all cursor-pointer ${
+                      active
+                        ? 'font-bold shadow-md scale-105 border-transparent'
+                        : 'opacity-55 hover:opacity-85 saturate-[0.6] hover:saturate-100 bg-slate-50 text-slate-450 border-slate-200'
+                    }`}
+                    style={active ? style : {}}
+                  >
+                    {sector}
+                  </button>
+                )
+              })}
+            </div>
+          </div>
+
+          {/* Premium Stats sidebar & list */}
+          <div className="bg-white rounded-xl border border-slate-200 p-4 shadow-sm space-y-4">
+            <div className="flex items-center gap-2 border-b border-slate-100 pb-2">
+              <Building2 size={16} className="text-blue-600 animate-pulse" />
+              <h3 className="font-bold text-slate-800 text-sm">
+                {selectedProvince || 'Detail Wilayah Terpilih'}
+              </h3>
+            </div>
+
+            {!selectedProvince ? (
+              <div className="flex flex-col items-center justify-center py-16 text-center text-slate-400 space-y-2">
+                <HelpCircle className="text-slate-350" size={36} />
+                <p className="text-xs leading-normal">
+                  Silakan klik wilayah di peta untuk melihat profil makroekonomi & emiten terkait 5 Sektor Unggulan.
+                </p>
+              </div>
+            ) : (
+              <div className="space-y-4">
+                {/* Premium Macro-economic Stats Panel */}
+                {selectedProvStats && (
+                  <div className="p-3 bg-slate-50/50 rounded-lg border border-slate-200/80 shadow-sm space-y-2">
+                    <div className="flex items-center justify-between border-b border-slate-150 pb-1">
+                      <span className="text-[10px] font-bold text-slate-700 uppercase tracking-wider">Indikator Ekonomi Makro</span>
+                      <span className="text-[9px] px-1.5 py-0.5 rounded bg-blue-50 text-blue-700 font-semibold border border-blue-100">BPS & BKPM</span>
+                    </div>
+                    
+                    <div className="grid grid-cols-2 gap-2.5 text-[10px]">
+                      <div>
+                        <span className="text-slate-400 block leading-tight">PDRB Total 2026:</span>
+                        <span className="font-bold text-slate-800 block text-xs">
+                          {selectedProvStats.pdrb ? formatMoney(selectedProvStats.pdrb) : '-'}
+                        </span>
+                      </div>
+                      <div>
+                        <span className="text-slate-400 block leading-tight">UMR Regional:</span>
+                        <span className="font-bold text-slate-800 block text-xs">
+                          {selectedProvStats.umr || '-'}
+                          {selectedProvStats.umrYear && ` (${selectedProvStats.umrYear})`}
+                        </span>
+                      </div>
+                      <div>
+                        <span className="text-slate-400 block leading-tight">Kawasan Industri:</span>
+                        <span className="font-bold text-slate-800 block text-xs">
+                          {selectedProvStats.kawasanIndustri || '-'}
+                        </span>
+                      </div>
+                      <div>
+                        <span className="text-slate-400 block leading-tight">Jumlah Penduduk:</span>
+                        <span className="font-bold text-slate-800 block text-xs text-ellipsis overflow-hidden whitespace-nowrap">
+                          {selectedProvStats.jumlahPenduduk || '-'}
+                        </span>
+                      </div>
+                      <div className="col-span-2">
+                        <span className="text-slate-400 block leading-tight">Peluang Proyek Investasi BKPM:</span>
+                        <span className="font-bold text-blue-600 block text-xs">
+                          {selectedProvStats.peluang || '-'}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {/* Top 5 PDRB Sectors visual list with progress bars */}
+                {selectedProvStats && selectedProvStats.top5Sectors && selectedProvStats.top5Sectors.length > 0 && (
+                  <div className="p-3 bg-slate-50/50 rounded-lg border border-slate-200/80 shadow-sm space-y-2">
+                    <div className="flex items-center justify-between border-b border-slate-150 pb-1.5">
+                      <span className="text-[10px] font-bold text-slate-700 uppercase tracking-wider">Top 5 Sektor PDRB 2026</span>
+                      <span className="text-[9px] px-1.5 py-0.5 rounded bg-violet-50 text-violet-700 font-semibold border border-violet-100">BPS ADHK</span>
+                    </div>
+                    
+                    <div className="space-y-2">
+                      {selectedProvStats.top5Sectors.map((s, idx) => {
+                        const isSelected = selectedPdbSectorFilter === s.sector
+                        const percentage = (s.share * 100).toFixed(1)
+                        
+                        return (
+                          <button
+                            key={s.sector}
+                            type="button"
+                            onClick={() => {
+                              setSelectedPdbSectorFilter(prev => prev === s.sector ? null : s.sector)
+                            }}
+                            className={`w-full text-left p-2 rounded-lg border transition-all cursor-pointer block ${
+                              isSelected
+                                ? 'bg-blue-50 border-blue-300 shadow-sm ring-1 ring-blue-400 scale-[1.01]'
+                                : 'bg-white border-slate-250 text-slate-700 hover:border-slate-400 hover:bg-slate-50'
+                            }`}
+                          >
+                            <div className="flex justify-between text-[10px] font-bold text-slate-800 leading-normal mb-1">
+                              <span className="truncate pr-2 max-w-[170px]">
+                                {idx + 1}. {s.sector}
+                              </span>
+                              <span className="text-blue-600 flex-shrink-0">
+                                {formatMoney(s.value)} ({percentage}%)
+                              </span>
+                            </div>
+                            <div className="w-full bg-slate-200 rounded-full h-1.5 overflow-hidden">
+                              <div 
+                                className={`h-full rounded-full transition-all duration-500 ${
+                                  isSelected ? 'bg-blue-600' : 'bg-slate-400'
+                                }`}
+                                style={{ width: `${Math.min(100, s.share * 100)}%` }}
+                              />
+                            </div>
+                          </button>
+                        )
+                      })}
+                    </div>
+                    <p className="text-[8px] text-slate-400 leading-tight italic">
+                      *Klik sektor di atas untuk menyaring daftar emiten terkait di bawah secara dinamis.
+                    </p>
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+
+      {/* Row 2: Full-Width Premium Emiten Table Card */}
+      {selectedProvince && (
+        <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden p-4 space-y-4 animate-fade-in">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 border-b border-slate-100 pb-3">
+            <div>
+              <h3 className="font-bold text-slate-800 text-sm sm:text-base">
+                Daftar Emiten Terkait Sektor Unggulan — {selectedProvince}
+              </h3>
+              <p className="text-[11px] text-slate-400 mt-0.5">
+                Menampilkan emiten publik dengan kontribusi makro ekonomi tertinggi di daerah ini.
+              </p>
+            </div>
+            
+            <div className="flex flex-wrap items-center gap-2">
+              <input
+                type="text"
+                placeholder="Cari emiten (Ticker, Nama, Subindustri, Sektor)..."
+                value={companySearch}
+                onChange={e => setCompanySearch(e.target.value)}
+                className="text-xs border border-slate-250 rounded-lg px-3 py-1.5 w-64 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+              />
+              {selectedPdbSectorFilter && (
+                <div className="flex items-center gap-1.5">
+                  <span className="text-[9px] text-slate-400 font-bold uppercase">Sektor PDB:</span>
+                  <span className="text-[9px] px-2 py-0.5 rounded bg-blue-600 text-white font-semibold flex items-center gap-1 shadow-sm">
+                    {selectedPdbSectorFilter}
+                    <button
+                      type="button"
+                      onClick={() => setSelectedPdbSectorFilter(null)}
+                      className="hover:text-slate-200 font-bold ml-1 text-xs cursor-pointer focus:outline-none"
+                      title="Hapus filter"
+                    >
+                      ×
+                    </button>
+                  </span>
+                </div>
+              )}
+            </div>
+          </div>
+
+          <div className="overflow-x-auto max-h-[480px] border border-slate-200 rounded-lg shadow-sm">
+            {filteredCompanies.length === 0 ? (
+              <p className="text-xs text-slate-400 p-8 text-center italic">Tidak ada perusahaan yang cocok.</p>
+            ) : (
+              <table className="w-full text-xs text-left">
+                <thead className="sticky top-0 bg-slate-50 text-[10px] text-slate-500 uppercase tracking-wider select-none border-b border-slate-200/80 z-10">
+                  <tr>
+                    <th
+                      onClick={() => handleSort('ticker')}
+                      className="py-2.5 px-4 font-semibold cursor-pointer hover:bg-slate-100 hover:text-slate-700 transition-colors"
+                    >
+                      Ticker {sortBy === 'ticker' && (sortOrder === 'asc' ? ' ▴' : ' ▾')}
+                    </th>
+                    <th className="py-2.5 px-4 font-semibold">Nama Perusahaan</th>
+                    <th className="py-2.5 px-4 font-semibold">Subindustri / Sektor IDX</th>
+                    <th
+                      onClick={() => handleSort('sektor')}
+                      className="py-2.5 px-4 font-semibold cursor-pointer hover:bg-slate-100 hover:text-slate-700 transition-colors"
+                    >
+                      Sektor PDB / PDRB {sortBy === 'sektor' && (sortOrder === 'asc' ? ' ▴' : ' ▾')}
+                    </th>
+                    <th
+                      onClick={() => handleSort('laba')}
+                      className="text-right py-2.5 px-4 font-semibold cursor-pointer hover:bg-slate-100 hover:text-slate-700 transition-colors"
+                    >
+                      Laba Bersih Terbaru {sortBy === 'laba' && (sortOrder === 'asc' ? ' ▴' : ' ▾')}
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-100 bg-white">
+                  {filteredCompanies.map(c => (
+                    <tr
+                      key={c.Ticker}
+                      className="hover:bg-slate-50/50 transition-colors align-top"
+                    >
+                      <td className="py-3 px-4 font-bold text-slate-900 text-sm">{c.Ticker}</td>
+                      <td className="py-3 px-4">
+                        <div className="font-semibold text-slate-700 text-xs">{c.NamaPerusahaan || '-'}</div>
+                      </td>
+                      <td className="py-3 px-4 space-y-1">
+                        <div className="font-semibold text-slate-700 text-xs">{c.Subindustri || '-'}</div>
+                        <div className="text-[10px] text-slate-400 font-medium">Sektor: {c.Sektor || '-'}</div>
+                      </td>
+                      <td className="py-3 px-4">
+                        {c.sektor_pdb ? (
+                          <span
+                            className="text-[9px] px-2.5 py-1 rounded-full font-bold shadow-sm inline-block tracking-wide uppercase"
+                            style={getSectorColorStyle(c.sektor_pdb)}
+                          >
+                            {c.sektor_pdb}
+                          </span>
+                        ) : (
+                          '-'
+                        )}
+                      </td>
+                      <td className="py-3 px-4 text-right font-bold text-slate-800 text-xs">
+                        {formatMoney(c.NetIncome)}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            )}
+          </div>
+
+          {/* Table Footer */}
+          <div className="flex items-center justify-between text-[10px] text-slate-400 font-semibold px-2">
+            <span>🟢 Menampilkan {filteredCompanies.length} emiten terkait Top 5 Sektor daerah</span>
+            {mapData.meta?.unlocatedCount > 0 && (
+              <span>⚠️ {mapData.meta.unlocatedCount} emiten berlokasi diluar koordinat peta</span>
+            )}
+          </div>
+        </div>
+      )}
+    </div>
+  )
+}

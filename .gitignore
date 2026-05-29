@@ -4,3 +4,7 @@ data_perusahaan.csv
 detail_perusahaan.csv
 package-lock.json
 node_modules
+.venv/
+.DS_Store
+*.xlsx
+~*
