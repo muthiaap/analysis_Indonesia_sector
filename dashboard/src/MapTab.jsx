@@ -81,7 +81,7 @@ function normalizeSectorName(name) {
 }
 
 function getSectorColorStyle(sectorName) {
-  if (!sectorName) return { backgroundColor: '#f1f5f9', color: '#475569', borderColor: '#cbd5e1' }
+  if (!sectorName) return { backgroundColor: 'rgba(255, 255, 255, 0.05)', color: '#94a3b8', borderColor: 'rgba(255, 255, 255, 0.1)', borderWidth: '1px', borderStyle: 'solid' }
   const str = String(sectorName).trim().toLowerCase()
   let hash = 0
   for (let i = 0; i < str.length; i++) {
@@ -90,9 +90,9 @@ function getSectorColorStyle(sectorName) {
   const hues = [200, 220, 240, 260, 280, 300, 320, 340, 15, 35, 145, 170, 190]
   const hue = hues[Math.abs(hash) % hues.length]
   return {
-    backgroundColor: `hsl(${hue}, 85%, 96%)`,
-    color: `hsl(${hue}, 80%, 25%)`,
-    borderColor: `hsl(${hue}, 70%, 90%)`,
+    backgroundColor: `hsla(${hue}, 70%, 15%, 0.35)`,
+    color: `hsl(${hue}, 90%, 75%)`,
+    borderColor: `hsla(${hue}, 70%, 50%, 0.25)`,
     borderWidth: '1px',
     borderStyle: 'solid'
   }

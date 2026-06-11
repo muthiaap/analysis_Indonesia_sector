@@ -412,7 +412,7 @@ const SUPPLY_CHAIN_DATA = {
     ticker: "INKP",
     sector: "Industri Pengolahan",
     subSector: "Kehutanan, Pulp & Kertas",
-    overview: "Ekosistem pulp dan kertas terbesar di Asia Tenggara di bawah pilar Sinarmas (diwakili PT Indah Kiat Pulp & Paper Tbk) yang memproduksi pulp, kertas budaya, tisu, dan kemasan karton.",
+    overview: "Ekosistem pulp dan kertas terbesar di Asia Tenggara di bawah pilar Sinarmas (diwakini PT Indah Kiat Pulp & Paper Tbk) yang memproduksi pulp, kertas budaya, tisu, dan kemasan karton.",
     revenue: "Rp 54.3 T (FY2025)",
     netIncome: "Rp 7.2 T (FY2025)",
     employeeCount: "~25,000 karyawan",
@@ -434,90 +434,456 @@ const SUPPLY_CHAIN_DATA = {
       { id: "grosir_ekspor", name: "Distributor Kertas Ekspor", sector: "Perdagangan Global", parent: "Global", desc: "Mengekspor kertas cetak (Paperline, Kokuyo) dan kertas fotokopi ke lebih dari 120 negara di dunia.", logo: "G", share: 30, volume: "Tinggi", relationType: "B2B Export" },
       { id: "media_cetak", name: "Grup Penerbitan & Percetakan", sector: "Informasi & Komunikasi", parent: "Masyarakat Umum", desc: "Menyuplai kertas koran, kertas majalah, dan kertas HVS buku tulis untuk penerbit nasional.", logo: "M", share: 10, volume: "Medium", relationType: "B2B Client" }
     ]
+  },
+  ANTM: {
+    name: "PT Aneka Tambang Tbk",
+    ticker: "ANTM",
+    sector: "Barang Baku",
+    subSector: "Logam & Mineral",
+    overview: "BUMN pertambangan logam terintegrasi yang memproduksi nikel, emas, bauksit, dan alumina, serta menjadi pelopor hilirisasi nikel untuk rantai nilai baterai kendaraan listrik.",
+    revenue: "Rp 41.2 T (FY2025)",
+    netIncome: "Rp 3.8 T (FY2025)",
+    employeeCount: "~6,200 karyawan",
+    headquarters: "Jakarta Selatan, DKI Jakarta",
+    upstream: [
+      { id: "coal_power", name: "Pemasok Energi Batu Bara", country: "Indonesia", type: "Energi & BBM", desc: "Menyuplai batu bara untuk pembangkit listrik smelter feronikel di Pomalaa dan solar industri untuk armada tambang.", logo: "C", color: "from-slate-650 to-slate-800", keyProducts: ["Batu Bara Smelter", "Solar Industri"], relevance: "Tinggi" },
+      { id: "untr", name: "PT United Tractors Tbk (UNTR)", country: "Indonesia", type: "Alat Berat", desc: "Menyediakan excavator dan dump truck Komatsu untuk pengupasan tanah konsesi tambang nikel.", logo: "U", color: "from-amber-500 to-yellow-600", keyProducts: ["Excavator", "Dump Truck"], relevance: "Medium" },
+      { id: "pertamina", name: "PT Pertamina (Persero)", country: "Indonesia", type: "Lubricants & Fuel", desc: "Pemasok BBM solar industri dan pelumas untuk operasional alat berat di site pertambangan nikel dan emas.", logo: "P", color: "from-emerald-500 to-teal-600", keyProducts: ["Solar Industri"], relevance: "Tinggi" }
+    ],
+    internal: [
+      { id: "smelter_pomalaa", name: "Smelter Feronikel Pomalaa", role: "Smelter & Pemurnian", desc: "Pabrik peleburan bijih nikel laterit kadar tinggi menjadi feronikel ekspor.", icon: "factory" },
+      { id: "gold_refinery", name: "Unit Logam Mulia (LM)", role: "Refinery Emas", desc: "Satu-satunya pemurnian emas di Indonesia dengan sertifikasi London Bullion Market Association (LBMA).", icon: "factory" }
+    ],
+    downstream: [
+      { id: "mbma", name: "PT Merdeka Battery Materials", sector: "Smelter & HPAL", parent: "Grup Merdeka", desc: "Menyerap pasokan bijih nikel limonit kadar rendah untuk diproses menjadi MHP di pabrik HPAL.", logo: "M", share: 35, volume: "Tinggi", relationType: "Supply Agreement" },
+      { id: "smelter_morowali", name: "Smelter HPAL Morowali", sector: "Metalurgi & Industri", parent: "Konsorsium China", desc: "Menyerap pasokan saprolit nikel kadar tinggi untuk diolah menjadi feronikel ekspor.", logo: "S", share: 45, volume: "Tinggi", relationType: "B2B Client" }
+    ]
+  },
+  SMGR: {
+    name: "PT Semen Indonesia (Persero) Tbk",
+    ticker: "SMGR",
+    sector: "Barang Baku",
+    subSector: "Material Konstruksi",
+    overview: "Produsen semen BUMN terbesar di Asia Tenggara yang memproduksi semen curah, semen kantong, ready-mix, dan produk beton pracetak terintegrasi.",
+    revenue: "Rp 38.6 T (FY2025)",
+    netIncome: "Rp 2.1 T (FY2025)",
+    employeeCount: "~10,000 karyawan",
+    headquarters: "Jakarta Selatan, DKI Jakarta",
+    upstream: [
+      { id: "coal_energy", name: "Pemasok Batu Bara Kiln", country: "Indonesia", type: "Energi Kiln", desc: "Menyuplai batu bara untuk bahan bakar tungku pembakar semen (kiln) bersuhu 1400 derajat Celsius.", logo: "C", color: "from-slate-650 to-slate-800", keyProducts: ["Batu Bara Kiln"], relevance: "Sangat Tinggi" },
+      { id: "quarry_lime", name: "Quarry Batu Kapur & Silika", country: "Indonesia", type: "Bahan Baku", desc: "Konsesi tambang batu kapur dan tanah liat milik sendiri sebagai bahan baku dasar semen.", logo: "Q", color: "from-neutral-400 to-neutral-600", keyProducts: ["Batu Kapur", "Tanah Liat"], relevance: "Sangat Tinggi" },
+      { id: "pertamina", name: "PT Pertamina (Persero)", country: "Indonesia", type: "Lubricants & Fuel", desc: "Pemasok bahan bakar solar industri dan pelumas hidrolik untuk unit penggilingan semen.", logo: "P", color: "from-emerald-500 to-teal-600", keyProducts: ["Solar Industri"], relevance: "Tinggi" }
+    ],
+    internal: [
+      { id: "semen_gresik", name: "Pabrik Semen Tuban & Tonasa", role: "Pabrik Semen Utama", desc: "Fasilitas penggilingan semen raksasa yang menyuplai pasar Jawa dan Indonesia Timur.", icon: "factory" },
+      { id: "logistics_sg", name: "Semen Indonesia Logistik", role: "Pelayaran & Logistik", desc: "Distribusi armada truk dan kapal curah pengangkut semen ke seluruh gudang penyalur.", icon: "truck" }
+    ],
+    downstream: [
+      { id: "wton", name: "PT Wijaya Karya Beton Tbk (WTON)", sector: "Beton Pracetak", parent: "Anak Usaha WIKA", desc: "Membeli semen curah skala besar untuk memproduksi tiang pancang, girder jembatan, dan beton pracetak.", logo: "W", share: 25, volume: "Tinggi", relationType: "B2B Client" },
+      { id: "readymix", name: "PT Semen Indonesia Beton", sector: "Beton Cair / Ready-mix", parent: "Anak Usaha SMGR", desc: "Mencampur semen dengan agregat menjadi beton cair siap pakai untuk konstruksi gedung bertingkat.", logo: "R", share: 30, volume: "Tinggi", relationType: "Captive Client" }
+    ]
+  },
+  INDF: {
+    name: "PT Indofood Sukses Makmur Tbk",
+    ticker: "INDF",
+    sector: "Konsumer Primer",
+    subSector: "Makanan & Minuman Olahan",
+    overview: "Perusahaan Total Food Solutions terkemuka di Indonesia dengan kegiatan operasional mencakup seluruh tahapan proses industri makanan, mulai dari produksi bahan baku dan pengolahannya hingga menjadi produk konsumen di pasar.",
+    revenue: "Rp 118.5 T (FY2025)",
+    netIncome: "Rp 9.8 T (FY2025)",
+    employeeCount: "~90,000 karyawan",
+    headquarters: "Jakarta Selatan, DKI Jakarta",
+    upstream: [
+      { id: "wheat_import", name: "Pemasok Gandum Global", country: "Australia", type: "Bahan Baku Utama", desc: "Menyuplai biji gandum berkualitas tinggi untuk digiling oleh divisi Bogasari menjadi tepung terigu serbaguna.", logo: "W", color: "from-amber-500 to-yellow-600", keyProducts: ["Biji Gandum", "Wheat Grain"], relevance: "Sangat Tinggi" },
+      { id: "simplat_lsip", name: "PT Salim Ivomas Pratama Tbk (SIMP)", country: "Indonesia", type: "Bahan Baku Utama", desc: "Anak usaha sektor agribisnis yang menyuplai CPO and minyak goreng curah Bimoli untuk kebutuhan produksi mie instan.", logo: "S", color: "from-emerald-500 to-green-600", keyProducts: ["CPO", "Minyak Goreng Bimoli"], relevance: "Sangat Tinggi" }
+    ],
+    internal: [
+      { id: "bogasari_mill", name: "Bogasari Flour Mills", role: "Penggilingan Tepung", desc: "Pabrik penggilingan gandum terbesar di dunia yang terletak di Tanjung Priok, Jakarta, memproduksi tepung terigu Segitiga Biru.", icon: "factory" },
+      { id: "distribusi_indofood", name: "Divisi Distribusi Indofood", role: "Logistik & Transportasi", desc: "Mengoperasikan jaringan logistik nasional dengan ratusan titik distribusi untuk menjamin produk sampai ke pelosok Indonesia.", icon: "truck" }
+    ],
+    downstream: [
+      { id: "icbp", name: "PT Indofood CBP Sukses Makmur Tbk", sector: "Consumer Branded Products", parent: "Anak Usaha INDF", desc: "Pelanggan internal terbesar yang menyerap tepung terigu Bogasari dan minyak goreng SIMP untuk diolah menjadi mie instan dan biskuit.", logo: "I", share: 55, volume: "Tinggi", relationType: "Subsidiary & Captive Client" },
+      { id: "indomaret", name: "PT Indomarco Prismatama (Indomaret)", sector: "Ritel Modern", parent: "Grup Salim (Afiliasi)", desc: "Jaringan ritel minimarket afiliasi yang menjadi salah satu saluran distribusi penjualan terbesar produk Indofood di tingkat B2C.", logo: "I", share: 22, volume: "Tinggi", relationType: "Affiliated B2B Client" }
+    ]
+  },
+  ICBP: {
+    name: "PT Indofood CBP Sukses Makmur Tbk",
+    ticker: "ICBP",
+    sector: "Konsumer Primer",
+    subSector: "Makanan & Minuman Ringan",
+    overview: "Produsen produk konsumen bermerek terkemuka di Indonesia yang memimpin pangsa pasar mie instan nasional (Indomie) serta memiliki portofolio produk susu, makanan ringan, bumbu penyedap, dan makanan bayi.",
+    revenue: "Rp 72.3 T (FY2025)",
+    netIncome: "Rp 7.5 T (FY2025)",
+    employeeCount: "~55,000 karyawan",
+    headquarters: "Jakarta Selatan, DKI Jakarta",
+    upstream: [
+      { id: "indf", name: "PT Indofood Sukses Makmur Tbk (Bogasari)", country: "Indonesia", type: "Bahan Baku Utama", desc: "Perusahaan induk yang menyuplai tepung terigu Bogasari dan minyak goreng sawit untuk adonan mie instan.", logo: "I", color: "from-blue-600 to-indigo-700", keyProducts: ["Tepung Terigu", "Minyak Goreng Sawit"], relevance: "Sangat Tinggi (Captive Parent)" },
+      { id: "sugar_seasoning", name: "Pemasok Bumbu & Rempah", country: "Indonesia", type: "Bahan Baku Tambahan", desc: "Menyuplai bahan perasa makanan, MSG, bubuk cabai, dan rempah kering untuk pembuatan bumbu saset Indomie.", logo: "S", color: "from-red-500 to-orange-600", keyProducts: ["Bubuk Cabai", "MSG", "Garam Halus"], relevance: "Tinggi" },
+      { id: "packaging_foil", name: "PT Indopoly Swakarsa Industry Tbk", country: "Indonesia", type: "Kemasan / Packaging", desc: "Menyuplai plastik pembungkus BOPP metalized film untuk kemasan luar mie instan agar kedap udara dan tahan lama.", logo: "I", color: "from-slate-500 to-slate-700", keyProducts: ["BOPP Film", "Kemasan Plastik"], relevance: "Tinggi" }
+    ],
+    internal: [
+      { id: "pabrik_mie", name: "Pabrik Mie Instan ICBP", role: "Produksi & Pengemasan", desc: "Mengoperasikan puluhan lini mesin produksi mie otomatis berkecepatan tinggi mulai dari mixing, frying, hingga packaging.", icon: "factory" },
+      { id: "rnd_center", name: "Pusat R&D Rasa Baru", role: "Inovasi & Riset Produk", desc: "Tim ahli gizi dan kuliner yang terus berinovasi meracik varian rasa nusantara baru dan menjaga standar mutu internasional.", icon: "wrench" }
+    ],
+    downstream: [
+      { id: "indomaret", name: "PT Indomarco Prismatama (Indomaret)", sector: "Ritel Modern", parent: "Grup Salim (Afiliasi)", desc: "Menjual langsung mie instan Indomie, susu Indomilk, dan keripik Chitato melalui lebih dari 22.000 gerai nasional.", logo: "I", share: 30, volume: "Sangat Tinggi", relationType: "Affiliated Retail Client" },
+      { id: "alfamart", name: "PT Sumber Alfaria Trijaya Tbk (Alfamart)", sector: "Ritel Modern", parent: "Alfamart Group", desc: "Jaringan ritel kompetitor utama yang menyerap pasokan produk bermerek ICBP untuk dipajang di seluruh gerai waralaba.", logo: "A", share: 25, volume: "Sangat Tinggi", relationType: "B2B Client" },
+      { id: "distri_warung", name: "Jaringan Agen Grosir & Warung", sector: "Ritel Tradisional", parent: "Swadaya Masyarakat", desc: "Menyalurkan produk to warung-warung kelontong tradisional, warung makan Indomie (Warmindo), dan pasar tradisional.", logo: "W", share: 35, volume: "Tinggi", relationType: "Indirect B2B Client" }
+    ]
+  },
+  TLKM: {
+    name: "PT Telkom Indonesia (Persero) Tbk",
+    ticker: "TLKM",
+    sector: "Infrastruktur",
+    subSector: "Jasa Telekomunikasi",
+    overview: "BUMN telekomunikasi terbesar di Indonesia yang menyediakan layanan konektivitas digital, jaringan backbone serat optik nasional, satelit komunikasi, pusat data, dan layanan internet fixed broadband.",
+    revenue: "Rp 149.2 T (FY2025)",
+    netIncome: "Rp 24.5 T (FY2025)",
+    employeeCount: "~23,000 karyawan",
+    headquarters: "Jakarta Pusat, DKI Jakarta",
+    upstream: [
+      { id: "voksel_cable", name: "PT Voksel Electric Tbk", country: "Indonesia", type: "Pemasok Serat Optik", desc: "Menyuplai kabel serat optik berkualitas tinggi untuk ekspansi jaringan IndiHome dan kabel bawah laut Telkom.", logo: "V", color: "from-blue-500 to-indigo-650", keyProducts: ["Kabel Optik Darat", "Submarine Fiber Cable"], relevance: "Tinggi" },
+      { id: "cisco_juniper", name: "Cisco & Juniper Networks", country: "Global", type: "Perangkat Core Network", desc: "Menyuplai routers, switches, dan sistem firewall canggih untuk mengamankan dan mengarahkan lalu lintas data internet nasional.", logo: "C", color: "from-blue-600 to-cyan-500", keyProducts: ["Core Router", "Enterprise Switch"], relevance: "Sangat Tinggi" },
+      { id: "mitratel", name: "PT Dayamitra Telekomunikasi Tbk (Mitratel)", country: "Indonesia", type: "Infrastruktur Menara", desc: "Anak usaha publik penyedia penyewaan menara BTS dan fiber-to-the-tower untuk mendukung sinyal nirkabel Telkom Group.", logo: "M", color: "from-red-500 to-rose-600", keyProducts: ["Sewa Menara BTS", "Fiber-to-the-Tower"], relevance: "Sangat Tinggi" },
+      { id: "google_aws", name: "Google Cloud & AWS", country: "Amerika Serikat", type: "Penyedia Cloud & Data Center", desc: "Bekerja sama menyediakan infrastruktur cloud terintegrasi, analitik big data, dan layanan hybrid cloud di data center NeutraDC.", logo: "G", color: "from-blue-500 to-red-500", keyProducts: ["Cloud Infrastructure", "Big Data Platform"], relevance: "Sangat Tinggi" },
+      { id: "spacex_starlink", name: "SpaceX / Starlink", country: "Amerika Serikat", type: "Kemitraan Satelit LEO", desc: "Menggunakan satelit orbit rendah (LEO) Starlink untuk memancarkan internet nirkabel super cepat to daerah pelosok (3T).", logo: "S", color: "from-slate-700 to-indigo-900", keyProducts: ["LEO Satelit Backhaul"], relevance: "Tinggi" }
+    ],
+    internal: [
+      { id: "telkom_satellite", name: "Satelit Merah Putih & Telkom-4", role: "Transponder Satelit", desc: "Mengoperasikan satelit komunikasi di orbit geosinkron untuk menyuplai konektivitas ke area terpencil dan siaran TV.", icon: "factory" },
+      { id: "neutradc_center", name: "NeutraDC (Data Center)", role: "Penyedia Data Center", desc: "Memiliki jaringan data center hyperscale di Cikarang dan Batam untuk melayani colocation perusahaan cloud global.", icon: "wrench" }
+    ],
+    downstream: [
+      { id: "telkomsel", name: "PT Telekomunikasi Selular (Telkomsel)", sector: "Mobile Connectivity", parent: "Anak Usaha Utama", desc: "Anak usaha seluler terbesar yang menyerap infrastruktur transmisi data backbone Telkom untuk melayani ratusan juta pelanggan mobile.", logo: "T", share: 55, volume: "Sangat Tinggi", relationType: "Subsidiary & Core Customer" },
+      { id: "himbara_banks", name: "Grup Perbankan & Fintech", sector: "Keuangan & Jasa", parent: "Lintas Sektor B2B", desc: "Menyewa jaringan leased line terenkripsi khusus untuk infrastruktur perbankan inti, ATM, dan transaksi LinkAja.", logo: "H", share: 12, volume: "Medium", relationType: "B2B Client" },
+      { id: "goto_gojek", name: "PT GoTo Gojek Tokopedia Tbk", sector: "Layanan Digital & On-Demand", parent: "GoTo Group", desc: "Menggunakan layanan geolokasi seluler Telkomsel, paket kuota internet khusus mitra pengemudi, serta solusi cloud data center.", logo: "G", share: 15, volume: "Tinggi", relationType: "Mitra Strategis & Client" },
+      { id: "linkaja", name: "PT Finarya (LinkAja)", sector: "Fintech Pembayaran", parent: "Konsorsium BUMN", desc: "Aplikasi dompet digital nasional di mana Telkom Group merupakan investor utama, menyewa infrastruktur data server dan pemrosesan transaksi.", logo: "L", share: 10, volume: "Medium", relationType: "Affiliated B2B Client" }
+    ]
+  },
+  UNVR: {
+    name: "PT Unilever Indonesia Tbk",
+    ticker: "UNVR",
+    sector: "Konsumer Primer",
+    subSector: "Perawatan Tubuh & Rumah Tangga",
+    overview: "Salah satu perusahaan Fast Moving Consumer Goods (FMCG) terkemuka di Indonesia yang memproduksi dan memasarkan ratusan merk terpercaya seperti Rinso, Lifebuoy, Sunsilk, Pepsodent, Kecap Bango, Royco, dan Wall's.",
+    revenue: "Rp 38.6 T (FY2025)",
+    netIncome: "Rp 4.8 T (FY2025)",
+    employeeCount: "~5,000 karyawan",
+    headquarters: "Tangerang, Banten",
+    upstream: [
+      { id: "aali_sawit", name: "PT Astra Agro Lestari Tbk", country: "Indonesia", type: "Bahan Baku Utama", desc: "Menyuplai fraksi minyak kelapa sawit (oleochemicals) berkualitas tinggi sebagai bahan baku utama sabun mandi Lifebuoy dan detergen Rinso.", logo: "A", color: "from-emerald-500 to-green-655", keyProducts: ["CPO", "Oleochemicals"], relevance: "Sangat Tinggi" },
+      { id: "sinarmas_box", name: "Grup Pulp & Kertas Sinarmas (INKP)", country: "Indonesia", type: "Pemasok Kemasan Karton", desc: "Menyuplai kemasan karton box gelombang bersertifikasi FSC untuk pengepakan produk dari pabrik ke distributor.", logo: "S", color: "from-green-600 to-emerald-700", keyProducts: ["Corrugated Box", "Paper Packaging"], relevance: "Tinggi" },
+      { id: "dow_basf", name: "Dow Chemical & BASF", country: "Global", type: "Bahan Kimia Aktif", desc: "Menyuplai bahan kimia surfaktan aktif, pengemulsi, pewangi, dan fluorida untuk bahan pembuatan detergen dan pasta gigi.", logo: "C", color: "from-blue-600 to-indigo-700", keyProducts: ["Active Surfactants", "Fluoride", "Fragrance"], relevance: "Sangat Tinggi" }
+    ],
+    internal: [
+      { id: "pabrik_cikarang", name: "Pabrik Hyperscale Cikarang", role: "Manufaktur Utama", desc: "Kompleks pabrik modern terintegrasi yang memproduksi produk perawatan rumah tangga dan kosmetik personal care.", icon: "factory" },
+      { id: "pabrik_rungkut", name: "Pabrik Rungkut Surabaya", role: "Produksi Makanan", desc: "Fasilitas produksi khusus produk makanan olahan seperti kecap Bango, kaldu Royco, dan es krim Wall's.", icon: "factory" }
+    ],
+    downstream: [
+      { id: "uli_distri", name: "Unilever Distribution (ULI)", sector: "Logistik & Distribusi", parent: "Anak Usaha UNVR", desc: "Distributor logistik eksklusif internal yang mengelola cold storage es krim Wall's dan distribusi ke 500.000+ toko.", logo: "U", share: 80, volume: "Sangat Tinggi", relationType: "Subsidiary & Core Distributor" },
+      { id: "indomaret", name: "PT Indomarco Prismatama (Indomaret)", sector: "Ritel Modern", parent: "Grup Salim", desc: "Saluran pemasaran ritel minimarket utama yang menjual langsung produk sabun, pasta gigi, dan es krim ke konsumen akhir.", logo: "I", share: 20, volume: "Tinggi", relationType: "B2B Client" },
+      { id: "goto_gotoko", name: "GoTo (GoToko / Gojek)", sector: "e-B2B & Ritel Digital", parent: "Lintas Sektor B2B", desc: "Kemitraan strategis melalui platform digital e-B2B GoToko untuk pasokan warung kelontong tradisional, serta integrasi instant delivery untuk produk Wall's (GoMart/GoSend).", logo: "G", share: 8, volume: "Medium", relationType: "Mitra Strategis B2B" }
+    ]
   }
 }
 
-const LONG_CHAIN_NODES = [
-  // Col 1 (Prinsipal / Supplier Utama)
-  { id: "komatsu", name: "Komatsu Ltd.", logo: "K", tier: 1, x: 100, y: 70, desc: "Principal utama untuk penyediaan armada berat (excavator, bulldozer) konstruksi dan tambang.", country: "Jepang" },
-  { id: "scania", name: "Scania CV AB", logo: "S", tier: 1, x: 100, y: 155, desc: "Produsen otomotif Swedia yang menyuplai dump truck raksasa dan bus premium.", country: "Swedia" },
-  { id: "pertamina", name: "PT Pertamina (Persero)", logo: "P", tier: 1, x: 100, y: 240, desc: "Pemasok BBM solar industri (HSD) berskala besar untuk konsumsi alat berat di site tambang.", country: "Indonesia" },
-  { id: "semen_indonesia", name: "Semen Indonesia (SMGR)", logo: "S", tier: 1, x: 100, y: 325, desc: "Produsen semen curah terbesar di Indonesia, pemasok utama proyek konstruksi.", country: "Indonesia" },
-  { id: "krakatau_steel", name: "Krakatau Steel (KRAS)", logo: "K", tier: 1, x: 100, y: 410, desc: "Pabrikan baja nasional yang memasok besi beton tulangan untuk proyek infrastruktur.", country: "Indonesia" },
-  { id: "kai", name: "PT KAI (Persero)", logo: "K", tier: 1, x: 100, y: 495, desc: "BUMN logistik perkeretaapian yang menyediakan jasa angkutan batubara dari mulut tambang.", country: "Indonesia" },
-  { id: "pupuk_indonesia", name: "Pupuk Indonesia", logo: "P", tier: 1, x: 100, y: 580, desc: "Holding produsen pupuk nasional yang menyuplai pupuk NPK dan Urea untuk agribisnis.", country: "Indonesia" },
-  
-  // Col 2 (Distributor Utama)
-  { id: "untr", name: "PT United Tractors Tbk (UNTR)", logo: "U", tier: 2, x: 300, y: 300, desc: "Distributor alat berat terbesar di Indonesia, bertindak sebagai jangkar distribusi dan purna jual.", country: "Indonesia" },
-  
-  // Col 3 (Kontraktor & Sektor Operasi)
-  { id: "pama", name: "PT Pamapersada Nusantara (PAMA)", logo: "P", tier: 3, x: 500, y: 80, desc: "Kontraktor penambangan batubara terbesar di Indonesia, anak usaha inti UNTR.", country: "Indonesia" },
-  { id: "wika", name: "PT Wijaya Karya Tbk (WIKA)", logo: "W", tier: 3, x: 500, y: 190, desc: "BUMN konstruksi sipil utama penyedia jasa kontraktor jalan tol dan IKN.", country: "Indonesia" },
-  { id: "ptpp", name: "PT Pembangunan Perumahan Tbk (PTPP)", logo: "P", tier: 3, x: 500, y: 300, desc: "BUMN konstruksi gedung dan sipil pemegang kontrak infrastruktur nasional.", country: "Indonesia" },
-  { id: "aali", name: "PT Astra Agro Lestari Tbk (AALI)", logo: "A", tier: 3, x: 500, y: 410, desc: "Perusahaan agribisnis pengelola perkebunan sawit terintegrasi produsen CPO.", country: "Indonesia" },
-  { id: "sinarmas", name: "Grup Pulp & Kertas Sinarmas", logo: "S", tier: 3, x: 500, y: 520, desc: "Produsen pulp, kertas budaya, tisu Paseo, dan kemasan karton terintegrasi.", country: "Indonesia" },
-  
-  // Col 4 (Konsesi Tambang / Klien B2B)
-  { id: "bumi", name: "PT Bumi Resources Tbk (BUMI)", logo: "B", tier: 4, x: 700, y: 70, desc: "Produsen batubara terbesar di Indonesia, mengelola tambang KPC & Arutmin.", country: "Indonesia" },
-  { id: "adro", name: "PT Adaro Energy Indonesia Tbk (ADRO)", logo: "A", tier: 4, x: 700, y: 155, desc: "Grup energi terintegrasi yang memiliki konsesi tambang batubara kalori tinggi-menengah.", country: "Indonesia" },
-  { id: "ptba", name: "PT Bukit Asam Tbk (PTBA)", logo: "P", tier: 4, x: 700, y: 240, desc: "BUMN pertambangan batu bara yang mengoperasikan tambang Tanjung Enim.", country: "Indonesia" },
-  { id: "pupr", name: "Klien Konstruksi (PUPR/BUMN)", logo: "P", tier: 4, x: 700, y: 325, desc: "Kementerian PUPR dan BUMN operator jalan tol (Jasa Marga) pemberi kontrak infrastruktur.", country: "Indonesia" },
-  { id: "wilmar", name: "Wilmar & Indofood (Sawit Ritel)", logo: "W", tier: 4, x: 700, y: 410, desc: "Pembeli CPO utama yang mengolahnya menjadi minyak goreng ritel dan mie instan.", country: "Indonesia" },
-  { id: "unilever", name: "Unilever & Tisu Retail", logo: "U", tier: 4, x: 700, y: 495, desc: "Pembeli kemasan karton box FSC dan produsen hilir barang konsumen.", country: "Indonesia" },
-  
-  // Col 5 (Pembangkit & Pasar Akhir)
-  { id: "pln", name: "PT PLN (Persero)", logo: "P", tier: 5, x: 900, y: 120, desc: "BUMN penyedia listrik nasional yang menyerap batubara domestik untuk PLTU (skema DMO).", country: "Indonesia" },
-  { id: "china_energy", name: "China Energy Investment", logo: "C", tier: 5, x: 900, y: 210, desc: "BUMN energi China yang mengimpor batubara dalam volume besar untuk pembangkit listrik asing.", country: "China" },
-  { id: "jpower", name: "J-Power", logo: "J", tier: 5, x: 900, y: 300, desc: "Pembangkit listrik Jepang yang membeli batubara kalori tinggi rendah emisi.", country: "Jepang" },
-  { id: "ikn", name: "Proyek Infrastruktur & IKN", logo: "I", tier: 5, x: 900, y: 390, desc: "Pembangunan fisik ibu kota baru Nusantara dan jalan tol strategis nasional.", country: "Indonesia" },
-  { id: "mass_market", name: "Konsumen Ritel & Ekspor", logo: "M", tier: 5, x: 900, y: 480, desc: "Masyarakat umum pengguna akhir minyak goreng, produk sanitasi, dan tisu Paseo.", country: "Global" }
-];
-
-const LONG_CHAIN_LINKS = [
-  // Tier 1 -> Tier 2 & 3
-  { from: "komatsu", to: "untr" },
-  { from: "scania", to: "untr" },
-  { from: "pertamina", to: "untr" },
-  { from: "pertamina", to: "pama" },
-  { from: "pertamina", to: "bumi" },
-  { from: "pertamina", to: "adro" },
-  { from: "pertamina", to: "ptba" },
-  { from: "semen_indonesia", to: "wika" },
-  { from: "semen_indonesia", to: "ptpp" },
-  { from: "krakatau_steel", to: "wika" },
-  { from: "krakatau_steel", to: "ptpp" },
-  { from: "kai", to: "ptba" },
-  { from: "pupuk_indonesia", to: "aali" },
-
-  // Tier 2 -> Tier 3
-  { from: "untr", to: "pama" },
-  { from: "untr", to: "wika" },
-  { from: "untr", to: "ptpp" },
-  { from: "untr", to: "aali" },
-  { from: "untr", to: "sinarmas" },
-
-  // Tier 3 -> Tier 4
-  { from: "pama", to: "bumi" },
-  { from: "pama", to: "adro" },
-  { from: "pama", to: "ptba" },
-  { from: "wika", to: "pupr" },
-  { from: "ptpp", to: "pupr" },
-  { from: "aali", to: "wilmar" },
-  { from: "sinarmas", to: "unilever" },
-
-  // Tier 4 -> Tier 5
-  { from: "bumi", to: "pln" },
-  { from: "bumi", to: "china_energy" },
-  { from: "bumi", to: "jpower" },
-  { from: "adro", to: "pln" },
-  { from: "adro", to: "china_energy" },
-  { from: "adro", to: "jpower" },
-  { from: "ptba", to: "pln" },
-  { from: "ptba", to: "china_energy" },
-  { from: "pupr", to: "ikn" },
-  { from: "wilmar", to: "mass_market" },
-  { from: "unilever", to: "mass_market" }
-];
+const ECOSYSTEM_DATA = {
+  untr_coal: {
+    title: "Ekosistem Alat Berat & Batubara (Jangkar: UNTR)",
+    description: "Memetakan rantai pasok batu bara terintegrasi dari penyediaan alat berat utama oleh UNTR dan kontraktor PAMA hingga penyerapan oleh PLTU hilir.",
+    nodes: [
+      { id: "komatsu", name: "Komatsu Ltd.", logo: "K", tier: 1, x: 100, y: 70, desc: "Principal utama untuk penyediaan armada berat (excavator, bulldozer) konstruksi dan tambang.", country: "Jepang" },
+      { id: "scania", name: "Scania CV AB", logo: "S", tier: 1, x: 100, y: 155, desc: "Produsen otomotif Swedia yang menyuplai dump truck raksasa dan bus premium.", country: "Swedia" },
+      { id: "pertamina", name: "PT Pertamina (Persero)", logo: "P", tier: 1, x: 100, y: 240, desc: "Pemasok BBM solar industri (HSD) berskala besar untuk konsumsi alat berat di site tambang.", country: "Indonesia" },
+      { id: "semen_indonesia", name: "Semen Indonesia (SMGR)", logo: "S", tier: 1, x: 100, y: 325, desc: "Produsen semen curah terbesar di Indonesia, pemasok utama proyek konstruksi.", country: "Indonesia" },
+      { id: "krakatau_steel", name: "Krakatau Steel (KRAS)", logo: "K", tier: 1, x: 100, y: 410, desc: "Pabrikan baja nasional yang memasok besi beton tulangan untuk proyek infrastruktur.", country: "Indonesia" },
+      { id: "kai", name: "PT KAI (Persero)", logo: "K", tier: 1, x: 100, y: 495, desc: "BUMN logistik perkeretaapian yang menyediakan jasa angkutan batubara dari mulut tambang.", country: "Indonesia" },
+      { id: "pupuk_indonesia", name: "Pupuk Indonesia", logo: "P", tier: 1, x: 100, y: 580, desc: "Holding produsen pupuk nasional yang menyuplai pupuk NPK dan Urea untuk agribisnis.", country: "Indonesia" },
+      { id: "untr", name: "PT United Tractors Tbk (UNTR)", logo: "U", tier: 2, x: 300, y: 300, desc: "Distributor alat berat terbesar di Indonesia, bertindak sebagai jangkar distribusi dan purna jual.", country: "Indonesia" },
+      { id: "pama", name: "PT Pamapersada Nusantara (PAMA)", logo: "P", tier: 3, x: 500, y: 80, desc: "Kontraktor penambangan batubara terbesar di Indonesia, anak usaha inti UNTR.", country: "Indonesia" },
+      { id: "wika", name: "PT Wijaya Karya Tbk (WIKA)", logo: "W", tier: 3, x: 500, y: 190, desc: "BUMN konstruksi sipil utama penyedia jasa kontraktor jalan tol dan IKN.", country: "Indonesia" },
+      { id: "ptpp", name: "PT Pembangunan Perumahan Tbk (PTPP)", logo: "P", tier: 3, x: 500, y: 300, desc: "BUMN konstruksi gedung dan sipil pemegang kontrak infrastruktur nasional.", country: "Indonesia" },
+      { id: "aali", name: "PT Astra Agro Lestari Tbk (AALI)", logo: "A", tier: 3, x: 500, y: 410, desc: "Perusahaan agribisnis pengelola perkebunan sawit terintegrasi produsen CPO.", country: "Indonesia" },
+      { id: "sinarmas", name: "Grup Pulp & Kertas Sinarmas", logo: "S", tier: 3, x: 500, y: 520, desc: "Produsen pulp, kertas budaya, tisu Paseo, dan kemasan karton terintegrasi.", country: "Indonesia" },
+      { id: "bumi", name: "PT Bumi Resources Tbk (BUMI)", logo: "B", tier: 4, x: 700, y: 70, desc: "Produsen batubara terbesar di Indonesia, mengelola tambang KPC & Arutmin.", country: "Indonesia" },
+      { id: "adro", name: "PT Adaro Energy Indonesia Tbk (ADRO)", logo: "A", tier: 4, x: 700, y: 155, desc: "Grup energi terintegrasi yang memiliki konsesi tambang batubara kalori tinggi-menengah.", country: "Indonesia" },
+      { id: "ptba", name: "PT Bukit Asam Tbk (PTBA)", logo: "P", tier: 4, x: 700, y: 240, desc: "BUMN pertambangan batu bara yang mengoperasikan tambang Tanjung Enim.", country: "Indonesia" },
+      { id: "pupr", name: "Klien Konstruksi (PUPR/BUMN)", logo: "P", tier: 4, x: 700, y: 325, desc: "Kementerian PUPR dan BUMN operator jalan tol (Jasa Marga) pemberi kontrak infrastruktur.", country: "Indonesia" },
+      { id: "wilmar", name: "Wilmar & Indofood (Sawit Ritel)", logo: "W", tier: 4, x: 700, y: 410, desc: "Pembeli CPO utama yang mengolahnya menjadi minyak goreng ritel dan mie instan.", country: "Indonesia" },
+      { id: "unilever", name: "Unilever & Tisu Retail", logo: "U", tier: 4, x: 700, y: 495, desc: "Pembeli kemasan karton box FSC dan produsen hilir barang konsumen.", country: "Indonesia" },
+      { id: "pln", name: "PT PLN (Persero)", logo: "P", tier: 5, x: 900, y: 120, desc: "BUMN penyedia listrik nasional yang menyerap batubara domestik untuk PLTU (skema DMO).", country: "Indonesia" },
+      { id: "china_energy", name: "China Energy Investment", logo: "C", tier: 5, x: 900, y: 210, desc: "BUMN energi China yang mengimpor batubara dalam volume besar untuk pembangkit listrik asing.", country: "China" },
+      { id: "jpower", name: "J-Power", logo: "J", tier: 5, x: 900, y: 300, desc: "Pembangkit listrik Jepang yang membeli batubara kalori tinggi rendah emisi.", country: "Jepang" },
+      { id: "ikn", name: "Proyek Infrastruktur & IKN", logo: "I", tier: 5, x: 900, y: 390, desc: "Pembangunan fisik ibu kota baru Nusantara dan jalan tol strategis nasional.", country: "Indonesia" },
+      { id: "mass_market", name: "Konsumen Ritel & Ekspor", logo: "M", tier: 5, x: 900, y: 480, desc: "Masyarakat umum pengguna akhir minyak goreng, produk sanitasi, dan tisu Paseo.", country: "Global" }
+    ],
+    links: [
+      { from: "komatsu", to: "untr" },
+      { from: "scania", to: "untr" },
+      { from: "pertamina", to: "untr" },
+      { from: "pertamina", to: "pama" },
+      { from: "pertamina", to: "bumi" },
+      { from: "pertamina", to: "adro" },
+      { from: "pertamina", to: "ptba" },
+      { from: "semen_indonesia", to: "wika" },
+      { from: "semen_indonesia", to: "ptpp" },
+      { from: "krakatau_steel", to: "wika" },
+      { from: "krakatau_steel", to: "ptpp" },
+      { from: "kai", to: "ptba" },
+      { from: "pupuk_indonesia", to: "aali" },
+      { from: "untr", to: "pama" },
+      { from: "untr", to: "wika" },
+      { from: "untr", to: "ptpp" },
+      { from: "untr", to: "aali" },
+      { from: "untr", to: "sinarmas" },
+      { from: "pama", to: "bumi" },
+      { from: "pama", to: "adro" },
+      { from: "pama", to: "ptba" },
+      { from: "wika", to: "pupr" },
+      { from: "ptpp", to: "pupr" },
+      { from: "aali", to: "wilmar" },
+      { from: "sinarmas", to: "unilever" },
+      { from: "bumi", to: "pln" },
+      { from: "bumi", to: "china_energy" },
+      { from: "bumi", to: "jpower" },
+      { from: "adro", to: "pln" },
+      { from: "adro", to: "china_energy" },
+      { from: "adro", to: "jpower" },
+      { from: "ptba", to: "pln" },
+      { from: "ptba", to: "china_energy" },
+      { from: "pupr", to: "ikn" },
+      { from: "wilmar", to: "mass_market" },
+      { from: "unilever", to: "mass_market" }
+    ]
+  },
+  ev_battery: {
+    title: "Ekosistem Nikel & Baterai EV (Jangkar: ANTM)",
+    description: "Memetakan rantai pasok hilirisasi nikel dari penambangan bijih nikel laterit oleh ANTM/INCO, pemurnian HPAL menjadi MHP, hingga sel baterai dan mobil listrik.",
+    nodes: [
+      { id: "antm", name: "PT Aneka Tambang Tbk (ANTM)", logo: "AN", tier: 1, x: 100, y: 100, desc: "BUMN tambang terdiversifikasi produsen bijih nikel laterit.", country: "Indonesia" },
+      { id: "inco", name: "PT Vale Indonesia Tbk (INCO)", logo: "V", tier: 1, x: 100, y: 260, desc: "Produsen nikel matte terbesar di Indonesia dengan konsesi Sorowako.", country: "Indonesia" },
+      { id: "coal_power", name: "Pemasok Batubara Smelter", logo: "C", tier: 1, x: 100, y: 420, desc: "Bahan bakar pembangkit captive untuk kelistrikan tungku smelter.", country: "Indonesia" },
+      { id: "pertamina", name: "PT Pertamina (Persero)", logo: "P", tier: 1, x: 100, y: 540, desc: "Menyuplai solar industri HSD untuk alat berat dan logistik tambang.", country: "Indonesia" },
+      { id: "mbma", name: "Merdeka Battery Materials (MBMA)", logo: "MB", tier: 2, x: 300, y: 180, desc: "Mengolah bijih nikel kadar rendah menjadi MHP.", country: "Indonesia" },
+      { id: "smelter_morowali", name: "Smelter HPAL Morowali", logo: "S", tier: 2, x: 300, y: 420, desc: "Peleburan nikel laterit kadar tinggi menjadi feronikel/NPI.", country: "Indonesia" },
+      { id: "prekursor_mill", name: "Pabrik Prekursor Nikel", logo: "P", tier: 3, x: 500, y: 300, desc: "Memproses nikel sulfat menjadi prekursor dan katoda aktif.", country: "Global" },
+      { id: "ibc", name: "Indonesia Battery Corp (IBC)", logo: "IB", tier: 4, x: 700, y: 180, desc: "Holding BUMN pengelola industri baterai EV terintegrasi.", country: "Indonesia" },
+      { id: "hli_green", name: "HLI Green Power", logo: "H", tier: 4, x: 700, y: 420, desc: "Pabrik sel baterai patungan Hyundai-LG pertama di Indonesia.", country: "Indonesia" },
+      { id: "hyundai_ev", name: "Hyundai Motor Indonesia (EV)", logo: "H", tier: 5, x: 900, y: 120, desc: "Pabrik mobil listrik yang merakit IONIQ 5 secara lokal.", country: "Korea Selatan" },
+      { id: "wuling_ev", name: "Wuling Motors Indonesia (EV)", logo: "W", tier: 5, x: 900, y: 300, desc: "Pabrik otomotif China produsen mobil listrik compact Air EV.", country: "China" },
+      { id: "mass_market", name: "Konsumen Ritel & Ekspor", logo: "M", tier: 5, x: 900, y: 480, desc: "Pengguna akhir mobil listrik komersial and pribadi.", country: "Global" }
+    ],
+    links: [
+      { from: "antm", to: "mbma" },
+      { from: "antm", to: "smelter_morowali" },
+      { from: "inco", to: "smelter_morowali" },
+      { from: "coal_power", to: "mbma" },
+      { from: "coal_power", to: "smelter_morowali" },
+      { from: "pertamina", to: "mbma" },
+      { from: "mbma", to: "prekursor_mill" },
+      { from: "smelter_morowali", to: "prekursor_mill" },
+      { from: "prekursor_mill", to: "ibc" },
+      { from: "prekursor_mill", to: "hli_green" },
+      { from: "ibc", to: "hyundai_ev" },
+      { from: "hli_green", to: "hyundai_ev" },
+      { from: "hli_green", to: "wuling_ev" },
+      { from: "hyundai_ev", to: "mass_market" },
+      { from: "wuling_ev", to: "mass_market" }
+    ]
+  },
+  automotive: {
+    title: "Ekosistem Otomotif & Ritel (Jangkar: ASII)",
+    description: "Memetakan rantai pasok otomotif raksasa Grup Astra dari penyediaan komponen oleh AUTO, perakitan unit mobil/motor, pembiayaan, hingga konsumen ritel.",
+    nodes: [
+      { id: "toyota_global", name: "Toyota Motor Corp", logo: "T", tier: 1, x: 100, y: 70, desc: "Prinsipal global penyedia lisensi, paten, dan mesin mobil.", country: "Jepang" },
+      { id: "honda_global", name: "Honda Motor Co Ltd", logo: "H", tier: 1, x: 100, y: 175, desc: "Prinsipal global penyedia lisensi sepeda motor terlaris.", country: "Jepang" },
+      { id: "auto", name: "PT Astra Otoparts Tbk (AUTO)", logo: "AO", tier: 1, x: 100, y: 280, desc: "Produsen komponen otomotif terbesar di Indonesia, pemasok suku cadang OEM.", country: "Indonesia" },
+      { id: "steel_import", name: "Pemasok Plat Baja", logo: "S", tier: 1, x: 100, y: 385, desc: "Plat baja canai dingin (CRC) untuk bodi dan struktur rangka.", country: "Korea Selatan" },
+      { id: "pertamina", name: "PT Pertamina (Persero)", logo: "P", tier: 1, x: 100, y: 490, desc: "Menyuplai BBM industri untuk logistik dan manufaktur.", country: "Indonesia" },
+      { id: "asii", name: "PT Astra International Tbk (ASII)", logo: "AS", tier: 2, x: 300, y: 300, desc: "Konglomerat terbesar di Indonesia, induk grup otomotif Astra yang mengendalikan rantai pasok dari hulu ke hilir.", country: "Indonesia" },
+      { id: "ahm", name: "Astra Honda Motor (AHM)", logo: "H", tier: 3, x: 500, y: 180, desc: "Pabrikan perakit sepeda motor merk Honda terlaris.", country: "Indonesia" },
+      { id: "adm", name: "Astra Daihatsu Motor (ADM)", logo: "D", tier: 3, x: 500, y: 420, desc: "Manufaktur mobil Daihatsu & Toyota kelas MPV/LCGC.", country: "Indonesia" },
+      { id: "auto2000", name: "Auto2000 & Dealer Ritel", logo: "A", tier: 4, x: 700, y: 120, desc: "Jaringan main dealer penjualan mobil Toyota & motor Honda.", country: "Indonesia" },
+      { id: "fifgroup", name: "FIFGROUP & ACC (Kredit)", logo: "F", tier: 4, x: 700, y: 300, desc: "Lembaga pembiayaan otomotif Astra penyedia skema kredit.", country: "Indonesia" },
+      { id: "trac", name: "TRAC Rental & Fleet (SERA)", logo: "T", tier: 4, x: 700, y: 480, desc: "Penyedia jasa sewa mobil dan pengelolaan armada fleet B2B.", country: "Indonesia" },
+      { id: "mass_market", name: "Konsumen Ritel (B2C)", logo: "M", tier: 5, x: 900, y: 150, desc: "Masyarakat umum pembeli kendaraan bermotor pribadi.", country: "Indonesia" },
+      { id: "fleet_mining", name: "Korporat Tambang & Logistik", logo: "K", tier: 5, x: 900, y: 450, desc: "Perusahaan yang menyewa/membeli mobil fleet operasional.", country: "Indonesia" }
+    ],
+    links: [
+      { from: "toyota_global", to: "asii" },
+      { from: "honda_global", to: "asii" },
+      { from: "auto", to: "asii" },
+      { from: "steel_import", to: "asii" },
+      { from: "pertamina", to: "asii" },
+      { from: "asii", to: "ahm" },
+      { from: "asii", to: "adm" },
+      { from: "asii", to: "auto2000" },
+      { from: "asii", to: "fifgroup" },
+      { from: "asii", to: "trac" },
+      { from: "ahm", to: "auto2000" },
+      { from: "adm", to: "auto2000" },
+      { from: "auto2000", to: "mass_market" },
+      { from: "fifgroup", to: "mass_market" },
+      { from: "trac", to: "fleet_mining" }
+    ]
+  },
+  infrastructure: {
+    title: "Ekosistem Semen & Infrastruktur (Jangkar: SMGR)",
+    description: "Memetakan rantai pasok konstruksi sipil nasional dari penyediaan bahan pengikat semen oleh SMGR, beton pracetak oleh WTON, hingga proyek tol dan IKN oleh BUMN Karya.",
+    nodes: [
+      { id: "coal_energy", name: "Pemasok Batubara Kiln", logo: "C", tier: 1, x: 100, y: 100, desc: "Batu bara sebagai energi utama kiln pembakar clinker semen.", country: "Indonesia" },
+      { id: "quarry_lime", name: "Quarry Batu Kapur", logo: "Q", tier: 1, x: 100, y: 260, desc: "Konsesi tambang batu kapur bahan baku kalsium karbonat.", country: "Indonesia" },
+      { id: "iron_sand", name: "Pemasok Pasir Besi & Gip", logo: "I", tier: 1, x: 100, y: 420, desc: "Bahan aditif pembentuk sifat mekanik semen.", country: "Indonesia" },
+      { id: "pertamina", name: "PT Pertamina (Persero)", logo: "P", tier: 1, x: 100, y: 540, desc: "Solar industri untuk mesin produksi and truk molen.", country: "Indonesia" },
+      { id: "smgr", name: "PT Semen Indonesia Tbk (SMGR)", logo: "S", tier: 2, x: 300, y: 300, desc: "Holding produsen semen BUMN terbesar di Asia Tenggara.", country: "Indonesia" },
+      { id: "wton", name: "PT Wika Beton Tbk (WTON)", logo: "W", tier: 3, x: 500, y: 180, desc: "Produsen beton precast girder jembatan dan tiang pancang.", country: "Indonesia" },
+      { id: "readymix", name: "Pabrik Beton Cair Ready-mix", logo: "R", tier: 3, x: 500, y: 420, desc: "Penyedia beton cair siap tuang untuk kolom/pelat lantai.", country: "Indonesia" },
+      { id: "wika", name: "PT Wijaya Karya Tbk (WIKA)", logo: "W", tier: 4, x: 700, y: 120, desc: "BUMN Karya pelaksana pembangunan tol dan jembatan.", country: "Indonesia" },
+      { id: "ptpp", name: "PT Pembangunan Perumahan Tbk", logo: "P", tier: 4, x: 700, y: 300, desc: "BUMN Karya pelaksana gedung tinggi, bandara, pelabuhan.", country: "Indonesia" },
+      { id: "developer_prop", name: "Pengembang Properti Swasta", logo: "D", tier: 4, x: 700, y: 480, desc: "Developer perumahan residensial, ruko, dan apartemen.", country: "Indonesia" },
+      { id: "jasa_marga", name: "PT Jasa Marga Tbk (Tol)", logo: "J", tier: 5, x: 900, y: 120, desc: "BUMN operator jalan tol nasional pemrakarsa proyek tol.", country: "Indonesia" },
+      { id: "ikn", name: "Pembangunan Infrastruktur IKN", logo: "I", tier: 5, x: 900, y: 300, desc: "Proyek pembangunan Istana Negara dan prasarana IKN.", country: "Indonesia" },
+      { id: "homebuyers", name: "Pembeli Rumah & Kantor", logo: "H", tier: 5, x: 900, y: 480, desc: "Pengguna akhir/masyarakat umum pembeli properti.", country: "Indonesia" }
+    ],
+    links: [
+      { from: "coal_energy", to: "smgr" },
+      { from: "quarry_lime", to: "smgr" },
+      { from: "iron_sand", to: "smgr" },
+      { from: "pertamina", to: "smgr" },
+      { from: "smgr", to: "wton" },
+      { from: "smgr", to: "readymix" },
+      { from: "wton", to: "wika" },
+      { from: "wton", to: "ptpp" },
+      { from: "readymix", to: "ptpp" },
+      { from: "readymix", to: "developer_prop" },
+      { from: "wika", to: "jasa_marga" },
+      { from: "wika", to: "ikn" },
+      { from: "ptpp", to: "ikn" },
+      { from: "developer_prop", to: "homebuyers" }
+    ]
+  },
+  food_beverage: {
+    title: "Ekosistem Konsumer Ritel & F&B (Jangkar: INDF / ICBP)",
+    description: "Memetakan rantai pasok makanan olahan terintegrasi dari impor gandum Bogasari dan CPO perkebunan sawit, produksi mie instan ICBP, hingga distribusi ritel modern dan tradisional.",
+    nodes: [
+      { id: "wheat_import", name: "Pemasok Gandum Impor", logo: "G", tier: 1, x: 100, y: 70, desc: "Penyedia gandum mentah impor dari Australia untuk divisi Bogasari.", country: "Australia" },
+      { id: "simplat_lsip", name: "Kebun Sawit (SIMP/LSIP)", logo: "S", tier: 1, x: 100, y: 175, desc: "Perkebunan kelapa sawit grup Salim pemasok CPO minyak goreng.", country: "Indonesia" },
+      { id: "sugar_seasoning", name: "Pemasok Bumbu & MSG", logo: "B", tier: 1, x: 100, y: 280, desc: "Pemasok bumbu, rempah, MSG, dan perasa makanan olahan.", country: "Indonesia" },
+      { id: "packaging_foil", name: "Kemasan Plastik BOPP", logo: "K", tier: 1, x: 100, y: 385, desc: "Pemasok kemasan plastik laminasi BOPP food-grade.", country: "Indonesia" },
+      { id: "pertamina", name: "PT Pertamina (Persero)", logo: "P", tier: 1, x: 100, y: 490, desc: "Pemasok BBM solar industri untuk operasional pabrik.", country: "Indonesia" },
+      { id: "indf", name: "PT Indofood Sukses Makmur Tbk (INDF)", logo: "IF", tier: 2, x: 300, y: 300, desc: "Jangkar pengolahan tepung Bogasari dan logistik distribusi nasional.", country: "Indonesia" },
+      { id: "icbp", name: "PT Indofood CBP Tbk (ICBP)", logo: "IC", tier: 3, x: 500, y: 300, desc: "Produsen makanan kemasan bermerek (mie, susu, snack, dll).", country: "Indonesia" },
+      { id: "indomaret", name: "Indomaret (Indomarco)", logo: "ID", tier: 4, x: 700, y: 120, desc: "Jaringan waralaba minimarket afiliasi grup Salim.", country: "Indonesia" },
+      { id: "alfamart", name: "Alfamart (Sumber Alfaria)", logo: "AM", tier: 4, x: 700, y: 300, desc: "Jaringan ritel modern minimarket nasional non-afiliasi.", country: "Indonesia" },
+      { id: "distri_warung", name: "Agen Grosir & Warmindo", logo: "W", tier: 4, x: 700, y: 480, desc: "Ritel tradisional, warung kelontong, dan warung makan Warmindo.", country: "Indonesia" },
+      { id: "mass_market", name: "Konsumen Ritel (B2C)", logo: "M", tier: 5, x: 900, y: 180, desc: "Masyarakat umum pembeli ritel produk pangan di dalam negeri.", country: "Indonesia" },
+      { id: "export_market", name: "Pasar Ekspor Global", logo: "E", tier: 5, x: 900, y: 420, desc: "Konsumen di Nigeria, Timur Tengah, dan puluhan negara ekspor.", country: "Global" }
+    ],
+    links: [
+      { from: "wheat_import", to: "indf" },
+      { from: "simplat_lsip", to: "indf" },
+      { from: "sugar_seasoning", to: "icbp" },
+      { from: "packaging_foil", to: "icbp" },
+      { from: "pertamina", to: "indf" },
+      { from: "pertamina", to: "icbp" },
+      { from: "indf", to: "icbp" },
+      { from: "indf", to: "indomaret" },
+      { from: "icbp", to: "indomaret" },
+      { from: "icbp", to: "alfamart" },
+      { from: "icbp", to: "distri_warung" },
+      { from: "indomaret", to: "mass_market" },
+      { from: "alfamart", to: "mass_market" },
+      { from: "distri_warung", to: "mass_market" },
+      { from: "indomaret", to: "export_market" },
+      { from: "icbp", to: "export_market" }
+    ]
+  },
+  telecommunication: {
+    title: "Ekosistem Telekomunikasi & Infrastruktur Digital (Jangkar: TLKM)",
+    description: "Memetakan rantai nilai jaringan konektivitas digital dari penyediaan perangkat keras serat optik hulu, backbone Telkom, layanan seluler Telkomsel, hingga sektor perbankan dan pelanggan ritel.",
+    nodes: [
+      { id: "voksel_cable", name: "PT Voksel Electric Tbk", logo: "V", tier: 1, x: 100, y: 70, desc: "Pemasok kabel serat optik bawah laut dan darat nasional.", country: "Indonesia" },
+      { id: "cisco_juniper", name: "Cisco & Juniper Networks", logo: "C", tier: 1, x: 100, y: 160, desc: "Pemasok global router core dan switch jaringan data pusat.", country: "Amerika Serikat" },
+      { id: "mitratel", name: "Mitratel (Tower Rental)", logo: "M", tier: 1, x: 100, y: 250, desc: "BUMN menara telekomunikasi penyedia sewa infrastruktur BTS.", country: "Indonesia" },
+      { id: "spacex_starlink", name: "SpaceX / Satelit LEO", logo: "S", tier: 1, x: 100, y: 340, desc: "Kemitraan transponder satelit orbit rendah untuk area 3T.", country: "Amerika Serikat" },
+      { id: "google_aws", name: "Google Cloud & AWS", logo: "G", tier: 1, x: 100, y: 430, desc: "Penyedia teknologi cloud global mitra data center NeutraDC.", country: "Amerika Serikat" },
+      { id: "pertamina", name: "PT Pertamina (Persero)", logo: "P", tier: 1, x: 100, y: 520, desc: "Pemasok BBM solar industri untuk genset menara BTS cadangan.", country: "Indonesia" },
+      { id: "tlkm", name: "PT Telkom Indonesia Tbk (TLKM)", logo: "TL", tier: 2, x: 300, y: 300, desc: "Penyedia infrastruktur backbone optik, satelit, dan gateway internet nasional.", country: "Indonesia" },
+      { id: "telkomsel", name: "Telkomsel (Mobile & Broadband)", logo: "TS", tier: 3, x: 500, y: 300, desc: "Operator seluler terbesar dan penyedia layanan broadband terintegrasi.", country: "Indonesia" },
+      { id: "himbara_banks", name: "Grup Bank & Fintech B2B", logo: "B", tier: 4, x: 700, y: 70, desc: "Penyewa jaringan leased line aman untuk transaksi ATM/Core Banking.", country: "Indonesia" },
+      { id: "linkaja", name: "LinkAja (PT Finarya)", logo: "LA", tier: 4, x: 700, y: 175, desc: "Dompet digital BUMN terafiliasi penyewa server data transaksi.", country: "Indonesia" },
+      { id: "data_center_co", name: "Hyperscale Data Center", logo: "D", tier: 4, x: 700, y: 280, desc: "Penyedia hosting, server, cloud computing (NeutraDC/Google Cloud).", country: "Global" },
+      { id: "goto_gojek", name: "GoTo Gojek Tokopedia", logo: "GT", tier: 4, x: 700, y: 385, desc: "Pelanggan korporasi sewa data geolokasi & paket internet driver.", country: "Indonesia" },
+      { id: "mitra_outlet", name: "Mitra Ritel & Agen Pulsa", logo: "O", tier: 4, x: 700, y: 490, desc: "Jaringan pemasaran ritel pulsa, kartu perdana, dan agen pemasangan broadband.", country: "Indonesia" },
+      { id: "mass_market", name: "Konsumen Seluler & Ritel", logo: "M", tier: 5, x: 900, y: 180, desc: "Masyarakat umum pengguna paket data internet seluler, telepon, dan IndiHome.", country: "Indonesia" },
+      { id: "corporate_enterprise", name: "Korporat & Kantor Pemerintah", logo: "E", tier: 5, x: 900, y: 420, desc: "Instansi pemerintah dan korporasi penyewa solusi digital khusus.", country: "Indonesia" }
+    ],
+    links: [
+      { from: "voksel_cable", to: "tlkm" },
+      { from: "cisco_juniper", to: "tlkm" },
+      { from: "mitratel", to: "tlkm" },
+      { from: "spacex_starlink", to: "tlkm" },
+      { from: "google_aws", to: "tlkm" },
+      { from: "pertamina", to: "tlkm" },
+      { from: "mitratel", to: "telkomsel" },
+      { from: "tlkm", to: "telkomsel" },
+      { from: "tlkm", to: "himbara_banks" },
+      { from: "tlkm", to: "linkaja" },
+      { from: "tlkm", to: "goto_gojek" },
+      { from: "telkomsel", to: "himbara_banks" },
+      { from: "telkomsel", to: "linkaja" },
+      { from: "telkomsel", to: "goto_gojek" },
+      { from: "telkomsel", to: "data_center_co" },
+      { from: "telkomsel", to: "mitra_outlet" },
+      { from: "himbara_banks", to: "mass_market" },
+      { from: "linkaja", to: "mass_market" },
+      { from: "data_center_co", to: "mass_market" },
+      { from: "goto_gojek", to: "mass_market" },
+      { from: "mitra_outlet", to: "mass_market" },
+      { from: "himbara_banks", to: "corporate_enterprise" },
+      { from: "data_center_co", to: "corporate_enterprise" }
+    ]
+  },
+  fmcg_unilever: {
+    title: "Ekosistem Barang Konsumsi / FMCG (Jangkar: UNVR)",
+    description: "Memetakan rantai pasok barang konsumen cepat saji Unilever, mulai dari pasokan kelapa sawit AALI, kemasan karton Sinarmas, kimia aktif Dow/BASF, produksi UNVR, logistik ULI & GoToko B2B, hingga ritel.",
+    nodes: [
+      { id: "aali_sawit", name: "Kebun Sawit Astra (AALI)", logo: "A", tier: 1, x: 100, y: 70, desc: "Pemasok CPO dan oleokimia untuk bahan dasar sabun.", country: "Indonesia" },
+      { id: "sinarmas_box", name: "Kemasan Karton Sinarmas", logo: "S", tier: 1, x: 100, y: 175, desc: "Pemasok kemasan kardus box logistik bersertifikasi FSC.", country: "Indonesia" },
+      { id: "dow_basf", name: "Pemasok Kimia Dow/BASF", logo: "C", tier: 1, x: 100, y: 280, desc: "Menyuplai surfaktan aktif, pewangi, dan bahan kimia kosmetik.", country: "Global" },
+      { id: "glass_pack", name: "Botol & Wadah Mulia", logo: "M", tier: 1, x: 100, y: 385, desc: "Pabrikan botol kaca dan kemasan botol plastik shampoo/saus.", country: "Indonesia" },
+      { id: "pertamina", name: "PT Pertamina (Persero)", logo: "P", tier: 1, x: 100, y: 490, desc: "Pemasok BBM solar industri untuk genset pabrik dan armada truk.", country: "Indonesia" },
+      { id: "unvr", name: "PT Unilever Indonesia Tbk (UNVR)", logo: "UV", tier: 2, x: 300, y: 300, desc: "Pabrikan manufaktur FMCG terbesar dengan fasilitas Cikarang & Rungkut.", country: "Indonesia" },
+      { id: "uli_distri", name: "Unilever Distribution (ULI)", logo: "UD", tier: 3, x: 500, y: 300, desc: "Entitas distributor logistik eksklusif internal pengelola rantai dingin.", country: "Indonesia" },
+      { id: "indomaret", name: "Indomaret (Indomarco)", logo: "ID", tier: 4, x: 700, y: 70, desc: "Jaringan waralaba minimarket ritel modern terlaris.", country: "Indonesia" },
+      { id: "alfamart", name: "Alfamart (Sumber Alfaria)", logo: "AM", tier: 4, x: 700, y: 175, desc: "Jaringan ritel minimarket modern waralaba nasional.", country: "Indonesia" },
+      { id: "supermarket_co", name: "Hypermarket & Supermarket", logo: "H", tier: 4, x: 700, y: 280, desc: "Saluran pasar retail besar seperti Hero, Transmart, & Lion Super Indo.", country: "Indonesia" },
+      { id: "distri_warung", name: "Warung Kelontong & Grosir", logo: "W", tier: 4, x: 700, y: 385, desc: "Distributor lokal penyalur produk sasetan ke warung tradisional.", country: "Indonesia" },
+      { id: "goto_gotoko", name: "e-B2B GoToko (GoTo)", logo: "G", tier: 4, x: 700, y: 490, desc: "Platform digital B2B kerja sama Unilever & Gojek untuk menyuplai warung kelontong tradisional.", country: "Indonesia" },
+      { id: "mass_market", name: "Konsumen Ritel (B2C)", logo: "M", tier: 5, x: 900, y: 180, desc: "Masyarakat umum pengguna akhir produk perawatan tubuh dan makanan.", country: "Indonesia" },
+      { id: "hotel_resto", name: "Hotel, Restoran & Kafe (Horeka)", logo: "K", tier: 5, x: 900, y: 420, desc: "Pasar institusi pengguna kecap Bango, Royco, dan teh Sariwangi bulk.", country: "Indonesia" }
+    ],
+    links: [
+      { from: "aali_sawit", to: "unvr" },
+      { from: "sinarmas_box", to: "unvr" },
+      { from: "dow_basf", to: "unvr" },
+      { from: "glass_pack", to: "unvr" },
+      { from: "pertamina", to: "unvr" },
+      { from: "unvr", to: "uli_distri" },
+      { from: "uli_distri", to: "indomaret" },
+      { from: "uli_distri", to: "alfamart" },
+      { from: "uli_distri", to: "supermarket_co" },
+      { from: "uli_distri", to: "distri_warung" },
+      { from: "uli_distri", to: "goto_gotoko" },
+      { from: "indomaret", to: "mass_market" },
+      { from: "alfamart", to: "mass_market" },
+      { from: "supermarket_co", to: "mass_market" },
+      { from: "distri_warung", to: "mass_market" },
+      { from: "goto_gotoko", to: "distri_warung" },
+      { from: "supermarket_co", to: "hotel_resto" },
+      { from: "distri_warung", to: "hotel_resto" }
+    ]
+  }
+}
 
 export default function RantaiPasokTab() {
   const [selectedFocus, setSelectedFocus] = useState('UNTR')
@@ -527,6 +893,11 @@ export default function RantaiPasokTab() {
   const [flowDirection, setFlowDirection] = useState('materials') // 'materials' (left-to-right) or 'capital' (right-to-left)
   const [filterSectors, setFilterSectors] = useState([])
   const [viewMode, setViewMode] = useState('focus') // 'focus' or 'longChain'
+  const [selectedEcosystem, setSelectedEcosystem] = useState('untr_coal')
+
+  const currentEcosystem = useMemo(() => {
+    return ECOSYSTEM_DATA[selectedEcosystem]
+  }, [selectedEcosystem])
 
   const focusData = useMemo(() => {
     const key = selectedFocus === 'ADARO' ? 'ADRO' : selectedFocus
@@ -630,7 +1001,7 @@ export default function RantaiPasokTab() {
     if (!activeDetailNode) return null
 
     if (viewMode === 'longChain') {
-      const lcNode = LONG_CHAIN_NODES.find(n => n.id === activeDetailNode)
+      const lcNode = currentEcosystem.nodes.find(n => n.id === activeDetailNode)
       if (lcNode) {
         const key = lcNode.id.toUpperCase()
         if (SUPPLY_CHAIN_DATA[key]) {
@@ -646,27 +1017,63 @@ export default function RantaiPasokTab() {
             netIncome: scData.netIncome,
             employees: scData.employeeCount,
             hq: scData.headquarters,
-            group: 'focus'
+            group: lcNode.tier === 2 ? 'focus' : (lcNode.tier === 1 ? 'upstream' : (lcNode.tier === 3 ? 'internal' : 'downstream'))
           }
         }
         
         let group = 'upstream'
-        let type = 'Kemitraan'
+        let type = 'Kemitraan B2B'
         let keyProducts = []
         let relevance = 'Medium'
         let share = null
-        let relationType = 'B2B Client'
+        let relationType = 'Mitra Bisnis'
         let volume = 'Medium'
 
         if (lcNode.tier === 1) {
           group = 'upstream'
-          type = lcNode.id === 'pertamina' ? 'Lubricants & Fuel' : 'Alat Berat / Komponen'
-          keyProducts = lcNode.id === 'komatsu' ? ['Excavator', 'Bulldozer'] : lcNode.id === 'scania' ? ['Heavy Truck', 'Chassis'] : ['Solar Industri', 'Oli']
+          type = lcNode.id === 'pertamina' ? 'Lubricants & Fuel' : 'Bahan Baku & Komponen'
+          keyProducts = lcNode.id === 'komatsu' ? ['Excavator', 'Bulldozer'] : 
+                         lcNode.id === 'scania' ? ['Heavy Truck', 'Chassis'] : 
+                         lcNode.id === 'inco' ? ['Nikel Matte', 'Feronikel'] : 
+                         lcNode.id === 'coal_power' ? ['Batu Bara', 'Energi'] : 
+                         lcNode.id === 'wheat_import' ? ['Biji Gandum', 'Wheat Grain'] : 
+                         lcNode.id === 'simplat_lsip' ? ['CPO', 'Minyak Sawit'] : 
+                         lcNode.id === 'sugar_seasoning' ? ['MSG', 'Garam Halus', 'Rempah'] : 
+                         lcNode.id === 'voksel_cable' ? ['Kabel Serat Optik', 'Kabel Submarine'] : 
+                         lcNode.id === 'cisco_juniper' ? ['Core Router', 'Enterprise Switch'] : 
+                         lcNode.id === 'mitratel' ? ['Sewa Menara BTS', 'Poles Tower'] : 
+                         lcNode.id === 'spacex_starlink' ? ['LEO Satelit Transponder'] : 
+                         lcNode.id === 'packaging_foil' ? ['BOPP Film', 'Kemasan'] : 
+                         lcNode.id === 'aali_sawit' ? ['Minyak Kelapa Sawit', 'Oleokimia'] : 
+                         lcNode.id === 'sinarmas_box' ? ['Kardus Box Logistik', 'Kemasan Kertas'] : 
+                         lcNode.id === 'dow_basf' ? ['Surfaktan Aktif', 'Pewangi Kosmetik'] : 
+                         lcNode.id === 'glass_pack' ? ['Botol Kaca', 'Wadah Plastik'] : ['Bahan Baku', 'Komponen']
           relevance = 'Sangat Tinggi'
+        } else if (lcNode.tier === 2) {
+          group = 'focus'
+          type = 'Distributor / Solusi Jaringan'
+          relevance = 'Sangat Tinggi'
+        } else if (lcNode.tier === 3) {
+          group = 'internal'
+          type = lcNode.id === 'telkomsel' ? 'Layanan Seluler & Broadband' : 
+                 lcNode.id === 'uli_distri' ? 'Distribusi & Logistik Rantai Dingin' : 'Operasional & Manufaktur'
+          relevance = 'Tinggi'
+        } else if (lcNode.tier === 4) {
+          group = 'downstream'
+          type = lcNode.id === 'himbara_banks' ? 'Jasa Finansial B2B' : 
+                 lcNode.id === 'data_center_co' ? 'Infrastruktur Cloud & Server' :
+                 lcNode.id === 'mitra_outlet' ? 'Saluran Distribusi Ritel' : 
+                 lcNode.id === 'supermarket_co' ? 'Ritel Modern Supermarket' : 
+                 lcNode.id === 'distri_warung' ? 'Jaringan Agen & Warung Tradisional' : 
+                 lcNode.id === 'goto_gotoko' ? 'Platform e-B2B Ritel Digital' : 'Klien Korporat / B2B'
+          relationType = lcNode.id === 'himbara_banks' ? 'Mitra Transaksi B2B' : 
+                         lcNode.id === 'goto_gotoko' ? 'Kemitraan Strategis B2B' : 'Kontrak B2B'
+          volume = lcNode.id === 'goto_gotoko' ? 'Medium' : 'Tinggi'
         } else if (lcNode.tier === 5) {
           group = 'downstream'
-          share = lcNode.id === 'pln' ? 30 : lcNode.id === 'china_energy' ? 25 : 10
-          relationType = lcNode.id === 'pln' ? 'DMO Contract' : 'Export Term Client'
+          type = lcNode.id === 'mass_market' ? 'Konsumen Ritel B2C' : 'Pelanggan Korporasi & Pemerintah'
+          share = lcNode.id === 'pln' ? 30 : lcNode.id === 'china_energy' ? 25 : 15
+          relationType = 'Koneksi Pelanggan Akhir'
           volume = 'Tinggi'
         }
 
@@ -813,7 +1220,7 @@ export default function RantaiPasokTab() {
   const isAnyActive = hoveredNode || selectedNode
 
   return (
-    <div className="bg-slate-50 min-h-[calc(100vh-140px)] flex flex-col space-y-4">
+    <div className="bg-transparent min-h-[calc(100vh-140px)] flex flex-col space-y-4">
       {/* Dynamic style tag for line flowing animations */}
       <style>{`
         @keyframes flowRight {
@@ -881,8 +1288,34 @@ export default function RantaiPasokTab() {
                 setSelectedNode(null)
                 setHoveredNode(null)
                 setFilterSectors([])
+                
+                // Automatically set the appropriate ecosystem if the focus company is the anchor
+                let targetEco = selectedEcosystem
+                if (val === 'UNTR') {
+                  targetEco = 'untr_coal'
+                  setSelectedEcosystem('untr_coal')
+                } else if (val === 'ANTM') {
+                  targetEco = 'ev_battery'
+                  setSelectedEcosystem('ev_battery')
+                } else if (val === 'ASII') {
+                  targetEco = 'automotive'
+                  setSelectedEcosystem('automotive')
+                } else if (val === 'SMGR') {
+                  targetEco = 'infrastructure'
+                  setSelectedEcosystem('infrastructure')
+                } else if (val === 'INDF' || val === 'ICBP') {
+                  targetEco = 'food_beverage'
+                  setSelectedEcosystem('food_beverage')
+                } else if (val === 'TLKM') {
+                  targetEco = 'telecommunication'
+                  setSelectedEcosystem('telecommunication')
+                } else if (val === 'UNVR') {
+                  targetEco = 'fmcg_unilever'
+                  setSelectedEcosystem('fmcg_unilever')
+                }
+
                 // Check if company exists in the 5-column nodes, if not, switch to focus mode
-                const existsInLongChain = LONG_CHAIN_NODES.some(n => n.id === val.toLowerCase())
+                const existsInLongChain = ECOSYSTEM_DATA[targetEco].nodes.some(n => n.id === val.toLowerCase())
                 if (!existsInLongChain) {
                   setViewMode('focus')
                 }
@@ -890,6 +1323,13 @@ export default function RantaiPasokTab() {
               className="px-3 py-1.5 border border-slate-200 rounded-lg text-sm bg-white font-medium focus:outline-none focus:ring-2 focus:ring-amber-500 text-slate-700"
             >
               <option value="UNTR">PT United Tractors Tbk (UNTR)</option>
+              <option value="ANTM">PT Aneka Tambang Tbk (ANTM)</option>
+              <option value="ASII">PT Astra International Tbk (ASII)</option>
+              <option value="SMGR">PT Semen Indonesia Tbk (SMGR)</option>
+              <option value="INDF">PT Indofood Sukses Makmur Tbk (INDF)</option>
+              <option value="ICBP">PT Indofood CBP Tbk (ICBP)</option>
+              <option value="TLKM">PT Telkom Indonesia Tbk (TLKM)</option>
+              <option value="UNVR">PT Unilever Indonesia Tbk (UNVR)</option>
               <option value="PAMA">PT Pamapersada Nusantara (PAMA)</option>
               <option value="BUMI">PT Bumi Resources Tbk (BUMI)</option>
               <option value="ADRO">PT Adaro Energy Indonesia Tbk (ADRO)</option>
@@ -898,10 +1338,42 @@ export default function RantaiPasokTab() {
               <option value="AALI">PT Astra Agro Lestari Tbk (AALI)</option>
               <option value="SINARMAS">Grup Pulp & Kertas Sinarmas (INKP)</option>
               <option value="WIKA">PT Wijaya Karya (Persero) Tbk (WIKA)</option>
-              <option value="ASII">PT Astra International Tbk (ASII)</option>
               <option value="BBRI">PT Bank Rakyat Indonesia Tbk (BBRI)</option>
             </select>
           </div>
+
+          {/* Ecosystem Selector (Visible in 5-Column Mode) */}
+          {viewMode === 'longChain' && (
+            <div className="flex items-center gap-2">
+              <span className="text-xs font-semibold text-slate-500">Ekosistem:</span>
+              <select
+                value={selectedEcosystem}
+                onChange={(e) => {
+                  const val = e.target.value
+                  setSelectedEcosystem(val)
+                  setSelectedNode(null)
+                  setHoveredNode(null)
+                  // When switching ecosystem, automatically update the focal company to the anchor of that ecosystem
+                  if (val === 'untr_coal') setSelectedFocus('UNTR')
+                  else if (val === 'ev_battery') setSelectedFocus('ANTM')
+                  else if (val === 'automotive') setSelectedFocus('ASII')
+                  else if (val === 'infrastructure') setSelectedFocus('SMGR')
+                  else if (val === 'food_beverage') setSelectedFocus('INDF')
+                  else if (val === 'telecommunication') setSelectedFocus('TLKM')
+                  else if (val === 'fmcg_unilever') setSelectedFocus('UNVR')
+                }}
+                className="px-3 py-1.5 border border-slate-200 rounded-lg text-sm bg-white font-medium focus:outline-none focus:ring-2 focus:ring-amber-500 text-slate-700"
+              >
+                <option value="untr_coal">Alat Berat & Batubara (UNTR)</option>
+                <option value="ev_battery">Nikel & Baterai EV (ANTM)</option>
+                <option value="automotive">Otomotif & Ritel (ASII)</option>
+                <option value="infrastructure">Semen & Infrastruktur (SMGR)</option>
+                <option value="food_beverage">Konsumer Ritel & F&B (INDF)</option>
+                <option value="telecommunication">Infrastruktur & Telko (TLKM)</option>
+                <option value="fmcg_unilever">Barang Konsumsi / FMCG (UNVR)</option>
+              </select>
+            </div>
+          )}
 
           {/* View Mode Toggle */}
           <div className="bg-slate-100 p-0.5 rounded-lg border border-slate-200 flex">
@@ -1009,7 +1481,7 @@ export default function RantaiPasokTab() {
                 <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">Info Rantai Panjang</span>
               </div>
               <p className="text-xs text-slate-600 leading-relaxed">
-                Mode ini memvisualisasikan ekosistem **PT United Tractors Tbk (UNTR)** secara *end-to-end* yang membentang dari prinsipal manufaktur hulu hingga penyedia energi hilir.
+                {currentEcosystem.description}
               </p>
               <div className="text-[11px] text-slate-500 space-y-2 pt-2 border-t border-slate-100">
                 <div className="flex items-center gap-2">
@@ -1149,9 +1621,9 @@ export default function RantaiPasokTab() {
               {viewMode === 'longChain' ? (
                 <>
                   {/* RENDER PATHS for Long Chain */}
-                  {LONG_CHAIN_LINKS.map((link, idx) => {
-                    const fromNode = LONG_CHAIN_NODES.find(n => n.id === link.from);
-                    const toNode = LONG_CHAIN_NODES.find(n => n.id === link.to);
+                  {currentEcosystem.links.map((link, idx) => {
+                    const fromNode = currentEcosystem.nodes.find(n => n.id === link.from);
+                    const toNode = currentEcosystem.nodes.find(n => n.id === link.to);
                     if (!fromNode || !toNode) return null;
 
                     const x1 = fromNode.x;
@@ -1178,7 +1650,7 @@ export default function RantaiPasokTab() {
                   })}
 
                   {/* RENDER NODES for Long Chain */}
-                  {LONG_CHAIN_NODES.map((node) => {
+                  {currentEcosystem.nodes.map((node) => {
                     const focalId = selectedFocus.toLowerCase();
                     const isFocal = node.id === focalId;
                     
@@ -1375,12 +1847,12 @@ export default function RantaiPasokTab() {
               <div className="border-l border-slate-100" />
               <div>
                 <div className="text-slate-400 font-medium">Total Perusahaan</div>
-                <div className="font-bold text-emerald-600 text-sm mt-0.5">10 Korporasi</div>
+                <div className="font-bold text-emerald-600 text-sm mt-0.5">{currentEcosystem.nodes.length} Korporasi</div>
               </div>
               <div className="border-l border-slate-100" />
               <div>
                 <div className="text-slate-400 font-medium">Total Hubungan B2B</div>
-                <div className="font-bold text-violet-600 text-sm mt-0.5">16 Koneksi Utama</div>
+                <div className="font-bold text-violet-600 text-sm mt-0.5">{currentEcosystem.links.length} Koneksi Utama</div>
               </div>
             </div>
           ) : (

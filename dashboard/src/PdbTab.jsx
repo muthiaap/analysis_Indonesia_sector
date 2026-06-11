@@ -541,7 +541,7 @@ export default function PdbTab({ idxData }) {
                       <tr
                         key={item.subsector}
                         onClick={() => setSelectedSectorName(item.subsector)}
-                        className={`cursor-pointer transition-all hover:bg-slate-50/80 ${isSelected ? 'bg-blue-50/50 border-l-4 border-blue-600 font-medium' : ''
+                        className={`cursor-pointer transition-all hover:bg-slate-50/80 ${isSelected ? 'bg-violet-950/80 border-l-4 border-violet-500 font-medium' : ''
                           }`}
                       >
                         {/* Rank */}
@@ -553,7 +553,7 @@ export default function PdbTab({ idxData }) {
 
                         {/* Subsector Name, Parent Badge & Nominal */}
                         <td className="py-3 px-3">
-                          <div className={`text-slate-800 font-semibold ${isSelected ? 'text-blue-700 font-bold' : ''}`}>
+                          <div className={`text-slate-800 font-semibold ${isSelected ? 'text-violet-100 font-bold' : ''}`}>
                             {item.subsector}
                           </div>
                           <div className="text-[10px] text-slate-400 mt-1 flex items-center gap-1.5 flex-wrap">
@@ -664,44 +664,44 @@ export default function PdbTab({ idxData }) {
 
           {/* Evaluasi Kebijakan & Analisis Sektoral Pembiayaan */}
           <div className="space-y-2 -mt-2">
-            <span className="text-[10px] font-bold text-blue-600 uppercase tracking-wider block">Evaluasi Kebijakan & Analisis Sektoral Pembiayaan</span>
-            <div className="bg-gradient-to-r from-blue-50/30 to-indigo-50/20 border border-blue-100/70 rounded-xl p-4 shadow-sm relative overflow-hidden">
+            <span className="text-[10px] font-bold text-violet-400 uppercase tracking-wider block">Evaluasi Kebijakan & Analisis Sektoral Pembiayaan</span>
+            <div className="bg-[#171630] border border-white/10 rounded-xl p-4 shadow-sm relative overflow-hidden">
               <div className="absolute right-4 top-4 text-indigo-500/5 pointer-events-none">
                 <Scale size={72} />
               </div>
-              <p className="text-[11px] text-slate-700 leading-relaxed font-normal relative z-10">
+              <p className="text-[11px] text-slate-200 leading-relaxed font-normal relative z-10">
                 {selectedSector.alasanEvaluasi || "Tidak ada rincian evaluasi."}
               </p>
             </div>
           </div>
 
           {/* Sektor Definition Banner */}
-          <div className="bg-gradient-to-r from-blue-50/50 to-indigo-50/50 border border-slate-100/80 rounded-xl p-4 flex items-start gap-3.5 shadow-sm">
-            <div className="p-2 bg-indigo-500/10 text-indigo-600 rounded-lg flex-shrink-0 mt-0.5">
-              <Sparkles size={16} className="text-indigo-500" />
+          <div className="bg-[#171630] border border-white/10 rounded-xl p-5 flex items-start gap-4 shadow-xl">
+            <div className="p-2 bg-violet-500/10 text-violet-400 rounded-lg flex-shrink-0 mt-0.5">
+              <Sparkles size={16} className="text-violet-400" />
             </div>
             <div className="flex-1 min-w-0">
-              <span className="text-[10px] font-bold text-indigo-500 uppercase tracking-wider block mb-0.5">Deskripsi Lapangan Usaha</span>
-              <p className="text-[11px] text-slate-600 leading-relaxed font-normal">
+              <span className="text-[10px] font-bold text-violet-400 uppercase tracking-wider block mb-1">Deskripsi Lapangan Usaha</span>
+              <p className="text-[11px] text-slate-200 leading-relaxed font-normal">
                 {SECTOR_DEFINITIONS[selectedSector.sector] || "Penjelasan lengkap mengenai cakupan operasional lapangan usaha sektor ini."}
               </p>
 
               {/* Dynamic Subsectors Badge Section */}
               {selectedSector.subsectors && selectedSector.subsectors.length > 0 && (
-                <div className="mt-3 pt-3 border-t border-slate-200/60">
-                  <span className="text-[10px] font-bold text-indigo-500 uppercase tracking-wider block mb-1.5">
+                <div className="mt-4 pt-3 border-t border-white/10">
+                  <span className="text-[10px] font-bold text-violet-400 uppercase tracking-wider block mb-2">
                     Subsektor Lain di Sektor {selectedSector.sector} ({selectedSector.subsectors.length})
                   </span>
-                  <div className="flex flex-wrap gap-1.5 max-h-[75px] overflow-y-auto pr-1">
+                  <div className="flex flex-wrap gap-1.5 max-h-[100px] overflow-y-auto pr-1">
                     {selectedSector.subsectors.map((sub, sIdx) => {
                       const isCurrent = sub === selectedSector.subsector
                       return (
                         <span
                           key={sIdx}
-                          className={`border transition-all px-2 py-0.5 rounded text-[9px] font-medium inline-block cursor-default ${
+                          className={`transition-all px-2.5 py-0.5 rounded text-[10px] inline-block cursor-default ${
                             isCurrent
-                              ? 'bg-blue-100 text-blue-700 border-blue-200/60 font-bold shadow-sm'
-                              : 'bg-white/70 hover:bg-indigo-50 hover:text-indigo-600 hover:border-indigo-200/50 border-slate-200/40 text-slate-600'
+                              ? 'bg-violet-500/20 text-violet-200 border border-violet-400/30 font-bold shadow-sm'
+                              : 'bg-white/5 border border-white/10 text-slate-300 hover:bg-white/10 hover:text-white'
                           }`}
                         >
                           {sub}

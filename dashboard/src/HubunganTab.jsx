@@ -1122,7 +1122,7 @@ export default function HubunganTab() {
   }
 
   return (
-    <div className="bg-slate-50 min-h-screen -mx-4 -my-6 py-6 px-4">
+    <div className="bg-transparent min-h-screen -mx-4 -my-6 py-6 px-4">
       {loading ? (
         <div className="flex items-center justify-center h-[70vh] text-slate-500 gap-2">
           <RotateCcw className="animate-spin" size={20} />
@@ -1541,7 +1541,6 @@ export default function HubunganTab() {
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                 <span>Render: {simNodesRef.current.length} node | {simLinksRef.current.length} link</span>
               </div>
-
               {/* Help tip */}
               <div className="absolute bottom-3 left-3 z-10 text-[10px] text-slate-400 pointer-events-none flex items-center gap-1 bg-white/85 backdrop-blur px-2 py-1 rounded border border-slate-100 shadow-sm">
                 <HelpCircle size={10} />
@@ -1558,7 +1557,7 @@ export default function HubunganTab() {
                 onMouseUp={handleSVGMouseUp}
                 onMouseLeave={handleSVGMouseUp}
                 onMouseDown={handleSVGMouseDown}
-                className="bg-slate-900 cursor-grab active:cursor-grabbing flex-1 select-none"
+                className="bg-transparent cursor-grab active:cursor-grabbing flex-1 select-none"
               >
                 {/* Arrow markers */}
                 <defs>
@@ -1571,7 +1570,7 @@ export default function HubunganTab() {
                     markerHeight="6"
                     orient="auto-start-reverse"
                   >
-                    <path d="M 0 0 L 10 5 L 0 10 z" fill="#475569" />
+                    <path d="M 0 0 L 10 5 L 0 10 z" fill="rgba(255, 255, 255, 0.25)" />
                   </marker>
                 </defs>
 
@@ -1611,7 +1610,7 @@ export default function HubunganTab() {
                             y1={sourceNode.y}
                             x2={targetNode.x}
                             y2={targetNode.y}
-                            stroke="#334155"
+                            stroke="rgba(255, 255, 255, 0.15)"
                             strokeWidth={activeMode === 'loans' ? Math.max(1, Math.min(5, Math.log10(link.value) - 5)) : 1.5}
                             markerEnd="url(#arrow)"
                           />
@@ -1710,7 +1709,7 @@ export default function HubunganTab() {
                             <text
                               textAnchor="middle"
                               y={radius + 12}
-                              fill="#94a3b8"
+                              fill="#cbd5e1"
                               fontSize={zoom > 0.85 ? 7.5 : 0}
                               className="pointer-events-none group-hover:fill-white font-bold drop-shadow"
                             >
