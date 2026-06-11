@@ -3,9 +3,12 @@ import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer,
   AreaChart, Area, PieChart, Pie, Cell, ReferenceLine
 } from 'recharts'
-import { TrendingUp, TrendingDown, BarChart3, PieChart as PieIcon, Activity, ArrowUpRight, X, Map } from 'lucide-react'
+import { TrendingUp, TrendingDown, BarChart3, PieChart as PieIcon, Activity, ArrowUpRight, X, Map, Share2, Layers } from 'lucide-react'
 import MapTab from './MapTab'
 import PdbTab from './PdbTab'
+import HubunganTab from './HubunganTab'
+import RantaiPasokTab from './RantaiPasokTab'
+
 
 const COLORS = [
   '#3b82f6', '#ef4444', '#10b981', '#f59e0b', '#8b5cf6',
@@ -261,6 +264,26 @@ export default function App() {
         <TrendingUp size={14} />
         Analisis PDB
       </button>
+      <button
+        type="button"
+        onClick={() => setActiveTab('hubungan')}
+        className={`px-3 py-1.5 text-sm rounded-md transition-colors flex items-center gap-1 ${
+          activeTab === 'hubungan' ? 'bg-white text-blue-700 font-medium shadow-sm' : 'text-slate-600 hover:bg-white/80'
+        }`}
+      >
+        <Share2 size={14} />
+        Struktur Grup
+      </button>
+      <button
+        type="button"
+        onClick={() => setActiveTab('rantai-pasok')}
+        className={`px-3 py-1.5 text-sm rounded-md transition-colors flex items-center gap-1 ${
+          activeTab === 'rantai-pasok' ? 'bg-white text-blue-700 font-medium shadow-sm' : 'text-slate-600 hover:bg-white/80'
+        }`}
+      >
+        <Layers size={14} />
+        Rantai Pasok
+      </button>
     </nav>
   )
 
@@ -307,6 +330,54 @@ export default function App() {
         </header>
         <main className="max-w-7xl mx-auto px-4 py-6">
           <PdbTab idxData={data} />
+        </main>
+      </div>
+    )
+  }
+
+  if (activeTab === 'hubungan') {
+    return (
+      <div className="min-h-screen bg-slate-50">
+        <header className="bg-white border-b border-slate-200 sticky top-0 z-[1000]">
+          <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between gap-4 flex-wrap">
+            <div className="flex items-center gap-3">
+              <div className="bg-blue-600 text-white p-2 rounded-lg">
+                <BarChart3 size={24} />
+              </div>
+              <div>
+                <h1 className="text-xl font-bold text-slate-800">Laporan Keuangan Dashboard</h1>
+                <p className="text-sm text-slate-500">Struktur Afiliasi Grup & Pinjaman Bank Kreditur</p>
+              </div>
+            </div>
+            {tabNav}
+          </div>
+        </header>
+        <main className="max-w-7xl mx-auto px-4 py-6">
+          <HubunganTab />
+        </main>
+      </div>
+    )
+  }
+
+  if (activeTab === 'rantai-pasok') {
+    return (
+      <div className="min-h-screen bg-slate-50">
+        <header className="bg-white border-b border-slate-200 sticky top-0 z-[1000]">
+          <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between gap-4 flex-wrap">
+            <div className="flex items-center gap-3">
+              <div className="bg-blue-600 text-white p-2 rounded-lg">
+                <BarChart3 size={24} />
+              </div>
+              <div>
+                <h1 className="text-xl font-bold text-slate-800">Laporan Keuangan Dashboard</h1>
+                <p className="text-sm text-slate-500">Analisis Rantai Pasok B2B (Value Chain)</p>
+              </div>
+            </div>
+            {tabNav}
+          </div>
+        </header>
+        <main className="max-w-7xl mx-auto px-4 py-6">
+          <RantaiPasokTab />
         </main>
       </div>
     )

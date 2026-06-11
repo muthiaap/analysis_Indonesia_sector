@@ -1,0 +1,1586 @@
+Company Code,Company Name,No,Bank Creditor,Currency,Current Amount,Prior Amount
+GOLF,Perusahaan GOLF,1,Bank lokal lainnya,IDR,467625000000.0,451000000000.0
+GOLF,Perusahaan GOLF,2,"Jumlah utang bank, kotor",467625000000.0,451000000000.0,0.0
+GOLF,Perusahaan GOLF,3,Biaya penerbitan utang bank yang belum diamortisasi,5766958340.0,5951699108.0,0.0
+GOLF,Perusahaan GOLF,4,"Jumlah utang bank, bersih",461858041660.0,445048300892.0,0.0
+GOLF,Perusahaan GOLF,5,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,14958323327.0,12729701314.0,0.0
+GOLF,Perusahaan GOLF,6,Liabilitas jangka panjang atas utang bank,446899718333.0,432318599578.0,0.0
+DGWG,Perusahaan DGWG,1,"Jumlah utang bank, kotor",94357.0,123550.0,0.0
+DGWG,Perusahaan DGWG,2,"Jumlah utang bank, bersih",94357.0,123550.0,0.0
+DGWG,Perusahaan DGWG,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,22561.0,51103.0,0.0
+DGWG,Perusahaan DGWG,4,Liabilitas jangka panjang atas utang bank,71796.0,72447.0,0.0
+SPTO,Perusahaan SPTO,1,"Jumlah utang bank, bersih",98993356920.0,104390713840.0,0.0
+SPTO,Perusahaan SPTO,2,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,5685856921.0,6586713840.0,0.0
+SPTO,Perusahaan SPTO,3,Liabilitas jangka panjang atas utang bank,93307499999.0,97804000000.0,0.0
+ARCI,Perusahaan ARCI,1,Bank Central Asia Tbk,USD,39714965.0,40000000.0
+ARCI,Perusahaan ARCI,2,Bank Mandiri (Persero) Tbk,USD,280295354.0,282181109.0
+ARCI,Perusahaan ARCI,3,Bank Syariah Indonesia Tbk,USD,19857482.0,20000000.0
+ARCI,Perusahaan ARCI,4,Bank Negara Indonesia (Persero) Tbk,USD,29786223.0,30000000.0
+ARCI,Perusahaan ARCI,5,Bank Tabungan Negara (Persero) Tbk,USD,31771972.0,32000000.0
+ARCI,Perusahaan ARCI,6,Bank lokal lainnya,USD,44679334.0,45000000.0
+ARCI,Perusahaan ARCI,7,"Jumlah utang bank, kotor",446105330.0,449181109.0,0.0
+ARCI,Perusahaan ARCI,8,Biaya penerbitan utang bank yang belum diamortisasi,4918786.0,5141436.0,0.0
+ARCI,Perusahaan ARCI,9,"Jumlah utang bank, bersih",441186544.0,444039673.0,0.0
+ARCI,Perusahaan ARCI,10,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,12000000.0,12000000.0,0.0
+ARCI,Perusahaan ARCI,11,Liabilitas jangka panjang atas utang bank,429186544.0,432039673.0,0.0
+ANTM,Perusahaan ANTM,1,Pinjaman sindikasi,USD,175000000.0,175000000.0
+ANTM,Perusahaan ANTM,2,"Jumlah utang bank, kotor",2973775.0,2936850.0,0.0
+ANTM,Perusahaan ANTM,3,Biaya penerbitan utang bank yang belum diamortisasi,16042.0,16606.0,0.0
+ANTM,Perusahaan ANTM,4,"Jumlah utang bank, bersih",2957733.0,2920244.0,0.0
+ANTM,Perusahaan ANTM,5,Liabilitas jangka panjang atas utang bank,2957733.0,2920244.0,0.0
+NELY,Perusahaan NELY,1,Bank OCBC Nisp Tbk,IDR,157695000001.0,167143750000.0
+NELY,Perusahaan NELY,2,Bank lokal lainnya,IDR,41507062481.0,45684624983.0
+NELY,Perusahaan NELY,3,"Jumlah utang bank, kotor",199202062482.0,212828374983.0,0.0
+NELY,Perusahaan NELY,4,"Jumlah utang bank, bersih",199202062482.0,212828374983.0,0.0
+NELY,Perusahaan NELY,5,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,54505250004.0,54505250004.0,0.0
+NELY,Perusahaan NELY,6,Liabilitas jangka panjang atas utang bank,144696812478.0,158323124979.0,0.0
+KJEN,Perusahaan KJEN,1,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,2074700000.0,2099600000.0,0.0
+KJEN,Perusahaan KJEN,2,Liabilitas jangka panjang atas utang bank,175500000.0,175500000.0,0.0
+MIKA,Perusahaan MIKA,1,Bank OCBC Nisp Tbk,IDR,8467540490.0,8594800977.0
+MIKA,Perusahaan MIKA,2,"Jumlah utang bank, kotor",8467540490.0,8594800977.0,0.0
+MIKA,Perusahaan MIKA,3,"Jumlah utang bank, bersih",8467540490.0,8594800977.0,0.0
+MIKA,Perusahaan MIKA,4,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,528575474.0,516088618.0,0.0
+MIKA,Perusahaan MIKA,5,Liabilitas jangka panjang atas utang bank,7938965016.0,8078712359.0,0.0
+SAPX,Perusahaan SAPX,1,"Jumlah utang bank, kotor",67319360397.0,71219360397.0,0.0
+SAPX,Perusahaan SAPX,2,"Jumlah utang bank, bersih",67319360397.0,71219360397.0,0.0
+SAPX,Perusahaan SAPX,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,17000000000.0,17000000000.0,0.0
+SAPX,Perusahaan SAPX,4,Liabilitas jangka panjang atas utang bank,50319360397.0,54219360397.0,0.0
+MYOR,Perusahaan MYOR,1,"Jumlah utang bank, kotor",1163002082467.0,2683952298285.0,0.0
+MYOR,Perusahaan MYOR,2,Biaya penerbitan utang bank yang belum diamortisasi,7833028581.0,8449664295.0,0.0
+MYOR,Perusahaan MYOR,3,"Jumlah utang bank, bersih",1155169053886.0,2675502633990.0,0.0
+MYOR,Perusahaan MYOR,4,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,35432872800.0,1005503694218.0,0.0
+MYOR,Perusahaan MYOR,5,Liabilitas jangka panjang atas utang bank,1119736181086.0,1669998939772.0,0.0
+CGAS,Perusahaan CGAS,1,"Jumlah utang bank, kotor",5235416894.0,7613251067.0,0.0
+CGAS,Perusahaan CGAS,2,"Jumlah utang bank, bersih",5235416894.0,7613251067.0,0.0
+CGAS,Perusahaan CGAS,3,Liabilitas jangka panjang atas utang bank,5235416894.0,7613251067.0,0.0
+TYRE,Perusahaan TYRE,1,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,26500000011.0,34550000008.0,0.0
+TRST,Perusahaan TRST,1,Bank Central Asia Tbk,USD,15231776.0,15944279.0
+TRST,Perusahaan TRST,2,Bank asing lainnya,EUR,30753078.0,30753258.0
+TRST,Perusahaan TRST,3,"Jumlah utang bank, kotor",859679.0,875050.0,0.0
+TRST,Perusahaan TRST,4,Biaya penerbitan utang bank yang belum diamortisasi,25463.0,28614.0,0.0
+TRST,Perusahaan TRST,5,"Jumlah utang bank, bersih",834216.0,846436.0,0.0
+TRST,Perusahaan TRST,6,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,162199.0,160587.0,0.0
+TRST,Perusahaan TRST,7,Liabilitas jangka panjang atas utang bank,672017.0,685849.0,0.0
+SSMS,Perusahaan SSMS,1,"Jumlah utang bank, kotor",6395742449.0,6499395255.0,0.0
+SSMS,Perusahaan SSMS,2,Biaya penerbitan utang bank yang belum diamortisasi,55306029.0,58815323.0,0.0
+SSMS,Perusahaan SSMS,3,"Jumlah utang bank, bersih",6340436420.0,6440579932.0,0.0
+SSMS,Perusahaan SSMS,4,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,962327460.0,991075964.0,0.0
+SSMS,Perusahaan SSMS,5,Liabilitas jangka panjang atas utang bank,5378108960.0,5449503968.0,0.0
+RSCH,Perusahaan RSCH,1,"Jumlah utang bank, kotor",38890000000.0,39490000000.0,0.0
+RSCH,Perusahaan RSCH,2,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,2400000000.0,2210000000.0,0.0
+RSCH,Perusahaan RSCH,3,Liabilitas jangka panjang atas utang bank,36490000000.0,37280000000.0,0.0
+GMFI,Perusahaan GMFI,1,Bank Rakyat Indonesia (Persero) Tbk,USD,123794847.0,125325232.0
+GMFI,Perusahaan GMFI,2,Bank Negara Indonesia (Persero) Tbk,USD,172383424.0,174792815.0
+GMFI,Perusahaan GMFI,3,Bank Maybank Indonesia Tbk,USD,32691980.0,33094762.0
+GMFI,Perusahaan GMFI,4,Bank asing lainnya,USD,14813063.0,14918881.0
+GMFI,Perusahaan GMFI,5,Bank lokal lainnya,USD,24261252.0,24649435.0
+GMFI,Perusahaan GMFI,6,"Jumlah utang bank, kotor",367944566.0,372781125.0,0.0
+GMFI,Perusahaan GMFI,7,"Jumlah utang bank, bersih",367944566.0,372781125.0,0.0
+GMFI,Perusahaan GMFI,8,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,20891815.0,20891815.0,0.0
+GMFI,Perusahaan GMFI,9,Liabilitas jangka panjang atas utang bank,347052751.0,351889310.0,0.0
+HEAL,Perusahaan HEAL,1,"Jumlah utang bank, kotor",3406042.0,3150624.0,0.0
+HEAL,Perusahaan HEAL,2,"Jumlah utang bank, bersih",3406042.0,3150624.0,0.0
+HEAL,Perusahaan HEAL,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,565525.0,574674.0,0.0
+HEAL,Perusahaan HEAL,4,Liabilitas jangka panjang atas utang bank,2840517.0,2575950.0,0.0
+CDIA,Perusahaan CDIA,1,Bank Central Asia Tbk,IDR,38958776.0,39478369.0
+CDIA,Perusahaan CDIA,2,Bank Mandiri (Persero) Tbk,IDR,237944376.0,240603693.0
+CDIA,Perusahaan CDIA,3,Bank Danamon Indonesia Tbk,IDR,117326194.0,118826629.0
+CDIA,Perusahaan CDIA,4,Bank Tabungan Negara (Persero) Tbk,IDR,115332588.0,61381176.0
+CDIA,Perusahaan CDIA,5,Bank asing lainnya,USD,198067418.0,98000719.0
+CDIA,Perusahaan CDIA,6,"Jumlah utang bank, kotor",707629352.0,558290586.0,0.0
+CDIA,Perusahaan CDIA,7,"Jumlah utang bank, bersih",707629352.0,558290586.0,0.0
+CDIA,Perusahaan CDIA,8,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,12465857.0,7852123.0,0.0
+CDIA,Perusahaan CDIA,9,Liabilitas jangka panjang atas utang bank,695163495.0,550438463.0,0.0
+BINO,Perusahaan BINO,1,"Jumlah utang bank, kotor",3166666653.0,3666666654.0,0.0
+BINO,Perusahaan BINO,2,"Jumlah utang bank, bersih",3166666653.0,3666666654.0,0.0
+BINO,Perusahaan BINO,3,Liabilitas jangka panjang atas utang bank,3166666653.0,3666666654.0,0.0
+ITMA,Perusahaan ITMA,1,Bank Mandiri (Persero) Tbk,USD,4548180.0,5016519.0
+ITMA,Perusahaan ITMA,2,Bank asing lainnya,USD,11718736.0,11903220.0
+ITMA,Perusahaan ITMA,3,"Jumlah utang bank, kotor",16266916.0,16919739.0,0.0
+ITMA,Perusahaan ITMA,4,Biaya penerbitan utang bank yang belum diamortisasi,30996.0,37709.0,0.0
+ITMA,Perusahaan ITMA,5,"Jumlah utang bank, bersih",16235920.0,16882030.0,0.0
+ITMA,Perusahaan ITMA,6,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,2681032.0,2175703.0,0.0
+ITMA,Perusahaan ITMA,7,Liabilitas jangka panjang atas utang bank,13554888.0,14706327.0,0.0
+ANDI,Perusahaan ANDI,1,"Jumlah utang bank, kotor",140672764580.0,140672764580.0,0.0
+ANDI,Perusahaan ANDI,2,"Jumlah utang bank, bersih",140672764580.0,140672764580.0,0.0
+ANDI,Perusahaan ANDI,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,28398493740.0,4998493740.0,0.0
+ANDI,Perusahaan ANDI,4,Liabilitas jangka panjang atas utang bank,112274270840.0,135674270840.0,0.0
+MHKI,Perusahaan MHKI,1,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,2894109151.0,2166796972.0,0.0
+MHKI,Perusahaan MHKI,2,Liabilitas jangka panjang atas utang bank,5412960277.0,6671792230.0,0.0
+BRPT,Perusahaan BRPT,1,Bank Central Asia Tbk,IDR,1093274590.0,1095343353.0
+BRPT,Perusahaan BRPT,2,Bank Central Asia Tbk,USD,79025.0,80156.0
+BRPT,Perusahaan BRPT,3,Bank Rakyat Indonesia (Persero) Tbk,USD,315340.0,315243.0
+BRPT,Perusahaan BRPT,4,Bank Mandiri (Persero) Tbk,IDR,5237871341.0,4037816328.0
+BRPT,Perusahaan BRPT,5,Bank Mandiri (Persero) Tbk,USD,229256.0,229233.0
+BRPT,Perusahaan BRPT,6,Bank Negara Indonesia (Persero) Tbk,USD,353104.0,373362.0
+BRPT,Perusahaan BRPT,7,Bank Danamon Indonesia Tbk,IDR,1993737711.0,1994137932.0
+BRPT,Perusahaan BRPT,8,Bank Tabungan Negara (Persero) Tbk,IDR,2311829678.0,1030095942.0
+BRPT,Perusahaan BRPT,9,Bank OCBC Nisp Tbk,IDR,103453384.0,106297188.0
+BRPT,Perusahaan BRPT,10,Bank OCBC Nisp Tbk,USD,144423.0,145910.0
+BRPT,Perusahaan BRPT,11,Pinjaman sindikasi,USD,30716716730.0,30562472172.0
+BRPT,Perusahaan BRPT,12,Bank asing lainnya,SGD,742342.0,744103.0
+BRPT,Perusahaan BRPT,13,Bank asing lainnya,USD,1001653.0,890671.0
+BRPT,Perusahaan BRPT,14,Bank lokal lainnya,USD,3249.0,3249.0
+BRPT,Perusahaan BRPT,15,"Jumlah utang bank, kotor",5308037.0,5095487.0,0.0
+BRPT,Perusahaan BRPT,16,"Jumlah utang bank, bersih",5308037.0,5095487.0,0.0
+BRPT,Perusahaan BRPT,17,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,306414.0,242251.0,0.0
+BRPT,Perusahaan BRPT,18,Liabilitas jangka panjang atas utang bank,5001623.0,4853236.0,0.0
+DSNG,Perusahaan DSNG,1,Bank asing lainnya,USD,2083333.0,2083333.0
+DSNG,Perusahaan DSNG,2,"Jumlah utang bank, kotor",3340933.0,3557928.0,0.0
+DSNG,Perusahaan DSNG,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,848293.0,889316.0,0.0
+DSNG,Perusahaan DSNG,4,Liabilitas jangka panjang atas utang bank,2492640.0,2668612.0,0.0
+CCSI,Perusahaan CCSI,1,"Jumlah utang bank, kotor",38804558.0,42431881.0,0.0
+CCSI,Perusahaan CCSI,2,"Jumlah utang bank, bersih",38804558.0,42431881.0,0.0
+CCSI,Perusahaan CCSI,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,14509289.0,14509289.0,0.0
+CCSI,Perusahaan CCSI,4,Liabilitas jangka panjang atas utang bank,24295269.0,27922592.0,0.0
+KAQI,Perusahaan KAQI,1,"Jumlah utang bank, kotor",6811352601.0,7309144258.0,0.0
+KAQI,Perusahaan KAQI,2,"Jumlah utang bank, bersih",6811352601.0,7309144258.0,0.0
+KAQI,Perusahaan KAQI,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,2013532042.0,2004485844.0,0.0
+KAQI,Perusahaan KAQI,4,Liabilitas jangka panjang atas utang bank,4797820559.0,5304658414.0,0.0
+IMAS,Perusahaan IMAS,1,Bank Central Asia Tbk,IDR,605548.0,649046.0
+IMAS,Perusahaan IMAS,2,Bank Mandiri (Persero) Tbk,IDR,525188.0,610555.0
+IMAS,Perusahaan IMAS,3,Bank Syariah Indonesia Tbk,IDR,1613511.0,1737821.0
+IMAS,Perusahaan IMAS,4,Bank Jago Tbk,IDR,720599.0,795605.0
+IMAS,Perusahaan IMAS,5,Bank Mayapada Internasional Tbk,IDR,293311.0,294526.0
+IMAS,Perusahaan IMAS,6,Bank Maybank Indonesia Tbk,IDR,54999.0,54995.0
+IMAS,Perusahaan IMAS,7,Bank Pan Indonesia Tbk,IDR,1199079.0,1293165.0
+IMAS,Perusahaan IMAS,8,Bank Btpn Tbk,IDR,752843.0,909650.0
+IMAS,Perusahaan IMAS,9,Bank OCBC Nisp Tbk,IDR,260625.0,265162.0
+IMAS,Perusahaan IMAS,10,Pinjaman sindikasi,IDR,1145036.0,1200409.0
+IMAS,Perusahaan IMAS,11,Pinjaman sindikasi,USD,1385231927.0,1218011879.0
+IMAS,Perusahaan IMAS,12,Bank asing lainnya,IDR,118090.0,0.0
+IMAS,Perusahaan IMAS,13,Bank asing lainnya,USD,18340244.0,19135472.0
+IMAS,Perusahaan IMAS,14,Bank lokal lainnya,IDR,1116364.0,1271147.0
+IMAS,Perusahaan IMAS,15,"Jumlah utang bank, kotor",32256095.0,29843887.0,0.0
+IMAS,Perusahaan IMAS,16,"Jumlah utang bank, bersih",32256095.0,29843887.0,0.0
+IMAS,Perusahaan IMAS,17,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,7739936.0,7278929.0,0.0
+IMAS,Perusahaan IMAS,18,Liabilitas jangka panjang atas utang bank,24516159.0,22564958.0,0.0
+ABMM,Perusahaan ABMM,1,Bank Central Asia Tbk,IDR,32954746.0,35454654.0
+ABMM,Perusahaan ABMM,2,Bank Mandiri (Persero) Tbk,IDR,112330153.0,118481749.0
+ABMM,Perusahaan ABMM,3,Bank Mandiri (Persero) Tbk,USD,473875884.0,481906815.0
+ABMM,Perusahaan ABMM,4,Bank Permata Tbk,USD,26400000.0,27500000.0
+ABMM,Perusahaan ABMM,5,Bank OCBC Nisp Tbk,IDR,1654128.0,1894195.0
+ABMM,Perusahaan ABMM,6,Bank lokal lainnya,IDR,22152595.0,21855778.0
+ABMM,Perusahaan ABMM,7,Bank lokal lainnya,USD,53376000.0,55600000.0
+ABMM,Perusahaan ABMM,8,"Jumlah utang bank, bersih",713295738.0,742693191.0,0.0
+ABMM,Perusahaan ABMM,9,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,101516275.0,84618122.0,0.0
+ABMM,Perusahaan ABMM,10,Liabilitas jangka panjang atas utang bank,611779463.0,658075069.0,0.0
+KINO,Perusahaan KINO,1,"Jumlah utang bank, kotor",343156830320.0,429731742866.0,0.0
+KINO,Perusahaan KINO,2,"Jumlah utang bank, bersih",343156830320.0,429731742866.0,0.0
+KINO,Perusahaan KINO,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,229579337628.0,267798456869.0,0.0
+KINO,Perusahaan KINO,4,Liabilitas jangka panjang atas utang bank,113577492692.0,161933285997.0,0.0
+AKSI,Perusahaan AKSI,1,"Jumlah utang bank, kotor",51775116667.0,16206666667.0,0.0
+AKSI,Perusahaan AKSI,2,"Jumlah utang bank, bersih",51775116667.0,16206666667.0,0.0
+AKSI,Perusahaan AKSI,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,15677423331.0,16206666667.0,0.0
+BREN,Perusahaan BREN,1,Bank Central Asia Tbk,IDR,17617.0,17839.0
+BREN,Perusahaan BREN,2,Bank Negara Indonesia (Persero) Tbk,IDR,63119.0,64710.0
+BREN,Perusahaan BREN,3,Bank asing lainnya,USD,591228.0,586519.0
+BREN,Perusahaan BREN,4,Bank lokal lainnya,IDR,45797.0,46373.0
+BREN,Perusahaan BREN,5,Bank lokal lainnya,USD,39000.0,39000.0
+BREN,Perusahaan BREN,6,"Jumlah utang bank, kotor",756761.0,754441.0,0.0
+BREN,Perusahaan BREN,7,Biaya penerbitan utang bank yang belum diamortisasi,13945.0,14436.0,0.0
+BREN,Perusahaan BREN,8,"Jumlah utang bank, bersih",742816.0,740005.0,0.0
+BREN,Perusahaan BREN,9,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,134393.0,131380.0,0.0
+BREN,Perusahaan BREN,10,Liabilitas jangka panjang atas utang bank,608423.0,608625.0,0.0
+PTRO,Perusahaan PTRO,1,Bank Central Asia Tbk,IDR,205630.0,204880.0
+PTRO,Perusahaan PTRO,2,Bank Central Asia Tbk,USD,93159.0,93709.0
+PTRO,Perusahaan PTRO,3,Bank Mandiri (Persero) Tbk,IDR,139755.0,137222.0
+PTRO,Perusahaan PTRO,4,Bank Negara Indonesia (Persero) Tbk,IDR,148904.0,145943.0
+PTRO,Perusahaan PTRO,5,"Jumlah utang bank, kotor",612487.0,605081.0,0.0
+FAPA,Perusahaan FAPA,1,Bank Central Asia Tbk,USD,10116686.0,13552144.0
+FAPA,Perusahaan FAPA,2,"Jumlah utang bank, kotor",3787911045812.0,3517620345535.0,0.0
+FAPA,Perusahaan FAPA,3,Biaya penerbitan utang bank yang belum diamortisasi,20631445597.0,20564863602.0,0.0
+FAPA,Perusahaan FAPA,4,"Jumlah utang bank, bersih",3767279600215.0,3497055481933.0,0.0
+FAPA,Perusahaan FAPA,5,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,773129137185.0,611194900862.0,0.0
+FAPA,Perusahaan FAPA,6,Liabilitas jangka panjang atas utang bank,2994150463030.0,2885860581071.0,0.0
+NFCX,Perusahaan NFCX,1,"Jumlah utang bank, kotor",42058705999.0,348000000.0,0.0
+NFCX,Perusahaan NFCX,2,"Jumlah utang bank, bersih",42058705999.0,348000000.0,0.0
+NFCX,Perusahaan NFCX,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,31147951929.0,116000004.0,0.0
+NFCX,Perusahaan NFCX,4,Liabilitas jangka panjang atas utang bank,10910754070.0,231999996.0,0.0
+RATU,Perusahaan RATU,1,Bank Mandiri (Persero) Tbk,USD,11727279.0,13083279.0
+RATU,Perusahaan RATU,2,"Jumlah utang bank, kotor",11727279.0,13083279.0,0.0
+RATU,Perusahaan RATU,3,Biaya penerbitan utang bank yang belum diamortisasi,16962.0,20446.0,0.0
+RATU,Perusahaan RATU,4,"Jumlah utang bank, bersih",11710317.0,13062833.0,0.0
+RATU,Perusahaan RATU,5,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,4016868.0,5369384.0,0.0
+RATU,Perusahaan RATU,6,Liabilitas jangka panjang atas utang bank,7693449.0,7693449.0,0.0
+HRUM,Perusahaan HRUM,1,Pinjaman sindikasi,USD,0.0,616675875.0
+HRUM,Perusahaan HRUM,2,"Jumlah utang bank, kotor",617032031.0,616675875.0,0.0
+HRUM,Perusahaan HRUM,3,"Jumlah utang bank, bersih",617032031.0,616675875.0,0.0
+HRUM,Perusahaan HRUM,4,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,124931531.0,124575375.0,0.0
+HRUM,Perusahaan HRUM,5,Liabilitas jangka panjang atas utang bank,492100500.0,492100500.0,0.0
+PTPW,Perusahaan PTPW,1,Bank Cimb Niaga Tbk,IDR,19228069182.0,23974195383.0
+PTPW,Perusahaan PTPW,2,"Jumlah utang bank, kotor",19228069182.0,23974195383.0,0.0
+PTPW,Perusahaan PTPW,3,"Jumlah utang bank, bersih",19228069182.0,23974195383.0,0.0
+PTPW,Perusahaan PTPW,4,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,13185505749.0,15576638251.0,0.0
+PTPW,Perusahaan PTPW,5,Liabilitas jangka panjang atas utang bank,6042563433.0,8397557132.0,0.0
+BLOG,Perusahaan BLOG,1,"Jumlah utang bank, kotor",216376374246.0,197379791347.0,0.0
+BLOG,Perusahaan BLOG,2,"Jumlah utang bank, bersih",216376374246.0,197379791347.0,0.0
+BLOG,Perusahaan BLOG,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,45418430378.0,43477954188.0,0.0
+BLOG,Perusahaan BLOG,4,Liabilitas jangka panjang atas utang bank,170957943868.0,153901837159.0,0.0
+SDPC,Perusahaan SDPC,1,Bank Central Asia Tbk,IDR,51496057972.0,53296039526.0
+SDPC,Perusahaan SDPC,2,"Jumlah utang bank, kotor",51496057972.0,53296039526.0,0.0
+SDPC,Perusahaan SDPC,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,6812166904.0,6424407576.0,0.0
+SDPC,Perusahaan SDPC,4,Liabilitas jangka panjang atas utang bank,51496057972.0,53296039526.0,0.0
+PPRI,Perusahaan PPRI,1,"Jumlah utang bank, kotor",12027394343.0,12668832999.0,0.0
+PPRI,Perusahaan PPRI,2,"Jumlah utang bank, bersih",12027394343.0,12668832999.0,0.0
+PPRI,Perusahaan PPRI,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,2624960304.0,2601044860.0,0.0
+PPRI,Perusahaan PPRI,4,Liabilitas jangka panjang atas utang bank,9402434039.0,10067789139.0,0.0
+ESTA,Perusahaan ESTA,1,Bank asing lainnya,IDR,102315448249.0,105342135799.0
+ESTA,Perusahaan ESTA,2,"Jumlah utang bank, kotor",102315448249.0,105342135799.0,0.0
+ESTA,Perusahaan ESTA,3,"Jumlah utang bank, bersih",102315448249.0,105342135799.0,0.0
+ESTA,Perusahaan ESTA,4,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,17002273174.0,15984299577.0,0.0
+ESTA,Perusahaan ESTA,5,Liabilitas jangka panjang atas utang bank,85313175075.0,89357836222.0,0.0
+TOBA,Perusahaan TOBA,1,Bank Mandiri (Persero) Tbk,USD,8751312.0,9110825.0
+TOBA,Perusahaan TOBA,2,Bank asing lainnya,SGD,218035863.0,215122003.0
+TOBA,Perusahaan TOBA,3,Bank asing lainnya,USD,9000000.0,9500000.0
+TOBA,Perusahaan TOBA,4,Bank lokal lainnya,USD,4000000.0,4500000.0
+TOBA,Perusahaan TOBA,5,"Jumlah utang bank, kotor",239787175.0,238232828.0,0.0
+TOBA,Perusahaan TOBA,6,Biaya penerbitan utang bank yang belum diamortisasi,5465165.0,5806082.0,0.0
+TOBA,Perusahaan TOBA,7,"Jumlah utang bank, bersih",234322010.0,232426746.0,0.0
+TOBA,Perusahaan TOBA,8,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,34150982.0,22554825.0,0.0
+TOBA,Perusahaan TOBA,9,Liabilitas jangka panjang atas utang bank,200171028.0,209871921.0,0.0
+MAXI,Perusahaan MAXI,1,Bank lokal lainnya,IDR,105267500404.0,107147330328.0
+MAXI,Perusahaan MAXI,2,"Jumlah utang bank, kotor",105267500404.0,107147330328.0,0.0
+MAXI,Perusahaan MAXI,3,"Jumlah utang bank, bersih",105267500404.0,107147330328.0,0.0
+MAXI,Perusahaan MAXI,4,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,14614700836.0,14868531138.0,0.0
+MAXI,Perusahaan MAXI,5,Liabilitas jangka panjang atas utang bank,90652799568.0,92278799190.0,0.0
+SMCB,Perusahaan SMCB,1,Pinjaman sindikasi,IDR,1144097.0,1244097.0
+SMCB,Perusahaan SMCB,2,"Jumlah utang bank, kotor",1144097.0,1244097.0,0.0
+SMCB,Perusahaan SMCB,3,Biaya penerbitan utang bank yang belum diamortisasi,1667.0,2041.0,0.0
+SMCB,Perusahaan SMCB,4,"Jumlah utang bank, bersih",1142430.0,1242056.0,0.0
+SMCB,Perusahaan SMCB,5,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,400000.0,500000.0,0.0
+SMCB,Perusahaan SMCB,6,Liabilitas jangka panjang atas utang bank,742430.0,742056.0,0.0
+CBUT,Perusahaan CBUT,1,Bank Rakyat Indonesia (Persero) Tbk,IDR,650000.0,680000.0
+CBUT,Perusahaan CBUT,2,"Jumlah utang bank, kotor",650000.0,680000.0,0.0
+CBUT,Perusahaan CBUT,3,Biaya penerbitan utang bank yang belum diamortisasi,609.0,652.0,0.0
+CBUT,Perusahaan CBUT,4,"Jumlah utang bank, bersih",649391.0,679348.0,0.0
+CBUT,Perusahaan CBUT,5,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,127330.0,124830.0,0.0
+CBUT,Perusahaan CBUT,6,Liabilitas jangka panjang atas utang bank,522061.0,554518.0,0.0
+HOKI,Perusahaan HOKI,1,"Jumlah utang bank, kotor",21111111113.0,24444444445.0,0.0
+HOKI,Perusahaan HOKI,2,"Jumlah utang bank, bersih",21111111113.0,24444444445.0,0.0
+HOKI,Perusahaan HOKI,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,13333333333.0,13333333333.0,0.0
+HOKI,Perusahaan HOKI,4,Liabilitas jangka panjang atas utang bank,7777777780.0,11111111112.0,0.0
+DGNS,Perusahaan DGNS,1,Bank Mandiri (Persero) Tbk,IDR,55601415141.0,52120706609.0
+DGNS,Perusahaan DGNS,2,"Jumlah utang bank, kotor",55601415141.0,52120706609.0,0.0
+DGNS,Perusahaan DGNS,3,"Jumlah utang bank, bersih",55601415141.0,52120706609.0,0.0
+DGNS,Perusahaan DGNS,4,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,6251415141.0,2612373278.0,0.0
+DGNS,Perusahaan DGNS,5,Liabilitas jangka panjang atas utang bank,49350000000.0,49508333331.0,0.0
+SMKL,Perusahaan SMKL,1,"Jumlah utang bank, kotor",596542667315.0,561451782968.0,0.0
+SMKL,Perusahaan SMKL,2,"Jumlah utang bank, bersih",596542667315.0,561451782968.0,0.0
+SMKL,Perusahaan SMKL,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,57106339604.0,89168051606.0,0.0
+SMKL,Perusahaan SMKL,4,Liabilitas jangka panjang atas utang bank,539436327711.0,473283731362.0,0.0
+TRIS,Perusahaan TRIS,1,Bank Central Asia Tbk,IDR,43173191963.0,38717454119.0
+TRIS,Perusahaan TRIS,2,Bank Danamon Indonesia Tbk,IDR,0.0,55555548.0
+TRIS,Perusahaan TRIS,3,Bank OCBC Nisp Tbk,USD,354177.0,416676.0
+TRIS,Perusahaan TRIS,4,"Jumlah utang bank, kotor",49191721724.0,45765666299.0,0.0
+TRIS,Perusahaan TRIS,5,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,31296399366.0,33041086464.0,0.0
+TRIS,Perusahaan TRIS,6,Liabilitas jangka panjang atas utang bank,17895322358.0,12724579835.0,0.0
+MARK,Perusahaan MARK,1,"Jumlah utang bank, kotor",6183241175.0,9436110631.0,0.0
+MARK,Perusahaan MARK,2,"Jumlah utang bank, bersih",6183241175.0,9436110631.0,0.0
+MARK,Perusahaan MARK,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,6183241175.0,9436110631.0,0.0
+BOAT,Perusahaan BOAT,1,"Jumlah utang bank, kotor",8538803.0,8910833.0,0.0
+BOAT,Perusahaan BOAT,2,Biaya penerbitan utang bank yang belum diamortisasi,142.0,157.0,0.0
+BOAT,Perusahaan BOAT,3,"Jumlah utang bank, bersih",8538661.0,8910676.0,0.0
+BOAT,Perusahaan BOAT,4,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,1519122.0,1488120.0,0.0
+BOAT,Perusahaan BOAT,5,Liabilitas jangka panjang atas utang bank,7019539.0,7422556.0,0.0
+PNSE,Perusahaan PNSE,1,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,6825000000.0,24400000000.0,0.0
+EMTK,Perusahaan EMTK,1,Bank lokal lainnya,IDR,677784.0,725406.0
+EMTK,Perusahaan EMTK,2,"Jumlah utang bank, kotor",677784.0,725406.0,0.0
+EMTK,Perusahaan EMTK,3,"Jumlah utang bank, bersih",677784.0,725406.0,0.0
+EMTK,Perusahaan EMTK,4,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,406239.0,336473.0,0.0
+EMTK,Perusahaan EMTK,5,Liabilitas jangka panjang atas utang bank,271545.0,388933.0,0.0
+BEEF,Perusahaan BEEF,1,"Jumlah utang bank, kotor",424130005154.0,428000000000.0,0.0
+BEEF,Perusahaan BEEF,2,"Jumlah utang bank, bersih",424130005154.0,428000000000.0,0.0
+BEEF,Perusahaan BEEF,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,70800000008.0,70800000008.0,0.0
+BEEF,Perusahaan BEEF,4,Liabilitas jangka panjang atas utang bank,353330005146.0,357199999992.0,0.0
+INTA,Perusahaan INTA,1,Bank Mandiri (Persero) Tbk,IDR,0.0,1762804.0
+INTA,Perusahaan INTA,2,Bank Syariah Indonesia Tbk,IDR,328028.0,328809.0
+INTA,Perusahaan INTA,3,Bank Syariah Indonesia Tbk,USD,38614.0,38187.0
+INTA,Perusahaan INTA,4,Bank Negara Indonesia (Persero) Tbk,IDR,71612.0,72670.0
+INTA,Perusahaan INTA,5,Bank lokal lainnya,IDR,150242.0,150422.0
+INTA,Perusahaan INTA,6,"Jumlah utang bank, kotor",2351967.0,2356217.0,0.0
+INTA,Perusahaan INTA,7,"Jumlah utang bank, bersih",2351967.0,2356217.0,0.0
+INTA,Perusahaan INTA,8,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,149516.0,145332.0,0.0
+INTA,Perusahaan INTA,9,Liabilitas jangka panjang atas utang bank,2202451.0,2210885.0,0.0
+BHIT,Perusahaan BHIT,1,Bank Central Asia Tbk,IDR,7782.0,9062.0
+BHIT,Perusahaan BHIT,2,Bank Rakyat Indonesia (Persero) Tbk,IDR,15864.0,16417.0
+BHIT,Perusahaan BHIT,3,Bank Mayapada Internasional Tbk,IDR,673407.0,674369.0
+BHIT,Perusahaan BHIT,4,Bank Pembangunan Daerah Jawa Barat dan Banten Tbk,IDR,112500.0,148750.0
+BHIT,Perusahaan BHIT,5,Pinjaman sindikasi,IDR,182500.0,212917.0
+BHIT,Perusahaan BHIT,6,Bank asing lainnya,IDR,922607.0,928244.0
+BHIT,Perusahaan BHIT,7,Bank lokal lainnya,IDR,1937170.0,2008346.0
+BHIT,Perusahaan BHIT,8,"Jumlah utang bank, kotor",3851830.0,3998105.0,0.0
+BHIT,Perusahaan BHIT,9,"Jumlah utang bank, bersih",3851830.0,3998105.0,0.0
+BHIT,Perusahaan BHIT,10,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,1972781.0,2073054.0,0.0
+BHIT,Perusahaan BHIT,11,Liabilitas jangka panjang atas utang bank,1879049.0,1925051.0,0.0
+PZZA,Perusahaan PZZA,1,Bank Cimb Niaga Tbk,IDR,163333333328.0,187083333342.0
+PZZA,Perusahaan PZZA,2,Bank asing lainnya,IDR,50000000011.0,62499999993.0
+PZZA,Perusahaan PZZA,3,"Jumlah utang bank, kotor",213333333339.0,249583333335.0,0.0
+PZZA,Perusahaan PZZA,4,"Jumlah utang bank, bersih",213333333339.0,249583333335.0,0.0
+PZZA,Perusahaan PZZA,5,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,84583333316.0,102083333347.0,0.0
+PZZA,Perusahaan PZZA,6,Liabilitas jangka panjang atas utang bank,128750000023.0,147499999988.0,0.0
+SKLT,Perusahaan SKLT,1,Bank Pan Indonesia Tbk,IDR,62153.0,65156.0
+SKLT,Perusahaan SKLT,2,Bank lokal lainnya,IDR,74444.0,76015.0
+SKLT,Perusahaan SKLT,3,"Jumlah utang bank, kotor",136597.0,141171.0,0.0
+SKLT,Perusahaan SKLT,4,"Jumlah utang bank, bersih",136597.0,141171.0,0.0
+SKLT,Perusahaan SKLT,5,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,18954.0,18669.0,0.0
+SKLT,Perusahaan SKLT,6,Liabilitas jangka panjang atas utang bank,117643.0,122502.0,0.0
+HOPE,Perusahaan HOPE,1,"Jumlah utang bank, kotor",8683508968.0,10154347123.0,0.0
+HOPE,Perusahaan HOPE,2,"Jumlah utang bank, bersih",8683508968.0,10154347123.0,0.0
+HOPE,Perusahaan HOPE,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,5288313388.0,6465979609.0,0.0
+HOPE,Perusahaan HOPE,4,Liabilitas jangka panjang atas utang bank,3395195580.0,3688367514.0,0.0
+PDES,Perusahaan PDES,1,Bank lokal lainnya,IDR,89764317308.0,90303711537.0
+PDES,Perusahaan PDES,2,"Jumlah utang bank, kotor",89764317308.0,90303711537.0,0.0
+PDES,Perusahaan PDES,3,"Jumlah utang bank, bersih",90200000000.0,90800000000.0,0.0
+PDES,Perusahaan PDES,4,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,4000000000.0,3400000000.0,0.0
+PDES,Perusahaan PDES,5,Liabilitas jangka panjang atas utang bank,85764317308.0,86903711537.0,0.0
+LAJU,Perusahaan LAJU,1,"Jumlah utang bank, kotor",22606277500.0,25417907500.0,0.0
+LAJU,Perusahaan LAJU,2,"Jumlah utang bank, bersih",22606277500.0,25417907500.0,0.0
+LAJU,Perusahaan LAJU,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,9951611667.0,10639699167.0,0.0
+LAJU,Perusahaan LAJU,4,Liabilitas jangka panjang atas utang bank,12654665833.0,14778208333.0,0.0
+PSGO,Perusahaan PSGO,1,Bank Mandiri (Persero) Tbk,IDR,0.0,847812620000.0
+DNET,Perusahaan DNET,1,"Jumlah utang bank, kotor",6914770.0,7080926.0,0.0
+DNET,Perusahaan DNET,2,Biaya penerbitan utang bank yang belum diamortisasi,32093.0,34547.0,0.0
+DNET,Perusahaan DNET,3,"Jumlah utang bank, bersih",6882677.0,7046379.0,0.0
+DNET,Perusahaan DNET,4,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,974030.0,803775.0,0.0
+DNET,Perusahaan DNET,5,Liabilitas jangka panjang atas utang bank,5908647.0,6242604.0,0.0
+IBFN,Perusahaan IBFN,1,Bank Syariah Indonesia Tbk,IDR,67952235073.0,68112235073.0
+IBFN,Perusahaan IBFN,2,Bank Syariah Indonesia Tbk,USD,7697485934.0,7614829312.0
+IBFN,Perusahaan IBFN,3,Bank Negara Indonesia (Persero) Tbk,IDR,448559723899.0,449692352063.0
+IBFN,Perusahaan IBFN,4,Bank lokal lainnya,IDR,351066551236.0,351784051236.0
+IBFN,Perusahaan IBFN,5,Bank lokal lainnya,USD,34284027653.0,33897345229.0
+IBFN,Perusahaan IBFN,6,"Jumlah utang bank, kotor",909560023795.0,911100812914.0,0.0
+IBFN,Perusahaan IBFN,7,"Jumlah utang bank, bersih",909560023795.0,911100812914.0,0.0
+IBFN,Perusahaan IBFN,8,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,74741275723.0,72272847493.0,0.0
+IBFN,Perusahaan IBFN,9,Liabilitas jangka panjang atas utang bank,834818748072.0,838827965421.0,0.0
+ITMG,Perusahaan ITMG,1,Bank Permata Tbk,IDR,37021.0,38775.0
+ITMG,Perusahaan ITMG,2,"Jumlah utang bank, kotor",37021.0,38775.0,0.0
+ITMG,Perusahaan ITMG,3,Biaya penerbitan utang bank yang belum diamortisasi,216.0,243.0,0.0
+ITMG,Perusahaan ITMG,4,"Jumlah utang bank, bersih",36805.0,38532.0,0.0
+ITMG,Perusahaan ITMG,5,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,7409.0,6433.0,0.0
+ITMG,Perusahaan ITMG,6,Liabilitas jangka panjang atas utang bank,29396.0,32099.0,0.0
+NSSS,Perusahaan NSSS,1,"Jumlah utang bank, kotor",1520724.0,1619170.0,0.0
+NSSS,Perusahaan NSSS,2,"Jumlah utang bank, bersih",1520724.0,1619170.0,0.0
+NSSS,Perusahaan NSSS,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,336765.0,366591.0,0.0
+NSSS,Perusahaan NSSS,4,Liabilitas jangka panjang atas utang bank,1183959.0,1252579.0,0.0
+AMMN,Perusahaan AMMN,1,Bank Central Asia Tbk,IDR,57671.0,58992.0
+AMMN,Perusahaan AMMN,2,Bank Rakyat Indonesia (Persero) Tbk,USD,143250.0,145550.0
+AMMN,Perusahaan AMMN,3,Bank Mandiri (Persero) Tbk,USD,73174.0,0.0
+AMMN,Perusahaan AMMN,4,Bank Mega Tbk,IDR,116237.0,0.0
+AMMN,Perusahaan AMMN,5,Bank Mega Tbk,USD,101000.0,95250.0
+AMMN,Perusahaan AMMN,6,Bank Maybank Indonesia Tbk,USD,49923.0,49985.0
+AMMN,Perusahaan AMMN,7,Pinjaman sindikasi,USD,5642078.0,5657889.0
+AMMN,Perusahaan AMMN,8,Bank lokal lainnya,IDR,25075.0,25107.0
+AMMN,Perusahaan AMMN,9,Bank lokal lainnya,USD,99493.0,99971.0
+AMMN,Perusahaan AMMN,10,"Jumlah utang bank, kotor",6307901.0,6132744.0,0.0
+AMMN,Perusahaan AMMN,11,Biaya penerbitan utang bank yang belum diamortisasi,68335.0,87245.0,0.0
+AMMN,Perusahaan AMMN,12,"Jumlah utang bank, bersih",6239566.0,6045499.0,0.0
+AMMN,Perusahaan AMMN,13,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,152722.0,164901.0,0.0
+AMMN,Perusahaan AMMN,14,Liabilitas jangka panjang atas utang bank,6086844.0,5880598.0,0.0
+MORA,Perusahaan MORA,1,Bank Mandiri (Persero) Tbk,IDR,3594513.0,3320279.0
+MORA,Perusahaan MORA,2,Bank Negara Indonesia (Persero) Tbk,IDR,550548.0,682646.0
+MORA,Perusahaan MORA,3,"Jumlah utang bank, kotor",4145061.0,4002925.0,0.0
+MORA,Perusahaan MORA,4,Biaya penerbitan utang bank yang belum diamortisasi,7158.0,8207.0,0.0
+MORA,Perusahaan MORA,5,"Jumlah utang bank, bersih",4137903.0,3994718.0,0.0
+MORA,Perusahaan MORA,6,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,1005175.0,985962.0,0.0
+MORA,Perusahaan MORA,7,Liabilitas jangka panjang atas utang bank,3132728.0,3008756.0,0.0
+ASII,Perusahaan ASII,1,Bank Rakyat Indonesia (Persero) Tbk,USD,110000000.0,120000000.0
+ASII,Perusahaan ASII,2,Bank Danamon Indonesia Tbk,USD,11000000.0,13000000.0
+ASII,Perusahaan ASII,3,Pinjaman sindikasi,USD,1173000000.0,725000000.0
+ASII,Perusahaan ASII,4,Bank asing lainnya,USD,6000000.0,17000000.0
+ASII,Perusahaan ASII,5,Bank lokal lainnya,USD,76000000.0,80000000.0
+ASII,Perusahaan ASII,6,"Jumlah utang bank, kotor",67979.0,63484.0,0.0
+ASII,Perusahaan ASII,7,"Jumlah utang bank, bersih",67979.0,63484.0,0.0
+ASII,Perusahaan ASII,8,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,41264.0,35325.0,0.0
+ASII,Perusahaan ASII,9,Liabilitas jangka panjang atas utang bank,26715.0,28159.0,0.0
+DMMX,Perusahaan DMMX,1,"Jumlah utang bank, kotor",318999999.0,348000000.0,0.0
+DMMX,Perusahaan DMMX,2,"Jumlah utang bank, bersih",318999999.0,348000000.0,0.0
+DMMX,Perusahaan DMMX,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,116000004.0,116000004.0,0.0
+DMMX,Perusahaan DMMX,4,Liabilitas jangka panjang atas utang bank,202999995.0,231999996.0,0.0
+MYTX,Perusahaan MYTX,1,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,50837.0,42695.0,0.0
+MYTX,Perusahaan MYTX,2,Liabilitas jangka panjang atas utang bank,1712154.0,1709423.0,0.0
+SMSM,Perusahaan SMSM,1,Bank asing lainnya,AUD,2505000.0,2640000.0
+SMSM,Perusahaan SMSM,2,Bank asing lainnya,THB,42775888.0,47080888.0
+SMSM,Perusahaan SMSM,3,"Jumlah utang bank, kotor",65696.0,70027.0,0.0
+SMSM,Perusahaan SMSM,4,"Jumlah utang bank, bersih",65696.0,70027.0,0.0
+SMSM,Perusahaan SMSM,5,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,17063.0,17717.0,0.0
+SMSM,Perusahaan SMSM,6,Liabilitas jangka panjang atas utang bank,48633.0,52310.0,0.0
+AYAM,Perusahaan AYAM,1,Bank Mandiri (Persero) Tbk,IDR,13720000012.0,14700000010.0
+AYAM,Perusahaan AYAM,2,Bank Negara Indonesia (Persero) Tbk,IDR,3501500000.0,3751250000.0
+AYAM,Perusahaan AYAM,3,"Jumlah utang bank, kotor",17221500012.0,18451250010.0,0.0
+AYAM,Perusahaan AYAM,4,"Jumlah utang bank, bersih",17221500012.0,18451250010.0,0.0
+AYAM,Perusahaan AYAM,5,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,4918999992.0,4918999992.0,0.0
+AYAM,Perusahaan AYAM,6,Liabilitas jangka panjang atas utang bank,12302500020.0,13532250018.0,0.0
+JATI,Perusahaan JATI,1,Biaya penerbitan utang bank yang belum diamortisasi,77706621145.0,38125462689.0,0.0
+JATI,Perusahaan JATI,2,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,64458750666.0,23113938992.0,0.0
+JATI,Perusahaan JATI,3,Liabilitas jangka panjang atas utang bank,13247870479.0,15011523697.0,0.0
+AGII,Perusahaan AGII,1,"Jumlah utang bank, kotor",2811336.0,2820741.0,0.0
+AGII,Perusahaan AGII,2,Biaya penerbitan utang bank yang belum diamortisasi,14464.0,21864.0,0.0
+AGII,Perusahaan AGII,3,"Jumlah utang bank, bersih",2796872.0,2798877.0,0.0
+AGII,Perusahaan AGII,4,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,204118.0,170170.0,0.0
+AGII,Perusahaan AGII,5,Liabilitas jangka panjang atas utang bank,2592754.0,2628707.0,0.0
+CLEO,Perusahaan CLEO,1,Bank Negara Indonesia (Persero) Tbk,IDR,273667777758.0,292412777760.0
+CLEO,Perusahaan CLEO,2,"Jumlah utang bank, kotor",273667777758.0,292412777760.0,0.0
+CLEO,Perusahaan CLEO,3,"Jumlah utang bank, bersih",273667777758.0,292412777760.0,0.0
+CLEO,Perusahaan CLEO,4,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,74980000008.0,74980000008.0,0.0
+CLEO,Perusahaan CLEO,5,Liabilitas jangka panjang atas utang bank,198687777750.0,217432777752.0,0.0
+WINE,Perusahaan WINE,1,"Jumlah utang bank, kotor",19950000000.0,7180000000.0,0.0
+WINE,Perusahaan WINE,2,"Jumlah utang bank, bersih",19950000000.0,7180000000.0,0.0
+WINE,Perusahaan WINE,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,6192857143.0,6280000000.0,0.0
+WINE,Perusahaan WINE,4,Liabilitas jangka panjang atas utang bank,13757142857.0,900000000.0,0.0
+VISI,Perusahaan VISI,1,"Jumlah utang bank, kotor",78638.0,74933.0,0.0
+VISI,Perusahaan VISI,2,"Jumlah utang bank, bersih",78638.0,74933.0,0.0
+VISI,Perusahaan VISI,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,65894.0,62197.0,0.0
+VISI,Perusahaan VISI,4,Liabilitas jangka panjang atas utang bank,12744.0,12736.0,0.0
+BPTR,Perusahaan BPTR,1,"Jumlah utang bank, kotor",1348894177736.0,1302256156155.0,0.0
+BPTR,Perusahaan BPTR,2,"Jumlah utang bank, bersih",1348894177736.0,1302256156155.0,0.0
+BPTR,Perusahaan BPTR,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,256164204351.0,233427823164.0,0.0
+BPTR,Perusahaan BPTR,4,Liabilitas jangka panjang atas utang bank,1092729973385.0,1068828332991.0,0.0
+KAEF,Perusahaan KAEF,1,"Jumlah utang bank, kotor",6125399253.0,5372301295.0,0.0
+KAEF,Perusahaan KAEF,2,"Jumlah utang bank, bersih",6125399253.0,5372301295.0,0.0
+KAEF,Perusahaan KAEF,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,1822748661.0,2008378724.0,0.0
+KAEF,Perusahaan KAEF,4,Liabilitas jangka panjang atas utang bank,4302650592.0,3363922571.0,0.0
+IPOL,Perusahaan IPOL,1,Bank Central Asia Tbk,USD,28111408.0,27744829.0
+IPOL,Perusahaan IPOL,2,Bank asing lainnya,CNY,247131401.0,245061071.0
+IPOL,Perusahaan IPOL,3,Bank asing lainnya,EUR,12862667.0,12862667.0
+IPOL,Perusahaan IPOL,4,"Jumlah utang bank, kotor",78656586.0,77940894.0,0.0
+IPOL,Perusahaan IPOL,5,"Jumlah utang bank, bersih",78656586.0,77940894.0,0.0
+IPOL,Perusahaan IPOL,6,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,3475946.0,3538152.0,0.0
+IPOL,Perusahaan IPOL,7,Liabilitas jangka panjang atas utang bank,75180640.0,74402742.0,0.0
+TLDN,Perusahaan TLDN,1,"Jumlah utang bank, kotor",397939532.0,425287374.0,0.0
+TLDN,Perusahaan TLDN,2,"Jumlah utang bank, bersih",397939532.0,425287374.0,0.0
+TLDN,Perusahaan TLDN,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,165863709.0,190767674.0,0.0
+TLDN,Perusahaan TLDN,4,Liabilitas jangka panjang atas utang bank,232075823.0,234519700.0,0.0
+DYAN,Perusahaan DYAN,1,"Jumlah utang bank, kotor",30000000000.0,30525000000.0,0.0
+DYAN,Perusahaan DYAN,2,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,1400000000.0,1925000000.0,0.0
+DYAN,Perusahaan DYAN,3,Liabilitas jangka panjang atas utang bank,28600000000.0,28600000000.0,0.0
+PTBA,Perusahaan PTBA,1,Pinjaman sindikasi,IDR,2049998.0,1288518.0
+PTBA,Perusahaan PTBA,2,Bank lokal lainnya,IDR,1960.0,1960.0
+PTBA,Perusahaan PTBA,3,"Jumlah utang bank, kotor",2051958.0,1290478.0,0.0
+PTBA,Perusahaan PTBA,4,Biaya penerbitan utang bank yang belum diamortisasi,11415.0,12953.0,0.0
+PTBA,Perusahaan PTBA,5,"Jumlah utang bank, bersih",2040543.0,1277525.0,0.0
+PTBA,Perusahaan PTBA,6,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,100.0,100.0,0.0
+PTBA,Perusahaan PTBA,7,Liabilitas jangka panjang atas utang bank,2040443.0,1277425.0,0.0
+AKPI,Perusahaan AKPI,1,Bank Central Asia Tbk,IDR,3668558.0,4004188.0
+AKPI,Perusahaan AKPI,2,Bank Mega Tbk,USD,9046307.0,9564540.0
+AKPI,Perusahaan AKPI,3,Bank Cimb Niaga Tbk,USD,6905955.0,6388023.0
+AKPI,Perusahaan AKPI,4,Bank asing lainnya,EUR,12099525.0,13107819.0
+AKPI,Perusahaan AKPI,5,Bank asing lainnya,USD,1527000.0,1527000.0
+AKPI,Perusahaan AKPI,6,"Jumlah utang bank, kotor",537090679.0,556268296.0,0.0
+AKPI,Perusahaan AKPI,7,Biaya penerbitan utang bank yang belum diamortisasi,2443692.0,2465782.0,0.0
+AKPI,Perusahaan AKPI,8,"Jumlah utang bank, bersih",534646987.0,553802514.0,0.0
+AKPI,Perusahaan AKPI,9,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,47348779.0,89163605.0,0.0
+AKPI,Perusahaan AKPI,10,Liabilitas jangka panjang atas utang bank,487298208.0,464638909.0,0.0
+SAMF,Perusahaan SAMF,1,"Jumlah utang bank, kotor",106827202811.0,114294351071.0,0.0
+SAMF,Perusahaan SAMF,2,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,29868593040.0,29868593048.0,0.0
+SAMF,Perusahaan SAMF,3,Liabilitas jangka panjang atas utang bank,76958609771.0,84425758023.0,0.0
+STAA,Perusahaan STAA,1,"Jumlah utang bank, kotor",1368102.0,1453096.0,0.0
+STAA,Perusahaan STAA,2,Biaya penerbitan utang bank yang belum diamortisasi,1435.0,1306.0,0.0
+STAA,Perusahaan STAA,3,"Jumlah utang bank, bersih",1366667.0,1451790.0,0.0
+STAA,Perusahaan STAA,4,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,294183.0,301384.0,0.0
+STAA,Perusahaan STAA,5,Liabilitas jangka panjang atas utang bank,1072484.0,1150406.0,0.0
+MKTR,Perusahaan MKTR,1,Bank Syariah Indonesia Tbk,IDR,710903667.0,728152334.0
+MKTR,Perusahaan MKTR,2,"Jumlah utang bank, kotor",710903667.0,728152334.0,0.0
+MKTR,Perusahaan MKTR,3,"Jumlah utang bank, bersih",710903667.0,728152334.0,0.0
+MKTR,Perusahaan MKTR,4,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,68808000.0,68849667.0,0.0
+MKTR,Perusahaan MKTR,5,Liabilitas jangka panjang atas utang bank,642095667.0,659302667.0,0.0
+TOTO,Perusahaan TOTO,1,"Jumlah utang bank, kotor",31084638210.0,22276261299.0,0.0
+TOTO,Perusahaan TOTO,2,"Jumlah utang bank, bersih",31084638210.0,22276261299.0,0.0
+TOTO,Perusahaan TOTO,3,Liabilitas jangka panjang atas utang bank,29357713864.0,22276261299.0,0.0
+SHID,Perusahaan SHID,1,"Jumlah utang bank, kotor",393150875154.0,400662139584.0,0.0
+SHID,Perusahaan SHID,2,"Jumlah utang bank, bersih",393150875154.0,400662139584.0,0.0
+SHID,Perusahaan SHID,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,16573849719.0,19686507096.0,0.0
+SHID,Perusahaan SHID,4,Liabilitas jangka panjang atas utang bank,376577025435.0,380975632488.0,0.0
+MPOW,Perusahaan MPOW,1,Bank Permata Tbk,IDR,2429899.0,2694548.0
+MPOW,Perusahaan MPOW,2,"Jumlah utang bank, kotor",2429899.0,2694548.0,0.0
+MPOW,Perusahaan MPOW,3,"Jumlah utang bank, bersih",2429899.0,2694548.0,0.0
+MPOW,Perusahaan MPOW,4,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,1090526.0,1077678.0,0.0
+MPOW,Perusahaan MPOW,5,Liabilitas jangka panjang atas utang bank,1339373.0,1616870.0,0.0
+TBLA,Perusahaan TBLA,1,"Jumlah utang bank, kotor",9351234.0,9480777.0,0.0
+TBLA,Perusahaan TBLA,2,Biaya penerbitan utang bank yang belum diamortisasi,40770.0,45082.0,0.0
+TBLA,Perusahaan TBLA,3,"Jumlah utang bank, bersih",9310464.0,9435695.0,0.0
+TBLA,Perusahaan TBLA,4,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,1716714.0,1856509.0,0.0
+TBLA,Perusahaan TBLA,5,Liabilitas jangka panjang atas utang bank,7593750.0,7579186.0,0.0
+GRPH,Perusahaan GRPH,1,"Jumlah utang bank, kotor",16584048325.0,17390748325.0,0.0
+GRPH,Perusahaan GRPH,2,"Jumlah utang bank, bersih",16584048325.0,17390748325.0,0.0
+GRPH,Perusahaan GRPH,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,2550438096.0,3225885714.0,0.0
+GRPH,Perusahaan GRPH,4,Liabilitas jangka panjang atas utang bank,14033610229.0,14164862611.0,0.0
+INAI,Perusahaan INAI,1,"Jumlah utang bank, kotor",215616445434.0,225590464517.0,0.0
+INAI,Perusahaan INAI,2,"Jumlah utang bank, bersih",215616445434.0,225590464517.0,0.0
+INAI,Perusahaan INAI,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,209161608811.0,218600260711.0,0.0
+INAI,Perusahaan INAI,4,Liabilitas jangka panjang atas utang bank,6454836623.0,6990203806.0,0.0
+ERAA,Perusahaan ERAA,1,Bank Central Asia Tbk,IDR,1933990457.0,2235179264.0
+ERAA,Perusahaan ERAA,2,Bank Cimb Niaga Tbk,IDR,20574603.0,56208909.0
+ERAA,Perusahaan ERAA,3,Bank lokal lainnya,IDR,600000000.0,250000000.0
+ERAA,Perusahaan ERAA,4,"Jumlah utang bank, kotor",2575744796.0,2562349074.0,0.0
+ERAA,Perusahaan ERAA,5,Biaya penerbitan utang bank yang belum diamortisasi,3115870.0,2596385.0,0.0
+ERAA,Perusahaan ERAA,6,"Jumlah utang bank, bersih",2572628926.0,2559752689.0,0.0
+ERAA,Perusahaan ERAA,7,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,504904013.0,2096232729.0,0.0
+ERAA,Perusahaan ERAA,8,Liabilitas jangka panjang atas utang bank,2067724913.0,463519960.0,0.0
+BRMS,Perusahaan BRMS,1,"Jumlah utang bank, kotor",246000000.0,180000000.0,0.0
+BRMS,Perusahaan BRMS,2,"Jumlah utang bank, bersih",246000000.0,180000000.0,0.0
+BRMS,Perusahaan BRMS,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,18850000.0,14250000.0,0.0
+BRMS,Perusahaan BRMS,4,Liabilitas jangka panjang atas utang bank,227150000.0,165750000.0,0.0
+ELPI,Perusahaan ELPI,1,"Jumlah utang bank, bersih",392214.0,302213.0,0.0
+ELPI,Perusahaan ELPI,2,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,56796.0,63072.0,0.0
+ELPI,Perusahaan ELPI,3,Liabilitas jangka panjang atas utang bank,335418.0,239141.0,0.0
+PART,Perusahaan PART,1,Bank Central Asia Tbk,IDR,177409372656.0,121874743133.0
+PART,Perusahaan PART,2,"Jumlah utang bank, kotor",177409372656.0,121874743133.0,0.0
+PART,Perusahaan PART,3,Biaya penerbitan utang bank yang belum diamortisasi,865720828.0,906622912.0,0.0
+PART,Perusahaan PART,4,"Jumlah utang bank, bersih",176543651828.0,120968120221.0,0.0
+PART,Perusahaan PART,5,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,37173038165.0,21817058070.0,0.0
+PART,Perusahaan PART,6,Liabilitas jangka panjang atas utang bank,139370613663.0,99151062151.0,0.0
+TMPO,Perusahaan TMPO,1,"Jumlah utang bank, kotor",39158690.0,41216881.0,0.0
+TMPO,Perusahaan TMPO,2,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,7318421.0,7008933.0,0.0
+TMPO,Perusahaan TMPO,3,Liabilitas jangka panjang atas utang bank,39158690.0,41216881.0,0.0
+AGAR,Perusahaan AGAR,1,Liabilitas jangka panjang atas utang bank,6284841834.0,6241666675.0,0.0
+MICE,Perusahaan MICE,1,"Jumlah utang bank, kotor",9762418105.0,10772323427.0,0.0
+MICE,Perusahaan MICE,2,"Jumlah utang bank, bersih",9762418105.0,10772323427.0,0.0
+MICE,Perusahaan MICE,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,4039621285.0,4039621285.0,0.0
+MICE,Perusahaan MICE,4,Liabilitas jangka panjang atas utang bank,5722796820.0,6732702142.0,0.0
+SOCI,Perusahaan SOCI,1,Bank Mandiri (Persero) Tbk,IDR,6446419.0,6904123.0
+SOCI,Perusahaan SOCI,2,Bank Mandiri (Persero) Tbk,USD,6149982.0,6589269.0
+SOCI,Perusahaan SOCI,3,Bank OCBC Nisp Tbk,USD,17485714.0,18214286.0
+SOCI,Perusahaan SOCI,4,Pinjaman sindikasi,USD,87599845.0,98624824.0
+SOCI,Perusahaan SOCI,5,Bank lokal lainnya,USD,14742361.0,15575694.0
+SOCI,Perusahaan SOCI,6,"Jumlah utang bank, kotor",132424321.0,145908196.0,0.0
+SOCI,Perusahaan SOCI,7,Biaya penerbitan utang bank yang belum diamortisasi,606000.0,717739.0,0.0
+SOCI,Perusahaan SOCI,8,"Jumlah utang bank, bersih",131818321.0,145190457.0,0.0
+SOCI,Perusahaan SOCI,9,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,55447603.0,54198125.0,0.0
+SOCI,Perusahaan SOCI,10,Liabilitas jangka panjang atas utang bank,76370718.0,90992332.0,0.0
+CARE,Perusahaan CARE,1,"Jumlah utang bank, kotor",1057162812139.0,1068635678293.0,0.0
+CARE,Perusahaan CARE,2,"Jumlah utang bank, bersih",1057162812139.0,1068635678293.0,0.0
+CARE,Perusahaan CARE,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,531177976886.0,538162160766.0,0.0
+CARE,Perusahaan CARE,4,Liabilitas jangka panjang atas utang bank,525984835253.0,530473517527.0,0.0
+MTDL,Perusahaan MTDL,1,Bank Mandiri (Persero) Tbk,IDR,26228.0,38482.0
+MTDL,Perusahaan MTDL,2,Bank asing lainnya,IDR,123964.0,125962.0
+MTDL,Perusahaan MTDL,3,"Jumlah utang bank, kotor",150192.0,164444.0,0.0
+MTDL,Perusahaan MTDL,4,"Jumlah utang bank, bersih",150192.0,164444.0,0.0
+MTDL,Perusahaan MTDL,5,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,38414.0,41912.0,0.0
+MTDL,Perusahaan MTDL,6,Liabilitas jangka panjang atas utang bank,111778.0,122532.0,0.0
+TPIA,Perusahaan TPIA,1,Bank Central Asia Tbk,IDR,75438.0,77446.0
+TPIA,Perusahaan TPIA,2,Bank Central Asia Tbk,USD,50422.0,50260.0
+TPIA,Perusahaan TPIA,3,Bank Rakyat Indonesia (Persero) Tbk,USD,63665.0,63657.0
+TPIA,Perusahaan TPIA,4,Bank Mandiri (Persero) Tbk,IDR,308237.0,240604.0
+TPIA,Perusahaan TPIA,5,Bank Mandiri (Persero) Tbk,USD,229256.0,229233.0
+TPIA,Perusahaan TPIA,6,Bank Negara Indonesia (Persero) Tbk,USD,234692.0,234692.0
+TPIA,Perusahaan TPIA,7,Bank Danamon Indonesia Tbk,IDR,117327.0,118826.0
+TPIA,Perusahaan TPIA,8,Bank Tabungan Negara (Persero) Tbk,IDR,115333.0,61381.0
+TPIA,Perusahaan TPIA,9,Bank OCBC Nisp Tbk,USD,144423.0,145910.0
+TPIA,Perusahaan TPIA,10,Pinjaman sindikasi,USD,1736579.0,1744371.0
+TPIA,Perusahaan TPIA,11,Bank asing lainnya,USD,1239125.0,1140770.0
+TPIA,Perusahaan TPIA,12,"Jumlah utang bank, kotor",4314497.0,4107150.0,0.0
+TPIA,Perusahaan TPIA,13,"Jumlah utang bank, bersih",4314497.0,4107150.0,0.0
+TPIA,Perusahaan TPIA,14,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,169073.0,136069.0,0.0
+TPIA,Perusahaan TPIA,15,Liabilitas jangka panjang atas utang bank,4145424.0,3971081.0,0.0
+SPRE,Perusahaan SPRE,1,Bank lokal lainnya,IDR,0.0,1199999984.0
+SPRE,Perusahaan SPRE,2,"Jumlah utang bank, kotor",1099999982.0,1199999984.0,0.0
+SPRE,Perusahaan SPRE,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,400000008.0,400000008.0,0.0
+SPRE,Perusahaan SPRE,4,Liabilitas jangka panjang atas utang bank,699999974.0,799999976.0,0.0
+GEMA,Perusahaan GEMA,1,"Jumlah utang bank, kotor",95857242459.0,99926754193.0,0.0
+GEMA,Perusahaan GEMA,2,"Jumlah utang bank, bersih",95857242459.0,99926754193.0,0.0
+GEMA,Perusahaan GEMA,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,23711580226.0,22931920159.0,0.0
+GEMA,Perusahaan GEMA,4,Liabilitas jangka panjang atas utang bank,72145662233.0,76994834034.0,0.0
+HRTA,Perusahaan HRTA,1,"Jumlah utang bank, kotor",225000000000.0,225000000000.0,0.0
+HRTA,Perusahaan HRTA,2,"Jumlah utang bank, bersih",224062500000.0,225000000000.0,0.0
+HRTA,Perusahaan HRTA,3,Liabilitas jangka panjang atas utang bank,224062500000.0,225000000000.0,0.0
+DEWA,Perusahaan DEWA,1,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,742584841.0,835492258.0,0.0
+DEWA,Perusahaan DEWA,2,Liabilitas jangka panjang atas utang bank,2765968070.0,2635608330.0,0.0
+PEHA,Perusahaan PEHA,1,Bank Syariah Indonesia Tbk,IDR,166237000.0,166237000.0
+PEHA,Perusahaan PEHA,2,Bank Negara Indonesia (Persero) Tbk,IDR,163226098.0,162755730.0
+PEHA,Perusahaan PEHA,3,Bank Maybank Indonesia Tbk,IDR,144582928.0,152149368.0
+PEHA,Perusahaan PEHA,4,Bank Pembangunan Daerah Jawa Barat dan Banten Tbk,IDR,92222121.0,92137559.0
+PEHA,Perusahaan PEHA,5,Bank lokal lainnya,IDR,7533850.0,6688956.0
+PEHA,Perusahaan PEHA,6,"Jumlah utang bank, kotor",573801997.0,579968613.0,0.0
+PEHA,Perusahaan PEHA,7,"Jumlah utang bank, bersih",573801997.0,579968613.0,0.0
+PEHA,Perusahaan PEHA,8,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,83719794.0,72849857.0,0.0
+PEHA,Perusahaan PEHA,9,Liabilitas jangka panjang atas utang bank,490082203.0,507118756.0,0.0
+MTMH,Perusahaan MTMH,1,"Jumlah utang bank, kotor",624194970065.0,577872955514.0,0.0
+MTMH,Perusahaan MTMH,2,"Jumlah utang bank, bersih",624194970065.0,577872955514.0,0.0
+MTMH,Perusahaan MTMH,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,118643988619.0,131281731066.0,0.0
+MTMH,Perusahaan MTMH,4,Liabilitas jangka panjang atas utang bank,505550981446.0,446591224448.0,0.0
+SICO,Perusahaan SICO,1,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,14797395893.0,8168346550.0,0.0
+SICO,Perusahaan SICO,2,Liabilitas jangka panjang atas utang bank,5523268814.0,3023268815.0,0.0
+MSJA,Perusahaan MSJA,1,"Jumlah utang bank, kotor",1431321.0,1489691.0,0.0
+MSJA,Perusahaan MSJA,2,Biaya penerbitan utang bank yang belum diamortisasi,7006.0,7359.0,0.0
+MSJA,Perusahaan MSJA,3,"Jumlah utang bank, bersih",1424315.0,1482332.0,0.0
+MSJA,Perusahaan MSJA,4,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,165068.0,164887.0,0.0
+MSJA,Perusahaan MSJA,5,Liabilitas jangka panjang atas utang bank,1259247.0,1317445.0,0.0
+PTMP,Perusahaan PTMP,1,Bank Central Asia Tbk,IDR,1658308745.0,1174780340.0
+PTMP,Perusahaan PTMP,2,Bank Mandiri (Persero) Tbk,IDR,8500000000.0,11500000000.0
+PTMP,Perusahaan PTMP,3,Bank asing lainnya,IDR,13900000000.0,12725219660.0
+PTMP,Perusahaan PTMP,4,"Jumlah utang bank, kotor",24058308745.0,25400000000.0,0.0
+PTMP,Perusahaan PTMP,5,"Jumlah utang bank, bersih",24058308745.0,25400000000.0,0.0
+PTMP,Perusahaan PTMP,6,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,24058308745.0,25400000000.0,0.0
+IMPC,Perusahaan IMPC,1,Bank Central Asia Tbk,IDR,336601066719.0,422154370995.0
+IMPC,Perusahaan IMPC,2,Bank asing lainnya,AUD,1300000.0,1400000.0
+IMPC,Perusahaan IMPC,3,"Jumlah utang bank, kotor",457425386021.0,547002029190.0,0.0
+IMPC,Perusahaan IMPC,4,Biaya penerbitan utang bank yang belum diamortisasi,2055359903.0,2334526737.0,0.0
+IMPC,Perusahaan IMPC,5,"Jumlah utang bank, bersih",455370026118.0,544667502453.0,0.0
+IMPC,Perusahaan IMPC,6,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,102658849243.0,109209987356.0,0.0
+IMPC,Perusahaan IMPC,7,Liabilitas jangka panjang atas utang bank,352711176875.0,435457515097.0,0.0
+MUTU,Perusahaan MUTU,1,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,25871784430.0,30953069485.0,0.0
+MUTU,Perusahaan MUTU,2,Liabilitas jangka panjang atas utang bank,29566318650.0,14761249976.0,0.0
+INPS,Perusahaan INPS,1,Bank Mandiri (Persero) Tbk,IDR,51780000000.0,53880000000.0
+INPS,Perusahaan INPS,2,"Jumlah utang bank, kotor",51780000000.0,53880000000.0,0.0
+INPS,Perusahaan INPS,3,"Jumlah utang bank, bersih",51780000000.0,53880000000.0,0.0
+INPS,Perusahaan INPS,4,Liabilitas jangka panjang atas utang bank,51780000000.0,53880000000.0,0.0
+AUTO,Perusahaan AUTO,1,Bank asing lainnya,IDR,161334.0,166333.0
+AUTO,Perusahaan AUTO,2,Bank lokal lainnya,IDR,5500.0,10500.0
+AUTO,Perusahaan AUTO,3,"Jumlah utang bank, kotor",166834.0,176833.0,0.0
+AUTO,Perusahaan AUTO,4,Biaya penerbitan utang bank yang belum diamortisasi,438.0,625.0,0.0
+AUTO,Perusahaan AUTO,5,"Jumlah utang bank, bersih",166396.0,176208.0,0.0
+AUTO,Perusahaan AUTO,6,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,24088.0,34088.0,0.0
+AUTO,Perusahaan AUTO,7,Liabilitas jangka panjang atas utang bank,142308.0,142120.0,0.0
+OILS,Perusahaan OILS,1,"Jumlah utang bank, kotor",13751585084.0,13751585084.0,0.0
+OILS,Perusahaan OILS,2,"Jumlah utang bank, bersih",13751585084.0,13751585084.0,0.0
+OILS,Perusahaan OILS,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,2876756605.0,3802227747.0,0.0
+OILS,Perusahaan OILS,4,Liabilitas jangka panjang atas utang bank,13751585084.0,13751585084.0,0.0
+JIHD,Perusahaan JIHD,1,"Jumlah utang bank, kotor",600948864.0,137348864.0,0.0
+JIHD,Perusahaan JIHD,2,Biaya penerbitan utang bank yang belum diamortisasi,291172.0,352006.0,0.0
+JIHD,Perusahaan JIHD,3,"Jumlah utang bank, bersih",600657692.0,136996858.0,0.0
+JIHD,Perusahaan JIHD,4,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,52188835.0,50374901.0,0.0
+JIHD,Perusahaan JIHD,5,Liabilitas jangka panjang atas utang bank,548468857.0,86621957.0,0.0
+IRRA,Perusahaan IRRA,1,"Jumlah utang bank, kotor",323955174099.0,257402408481.0,0.0
+IRRA,Perusahaan IRRA,2,"Jumlah utang bank, bersih",323955174099.0,257402408481.0,0.0
+IRRA,Perusahaan IRRA,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,22691086149.0,7914780774.0,0.0
+IRRA,Perusahaan IRRA,4,Liabilitas jangka panjang atas utang bank,301264087950.0,249487627707.0,0.0
+DFAM,Perusahaan DFAM,1,"Jumlah utang bank, kotor",103127724183.0,103647725196.0,0.0
+DFAM,Perusahaan DFAM,2,"Jumlah utang bank, bersih",103127724183.0,103647725196.0,0.0
+DFAM,Perusahaan DFAM,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,25322799376.0,15779051590.0,0.0
+DFAM,Perusahaan DFAM,4,Liabilitas jangka panjang atas utang bank,77804924807.0,87868673606.0,0.0
+OBAT,Perusahaan OBAT,1,Bank Syariah Indonesia Tbk,IDR,6508093373.0,6870620988.0
+OBAT,Perusahaan OBAT,2,"Jumlah utang bank, kotor",6508093373.0,6870620988.0,0.0
+OBAT,Perusahaan OBAT,3,"Jumlah utang bank, bersih",6508093373.0,6870620988.0,0.0
+OBAT,Perusahaan OBAT,4,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,1345833333.0,1345833333.0,0.0
+OBAT,Perusahaan OBAT,5,Liabilitas jangka panjang atas utang bank,5162260040.0,5524787655.0,0.0
+BUMI,Perusahaan BUMI,1,"Jumlah utang bank, kotor",303387118.0,180000000.0,0.0
+BUMI,Perusahaan BUMI,2,"Jumlah utang bank, bersih",303387118.0,180000000.0,0.0
+BUMI,Perusahaan BUMI,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,23154034.0,14250000.0,0.0
+BUMI,Perusahaan BUMI,4,Liabilitas jangka panjang atas utang bank,280233084.0,165750000.0,0.0
+ALDO,Perusahaan ALDO,1,Bank Central Asia Tbk,IDR,205004090883.0,222777936445.0
+ALDO,Perusahaan ALDO,2,"Jumlah utang bank, kotor",205004090883.0,222777936445.0,0.0
+ALDO,Perusahaan ALDO,3,"Jumlah utang bank, bersih",205004090883.0,222777936445.0,0.0
+ALDO,Perusahaan ALDO,4,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,78305979198.0,75292070124.0,0.0
+ALDO,Perusahaan ALDO,5,Liabilitas jangka panjang atas utang bank,126698111685.0,147485866321.0,0.0
+SRAJ,Perusahaan SRAJ,1,"Jumlah utang bank, kotor",283575.0,304433.0,0.0
+SRAJ,Perusahaan SRAJ,2,Biaya penerbitan utang bank yang belum diamortisasi,4632.0,4902.0,0.0
+SRAJ,Perusahaan SRAJ,3,"Jumlah utang bank, bersih",278943.0,299531.0,0.0
+SRAJ,Perusahaan SRAJ,4,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,80862.0,91017.0,0.0
+SRAJ,Perusahaan SRAJ,5,Liabilitas jangka panjang atas utang bank,198081.0,208514.0,0.0
+UNTR,Perusahaan UNTR,1,Bank Central Asia Tbk,IDR,5756250.0,6787500.0
+UNTR,Perusahaan UNTR,2,Bank Rakyat Indonesia (Persero) Tbk,USD,110.0,120.0
+UNTR,Perusahaan UNTR,3,Bank Mandiri (Persero) Tbk,IDR,1873433.0,1944181.0
+UNTR,Perusahaan UNTR,4,Bank Syariah Indonesia Tbk,IDR,187514.0,193541.0
+UNTR,Perusahaan UNTR,5,Bank Negara Indonesia (Persero) Tbk,IDR,1494796.0,1554153.0
+UNTR,Perusahaan UNTR,6,Bank asing lainnya,USD,643.0,163.0
+UNTR,Perusahaan UNTR,7,Bank lokal lainnya,USD,30.0,30.0
+UNTR,Perusahaan UNTR,8,"Jumlah utang bank, kotor",22631644.0,15737286.0,0.0
+UNTR,Perusahaan UNTR,9,"Jumlah utang bank, bersih",22631644.0,15737286.0,0.0
+UNTR,Perusahaan UNTR,10,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,17751229.0,9682666.0,0.0
+UNTR,Perusahaan UNTR,11,Liabilitas jangka panjang atas utang bank,4880415.0,6054620.0,0.0
+PTSN,Perusahaan PTSN,1,Bank Mandiri (Persero) Tbk,USD,27144096.0,28833642.0
+PTSN,Perusahaan PTSN,2,"Jumlah utang bank, kotor",27144096.0,28833642.0,0.0
+PTSN,Perusahaan PTSN,3,"Jumlah utang bank, bersih",27144096.0,28833642.0,0.0
+PTSN,Perusahaan PTSN,4,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,6758184.0,6758184.0,0.0
+PTSN,Perusahaan PTSN,5,Liabilitas jangka panjang atas utang bank,20385912.0,22075458.0,0.0
+GLOB,Perusahaan GLOB,1,Bank Mandiri (Persero) Tbk,IDR,454882211452.0,457282211452.0
+GLOB,Perusahaan GLOB,2,"Jumlah utang bank, kotor",454882211452.0,457282211452.0,0.0
+GLOB,Perusahaan GLOB,3,"Jumlah utang bank, bersih",454882211452.0,457282211452.0,0.0
+GLOB,Perusahaan GLOB,4,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,454882211452.0,457282211452.0,0.0
+MEDC,Perusahaan MEDC,1,Bank Rakyat Indonesia (Persero) Tbk,IDR,3188701218122.0,2500000000000.0
+MEDC,Perusahaan MEDC,2,Bank Mandiri (Persero) Tbk,IDR,11286482518432.0,11562232547292.0
+MEDC,Perusahaan MEDC,3,Bank Syariah Indonesia Tbk,IDR,246124929693.0,252776945070.0
+MEDC,Perusahaan MEDC,4,Bank Syariah Indonesia Tbk,USD,64034210.0,67080759.0
+MEDC,Perusahaan MEDC,5,Bank Negara Indonesia (Persero) Tbk,IDR,1813542834455.0,1837080933444.0
+MEDC,Perusahaan MEDC,6,Bank Negara Indonesia (Persero) Tbk,USD,9294222.0,9012312.0
+MEDC,Perusahaan MEDC,7,Bank Tabungan Negara (Persero) Tbk,IDR,0.0,126000000000.0
+MEDC,Perusahaan MEDC,8,Pinjaman sindikasi,USD,442377387.0,462100112.0
+MEDC,Perusahaan MEDC,9,Bank asing lainnya,IDR,2509500002808.0,2230500000000.0
+MEDC,Perusahaan MEDC,10,"Jumlah utang bank, kotor",1637088169.0,1641076657.0,0.0
+MEDC,Perusahaan MEDC,11,Biaya penerbitan utang bank yang belum diamortisasi,32632455.0,34326779.0,0.0
+MEDC,Perusahaan MEDC,12,"Jumlah utang bank, bersih",1604455714.0,1606749878.0,0.0
+MEDC,Perusahaan MEDC,13,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,207186059.0,196398717.0,0.0
+MEDC,Perusahaan MEDC,14,Liabilitas jangka panjang atas utang bank,1397269655.0,1410351161.0,0.0
+MKAP,Perusahaan MKAP,1,"Jumlah utang bank, kotor",40043177031.0,46540426381.0,0.0
+MKAP,Perusahaan MKAP,2,"Jumlah utang bank, bersih",40043177031.0,46540426381.0,0.0
+MKAP,Perusahaan MKAP,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,15514258943.0,17771620034.0,0.0
+MKAP,Perusahaan MKAP,4,Liabilitas jangka panjang atas utang bank,24528918088.0,28768806347.0,0.0
+WOOD,Perusahaan WOOD,1,"Jumlah utang bank, kotor",395740543588.0,421629861889.0,0.0
+WOOD,Perusahaan WOOD,2,"Jumlah utang bank, bersih",395740543588.0,421629861889.0,0.0
+WOOD,Perusahaan WOOD,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,103415125381.0,103536587938.0,0.0
+WOOD,Perusahaan WOOD,4,Liabilitas jangka panjang atas utang bank,292325418207.0,318093273951.0,0.0
+MPXL,Perusahaan MPXL,1,"Jumlah utang bank, kotor",31207277485.0,34685029679.0,0.0
+MPXL,Perusahaan MPXL,2,"Jumlah utang bank, bersih",31207277485.0,34685029679.0,0.0
+MPXL,Perusahaan MPXL,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,31207277485.0,34685029679.0,0.0
+ENAK,Perusahaan ENAK,1,Bank Central Asia Tbk,IDR,247263919963.0,226692796494.0
+ENAK,Perusahaan ENAK,2,"Jumlah utang bank, kotor",247263919963.0,226692796494.0,0.0
+ENAK,Perusahaan ENAK,3,"Jumlah utang bank, bersih",247263919963.0,226692796494.0,0.0
+ENAK,Perusahaan ENAK,4,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,71126501574.0,74126898236.0,0.0
+ENAK,Perusahaan ENAK,5,Liabilitas jangka panjang atas utang bank,176137418389.0,152565898258.0,0.0
+AMFG,Perusahaan AMFG,1,Bank Btpn Tbk,USD,900000.0,900000.0
+AMFG,Perusahaan AMFG,2,Bank lokal lainnya,USD,21918750.0,23250000.0
+AMFG,Perusahaan AMFG,3,"Jumlah utang bank, kotor",472739.0,497240.0,0.0
+AMFG,Perusahaan AMFG,4,"Jumlah utang bank, bersih",472739.0,497240.0,0.0
+AMFG,Perusahaan AMFG,5,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,130848.0,126683.0,0.0
+AMFG,Perusahaan AMFG,6,Liabilitas jangka panjang atas utang bank,341891.0,370557.0,0.0
+PRAY,Perusahaan PRAY,1,"Jumlah utang bank, kotor",1571949.0,1569608.0,0.0
+PRAY,Perusahaan PRAY,2,"Jumlah utang bank, bersih",1571949.0,1569608.0,0.0
+PRAY,Perusahaan PRAY,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,179127.0,155300.0,0.0
+PRAY,Perusahaan PRAY,4,Liabilitas jangka panjang atas utang bank,1392822.0,1414308.0,0.0
+RAJA,Perusahaan RAJA,1,"Jumlah utang bank, kotor",134842618.0,143974138.0,0.0
+RAJA,Perusahaan RAJA,2,Biaya penerbitan utang bank yang belum diamortisasi,816997.0,940742.0,0.0
+RAJA,Perusahaan RAJA,3,"Jumlah utang bank, bersih",134025621.0,143033396.0,0.0
+RAJA,Perusahaan RAJA,4,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,32196472.0,34826131.0,0.0
+RAJA,Perusahaan RAJA,5,Liabilitas jangka panjang atas utang bank,101829149.0,108207265.0,0.0
+KOBX,Perusahaan KOBX,1,Bank Central Asia Tbk,IDR,179638807627.0,201731721276.0
+KOBX,Perusahaan KOBX,2,Bank lokal lainnya,IDR,35302166301.0,32982809791.0
+KOBX,Perusahaan KOBX,3,"Jumlah utang bank, kotor",214940973928.0,234714531067.0,0.0
+KOBX,Perusahaan KOBX,4,"Jumlah utang bank, bersih",214940973928.0,234714531067.0,0.0
+KOBX,Perusahaan KOBX,5,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,102094418507.0,101582085310.0,0.0
+KOBX,Perusahaan KOBX,6,Liabilitas jangka panjang atas utang bank,112846555421.0,133132445757.0,0.0
+KOPI,Perusahaan KOPI,1,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,25447849332.0,25114896513.0,0.0
+KOPI,Perusahaan KOPI,2,Liabilitas jangka panjang atas utang bank,59385347270.0,65825230324.0,0.0
+DGIK,Perusahaan DGIK,1,"Jumlah utang bank, kotor",40544000000.0,34444000000.0,0.0
+DGIK,Perusahaan DGIK,2,"Jumlah utang bank, bersih",40544000000.0,34444000000.0,0.0
+DGIK,Perusahaan DGIK,3,Liabilitas jangka panjang atas utang bank,40544000000.0,34444000000.0,0.0
+PANR,Perusahaan PANR,1,Bank lokal lainnya,IDR,90200000.0,90800000.0
+PANR,Perusahaan PANR,2,"Jumlah utang bank, kotor",90200000.0,90800000.0,0.0
+PANR,Perusahaan PANR,3,Biaya penerbitan utang bank yang belum diamortisasi,435683.0,496288.0,0.0
+PANR,Perusahaan PANR,4,"Jumlah utang bank, bersih",89764317.0,90303712.0,0.0
+PANR,Perusahaan PANR,5,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,4000000.0,3400000.0,0.0
+PANR,Perusahaan PANR,6,Liabilitas jangka panjang atas utang bank,85764317.0,86903712.0,0.0
+POLI,Perusahaan POLI,1,"Jumlah utang bank, kotor",829996722835.0,844996722835.0,0.0
+POLI,Perusahaan POLI,2,"Jumlah utang bank, bersih",829996722835.0,844996722835.0,0.0
+POLI,Perusahaan POLI,3,Liabilitas jangka panjang atas utang bank,829996722835.0,844996722835.0,0.0
+WSBP,Perusahaan WSBP,1,"Jumlah utang bank, kotor",1797610635994.0,1770437877558.0,0.0
+WSBP,Perusahaan WSBP,2,"Jumlah utang bank, bersih",1797610635994.0,1770437877558.0,0.0
+WSBP,Perusahaan WSBP,3,Liabilitas jangka panjang atas utang bank,1797610635994.0,1770437877558.0,0.0
+APEX,Perusahaan APEX,1,"Jumlah utang bank, kotor",106207462.0,107475064.0,0.0
+APEX,Perusahaan APEX,2,"Jumlah utang bank, bersih",106207462.0,107475064.0,0.0
+APEX,Perusahaan APEX,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,5070409.0,5070409.0,0.0
+APEX,Perusahaan APEX,4,Liabilitas jangka panjang atas utang bank,101137053.0,102404655.0,0.0
+TRGU,Perusahaan TRGU,1,"Jumlah utang bank, kotor",352198450625.0,364392595101.0,0.0
+TRGU,Perusahaan TRGU,2,"Jumlah utang bank, bersih",352198450625.0,364392595101.0,0.0
+TRGU,Perusahaan TRGU,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,36796281918.0,41528578234.0,0.0
+TRGU,Perusahaan TRGU,4,Liabilitas jangka panjang atas utang bank,315402168707.0,322864016867.0,0.0
+SGRO,Perusahaan SGRO,1,Bank Mandiri (Persero) Tbk,IDR,200000.0,200000.0
+SGRO,Perusahaan SGRO,2,Bank Syariah Indonesia Tbk,IDR,155137.0,316875.0
+SGRO,Perusahaan SGRO,3,Bank Negara Indonesia (Persero) Tbk,IDR,210000.0,738000.0
+SGRO,Perusahaan SGRO,4,Bank OCBC Nisp Tbk,IDR,187250.0,632250.0
+SGRO,Perusahaan SGRO,5,"Jumlah utang bank, kotor",752387.0,1887125.0,0.0
+SGRO,Perusahaan SGRO,6,Biaya penerbitan utang bank yang belum diamortisasi,4873.0,5214.0,0.0
+SGRO,Perusahaan SGRO,7,"Jumlah utang bank, bersih",747514.0,1881911.0,0.0
+SGRO,Perusahaan SGRO,8,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,90178.0,268429.0,0.0
+SGRO,Perusahaan SGRO,9,Liabilitas jangka panjang atas utang bank,657336.0,1613482.0,0.0
+JAWA,Perusahaan JAWA,1,"Jumlah utang bank, kotor",914549484670.0,913704211550.0,0.0
+JAWA,Perusahaan JAWA,2,"Jumlah utang bank, bersih",914549484670.0,913704211550.0,0.0
+JAWA,Perusahaan JAWA,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,305281134978.0,224272809830.0,0.0
+JAWA,Perusahaan JAWA,4,Liabilitas jangka panjang atas utang bank,609268349692.0,689431401720.0,0.0
+CMNT,Perusahaan CMNT,1,Bank OCBC Nisp Tbk,IDR,1243.0,2936.0
+CMNT,Perusahaan CMNT,2,Pinjaman sindikasi,USD,393.0,401.0
+CMNT,Perusahaan CMNT,3,"Jumlah utang bank, kotor",6678138.0,6762043.0,0.0
+CMNT,Perusahaan CMNT,4,Biaya penerbitan utang bank yang belum diamortisasi,57041.0,58082.0,0.0
+CMNT,Perusahaan CMNT,5,"Jumlah utang bank, bersih",6621097.0,6703961.0,0.0
+CMNT,Perusahaan CMNT,6,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,601680.0,594793.0,0.0
+CMNT,Perusahaan CMNT,7,Liabilitas jangka panjang atas utang bank,6019417.0,6109168.0,0.0
+UNTD,Perusahaan UNTD,1,"Jumlah utang bank, kotor",83725988692.0,92734463237.0,0.0
+UNTD,Perusahaan UNTD,2,"Jumlah utang bank, bersih",83725988692.0,92734463237.0,0.0
+UNTD,Perusahaan UNTD,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,34000000000.0,36000000000.0,0.0
+UNTD,Perusahaan UNTD,4,Liabilitas jangka panjang atas utang bank,49725988692.0,56734463237.0,0.0
+GOOD,Perusahaan GOOD,1,"Jumlah utang bank, kotor",2046148750000.0,2133474999999.0,0.0
+GOOD,Perusahaan GOOD,2,Biaya penerbitan utang bank yang belum diamortisasi,2000668928.0,2247367348.0,0.0
+GOOD,Perusahaan GOOD,3,"Jumlah utang bank, bersih",2044148081072.0,2131227632651.0,0.0
+GOOD,Perusahaan GOOD,4,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,380981716499.0,361119759443.0,0.0
+GOOD,Perusahaan GOOD,5,Liabilitas jangka panjang atas utang bank,1663166364573.0,1770107873208.0,0.0
+AWAN,Perusahaan AWAN,1,Bank lokal lainnya,IDR,172175.0,226431.0
+AWAN,Perusahaan AWAN,2,"Jumlah utang bank, kotor",172175.0,226431.0,0.0
+AWAN,Perusahaan AWAN,3,"Jumlah utang bank, bersih",172175.0,226431.0,0.0
+AWAN,Perusahaan AWAN,4,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,172175.0,226431.0,0.0
+CRSN,Perusahaan CRSN,1,"Jumlah utang bank, kotor",70052540106.0,56634791430.0,0.0
+CRSN,Perusahaan CRSN,2,"Jumlah utang bank, bersih",70052540106.0,56634791430.0,0.0
+CRSN,Perusahaan CRSN,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,30865810701.0,17448062025.0,0.0
+CRSN,Perusahaan CRSN,4,Liabilitas jangka panjang atas utang bank,39186729405.0,39186729405.0,0.0
+WMUU,Perusahaan WMUU,1,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,3279195757.0,2810739221.0,0.0
+WMUU,Perusahaan WMUU,2,Liabilitas jangka panjang atas utang bank,740510566349.0,741412833774.0,0.0
+MBAP,Perusahaan MBAP,1,Bank OCBC Nisp Tbk,USD,30020360.0,28048891.0
+MBAP,Perusahaan MBAP,2,"Jumlah utang bank, kotor",30020360.0,28048891.0,0.0
+MBAP,Perusahaan MBAP,3,"Jumlah utang bank, bersih",30020360.0,28048891.0,0.0
+MBAP,Perusahaan MBAP,4,Liabilitas jangka panjang atas utang bank,30020360.0,28048891.0,0.0
+UVCR,Perusahaan UVCR,1,"Jumlah utang bank, kotor",1650000000.0,1800000000.0,0.0
+UVCR,Perusahaan UVCR,2,"Jumlah utang bank, bersih",1650000000.0,1800000000.0,0.0
+UVCR,Perusahaan UVCR,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,1650000000.0,1800000000.0,0.0
+BAIK,Perusahaan BAIK,1,"Jumlah utang bank, kotor",719578576.0,927774927.0,0.0
+BAIK,Perusahaan BAIK,2,"Jumlah utang bank, bersih",719578576.0,927774927.0,0.0
+BAIK,Perusahaan BAIK,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,592548121.0,800744472.0,0.0
+BAIK,Perusahaan BAIK,4,Liabilitas jangka panjang atas utang bank,127030455.0,127030455.0,0.0
+TRIO,Perusahaan TRIO,1,Bank Mandiri (Persero) Tbk,IDR,1.0,1.0
+TRIO,Perusahaan TRIO,2,Bank Negara Indonesia (Persero) Tbk,IDR,1.0,1.0
+TRIO,Perusahaan TRIO,3,"Jumlah utang bank, kotor",1714326670870.0,1722491670870.0,0.0
+TRIO,Perusahaan TRIO,4,"Jumlah utang bank, bersih",1714326670870.0,1722491670870.0,0.0
+TRIO,Perusahaan TRIO,5,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,842761422145.0,848961369328.0,0.0
+TRIO,Perusahaan TRIO,6,Liabilitas jangka panjang atas utang bank,871565248725.0,873530301542.0,0.0
+MSTI,Perusahaan MSTI,1,Bank OCBC Nisp Tbk,IDR,8389440954.0,10267295004.0
+MSTI,Perusahaan MSTI,2,"Jumlah utang bank, kotor",8389440954.0,10267295004.0,0.0
+MSTI,Perusahaan MSTI,3,"Jumlah utang bank, bersih",8389440954.0,10267295004.0,0.0
+MSTI,Perusahaan MSTI,4,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,2796480318.0,3975214289.0,0.0
+MSTI,Perusahaan MSTI,5,Liabilitas jangka panjang atas utang bank,5592960636.0,6292080715.0,0.0
+ALII,Perusahaan ALII,1,Bank Mandiri (Persero) Tbk,IDR,180783900.0,198783900.0
+ALII,Perusahaan ALII,2,Bank lokal lainnya,IDR,12700745.0,14435210.0
+ALII,Perusahaan ALII,3,"Jumlah utang bank, kotor",193484645.0,213219110.0,0.0
+ALII,Perusahaan ALII,4,"Jumlah utang bank, bersih",193484645.0,213219110.0,0.0
+ALII,Perusahaan ALII,5,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,78937860.0,78937860.0,0.0
+ALII,Perusahaan ALII,6,Liabilitas jangka panjang atas utang bank,114546785.0,134281250.0,0.0
+FISH,Perusahaan FISH,1,Bank Rakyat Indonesia (Persero) Tbk,IDR,150000000000.0,0.0
+FISH,Perusahaan FISH,2,Pinjaman sindikasi,IDR,810162500000.0,814273800000.0
+FISH,Perusahaan FISH,3,"Jumlah utang bank, kotor",56503317.0,48520665.0,0.0
+FISH,Perusahaan FISH,4,Biaya penerbitan utang bank yang belum diamortisasi,489176.0,517009.0,0.0
+FISH,Perusahaan FISH,5,"Jumlah utang bank, bersih",56014141.0,48003656.0,0.0
+FISH,Perusahaan FISH,6,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,993345.0,866459.0,0.0
+FISH,Perusahaan FISH,7,Liabilitas jangka panjang atas utang bank,55020796.0,47137197.0,0.0
+LIVE,Perusahaan LIVE,1,"Jumlah utang bank, kotor",162230522426.0,166080649133.0,0.0
+LIVE,Perusahaan LIVE,2,"Jumlah utang bank, bersih",162230522426.0,166080649133.0,0.0
+LIVE,Perusahaan LIVE,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,151257554216.0,155007680933.0,0.0
+LIVE,Perusahaan LIVE,4,Liabilitas jangka panjang atas utang bank,10972968210.0,11072968200.0,0.0
+BSML,Perusahaan BSML,1,"Jumlah utang bank, kotor",19124868445.0,27171290331.0,0.0
+BSML,Perusahaan BSML,2,"Jumlah utang bank, bersih",19124868445.0,27171290331.0,0.0
+BSML,Perusahaan BSML,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,18271658200.0,24342580662.0,0.0
+BSML,Perusahaan BSML,4,Liabilitas jangka panjang atas utang bank,853210245.0,2828709669.0,0.0
+ASPR,Perusahaan ASPR,1,"Jumlah utang bank, kotor",64167054209.0,64656511866.0,0.0
+ASPR,Perusahaan ASPR,2,"Jumlah utang bank, bersih",64167054209.0,64656511866.0,0.0
+ASPR,Perusahaan ASPR,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,20199997489.0,18896985588.0,0.0
+ASPR,Perusahaan ASPR,4,Liabilitas jangka panjang atas utang bank,43967056720.0,45759526278.0,0.0
+CNKO,Perusahaan CNKO,1,Bank lokal lainnya,IDR,107149726.0,122543611.0
+CNKO,Perusahaan CNKO,2,"Jumlah utang bank, kotor",107149726.0,122543611.0,0.0
+CNKO,Perusahaan CNKO,3,"Jumlah utang bank, bersih",107149726.0,122543611.0,0.0
+CNKO,Perusahaan CNKO,4,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,62562914.0,61413954.0,0.0
+CNKO,Perusahaan CNKO,5,Liabilitas jangka panjang atas utang bank,44586812.0,61129657.0,0.0
+MPIX,Perusahaan MPIX,1,"Jumlah utang bank, kotor",1810000000.0,1855000000.0,0.0
+MPIX,Perusahaan MPIX,2,"Jumlah utang bank, bersih",1810000000.0,1855000000.0,0.0
+MPIX,Perusahaan MPIX,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,1585000000.0,1630000000.0,0.0
+MPIX,Perusahaan MPIX,4,Liabilitas jangka panjang atas utang bank,225000000.0,225000000.0,0.0
+KBLI,Perusahaan KBLI,1,"Jumlah utang bank, kotor",12363229.0,12363229.0,0.0
+KBLI,Perusahaan KBLI,2,Liabilitas jangka panjang atas utang bank,12363229.0,12363229.0,0.0
+MAIN,Perusahaan MAIN,1,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,130171356.0,129830447.0,0.0
+MAIN,Perusahaan MAIN,2,Liabilitas jangka panjang atas utang bank,135999279.0,168740981.0,0.0
+BESS,Perusahaan BESS,1,"Jumlah utang bank, kotor",9708360000.0,12666360000.0,0.0
+BESS,Perusahaan BESS,2,"Jumlah utang bank, bersih",9708360000.0,12666360000.0,0.0
+BESS,Perusahaan BESS,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,8874000000.0,11832000000.0,0.0
+BESS,Perusahaan BESS,4,Liabilitas jangka panjang atas utang bank,834360000.0,834360000.0,0.0
+SBMA,Perusahaan SBMA,1,"Jumlah utang bank, kotor",13976150351.0,15116870094.0,0.0
+SBMA,Perusahaan SBMA,2,"Jumlah utang bank, bersih",13976150351.0,15116870094.0,0.0
+SBMA,Perusahaan SBMA,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,4328970427.0,4328970427.0,0.0
+SBMA,Perusahaan SBMA,4,Liabilitas jangka panjang atas utang bank,9647179924.0,10787899667.0,0.0
+ICBP,Perusahaan ICBP,1,Bank asing lainnya,JPY,259616896.0,330421493.0
+ICBP,Perusahaan ICBP,2,"Jumlah utang bank, kotor",636782.0,664454.0,0.0
+ICBP,Perusahaan ICBP,3,"Jumlah utang bank, bersih",636782.0,664454.0,0.0
+ICBP,Perusahaan ICBP,4,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,203559.0,196346.0,0.0
+ICBP,Perusahaan ICBP,5,Liabilitas jangka panjang atas utang bank,433223.0,468108.0,0.0
+BSSR,Perusahaan BSSR,1,Bank Cimb Niaga Tbk,USD,0.0,218267.0
+DRMA,Perusahaan DRMA,1,"Jumlah utang bank, kotor",151816586206.0,174164686703.0,0.0
+DRMA,Perusahaan DRMA,2,Biaya penerbitan utang bank yang belum diamortisasi,71187879.0,71187879.0,0.0
+DRMA,Perusahaan DRMA,3,"Jumlah utang bank, bersih",151745398327.0,174093498824.0,0.0
+DRMA,Perusahaan DRMA,4,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,59962133107.0,68557536186.0,0.0
+DRMA,Perusahaan DRMA,5,Liabilitas jangka panjang atas utang bank,91783265220.0,105607150517.0,0.0
+AMRT,Perusahaan AMRT,1,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,39422.0,39422.0,0.0
+AMRT,Perusahaan AMRT,2,Liabilitas jangka panjang atas utang bank,724076.0,721801.0,0.0
+TRON,Perusahaan TRON,1,Bank Central Asia Tbk,IDR,40191865978.0,40241173402.0
+TRON,Perusahaan TRON,2,Bank Rakyat Indonesia (Persero) Tbk,IDR,2195963251.0,2259416300.0
+TRON,Perusahaan TRON,3,"Jumlah utang bank, kotor",42387829229.0,42500589702.0,0.0
+TRON,Perusahaan TRON,4,"Jumlah utang bank, bersih",42387829229.0,42500589702.0,0.0
+TRON,Perusahaan TRON,5,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,5713290234.0,4223075286.0,0.0
+TRON,Perusahaan TRON,6,Liabilitas jangka panjang atas utang bank,37156564844.0,38277514416.0,0.0
+MPPA,Perusahaan MPPA,1,"Jumlah utang bank, kotor",245000.0,245000.0,0.0
+MPPA,Perusahaan MPPA,2,"Jumlah utang bank, bersih",245000.0,245000.0,0.0
+MPPA,Perusahaan MPPA,3,Liabilitas jangka panjang atas utang bank,245000.0,245000.0,0.0
+JECC,Perusahaan JECC,1,"Jumlah utang bank, kotor",44273276.0,42817733.0,0.0
+JECC,Perusahaan JECC,2,"Jumlah utang bank, bersih",44273276.0,42817733.0,0.0
+JECC,Perusahaan JECC,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,10275903.0,8384409.0,0.0
+JECC,Perusahaan JECC,4,Liabilitas jangka panjang atas utang bank,33997373.0,34433324.0,0.0
+IMJS,Perusahaan IMJS,1,Pinjaman sindikasi,USD,648.0,619.0
+IMJS,Perusahaan IMJS,2,Bank asing lainnya,USD,18.0,19.0
+IMJS,Perusahaan IMJS,3,"Jumlah utang bank, kotor",18312616.0,18321445.0,0.0
+IMJS,Perusahaan IMJS,4,Biaya penerbitan utang bank yang belum diamortisasi,127976.0,138845.0,0.0
+IMJS,Perusahaan IMJS,5,"Jumlah utang bank, bersih",18184640.0,18182600.0,0.0
+IMJS,Perusahaan IMJS,6,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,5876589.0,5969149.0,0.0
+IMJS,Perusahaan IMJS,7,Liabilitas jangka panjang atas utang bank,12308051.0,12213451.0,0.0
+GLVA,Perusahaan GLVA,1,"Jumlah utang bank, kotor",20913.0,25453.0,0.0
+GLVA,Perusahaan GLVA,2,"Jumlah utang bank, bersih",20913.0,25453.0,0.0
+GLVA,Perusahaan GLVA,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,16566.0,17523.0,0.0
+GLVA,Perusahaan GLVA,4,Liabilitas jangka panjang atas utang bank,4347.0,7930.0,0.0
+GZCO,Perusahaan GZCO,1,"Jumlah utang bank, kotor",88038.0,150958.0,0.0
+GZCO,Perusahaan GZCO,2,"Jumlah utang bank, bersih",88038.0,150958.0,0.0
+GZCO,Perusahaan GZCO,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,11704.0,71694.0,0.0
+GZCO,Perusahaan GZCO,4,Liabilitas jangka panjang atas utang bank,76334.0,79264.0,0.0
+CARS,Perusahaan CARS,1,Bank Central Asia Tbk,IDR,308015050414.0,308015050414.0
+CARS,Perusahaan CARS,2,Bank Permata Tbk,IDR,92412560762.0,123216747701.0
+CARS,Perusahaan CARS,3,Bank Mega Tbk,IDR,23669486079.0,23671102309.0
+CARS,Perusahaan CARS,4,Bank Maybank Indonesia Tbk,IDR,11513143563.0,11513143563.0
+CARS,Perusahaan CARS,5,Bank Pembangunan Daerah Jawa Barat dan Banten Tbk,IDR,22535075824.0,22535075824.0
+CARS,Perusahaan CARS,6,Bank asing lainnya,USD,21586192.0,22148228.0
+CARS,Perusahaan CARS,7,Bank lokal lainnya,IDR,59613461336.0,63191979319.0
+CARS,Perusahaan CARS,8,"Jumlah utang bank, kotor",881884086249.0,916268604168.0,0.0
+CARS,Perusahaan CARS,9,"Jumlah utang bank, bersih",881884086249.0,916268604168.0,0.0
+CARS,Perusahaan CARS,10,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,827255046961.0,864842250380.0,0.0
+CARS,Perusahaan CARS,11,Liabilitas jangka panjang atas utang bank,54629039288.0,51426353788.0,0.0
+WTON,Perusahaan WTON,1,"Jumlah utang bank, kotor",184788000000.0,202671000000.0,0.0
+WTON,Perusahaan WTON,2,"Jumlah utang bank, bersih",184788000000.0,202671000000.0,0.0
+WTON,Perusahaan WTON,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,66761000000.0,68351000000.0,0.0
+WTON,Perusahaan WTON,4,Liabilitas jangka panjang atas utang bank,118027000000.0,134320000000.0,0.0
+SMAR,Perusahaan SMAR,1,Bank Negara Indonesia (Persero) Tbk,USD,408187500.0,413625000.0
+SMAR,Perusahaan SMAR,2,"Jumlah utang bank, kotor",10076034.0,9207605.0,0.0
+SMAR,Perusahaan SMAR,3,Biaya penerbitan utang bank yang belum diamortisasi,23875.0,26428.0,0.0
+SMAR,Perusahaan SMAR,4,"Jumlah utang bank, bersih",10052159.0,9181177.0,0.0
+SMAR,Perusahaan SMAR,5,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,2518472.0,2488438.0,0.0
+SMAR,Perusahaan SMAR,6,Liabilitas jangka panjang atas utang bank,7533687.0,6692739.0,0.0
+PGUN,Perusahaan PGUN,1,"Jumlah utang bank, kotor",325805283918.0,363253999990.0,0.0
+PGUN,Perusahaan PGUN,2,"Jumlah utang bank, bersih",325805283918.0,360135283917.0,0.0
+PGUN,Perusahaan PGUN,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,122189833311.0,137319999976.0,0.0
+PGUN,Perusahaan PGUN,4,Liabilitas jangka panjang atas utang bank,203615450607.0,222815283941.0,0.0
+TALF,Perusahaan TALF,1,Bank Central Asia Tbk,IDR,126061296090.0,132554470851.0
+TALF,Perusahaan TALF,2,Bank Pan Indonesia Tbk,IDR,5000000000.0,5750000000.0
+TALF,Perusahaan TALF,3,Bank OCBC Nisp Tbk,IDR,243459864.0,426054762.0
+TALF,Perusahaan TALF,4,"Jumlah utang bank, kotor",131304755954.0,138941275628.0,0.0
+TALF,Perusahaan TALF,5,"Jumlah utang bank, bersih",131304755954.0,138730525613.0,0.0
+TALF,Perusahaan TALF,6,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,3243459864.0,30388420463.0,0.0
+TALF,Perusahaan TALF,7,Liabilitas jangka panjang atas utang bank,128061296090.0,108342105150.0,0.0
+GDST,Perusahaan GDST,1,Bank Maybank Indonesia Tbk,IDR,70666666668.0,74666666667.0
+GDST,Perusahaan GDST,2,Bank Pan Indonesia Tbk,IDR,91388888888.0,103055555555.0
+GDST,Perusahaan GDST,3,"Jumlah utang bank, kotor",162055555556.0,177722222222.0,0.0
+GDST,Perusahaan GDST,4,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,31555555551.0,55722222222.0,0.0
+GDST,Perusahaan GDST,5,Liabilitas jangka panjang atas utang bank,130500000005.0,122000000000.0,0.0
+INPP,Perusahaan INPP,1,Bank Central Asia Tbk,IDR,646457.0,670245.0
+INPP,Perusahaan INPP,2,Bank Danamon Indonesia Tbk,IDR,434972.0,360313.0
+INPP,Perusahaan INPP,3,Bank lokal lainnya,IDR,624855.0,616288.0
+INPP,Perusahaan INPP,4,"Jumlah utang bank, kotor",1706284.0,1646846.0,0.0
+INPP,Perusahaan INPP,5,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,85265.0,84280.0,0.0
+INPP,Perusahaan INPP,6,Liabilitas jangka panjang atas utang bank,1621019.0,1562566.0,0.0
+ELSA,Perusahaan ELSA,1,Bank Syariah Indonesia Tbk,IDR,93483.0,101233.0
+ELSA,Perusahaan ELSA,2,Bank Mega Tbk,IDR,52500.0,52500.0
+ELSA,Perusahaan ELSA,3,"Jumlah utang bank, kotor",145983.0,153733.0,0.0
+ELSA,Perusahaan ELSA,4,Biaya penerbitan utang bank yang belum diamortisasi,354.0,367.0,0.0
+ELSA,Perusahaan ELSA,5,"Jumlah utang bank, bersih",145629.0,153366.0,0.0
+ELSA,Perusahaan ELSA,6,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,30952.0,30948.0,0.0
+ELSA,Perusahaan ELSA,7,Liabilitas jangka panjang atas utang bank,114677.0,122418.0,0.0
+IATA,Perusahaan IATA,1,Bank Mayapada Internasional Tbk,USD,11769552.0,11917531.0
+IATA,Perusahaan IATA,2,Bank lokal lainnya,USD,6814669.0,7743053.0
+IATA,Perusahaan IATA,3,"Jumlah utang bank, kotor",18584221.0,19660584.0,0.0
+IATA,Perusahaan IATA,4,"Jumlah utang bank, bersih",18584221.0,19660584.0,0.0
+IATA,Perusahaan IATA,5,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,6267660.0,7097520.0,0.0
+IATA,Perusahaan IATA,6,Liabilitas jangka panjang atas utang bank,12316561.0,12563064.0,0.0
+WIFI,Perusahaan WIFI,1,"Jumlah utang bank, kotor",432783711764.0,441045595724.0,0.0
+WIFI,Perusahaan WIFI,2,Biaya penerbitan utang bank yang belum diamortisasi,3685166660.0,4031000000.0,0.0
+WIFI,Perusahaan WIFI,3,"Jumlah utang bank, bersih",429098545104.0,437014595724.0,0.0
+WIFI,Perusahaan WIFI,4,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,98199413567.0,93628021865.0,0.0
+WIFI,Perusahaan WIFI,5,Liabilitas jangka panjang atas utang bank,330899131537.0,343386573859.0,0.0
+INKP,Perusahaan INKP,1,Bank Central Asia Tbk,IDR,17139025674.0,15143549961.0
+INKP,Perusahaan INKP,2,Bank Central Asia Tbk,USD,91713.0,91650.0
+INKP,Perusahaan INKP,3,Bank Rakyat Indonesia (Persero) Tbk,IDR,550000000.0,575000000.0
+INKP,Perusahaan INKP,4,Bank Mandiri (Persero) Tbk,IDR,203832000.0,411687000.0
+INKP,Perusahaan INKP,5,Bank Syariah Indonesia Tbk,IDR,1649999902.0,1624881719.0
+INKP,Perusahaan INKP,6,Bank Negara Indonesia (Persero) Tbk,IDR,5660000000.0,5510000000.0
+INKP,Perusahaan INKP,7,Bank Negara Indonesia (Persero) Tbk,USD,15000.0,15000.0
+INKP,Perusahaan INKP,8,Bank Mega Tbk,IDR,845000000.0,300000000.0
+INKP,Perusahaan INKP,9,Bank Danamon Indonesia Tbk,IDR,850000000.0,925000000.0
+INKP,Perusahaan INKP,10,Bank Pan Indonesia Tbk,IDR,457500000.0,508000000.0
+INKP,Perusahaan INKP,11,Bank lokal lainnya,IDR,1928073993.0,1944179987.0
+INKP,Perusahaan INKP,12,"Jumlah utang bank, kotor",1829974.0,1712077.0,0.0
+INKP,Perusahaan INKP,13,"Jumlah utang bank, bersih",1829974.0,1712077.0,0.0
+INKP,Perusahaan INKP,14,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,329803.0,281166.0,0.0
+INKP,Perusahaan INKP,15,Liabilitas jangka panjang atas utang bank,1500171.0,1430911.0,0.0
+GIAA,Perusahaan GIAA,1,Bank Rakyat Indonesia (Persero) Tbk,IDR,565406.0,557264.0
+GIAA,Perusahaan GIAA,2,Bank Rakyat Indonesia (Persero) Tbk,USD,0.0,172.0
+GIAA,Perusahaan GIAA,3,Bank Mandiri (Persero) Tbk,IDR,1001234.0,983414.0
+GIAA,Perusahaan GIAA,4,Bank Mandiri (Persero) Tbk,USD,12.0,12.0
+GIAA,Perusahaan GIAA,5,Bank Negara Indonesia (Persero) Tbk,IDR,570570.0,563786.0
+GIAA,Perusahaan GIAA,6,Bank Negara Indonesia (Persero) Tbk,USD,181.0,184.0
+GIAA,Perusahaan GIAA,7,Bank Permata Tbk,USD,14.0,13.0
+GIAA,Perusahaan GIAA,8,Bank Maybank Indonesia Tbk,USD,0.0,33.0
+GIAA,Perusahaan GIAA,9,Bank Pan Indonesia Tbk,IDR,481258310281.0,472693.0
+GIAA,Perusahaan GIAA,10,Bank asing lainnya,JPY,147.0,148.0
+GIAA,Perusahaan GIAA,11,Bank asing lainnya,USD,18.0,23.0
+GIAA,Perusahaan GIAA,12,Bank lokal lainnya,IDR,825700.0,918669.0
+GIAA,Perusahaan GIAA,13,Bank lokal lainnya,USD,81.0,46.0
+GIAA,Perusahaan GIAA,14,"Jumlah utang bank, kotor",681.0,692.0,0.0
+GIAA,Perusahaan GIAA,15,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,51.0,53.0,0.0
+GIAA,Perusahaan GIAA,16,Liabilitas jangka panjang atas utang bank,630.0,639.0,0.0
+IFSH,Perusahaan IFSH,1,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,3806834422.0,4566273368.0,0.0
+IFSH,Perusahaan IFSH,2,Liabilitas jangka panjang atas utang bank,19747944447.0,20445244478.0,0.0
+IPTV,Perusahaan IPTV,1,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,168927.0,186558.0,0.0
+IPTV,Perusahaan IPTV,2,Liabilitas jangka panjang atas utang bank,177182.0,175582.0,0.0
+SAME,Perusahaan SAME,1,"Jumlah utang bank, kotor",682218750000.0,730640750000.0,0.0
+SAME,Perusahaan SAME,2,Biaya penerbitan utang bank yang belum diamortisasi,4435213509.0,5234195761.0,0.0
+SAME,Perusahaan SAME,3,"Jumlah utang bank, bersih",677783536491.0,725406554239.0,0.0
+SAME,Perusahaan SAME,4,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,406239008291.0,336473431460.0,0.0
+SAME,Perusahaan SAME,5,Liabilitas jangka panjang atas utang bank,271544528200.0,388933122779.0,0.0
+GTRA,Perusahaan GTRA,1,Bank Maybank Indonesia Tbk,IDR,182953628939.0,185448543617.0
+GTRA,Perusahaan GTRA,2,Bank lokal lainnya,IDR,236137664315.0,244066401043.0
+GTRA,Perusahaan GTRA,3,"Jumlah utang bank, kotor",419091293254.0,429514944660.0,0.0
+GTRA,Perusahaan GTRA,4,"Jumlah utang bank, bersih",419091293254.0,429514944660.0,0.0
+GTRA,Perusahaan GTRA,5,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,40235930090.0,37078582627.0,0.0
+GTRA,Perusahaan GTRA,6,Liabilitas jangka panjang atas utang bank,378855363164.0,392436362033.0,0.0
+EPAC,Perusahaan EPAC,1,"Jumlah utang bank, kotor",54196708820.0,55886528890.0,0.0
+EPAC,Perusahaan EPAC,2,"Jumlah utang bank, bersih",54196708820.0,55886528890.0,0.0
+EPAC,Perusahaan EPAC,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,20774005451.0,22463825521.0,0.0
+EPAC,Perusahaan EPAC,4,Liabilitas jangka panjang atas utang bank,33422703369.0,33422703369.0,0.0
+MDIY,Perusahaan MDIY,1,"Jumlah utang bank, kotor",1069293.0,1155776.0,0.0
+MDIY,Perusahaan MDIY,2,"Jumlah utang bank, bersih",1069293.0,1155776.0,0.0
+MDIY,Perusahaan MDIY,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,402762.0,343523.0,0.0
+MDIY,Perusahaan MDIY,4,Liabilitas jangka panjang atas utang bank,666531.0,812253.0,0.0
+AISA,Perusahaan AISA,1,"Jumlah utang bank, kotor",98500.0,99000.0,0.0
+AISA,Perusahaan AISA,2,Biaya penerbitan utang bank yang belum diamortisasi,1983.0,2100.0,0.0
+AISA,Perusahaan AISA,3,"Jumlah utang bank, bersih",96517.0,96900.0,0.0
+AISA,Perusahaan AISA,4,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,2000.0,2000.0,0.0
+AISA,Perusahaan AISA,5,Liabilitas jangka panjang atas utang bank,94517.0,94900.0,0.0
+CAKK,Perusahaan CAKK,1,"Jumlah utang bank, kotor",53522537569.0,56837981420.0,0.0
+CAKK,Perusahaan CAKK,2,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,13855732491.0,13616058787.0,0.0
+CAKK,Perusahaan CAKK,3,Liabilitas jangka panjang atas utang bank,39666805078.0,43221922633.0,0.0
+RICY,Perusahaan RICY,1,"Jumlah utang bank, kotor",1245551096351.0,1247167688537.0,0.0
+RICY,Perusahaan RICY,2,"Jumlah utang bank, bersih",1245551096351.0,1247167688537.0,0.0
+RICY,Perusahaan RICY,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,18543053441.0,15178104287.0,0.0
+RICY,Perusahaan RICY,4,Liabilitas jangka panjang atas utang bank,1227008042910.0,1231989584250.0,0.0
+INTP,Perusahaan INTP,1,Bank lokal lainnya,IDR,0.0,1000000.0
+ERTX,Perusahaan ERTX,1,"Jumlah utang bank, kotor",1400000.0,1550000.0,0.0
+ERTX,Perusahaan ERTX,2,"Jumlah utang bank, bersih",1400000.0,1550000.0,0.0
+ERTX,Perusahaan ERTX,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,600000.0,600000.0,0.0
+ERTX,Perusahaan ERTX,4,Liabilitas jangka panjang atas utang bank,800000.0,950000.0,0.0
+FASW,Perusahaan FASW,1,Bank OCBC Nisp Tbk,USD,8000000.0,10000000.0
+FASW,Perusahaan FASW,2,Bank asing lainnya,USD,16000000.0,20000000.0
+FASW,Perusahaan FASW,3,"Jumlah utang bank, kotor",2819332.0,2966585.0,0.0
+FASW,Perusahaan FASW,4,Biaya penerbitan utang bank yang belum diamortisasi,10678.0,11265.0,0.0
+FASW,Perusahaan FASW,5,"Jumlah utang bank, bersih",2808654.0,2955320.0,0.0
+FASW,Perusahaan FASW,6,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,612068.0,606960.0,0.0
+FASW,Perusahaan FASW,7,Liabilitas jangka panjang atas utang bank,2196586.0,2348360.0,0.0
+AREA,Perusahaan AREA,1,Bank lokal lainnya,IDR,12091040587.0,13058945478.0
+AREA,Perusahaan AREA,2,"Jumlah utang bank, kotor",12091040587.0,13058945478.0,0.0
+AREA,Perusahaan AREA,3,"Jumlah utang bank, bersih",12091040587.0,13058945478.0,0.0
+AREA,Perusahaan AREA,4,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,4070573051.0,7985285128.0,0.0
+AREA,Perusahaan AREA,5,Liabilitas jangka panjang atas utang bank,8020467536.0,5073660350.0,0.0
+CSRA,Perusahaan CSRA,1,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,185200000000.0,150200000000.0,0.0
+CSRA,Perusahaan CSRA,2,Liabilitas jangka panjang atas utang bank,471825000000.0,509375000000.0,0.0
+FORE,Perusahaan FORE,1,"Jumlah utang bank, kotor",13472908102.0,16251515151.0,0.0
+FORE,Perusahaan FORE,2,Biaya penerbitan utang bank yang belum diamortisasi,7396315.0,58730637.0,0.0
+FORE,Perusahaan FORE,3,"Jumlah utang bank, bersih",13465511787.0,16192784514.0,0.0
+FORE,Perusahaan FORE,4,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,10857756588.0,10857756588.0,0.0
+FORE,Perusahaan FORE,5,Liabilitas jangka panjang atas utang bank,2607755199.0,5335027926.0,0.0
+PANI,Perusahaan PANI,1,"Jumlah utang bank, kotor",500850953.0,549715044.0,0.0
+PANI,Perusahaan PANI,2,"Jumlah utang bank, bersih",500850953.0,549715044.0,0.0
+PANI,Perusahaan PANI,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,148751632.0,164060019.0,0.0
+PANI,Perusahaan PANI,4,Liabilitas jangka panjang atas utang bank,352099321.0,385655025.0,0.0
+ROTI,Perusahaan ROTI,1,"Jumlah utang bank, kotor",471750000000.0,478000000000.0,0.0
+ROTI,Perusahaan ROTI,2,Biaya penerbitan utang bank yang belum diamortisasi,3228750000.0,3449687503.0,0.0
+ROTI,Perusahaan ROTI,3,"Jumlah utang bank, bersih",468521250000.0,474550312497.0,0.0
+ROTI,Perusahaan ROTI,4,Liabilitas jangka panjang atas utang bank,442521250000.0,448925312497.0,0.0
+UNIQ,Perusahaan UNIQ,1,Bank Central Asia Tbk,IDR,16835690483.0,19336579297.0
+UNIQ,Perusahaan UNIQ,2,Bank Cimb Niaga Tbk,IDR,6612735484.0,7347483871.0
+UNIQ,Perusahaan UNIQ,3,"Jumlah utang bank, kotor",23448425967.0,26684063168.0,0.0
+UNIQ,Perusahaan UNIQ,4,"Jumlah utang bank, bersih",23448425967.0,26684063168.0,0.0
+UNIQ,Perusahaan UNIQ,5,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,15928000474.0,19736821930.0,0.0
+UNIQ,Perusahaan UNIQ,6,Liabilitas jangka panjang atas utang bank,7520425493.0,6947241238.0,0.0
+JSPT,Perusahaan JSPT,1,Bank Permata Tbk,IDR,15797197.0,16297197.0
+JSPT,Perusahaan JSPT,2,Bank OCBC Nisp Tbk,IDR,686194517.0,701439481.0
+JSPT,Perusahaan JSPT,3,Bank OCBC Nisp Tbk,USD,44047958.0,52626893.0
+JSPT,Perusahaan JSPT,4,"Jumlah utang bank, kotor",1450498664.0,1600921196.0,0.0
+JSPT,Perusahaan JSPT,5,Biaya penerbitan utang bank yang belum diamortisasi,7777968.0,7788305.0,0.0
+JSPT,Perusahaan JSPT,6,"Jumlah utang bank, bersih",1442720696.0,1593132891.0,0.0
+JSPT,Perusahaan JSPT,7,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,415626451.0,370216216.0,0.0
+JSPT,Perusahaan JSPT,8,Liabilitas jangka panjang atas utang bank,1027094245.0,1222916675.0,0.0
+APIC,Perusahaan APIC,1,Bank lokal lainnya,IDR,131104826933.0,134453242101.0
+APIC,Perusahaan APIC,2,"Jumlah utang bank, kotor",131104826933.0,134453242101.0,0.0
+APIC,Perusahaan APIC,3,"Jumlah utang bank, bersih",131104826933.0,134453242101.0,0.0
+APIC,Perusahaan APIC,4,Liabilitas jangka panjang atas utang bank,131104826933.0,134453242101.0,0.0
+IKAI,Perusahaan IKAI,1,"Jumlah utang bank, kotor",202706223897.0,202706223897.0,0.0
+IKAI,Perusahaan IKAI,2,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,58769269391.0,58769269391.0,0.0
+IKAI,Perusahaan IKAI,3,Liabilitas jangka panjang atas utang bank,143936954506.0,143936954506.0,0.0
+RLCO,Perusahaan RLCO,1,Bank Rakyat Indonesia (Persero) Tbk,USD,17530866.0,14000000.0
+RLCO,Perusahaan RLCO,2,"Jumlah utang bank, kotor",330981999999.0,331194996643.0,0.0
+RLCO,Perusahaan RLCO,3,"Jumlah utang bank, bersih",330981999999.0,331194996643.0,0.0
+RLCO,Perusahaan RLCO,4,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,310570000000.0,305115996643.0,0.0
+RLCO,Perusahaan RLCO,5,Liabilitas jangka panjang atas utang bank,20411999999.0,26079000000.0,0.0
+BNBR,Perusahaan BNBR,1,Bank Rakyat Indonesia (Persero) Tbk,IDR,312000.0,321000.0
+BNBR,Perusahaan BNBR,2,Bank Negara Indonesia (Persero) Tbk,IDR,29619.0,30627.0
+BNBR,Perusahaan BNBR,3,Bank Mayapada Internasional Tbk,IDR,522655.0,543266.0
+BNBR,Perusahaan BNBR,4,Pinjaman sindikasi,IDR,13449726.0,13401818.0
+BNBR,Perusahaan BNBR,5,Pinjaman sindikasi,USD,15123.0,6838.0
+BNBR,Perusahaan BNBR,6,Bank lokal lainnya,IDR,477426.0,491757.0
+BNBR,Perusahaan BNBR,7,"Jumlah utang bank, kotor",15048418.0,14903226.0,0.0
+BNBR,Perusahaan BNBR,8,"Jumlah utang bank, bersih",15048418.0,14903226.0,0.0
+BNBR,Perusahaan BNBR,9,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,302594.0,345747.0,0.0
+BNBR,Perusahaan BNBR,10,Liabilitas jangka panjang atas utang bank,14745824.0,14557479.0,0.0
+KRAS,Perusahaan KRAS,1,"Jumlah utang bank, kotor",883595.0,885060.0,0.0
+KRAS,Perusahaan KRAS,2,"Jumlah utang bank, bersih",883595.0,885060.0,0.0
+KRAS,Perusahaan KRAS,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,118726.0,166997.0,0.0
+KRAS,Perusahaan KRAS,4,Liabilitas jangka panjang atas utang bank,764869.0,718063.0,0.0
+RMKE,Perusahaan RMKE,1,Bank Central Asia Tbk,IDR,48353566666.0,0.0
+RMKE,Perusahaan RMKE,2,Bank Mandiri (Persero) Tbk,IDR,0.0,36033625000.0
+RMKE,Perusahaan RMKE,3,"Jumlah utang bank, kotor",48353566666.0,36033625000.0,0.0
+RMKE,Perusahaan RMKE,4,"Jumlah utang bank, bersih",44095435205.0,36033625000.0,0.0
+RMKE,Perusahaan RMKE,5,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,14994366544.0,13948500000.0,0.0
+RMKE,Perusahaan RMKE,6,Liabilitas jangka panjang atas utang bank,29101068661.0,22085125000.0,0.0
+BATR,Perusahaan BATR,1,"Jumlah utang bank, kotor",21316307386.0,23971665854.0,0.0
+BATR,Perusahaan BATR,2,"Jumlah utang bank, bersih",21316307386.0,23971665854.0,0.0
+BATR,Perusahaan BATR,3,Liabilitas jangka panjang atas utang bank,21316307386.0,23971665854.0,0.0
+JARR,Perusahaan JARR,1,Bank Mandiri (Persero) Tbk,IDR,1759500000000.0,1789500000000.0
+JARR,Perusahaan JARR,2,"Jumlah utang bank, kotor",1759500000000.0,1789500000000.0,0.0
+JARR,Perusahaan JARR,3,Biaya penerbitan utang bank yang belum diamortisasi,3099954065.0,3099954066.0,0.0
+JARR,Perusahaan JARR,4,"Jumlah utang bank, bersih",1756400045935.0,1786400045934.0,0.0
+JARR,Perusahaan JARR,5,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,145251000000.0,126000000000.0,0.0
+JARR,Perusahaan JARR,6,Liabilitas jangka panjang atas utang bank,1611149045935.0,1660400045934.0,0.0
+BAUT,Perusahaan BAUT,1,"Jumlah utang bank, bersih",95879667.0,340510459.0,0.0
+BAUT,Perusahaan BAUT,2,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,95879667.0,322519567.0,0.0
+CHEK,Perusahaan CHEK,1,Bank Pan Indonesia Tbk,IDR,0.0,5000000000.0
+BMTR,Perusahaan BMTR,1,Bank asing lainnya,USD,24293343.0,25311899.0
+BMTR,Perusahaan BMTR,2,"Jumlah utang bank, kotor",1252160.0,1346608.0,0.0
+BMTR,Perusahaan BMTR,3,Biaya penerbitan utang bank yang belum diamortisasi,2252.0,2459.0,0.0
+BMTR,Perusahaan BMTR,4,"Jumlah utang bank, bersih",1249908.0,1344149.0,0.0
+BMTR,Perusahaan BMTR,5,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,635329.0,666283.0,0.0
+BMTR,Perusahaan BMTR,6,Liabilitas jangka panjang atas utang bank,614579.0,677866.0,0.0
+ADRO,Perusahaan ADRO,1,Pinjaman sindikasi,IDR,81403.0,61256.0
+ADRO,Perusahaan ADRO,2,Pinjaman sindikasi,USD,907161.0,683787.0
+ADRO,Perusahaan ADRO,3,"Jumlah utang bank, kotor",998830.0,752970.0,0.0
+ADRO,Perusahaan ADRO,4,Biaya penerbitan utang bank yang belum diamortisasi,10266.0,7927.0,0.0
+ADRO,Perusahaan ADRO,5,"Jumlah utang bank, bersih",988564.0,745043.0,0.0
+ADRO,Perusahaan ADRO,6,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,50390.0,40676.0,0.0
+ADRO,Perusahaan ADRO,7,Liabilitas jangka panjang atas utang bank,938174.0,704367.0,0.0
+WINS,Perusahaan WINS,1,Bank Central Asia Tbk,USD,22080667.0,23324667.0
+WINS,Perusahaan WINS,2,Bank Permata Tbk,USD,2965792.0,3133667.0
+WINS,Perusahaan WINS,3,Bank Cimb Niaga Tbk,USD,6833333.0,7333333.0
+WINS,Perusahaan WINS,4,Bank lokal lainnya,USD,8207290.0,8913254.0
+WINS,Perusahaan WINS,5,"Jumlah utang bank, kotor",40087082.0,42704921.0,0.0
+WINS,Perusahaan WINS,6,Biaya penerbitan utang bank yang belum diamortisasi,214480.0,226639.0,0.0
+WINS,Perusahaan WINS,7,"Jumlah utang bank, bersih",39872602.0,42478282.0,0.0
+WINS,Perusahaan WINS,8,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,10471355.0,10471355.0,0.0
+WINS,Perusahaan WINS,9,Liabilitas jangka panjang atas utang bank,29401247.0,32006927.0,0.0
+AADI,Perusahaan AADI,1,Bank Central Asia Tbk,IDR,7136.0,7260.0
+AADI,Perusahaan AADI,2,Bank Permata Tbk,IDR,4919.0,4979.0
+AADI,Perusahaan AADI,3,Pinjaman sindikasi,IDR,39241.0,29560.0
+AADI,Perusahaan AADI,4,Pinjaman sindikasi,USD,423426.0,314948.0
+AADI,Perusahaan AADI,5,Bank asing lainnya,SGD,5482.0,5721.0
+AADI,Perusahaan AADI,6,Bank asing lainnya,USD,16355.0,16355.0
+AADI,Perusahaan AADI,7,"Jumlah utang bank, kotor",502404.0,383215.0,0.0
+AADI,Perusahaan AADI,8,Biaya penerbitan utang bank yang belum diamortisasi,5845.0,4392.0,0.0
+AADI,Perusahaan AADI,9,"Jumlah utang bank, bersih",496559.0,378823.0,0.0
+AADI,Perusahaan AADI,10,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,43124.0,36602.0,0.0
+AADI,Perusahaan AADI,11,Liabilitas jangka panjang atas utang bank,453435.0,342221.0,0.0
+TOSK,Perusahaan TOSK,1,"Jumlah utang bank, kotor",2673435888.0,3379506880.0,0.0
+TOSK,Perusahaan TOSK,2,"Jumlah utang bank, bersih",2673435888.0,3379506880.0,0.0
+TOSK,Perusahaan TOSK,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,1197471825.0,1632305280.0,0.0
+TOSK,Perusahaan TOSK,4,Liabilitas jangka panjang atas utang bank,1475964063.0,1747201600.0,0.0
+SMGR,Perusahaan SMGR,1,"Jumlah utang bank, kotor",5510522.0,5610522.0,0.0
+SMGR,Perusahaan SMGR,2,Biaya penerbitan utang bank yang belum diamortisasi,16181.0,19519.0,0.0
+SMGR,Perusahaan SMGR,3,"Jumlah utang bank, bersih",5494341.0,5591003.0,0.0
+SMGR,Perusahaan SMGR,4,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,2120000.0,2220000.0,0.0
+SMGR,Perusahaan SMGR,5,Liabilitas jangka panjang atas utang bank,3374341.0,3371003.0,0.0
+IKAN,Perusahaan IKAN,1,"Jumlah utang bank, kotor",1611111107.0,1777777775.0,0.0
+IKAN,Perusahaan IKAN,2,"Jumlah utang bank, bersih",1611111107.0,1777777775.0,0.0
+IKAN,Perusahaan IKAN,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,666666672.0,666666672.0,0.0
+IKAN,Perusahaan IKAN,4,Liabilitas jangka panjang atas utang bank,944444435.0,1111111103.0,0.0
+IOTF,Perusahaan IOTF,1,"Jumlah utang bank, kotor",5383129882.0,6067601253.0,0.0
+IOTF,Perusahaan IOTF,2,"Jumlah utang bank, bersih",5383129882.0,6067601253.0,0.0
+IOTF,Perusahaan IOTF,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,1574200522.0,1884771508.0,0.0
+IOTF,Perusahaan IOTF,4,Liabilitas jangka panjang atas utang bank,3808929360.0,4182829745.0,0.0
+MSIN,Perusahaan MSIN,1,Bank Mayapada Internasional Tbk,IDR,167038.0,167008.0
+MSIN,Perusahaan MSIN,2,Bank lokal lainnya,IDR,98267.0,106316.0
+MSIN,Perusahaan MSIN,3,"Jumlah utang bank, kotor",267290.0,275416.0,0.0
+MSIN,Perusahaan MSIN,4,Biaya penerbitan utang bank yang belum diamortisasi,1985.0,2092.0,0.0
+MSIN,Perusahaan MSIN,5,"Jumlah utang bank, bersih",265305.0,273324.0,0.0
+MSIN,Perusahaan MSIN,6,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,29087.0,32195.0,0.0
+MSIN,Perusahaan MSIN,7,Liabilitas jangka panjang atas utang bank,236218.0,241129.0,0.0
+SPMA,Perusahaan SPMA,1,Bank lokal lainnya,CNY,397484.0,397484.0
+SPMA,Perusahaan SPMA,2,Bank lokal lainnya,USD,2325560.0,2130260.0
+SPMA,Perusahaan SPMA,3,"Jumlah utang bank, kotor",40495650971.0,36704248000.0,0.0
+SPMA,Perusahaan SPMA,4,"Jumlah utang bank, bersih",40495650971.0,36704248000.0,0.0
+SPMA,Perusahaan SPMA,5,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,6074347773.0,3670424883.0,0.0
+SPMA,Perusahaan SPMA,6,Liabilitas jangka panjang atas utang bank,34421303198.0,33033823117.0,0.0
+VICI,Perusahaan VICI,1,"Jumlah utang bank, kotor",73866414035.0,77292879619.0,0.0
+VICI,Perusahaan VICI,2,"Jumlah utang bank, bersih",73866414035.0,77292879619.0,0.0
+VICI,Perusahaan VICI,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,13739513084.0,14000509733.0,0.0
+VICI,Perusahaan VICI,4,Liabilitas jangka panjang atas utang bank,60126900951.0,63292369886.0,0.0
+AKRA,Perusahaan AKRA,1,"Jumlah utang bank, kotor",4964906904.0,4885526572.0,0.0
+AKRA,Perusahaan AKRA,2,"Jumlah utang bank, bersih",4964906904.0,4885526572.0,0.0
+AKRA,Perusahaan AKRA,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,1525045467.0,1182438653.0,0.0
+AKRA,Perusahaan AKRA,4,Liabilitas jangka panjang atas utang bank,3439861437.0,3703087919.0,0.0
+ZINC,Perusahaan ZINC,1,Bank Mandiri (Persero) Tbk,IDR,1486153978518.0,1500900978518.0
+ZINC,Perusahaan ZINC,2,"Jumlah utang bank, kotor",1486153978518.0,1500900978518.0,0.0
+ZINC,Perusahaan ZINC,3,"Jumlah utang bank, bersih",1486153978518.0,1500900978518.0,0.0
+ZINC,Perusahaan ZINC,4,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,1486153978518.0,1500900978518.0,0.0
+SKBM,Perusahaan SKBM,1,Bank asing lainnya,IDR,9381794535.0,10212681955.0
+SKBM,Perusahaan SKBM,2,"Jumlah utang bank, kotor",9381794535.0,10212681955.0,0.0
+SKBM,Perusahaan SKBM,3,"Jumlah utang bank, bersih",9381794535.0,10212681955.0,0.0
+SKBM,Perusahaan SKBM,4,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,3277115284.0,3323549681.0,0.0
+SKBM,Perusahaan SKBM,5,Liabilitas jangka panjang atas utang bank,6104679251.0,6889132274.0,0.0
+BMSR,Perusahaan BMSR,1,"Jumlah utang bank, kotor",90069838105.0,26179589878.0,0.0
+BMSR,Perusahaan BMSR,2,"Jumlah utang bank, bersih",90069838105.0,26179589878.0,0.0
+BMSR,Perusahaan BMSR,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,28772340424.0,3772340424.0,0.0
+BMSR,Perusahaan BMSR,4,Liabilitas jangka panjang atas utang bank,61297497681.0,22407249454.0,0.0
+SIMP,Perusahaan SIMP,1,Bank Central Asia Tbk,IDR,343269.0,414796.0
+SIMP,Perusahaan SIMP,2,Bank Negara Indonesia (Persero) Tbk,IDR,975000.0,1000000.0
+SIMP,Perusahaan SIMP,3,Bank Permata Tbk,IDR,900000.0,900000.0
+SIMP,Perusahaan SIMP,4,Bank Maybank Indonesia Tbk,IDR,150000.0,150000.0
+SIMP,Perusahaan SIMP,5,Bank Cimb Niaga Tbk,IDR,500000.0,250000.0
+SIMP,Perusahaan SIMP,6,"Jumlah utang bank, kotor",2868269.0,2714796.0,0.0
+SIMP,Perusahaan SIMP,7,Biaya penerbitan utang bank yang belum diamortisasi,1767.0,2084.0,0.0
+SIMP,Perusahaan SIMP,8,"Jumlah utang bank, bersih",2866502.0,2712712.0,0.0
+SIMP,Perusahaan SIMP,9,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,2261715.0,2334820.0,0.0
+SIMP,Perusahaan SIMP,10,Liabilitas jangka panjang atas utang bank,604787.0,377892.0,0.0
+PNGO,Perusahaan PNGO,1,"Jumlah utang bank, kotor",180401853376.0,208110186709.0,0.0
+PNGO,Perusahaan PNGO,2,Biaya penerbitan utang bank yang belum diamortisasi,498317934.0,664423912.0,0.0
+PNGO,Perusahaan PNGO,3,"Jumlah utang bank, bersih",179903535442.0,207445762797.0,0.0
+PNGO,Perusahaan PNGO,4,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,91125000000.0,110833333332.0,0.0
+PNGO,Perusahaan PNGO,5,Liabilitas jangka panjang atas utang bank,88778535442.0,96612429465.0,0.0
+BLES,Perusahaan BLES,1,Bank Mandiri (Persero) Tbk,IDR,90648000000.0,101136000000.0
+BLES,Perusahaan BLES,2,Bank Danamon Indonesia Tbk,IDR,302846757489.0,311242463919.0
+BLES,Perusahaan BLES,3,Bank lokal lainnya,IDR,107375000000.0,115062500000.0
+BLES,Perusahaan BLES,4,"Jumlah utang bank, kotor",500869757489.0,527440963919.0,0.0
+BLES,Perusahaan BLES,5,"Jumlah utang bank, bersih",500869757489.0,527440963919.0,0.0
+BLES,Perusahaan BLES,6,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,92123825718.0,100703825718.0,0.0
+BLES,Perusahaan BLES,7,Liabilitas jangka panjang atas utang bank,408745931771.0,426737138201.0,0.0
+PSAT,Perusahaan PSAT,1,Bank Mandiri (Persero) Tbk,IDR,136800000000.0,143700000000.0
+PSAT,Perusahaan PSAT,2,"Jumlah utang bank, kotor",136800000000.0,143700000000.0,0.0
+PSAT,Perusahaan PSAT,3,"Jumlah utang bank, bersih",136800000000.0,143700000000.0,0.0
+PSAT,Perusahaan PSAT,4,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,27600000000.0,27600000000.0,0.0
+PSAT,Perusahaan PSAT,5,Liabilitas jangka panjang atas utang bank,109200000000.0,116100000000.0,0.0
+CBRE,Perusahaan CBRE,1,Bank Rakyat Indonesia (Persero) Tbk,IDR,178000000000.0,179000000000.0
+CBRE,Perusahaan CBRE,2,"Jumlah utang bank, kotor",178000000000.0,179000000000.0,0.0
+CBRE,Perusahaan CBRE,3,Biaya penerbitan utang bank yang belum diamortisasi,1436140436.0,1474879501.0,0.0
+CBRE,Perusahaan CBRE,4,"Jumlah utang bank, bersih",176563859564.0,177525120499.0,0.0
+CBRE,Perusahaan CBRE,5,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,9371478277.0,7359723627.0,0.0
+CBRE,Perusahaan CBRE,6,Liabilitas jangka panjang atas utang bank,167192381287.0,170165396872.0,0.0
+DEPO,Perusahaan DEPO,1,"Jumlah utang bank, kotor",180821100000.0,194321100000.0,0.0
+DEPO,Perusahaan DEPO,2,"Jumlah utang bank, bersih",180821100000.0,194321100000.0,0.0
+DEPO,Perusahaan DEPO,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,40500000000.0,55000000000.0,0.0
+DEPO,Perusahaan DEPO,4,Liabilitas jangka panjang atas utang bank,140321100000.0,139321100000.0,0.0
+BRRC,Perusahaan BRRC,1,Bank Rakyat Indonesia (Persero) Tbk,IDR,1751740000.0,0.0
+BRRC,Perusahaan BRRC,2,"Jumlah utang bank, kotor",1751740000.0,1835040000.0,0.0
+BRRC,Perusahaan BRRC,3,"Jumlah utang bank, bersih",1751740000.0,1835040000.0,0.0
+BRRC,Perusahaan BRRC,4,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,499800000.0,499800000.0,0.0
+BRRC,Perusahaan BRRC,5,Liabilitas jangka panjang atas utang bank,1251940000.0,1335240000.0,0.0
+ZONE,Perusahaan ZONE,1,Bank Central Asia Tbk,IDR,25965309827.0,28852393160.0
+ZONE,Perusahaan ZONE,2,"Jumlah utang bank, kotor",25965309827.0,28852393160.0,0.0
+ZONE,Perusahaan ZONE,3,"Jumlah utang bank, bersih",25965309827.0,28852393160.0,0.0
+ZONE,Perusahaan ZONE,4,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,10512916666.0,11381666667.0,0.0
+ZONE,Perusahaan ZONE,5,Liabilitas jangka panjang atas utang bank,15452393161.0,17470726493.0,0.0
+SIPD,Perusahaan SIPD,1,Bank Negara Indonesia (Persero) Tbk,IDR,25258.0,29351.0
+SIPD,Perusahaan SIPD,2,Bank OCBC Nisp Tbk,IDR,450000.0,300000.0
+SIPD,Perusahaan SIPD,3,"Jumlah utang bank, kotor",475258.0,329351.0,0.0
+SIPD,Perusahaan SIPD,4,Biaya penerbitan utang bank yang belum diamortisasi,92.0,92.0,0.0
+SIPD,Perusahaan SIPD,5,"Jumlah utang bank, bersih",475166.0,329259.0,0.0
+SIPD,Perusahaan SIPD,6,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,54200.0,33653.0,0.0
+SIPD,Perusahaan SIPD,7,Liabilitas jangka panjang atas utang bank,420966.0,295606.0,0.0
+UFOE,Perusahaan UFOE,1,Bank Central Asia Tbk,IDR,5266667279.0,9558722226.0
+UFOE,Perusahaan UFOE,2,Bank lokal lainnya,IDR,13544451176.0,14131587448.0
+UFOE,Perusahaan UFOE,3,"Jumlah utang bank, kotor",18811118455.0,23690309674.0,0.0
+UFOE,Perusahaan UFOE,4,"Jumlah utang bank, bersih",18811118455.0,23690309674.0,0.0
+UFOE,Perusahaan UFOE,5,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,6284502636.0,11163693855.0,0.0
+UFOE,Perusahaan UFOE,6,Liabilitas jangka panjang atas utang bank,12526615819.0,12526615819.0,0.0
+SMBR,Perusahaan SMBR,1,Pinjaman sindikasi,IDR,416425000.0,416425000.0
+SMBR,Perusahaan SMBR,2,"Jumlah utang bank, kotor",416425000.0,416425000.0,0.0
+SMBR,Perusahaan SMBR,3,Biaya penerbitan utang bank yang belum diamortisasi,8459411.0,10631798.0,0.0
+SMBR,Perusahaan SMBR,4,"Jumlah utang bank, bersih",407965589.0,405793202.0,0.0
+SMBR,Perusahaan SMBR,5,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,220000000.0,220000000.0,0.0
+SMBR,Perusahaan SMBR,6,Liabilitas jangka panjang atas utang bank,187965589.0,185793202.0,0.0
+TKIM,Perusahaan TKIM,1,Bank Central Asia Tbk,IDR,2055625000.0,2086250000.0
+TKIM,Perusahaan TKIM,2,Bank Central Asia Tbk,USD,22645.0,24154.0
+TKIM,Perusahaan TKIM,3,Bank Rakyat Indonesia (Persero) Tbk,IDR,200000000.0,0.0
+TKIM,Perusahaan TKIM,4,Bank Rakyat Indonesia (Persero) Tbk,USD,85000.0,31000.0
+TKIM,Perusahaan TKIM,5,Bank Syariah Indonesia Tbk,IDR,299999000.0,299993000.0
+TKIM,Perusahaan TKIM,6,Bank Negara Indonesia (Persero) Tbk,IDR,900000000.0,600000000.0
+TKIM,Perusahaan TKIM,7,Bank Mega Tbk,IDR,397685185.0,397685185.0
+TKIM,Perusahaan TKIM,8,Bank lokal lainnya,IDR,1020955458.0,1098225523.0
+TKIM,Perusahaan TKIM,9,"Jumlah utang bank, kotor",394485.0,322237.0,0.0
+TKIM,Perusahaan TKIM,10,"Jumlah utang bank, bersih",394485.0,322237.0,0.0
+TKIM,Perusahaan TKIM,11,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,55586.0,35565.0,0.0
+TKIM,Perusahaan TKIM,12,Liabilitas jangka panjang atas utang bank,338899.0,286672.0,0.0
+LMPI,Perusahaan LMPI,1,"Jumlah utang bank, kotor",172300000000.0,173300000000.0,0.0
+LMPI,Perusahaan LMPI,2,"Jumlah utang bank, bersih",172300000000.0,173300000000.0,0.0
+LMPI,Perusahaan LMPI,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,14000000000.0,12000000000.0,0.0
+LMPI,Perusahaan LMPI,4,Liabilitas jangka panjang atas utang bank,158300000000.0,161300000000.0,0.0
+MEDS,Perusahaan MEDS,1,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,1984932875.0,2622623237.0,0.0
+CUAN,Perusahaan CUAN,1,Bank Central Asia Tbk,IDR,205630.0,204880.0
+CUAN,Perusahaan CUAN,2,Bank Central Asia Tbk,USD,98105.0,99449.0
+CUAN,Perusahaan CUAN,3,Bank Mandiri (Persero) Tbk,IDR,53574.0,48804.0
+CUAN,Perusahaan CUAN,4,Bank Negara Indonesia (Persero) Tbk,IDR,62723.0,57524.0
+CUAN,Perusahaan CUAN,5,Pinjaman sindikasi,IDR,609653.0,579070.0
+CUAN,Perusahaan CUAN,6,"Jumlah utang bank, kotor",1054724.0,1013054.0,0.0
+CUAN,Perusahaan CUAN,7,Biaya penerbitan utang bank yang belum diamortisasi,9210.0,10095.0,0.0
+CUAN,Perusahaan CUAN,8,"Jumlah utang bank, bersih",1045514.0,1002959.0,0.0
+CUAN,Perusahaan CUAN,9,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,108457.0,105884.0,0.0
+CUAN,Perusahaan CUAN,10,Liabilitas jangka panjang atas utang bank,937057.0,897075.0,0.0
+INDF,Perusahaan INDF,1,Bank Permata Tbk,USD,50000000.0,50000000.0
+INDF,Perusahaan INDF,2,Bank asing lainnya,JPY,259616867.0,330421521.0
+INDF,Perusahaan INDF,3,Bank asing lainnya,USD,23750000.0,36000000.0
+INDF,Perusahaan INDF,4,"Jumlah utang bank, kotor",6763285.0,7322502.0,0.0
+INDF,Perusahaan INDF,5,Biaya penerbitan utang bank yang belum diamortisasi,1768.0,2085.0,0.0
+INDF,Perusahaan INDF,6,"Jumlah utang bank, bersih",6761517.0,7320417.0,0.0
+INDF,Perusahaan INDF,7,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,3532336.0,4021304.0,0.0
+INDF,Perusahaan INDF,8,Liabilitas jangka panjang atas utang bank,3229181.0,3299113.0,0.0
+AXIO,Perusahaan AXIO,1,Bank Rakyat Indonesia (Persero) Tbk,IDR,128778198239.0,127616384455.0
+AXIO,Perusahaan AXIO,2,Bank Mandiri (Persero) Tbk,IDR,0.0,369791665.0
+AXIO,Perusahaan AXIO,3,"Jumlah utang bank, kotor",128778198239.0,127986176120.0,0.0
+AXIO,Perusahaan AXIO,4,"Jumlah utang bank, bersih",128778198239.0,127986176120.0,0.0
+AXIO,Perusahaan AXIO,5,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,128778198239.0,127986176120.0,0.0
+TAPG,Perusahaan TAPG,1,Bank Negara Indonesia (Persero) Tbk,IDR,808820000000.0,819410000000.0
+TAPG,Perusahaan TAPG,2,"Jumlah utang bank, kotor",808820.0,819410.0,0.0
+TAPG,Perusahaan TAPG,3,"Jumlah utang bank, bersih",808820.0,819410.0,0.0
+TAPG,Perusahaan TAPG,4,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,63422.0,52961.0,0.0
+TAPG,Perusahaan TAPG,5,Liabilitas jangka panjang atas utang bank,745398.0,766449.0,0.0
+CPRO,Perusahaan CPRO,1,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,151088.0,188406.0,0.0
+CPRO,Perusahaan CPRO,2,Liabilitas jangka panjang atas utang bank,26810.0,36900.0,0.0
+PSSI,Perusahaan PSSI,1,"Jumlah utang bank, kotor",9466661.0,9665691.0,0.0
+PSSI,Perusahaan PSSI,2,Biaya penerbitan utang bank yang belum diamortisasi,46132.0,46132.0,0.0
+PSSI,Perusahaan PSSI,3,"Jumlah utang bank, bersih",9420529.0,9619559.0,0.0
+PSSI,Perusahaan PSSI,4,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,2658047.0,2769152.0,0.0
+PSSI,Perusahaan PSSI,5,Liabilitas jangka panjang atas utang bank,6762482.0,6850407.0,0.0
+INDS,Perusahaan INDS,1,"Jumlah utang bank, kotor",45000000000.0,51750000000.0,0.0
+INDS,Perusahaan INDS,2,"Jumlah utang bank, bersih",45000000000.0,51750000000.0,0.0
+INDS,Perusahaan INDS,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,27000000000.0,27000000000.0,0.0
+INDS,Perusahaan INDS,4,Liabilitas jangka panjang atas utang bank,18000000000.0,24750000000.0,0.0
+YUPI,Perusahaan YUPI,1,"Jumlah utang bank, kotor",758925900000.0,769494250004.0,0.0
+YUPI,Perusahaan YUPI,2,"Jumlah utang bank, bersih",758925900000.0,769494250004.0,0.0
+YUPI,Perusahaan YUPI,3,Liabilitas jangka panjang atas utang bank,758925900000.0,769494250004.0,0.0
+DCII,Perusahaan DCII,1,Bank Mandiri (Persero) Tbk,IDR,2058723.0,1890827.0
+DCII,Perusahaan DCII,2,"Jumlah utang bank, kotor",2058723.0,1890827.0,0.0
+DCII,Perusahaan DCII,3,Biaya penerbitan utang bank yang belum diamortisasi,11963.0,12641.0,0.0
+DCII,Perusahaan DCII,4,"Jumlah utang bank, bersih",2046760.0,1878186.0,0.0
+DCII,Perusahaan DCII,5,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,333820.0,289131.0,0.0
+DCII,Perusahaan DCII,6,Liabilitas jangka panjang atas utang bank,1712940.0,1589055.0,0.0
+WEGE,Perusahaan WEGE,1,Bank Mandiri (Persero) Tbk,IDR,73291600000.0,64822300000.0
+WEGE,Perusahaan WEGE,2,"Jumlah utang bank, kotor",73291600000.0,64822300000.0,0.0
+WEGE,Perusahaan WEGE,3,"Jumlah utang bank, bersih",73291600000.0,64822300000.0,0.0
+WEGE,Perusahaan WEGE,4,Liabilitas jangka panjang atas utang bank,73291600000.0,64822300000.0,0.0
+LTLS,Perusahaan LTLS,1,Bank Danamon Indonesia Tbk,USD,2758384.0,2758384.0
+LTLS,Perusahaan LTLS,2,"Jumlah utang bank, kotor",121341.0,110663.0,0.0
+LTLS,Perusahaan LTLS,3,Biaya penerbitan utang bank yang belum diamortisasi,315.0,304.0,0.0
+LTLS,Perusahaan LTLS,4,"Jumlah utang bank, bersih",121026.0,110359.0,0.0
+LTLS,Perusahaan LTLS,5,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,15285.0,14495.0,0.0
+LTLS,Perusahaan LTLS,6,Liabilitas jangka panjang atas utang bank,105741.0,95864.0,0.0
+MLPL,Perusahaan MLPL,1,Bank Mandiri (Persero) Tbk,IDR,66254.0,73971.0
+MLPL,Perusahaan MLPL,2,Bank Permata Tbk,IDR,105805.0,146159.0
+MLPL,Perusahaan MLPL,3,Bank Cimb Niaga Tbk,IDR,412255.0,418880.0
+MLPL,Perusahaan MLPL,4,Bank Tabungan Negara (Persero) Tbk,IDR,650562.0,0.0
+MLPL,Perusahaan MLPL,5,Pinjaman sindikasi,IDR,566384.0,651452.0
+MLPL,Perusahaan MLPL,6,"Jumlah utang bank, kotor",1801260.0,1290462.0,0.0
+MLPL,Perusahaan MLPL,7,"Jumlah utang bank, bersih",1801260.0,1290462.0,0.0
+MLPL,Perusahaan MLPL,8,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,397338.0,328555.0,0.0
+MLPL,Perusahaan MLPL,9,Liabilitas jangka panjang atas utang bank,1403922.0,961907.0,0.0
+DKHH,Perusahaan DKHH,1,"Jumlah utang bank, kotor",1218000000.0,4083000000.0,0.0
+DKHH,Perusahaan DKHH,2,"Jumlah utang bank, bersih",1218000000.0,4083000000.0,0.0
+DKHH,Perusahaan DKHH,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,4083000000.0,7068000000.0,0.0
+DKHH,Perusahaan DKHH,4,Liabilitas jangka panjang atas utang bank,1218000000.0,4083000000.0,0.0
+EDGE,Perusahaan EDGE,1,Bank Central Asia Tbk,IDR,2904194.0,2443622.0
+EDGE,Perusahaan EDGE,2,Bank asing lainnya,USD,71764428.0,0.0
+EDGE,Perusahaan EDGE,3,"Jumlah utang bank, kotor",4048829.0,2443622.0,0.0
+EDGE,Perusahaan EDGE,4,"Jumlah utang bank, bersih",4048829.0,2443622.0,0.0
+EDGE,Perusahaan EDGE,5,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,34601.0,40549.0,0.0
+EDGE,Perusahaan EDGE,6,Liabilitas jangka panjang atas utang bank,4014228.0,2403073.0,0.0
+TGKA,Perusahaan TGKA,1,Bank Cimb Niaga Tbk,IDR,0.0,68630.0
+TGKA,Perusahaan TGKA,2,"Jumlah utang bank, kotor",62391.0,68630.0,0.0
+TGKA,Perusahaan TGKA,3,"Jumlah utang bank, bersih",62391.0,68630.0,0.0
+TGKA,Perusahaan TGKA,4,Liabilitas jangka panjang atas utang bank,62391.0,68630.0,0.0
+PBRX,Perusahaan PBRX,1,"Jumlah utang bank, kotor",11042073.0,11042073.0,0.0
+PBRX,Perusahaan PBRX,2,Biaya penerbitan utang bank yang belum diamortisasi,4592591.0,4711874.0,0.0
+PBRX,Perusahaan PBRX,3,"Jumlah utang bank, bersih",6449482.0,6330199.0,0.0
+PBRX,Perusahaan PBRX,4,Liabilitas jangka panjang atas utang bank,6449482.0,6330199.0,0.0
+RAAM,Perusahaan RAAM,1,Bank Negara Indonesia (Persero) Tbk,IDR,38700000000.0,40250000000.0
+RAAM,Perusahaan RAAM,2,Bank Permata Tbk,IDR,1768168936.0,2000000000.0
+RAAM,Perusahaan RAAM,3,Bank lokal lainnya,IDR,2506949046.0,2895665336.0
+RAAM,Perusahaan RAAM,4,"Jumlah utang bank, kotor",42975117982.0,45145665336.0,0.0
+RAAM,Perusahaan RAAM,5,"Jumlah utang bank, bersih",42975117982.0,45145665336.0,0.0
+RAAM,Perusahaan RAAM,6,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,7480231876.0,12829942200.0,0.0
+RAAM,Perusahaan RAAM,7,Liabilitas jangka panjang atas utang bank,35494886106.0,32315723136.0,0.0
+KICI,Perusahaan KICI,1,Bank lokal lainnya,USD,892500.0,0.0
+INET,Perusahaan INET,1,"Jumlah utang bank, kotor",18412748126.0,8464285715.0,0.0
+INET,Perusahaan INET,2,"Jumlah utang bank, bersih",18412748126.0,8464285715.0,0.0
+INET,Perusahaan INET,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,10790049589.0,1285714284.0,0.0
+INET,Perusahaan INET,4,Liabilitas jangka panjang atas utang bank,7622698537.0,7178571431.0,0.0
+MNCN,Perusahaan MNCN,1,Bank Mayapada Internasional Tbk,IDR,0.0,167008.0
+MNCN,Perusahaan MNCN,2,Bank Pembangunan Daerah Jawa Barat dan Banten Tbk,IDR,0.0,131250.0
+MNCN,Perusahaan MNCN,3,Pinjaman sindikasi,IDR,0.0,212917.0
+MNCN,Perusahaan MNCN,4,Bank lokal lainnya,IDR,0.0,108408.0
+MNCN,Perusahaan MNCN,5,"Jumlah utang bank, kotor",562291.0,619583.0,0.0
+MNCN,Perusahaan MNCN,6,Biaya penerbitan utang bank yang belum diamortisasi,1985.0,2092.0,0.0
+MNCN,Perusahaan MNCN,7,"Jumlah utang bank, bersih",560306.0,617491.0,0.0
+MNCN,Perusahaan MNCN,8,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,225754.0,228861.0,0.0
+MNCN,Perusahaan MNCN,9,Liabilitas jangka panjang atas utang bank,334552.0,388630.0,0.0
+MCAS,Perusahaan MCAS,1,Bank Central Asia Tbk,IDR,16818999999.0,348000000.0
+MCAS,Perusahaan MCAS,2,Bank Cimb Niaga Tbk,IDR,27912151755.0,2922987544.0
+MCAS,Perusahaan MCAS,3,"Jumlah utang bank, kotor",44731151754.0,3270987544.0,0.0
+MCAS,Perusahaan MCAS,4,"Jumlah utang bank, bersih",44731151754.0,3270987544.0,0.0
+MCAS,Perusahaan MCAS,5,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,21565967451.0,418113490.0,0.0
+MCAS,Perusahaan MCAS,6,Liabilitas jangka panjang atas utang bank,23165184303.0,2852874054.0,0.0
+SMGA,Perusahaan SMGA,1,"Jumlah utang bank, kotor",24641807900.0,28316414300.0,0.0
+SMGA,Perusahaan SMGA,2,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,14698425600.0,14734157711.0,0.0
+SMGA,Perusahaan SMGA,3,Liabilitas jangka panjang atas utang bank,9943382300.0,13582256589.0,0.0
+BELL,Perusahaan BELL,1,Bank Central Asia Tbk,IDR,43173191963.0,38717454119.0
+BELL,Perusahaan BELL,2,Bank Danamon Indonesia Tbk,IDR,0.0,55555548.0
+BELL,Perusahaan BELL,3,"Jumlah utang bank, kotor",43173191963.0,38773009667.0,0.0
+BELL,Perusahaan BELL,4,"Jumlah utang bank, bersih",43173191963.0,38773009667.0,0.0
+BELL,Perusahaan BELL,5,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,27048217338.0,28845653592.0,0.0
+BELL,Perusahaan BELL,6,Liabilitas jangka panjang atas utang bank,16124974625.0,9927356075.0,0.0
+CPIN,Perusahaan CPIN,1,Liabilitas jangka panjang atas utang bank,3286140.0,3274115.0,0.0
+ITIC,Perusahaan ITIC,1,Bank lokal lainnya,IDR,68015292266.0,59243388745.0
+ITIC,Perusahaan ITIC,2,"Jumlah utang bank, kotor",68015292266.0,59243388745.0,0.0
+ITIC,Perusahaan ITIC,3,"Jumlah utang bank, bersih",68015292266.0,59243388745.0,0.0
+ITIC,Perusahaan ITIC,4,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,24579052585.0,22099885918.0,0.0
+ITIC,Perusahaan ITIC,5,Liabilitas jangka panjang atas utang bank,43436239681.0,37143502827.0,0.0
+BWPT,Perusahaan BWPT,1,"Jumlah utang bank, kotor",3588971.0,3767588.0,0.0
+BWPT,Perusahaan BWPT,2,Biaya penerbitan utang bank yang belum diamortisasi,49522.0,54817.0,0.0
+BWPT,Perusahaan BWPT,3,"Jumlah utang bank, bersih",3539449.0,3712771.0,0.0
+BWPT,Perusahaan BWPT,4,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,792277.0,602926.0,0.0
+BWPT,Perusahaan BWPT,5,Liabilitas jangka panjang atas utang bank,2747172.0,3109845.0,0.0
+BUDI,Perusahaan BUDI,1,"Jumlah utang bank, kotor",755000.0,780000.0,0.0
+BUDI,Perusahaan BUDI,2,"Jumlah utang bank, bersih",755000.0,780000.0,0.0
+BUDI,Perusahaan BUDI,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,107500.0,100000.0,0.0
+BUDI,Perusahaan BUDI,4,Liabilitas jangka panjang atas utang bank,647500.0,680000.0,0.0
+INDR,Perusahaan INDR,1,Bank Central Asia Tbk,USD,3750000.0,5000000.0
+INDR,Perusahaan INDR,2,Bank Btpn Tbk,USD,25000000.0,15000000.0
+INDR,Perusahaan INDR,3,Bank asing lainnya,USD,15000000.0,15000000.0
+INDR,Perusahaan INDR,4,Bank lokal lainnya,IDR,150000000000.0,150000000000.0
+INDR,Perusahaan INDR,5,Bank lokal lainnya,USD,46250000.0,45688500.0
+INDR,Perusahaan INDR,6,"Jumlah utang bank, kotor",98869966.0,89626652.0,0.0
+INDR,Perusahaan INDR,7,"Jumlah utang bank, bersih",98869966.0,89626652.0,0.0
+INDR,Perusahaan INDR,8,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,15000000.0,12500000.0,0.0
+INDR,Perusahaan INDR,9,Liabilitas jangka panjang atas utang bank,83869966.0,77126652.0,0.0
+HRME,Perusahaan HRME,1,"Jumlah utang bank, kotor",200150980064.0,225313995272.0,0.0
+HRME,Perusahaan HRME,2,"Jumlah utang bank, bersih",200150980064.0,225313995272.0,0.0
+HRME,Perusahaan HRME,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,200150980064.0,201107118944.0,0.0
+KLAS,Perusahaan KLAS,1,"Jumlah utang bank, kotor",150683340256.0,166092455485.0,0.0
+KLAS,Perusahaan KLAS,2,"Jumlah utang bank, bersih",150683340256.0,166092455485.0,0.0
+KLAS,Perusahaan KLAS,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,34822113788.0,34822113788.0,0.0
+KLAS,Perusahaan KLAS,4,Liabilitas jangka panjang atas utang bank,115861226468.0,131270341697.0,0.0
+BTEK,Perusahaan BTEK,1,Pinjaman sindikasi,USD,2466082530955.0,2435552830596.0
+BTEK,Perusahaan BTEK,2,"Jumlah utang bank, kotor",2466082530955.0,2435552830596.0,0.0
+BTEK,Perusahaan BTEK,3,"Jumlah utang bank, bersih",2466082530955.0,2435552830596.0,0.0
+BTEK,Perusahaan BTEK,4,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,554991380.0,639444546.0,0.0
+BTEK,Perusahaan BTEK,5,Liabilitas jangka panjang atas utang bank,2465527539575.0,2434913386050.0,0.0
+DEWI,Perusahaan DEWI,1,Bank Permata Tbk,IDR,0.0,1550000000.0
+DEWI,Perusahaan DEWI,2,Bank Cimb Niaga Tbk,IDR,9000000000.0,9072916655.0
+DEWI,Perusahaan DEWI,3,Bank lokal lainnya,IDR,10468218127.0,0.0
+DEWI,Perusahaan DEWI,4,"Jumlah utang bank, kotor",19468218127.0,10622916655.0,0.0
+DEWI,Perusahaan DEWI,5,"Jumlah utang bank, bersih",19468218127.0,10622916655.0,0.0
+DEWI,Perusahaan DEWI,6,Liabilitas jangka panjang atas utang bank,19468218127.0,10622916655.0,0.0
+HAIS,Perusahaan HAIS,1,"Jumlah utang bank, kotor",569041395269.0,519520821642.0,0.0
+HAIS,Perusahaan HAIS,2,"Jumlah utang bank, bersih",569041395269.0,519520821642.0,0.0
+HAIS,Perusahaan HAIS,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,89819545053.0,80189120788.0,0.0
+HAIS,Perusahaan HAIS,4,Liabilitas jangka panjang atas utang bank,479221850216.0,439331700854.0,0.0
+FWCT,Perusahaan FWCT,1,"Jumlah utang bank, kotor",232009949239.0,121246860000.0,0.0
+FWCT,Perusahaan FWCT,2,"Jumlah utang bank, bersih",232009949239.0,121246860000.0,0.0
+FWCT,Perusahaan FWCT,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,41216011495.0,31079920000.0,0.0
+FWCT,Perusahaan FWCT,4,Liabilitas jangka panjang atas utang bank,190793937744.0,90166940000.0,0.0
+MBSS,Perusahaan MBSS,1,Bank Central Asia Tbk,IDR,209310281072.0,236946640266.0
+MBSS,Perusahaan MBSS,2,"Jumlah utang bank, kotor",209310281072.0,236946640266.0,0.0
+MBSS,Perusahaan MBSS,3,Biaya penerbitan utang bank yang belum diamortisasi,297474624.0,1493082624.0,0.0
+MBSS,Perusahaan MBSS,4,"Jumlah utang bank, bersih",209012806448.0,235453557642.0,0.0
+MBSS,Perusahaan MBSS,5,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,107011396178.0,107072556285.0,0.0
+MBSS,Perusahaan MBSS,6,Liabilitas jangka panjang atas utang bank,102001410270.0,128381001357.0,0.0
+PGLI,Perusahaan PGLI,1,"Jumlah utang bank, kotor",53164741.0,1380589520.0,0.0
+PGLI,Perusahaan PGLI,2,"Jumlah utang bank, bersih",53164741.0,1380589520.0,0.0
+KDTN,Perusahaan KDTN,1,"Jumlah utang bank, kotor",7342048522.0,7422207140.0,0.0
+KDTN,Perusahaan KDTN,2,"Jumlah utang bank, bersih",7342048522.0,7422207140.0,0.0
+KDTN,Perusahaan KDTN,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,4610292228.0,4076551147.0,0.0
+KDTN,Perusahaan KDTN,4,Liabilitas jangka panjang atas utang bank,3345655993.0,3345655993.0,0.0
+KKGI,Perusahaan KKGI,1,Bank lokal lainnya,IDR,36812500000.0,38000000000.0
+KKGI,Perusahaan KKGI,2,"Jumlah utang bank, kotor",2166333.0,2264330.0,0.0
+KKGI,Perusahaan KKGI,3,"Jumlah utang bank, bersih",2166333.0,2264330.0,0.0
+KKGI,Perusahaan KKGI,4,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,209645.0,283041.0,0.0
+KKGI,Perusahaan KKGI,5,Liabilitas jangka panjang atas utang bank,1956688.0,1981289.0,0.0
+OKAS,Perusahaan OKAS,1,"Jumlah utang bank, kotor",8043180.0,8577312.0,0.0
+OKAS,Perusahaan OKAS,2,"Jumlah utang bank, bersih",8043180.0,8577312.0,0.0
+OKAS,Perusahaan OKAS,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,1630643.0,2008671.0,0.0
+OKAS,Perusahaan OKAS,4,Liabilitas jangka panjang atas utang bank,6412537.0,6568641.0,0.0
+MLIA,Perusahaan MLIA,1,Bank Central Asia Tbk,IDR,395381992.0,446809313.0
+MLIA,Perusahaan MLIA,2,Bank lokal lainnya,IDR,187500000.0,200000000.0
+MLIA,Perusahaan MLIA,3,"Jumlah utang bank, kotor",582881992.0,646809313.0,0.0
+MLIA,Perusahaan MLIA,4,"Jumlah utang bank, bersih",582881992.0,646809313.0,0.0
+MLIA,Perusahaan MLIA,5,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,202048224.0,184692348.0,0.0
+MLIA,Perusahaan MLIA,6,Liabilitas jangka panjang atas utang bank,380833768.0,462116965.0,0.0
+AKKU,Perusahaan AKKU,1,"Jumlah utang bank, kotor",70833310418.0,70833310418.0,0.0
+AKKU,Perusahaan AKKU,2,"Jumlah utang bank, bersih",70833310418.0,70833310418.0,0.0
+AKKU,Perusahaan AKKU,3,Liabilitas jangka panjang atas utang bank,70833310418.0,70833310418.0,0.0
+APII,Perusahaan APII,1,"Jumlah utang bank, kotor",5785364355.0,6149189968.0,0.0
+APII,Perusahaan APII,2,"Jumlah utang bank, bersih",5785364355.0,6149189968.0,0.0
+APII,Perusahaan APII,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,1072939889.0,1194188981.0,0.0
+APII,Perusahaan APII,4,Liabilitas jangka panjang atas utang bank,4712424466.0,4955000987.0,0.0
+CINT,Perusahaan CINT,1,"Jumlah utang bank, kotor",368219450.0,368219450.0,0.0
+CINT,Perusahaan CINT,2,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,448624999.0,598166665.0,0.0
+CINT,Perusahaan CINT,3,Liabilitas jangka panjang atas utang bank,368219450.0,368219450.0,0.0
+SMLE,Perusahaan SMLE,1,"Jumlah utang bank, bersih",11513470557.0,12204093151.0,0.0
+SMLE,Perusahaan SMLE,2,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,2798611442.0,2777089933.0,0.0
+SMLE,Perusahaan SMLE,3,Liabilitas jangka panjang atas utang bank,8714859115.0,9427003218.0,0.0
+SUNI,Perusahaan SUNI,1,"Jumlah utang bank, kotor",147271294275.0,151697436622.0,0.0
+SUNI,Perusahaan SUNI,2,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,29771095832.0,33709063203.0,0.0
+SUNI,Perusahaan SUNI,3,Liabilitas jangka panjang atas utang bank,147271294275.0,151697436622.0,0.0
+WOWS,Perusahaan WOWS,1,"Jumlah utang bank, bersih",325220093.0,441555424.0,0.0
+WOWS,Perusahaan WOWS,2,Liabilitas jangka panjang atas utang bank,325220093.0,441555424.0,0.0
+KDSI,Perusahaan KDSI,1,Bank Mandiri (Persero) Tbk,IDR,70000000000.0,0.0
+RMKO,Perusahaan RMKO,1,Bank Central Asia Tbk,IDR,11848238891.0,14775429650.0
+RMKO,Perusahaan RMKO,2,Bank lokal lainnya,IDR,37570458650.0,43709245216.0
+RMKO,Perusahaan RMKO,3,"Jumlah utang bank, kotor",49418697541.0,58484674866.0,0.0
+RMKO,Perusahaan RMKO,4,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,25729026186.0,29981858009.0,0.0
+RMKO,Perusahaan RMKO,5,Liabilitas jangka panjang atas utang bank,23689671355.0,28502816857.0,0.0
+IFII,Perusahaan IFII,1,Bank Danamon Indonesia Tbk,IDR,215625666667.0,238728416667.0
+IFII,Perusahaan IFII,2,"Jumlah utang bank, kotor",215625666667.0,238728416667.0,0.0
+IFII,Perusahaan IFII,3,Biaya penerbitan utang bank yang belum diamortisasi,273427322.0,331124912.0,0.0
+IFII,Perusahaan IFII,4,"Jumlah utang bank, bersih",215352239345.0,238397291755.0,0.0
+IFII,Perusahaan IFII,5,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,92231714018.0,92209936843.0,0.0
+IFII,Perusahaan IFII,6,Liabilitas jangka panjang atas utang bank,123120525327.0,146187354912.0,0.0
+INOV,Perusahaan INOV,1,Bank lokal lainnya,USD,647.0,816.0
+INOV,Perusahaan INOV,2,"Jumlah utang bank, kotor",11001641.0,13694739.0,0.0
+INOV,Perusahaan INOV,3,"Jumlah utang bank, bersih",11001641.0,13694739.0,0.0
+GOTO,Perusahaan GOTO,1,Bank lokal lainnya,IDR,3677808.0,3662342.0
+GOTO,Perusahaan GOTO,2,"Jumlah utang bank, kotor",3677808.0,3662342.0,0.0
+GOTO,Perusahaan GOTO,3,"Jumlah utang bank, bersih",3677808.0,3662342.0,0.0
+GOTO,Perusahaan GOTO,4,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,336448.0,318389.0,0.0
+GOTO,Perusahaan GOTO,5,Liabilitas jangka panjang atas utang bank,3341360.0,3343953.0,0.0
+PADA,Perusahaan PADA,1,"Jumlah utang bank, kotor",1420135281.0,74695800053.0,0.0
+PADA,Perusahaan PADA,2,"Jumlah utang bank, bersih",1420135281.0,74695800053.0,0.0
+GGRP,Perusahaan GGRP,1,Bank asing lainnya,EUR,131750.0,131750.0
+GGRP,Perusahaan GGRP,2,"Jumlah utang bank, kotor",2900991.0,2904587.0,0.0
+GGRP,Perusahaan GGRP,3,"Jumlah utang bank, bersih",2900991.0,2904587.0,0.0
+GGRP,Perusahaan GGRP,4,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,1933988.0,1298119.0,0.0
+GGRP,Perusahaan GGRP,5,Liabilitas jangka panjang atas utang bank,967003.0,1606468.0,0.0
+BUVA,Perusahaan BUVA,1,"Jumlah utang bank, kotor",438211000000.0,446962000000.0,0.0
+BUVA,Perusahaan BUVA,2,"Jumlah utang bank, bersih",438211000000.0,446962000000.0,0.0
+BUVA,Perusahaan BUVA,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,36684000000.0,35436000000.0,0.0
+BUVA,Perusahaan BUVA,4,Liabilitas jangka panjang atas utang bank,401527000000.0,411526000000.0,0.0
+BMHS,Perusahaan BMHS,1,Bank Mandiri (Persero) Tbk,IDR,781431734086.0,733230250090.0
+BMHS,Perusahaan BMHS,2,Bank Syariah Indonesia Tbk,IDR,61783319575.0,40577688224.0
+BMHS,Perusahaan BMHS,3,"Jumlah utang bank, kotor",843215053661.0,773807938314.0,0.0
+BMHS,Perusahaan BMHS,4,Biaya penerbitan utang bank yang belum diamortisasi,3532871611.0,3984634503.0,0.0
+BMHS,Perusahaan BMHS,5,"Jumlah utang bank, bersih",839682182050.0,769823303811.0,0.0
+BMHS,Perusahaan BMHS,6,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,54872787117.0,47931990928.0,0.0
+BMHS,Perusahaan BMHS,7,Liabilitas jangka panjang atas utang bank,784809394933.0,721891312883.0,0.0
+SDMU,Perusahaan SDMU,1,"Jumlah utang bank, kotor",4463528543.0,4463528543.0,0.0
+SDMU,Perusahaan SDMU,2,"Jumlah utang bank, bersih",4463528543.0,4463528543.0,0.0
+SDMU,Perusahaan SDMU,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,1867355864.0,2634256438.0,0.0
+SDMU,Perusahaan SDMU,4,Liabilitas jangka panjang atas utang bank,4463528543.0,4463528543.0,0.0
+SLIS,Perusahaan SLIS,1,Bank Central Asia Tbk,IDR,0.0,19770528518.0
+CSAP,Perusahaan CSAP,1,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,243991649.0,241603975.0,0.0
+CSAP,Perusahaan CSAP,2,Liabilitas jangka panjang atas utang bank,778417595.0,805615114.0,0.0
+DPUM,Perusahaan DPUM,1,"Jumlah utang bank, bersih",568082200264.0,610662242444.0,0.0
+DPUM,Perusahaan DPUM,2,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,9911319414.0,29143617296.0,0.0
+DPUM,Perusahaan DPUM,3,Liabilitas jangka panjang atas utang bank,558170880850.0,581518625148.0,0.0
+CTTH,Perusahaan CTTH,1,"Jumlah utang bank, kotor",185606346596.0,186356346596.0,0.0
+CTTH,Perusahaan CTTH,2,Biaya penerbitan utang bank yang belum diamortisasi,65154762.0,65154762.0,0.0
+CTTH,Perusahaan CTTH,3,"Jumlah utang bank, bersih",185541191834.0,186291191834.0,0.0
+CTTH,Perusahaan CTTH,4,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,7000000000.0,7000000000.0,0.0
+CTTH,Perusahaan CTTH,5,Liabilitas jangka panjang atas utang bank,178541191834.0,179291191834.0,0.0
+GJTL,Perusahaan GJTL,1,Bank Central Asia Tbk,IDR,268735.0,291235.0
+GJTL,Perusahaan GJTL,2,Pinjaman sindikasi,IDR,4247931.0,4387032.0
+GJTL,Perusahaan GJTL,3,"Jumlah utang bank, kotor",4516666.0,4678267.0,0.0
+GJTL,Perusahaan GJTL,4,Biaya penerbitan utang bank yang belum diamortisasi,44075.0,47362.0,0.0
+GJTL,Perusahaan GJTL,5,"Jumlah utang bank, bersih",4472591.0,4630905.0,0.0
+GJTL,Perusahaan GJTL,6,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,660245.0,643424.0,0.0
+GJTL,Perusahaan GJTL,7,Liabilitas jangka panjang atas utang bank,3812346.0,3987481.0,0.0
+SGER,Perusahaan SGER,1,"Jumlah utang bank, kotor",533434674734.0,485831523730.0,0.0
+SGER,Perusahaan SGER,2,"Jumlah utang bank, bersih",533434674734.0,485831523730.0,0.0
+SGER,Perusahaan SGER,3,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,14734157711.0,14734157711.0,0.0
+SGER,Perusahaan SGER,4,Liabilitas jangka panjang atas utang bank,518700517023.0,471097366019.0,0.0
+MLPT,Perusahaan MLPT,1,Bank Mandiri (Persero) Tbk,IDR,66506.0,74315.0
+MLPT,Perusahaan MLPT,2,Bank Permata Tbk,IDR,105805.0,146159.0
+MLPT,Perusahaan MLPT,3,Bank Cimb Niaga Tbk,IDR,67255.0,73880.0
+MLPT,Perusahaan MLPT,4,"Jumlah utang bank, kotor",239566.0,294354.0,0.0
+MLPT,Perusahaan MLPT,5,Biaya penerbitan utang bank yang belum diamortisasi,252.0,344.0,0.0
+MLPT,Perusahaan MLPT,6,"Jumlah utang bank, bersih",239314.0,294010.0,0.0
+MLPT,Perusahaan MLPT,7,Liabilitas jangka panjang yang jatuh tempo dalam satu tahun atas utang bank,100868.0,113043.0,0.0
+MLPT,Perusahaan MLPT,8,Liabilitas jangka panjang atas utang bank,138446.0,180967.0,0.0
