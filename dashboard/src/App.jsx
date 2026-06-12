@@ -11,19 +11,19 @@ import RantaiPasokTab from './RantaiPasokTab'
 
 
 const COLORS = [
-  '#3b82f6', '#ef4444', '#10b981', '#f59e0b', '#8b5cf6',
-  '#ec4899', '#06b6d4', '#f97316', '#84cc16', '#6366f1',
+  '#f27a1a', '#00c0a8', '#e2ba12', '#c4e538', '#a55eea',
+  '#ec4899', '#06b6d4', '#ff7675', '#84cc16', '#6366f1',
   '#14b8a6'
 ]
 
 const SECTOR_COLORS = {
-  'Barang Baku': '#3b82f6',
-  'Barang Konsumen Non-Primer': '#ef4444',
-  'Barang Konsumen Primer': '#10b981',
-  'Energi': '#f59e0b',
-  'Infrastruktur': '#8b5cf6',
+  'Barang Baku': '#f27a1a',
+  'Barang Konsumen Non-Primer': '#ff7675',
+  'Barang Konsumen Primer': '#c4e538',
+  'Energi': '#e2ba12',
+  'Infrastruktur': '#a55eea',
   'Kesehatan': '#ec4899',
-  'Keuangan': '#06b6d4',
+  'Keuangan': '#00c0a8',
   'Perindustrian': '#f97316',
   'Properti & Real Estat': '#84cc16',
   'Teknologi': '#6366f1',
@@ -75,14 +75,14 @@ function parsePercentInput(val) {
 const CustomTooltip = ({ active, payload, label }) => {
   if (!active || !payload) return null
   return (
-    <div className="bg-[#121124]/90 border border-white/10 rounded-xl shadow-2xl p-3 text-xs backdrop-blur-md">
-      <div className="font-bold mb-2 text-white border-b border-white/5 pb-1">{label}</div>
+    <div className="bg-white/95 border border-slate-200/80 rounded-xl shadow-xl p-3 text-xs backdrop-blur-md">
+      <div className="font-bold mb-2 text-slate-800 border-b border-slate-100 pb-1">{label}</div>
       <div className="space-y-1 max-h-[200px] overflow-y-auto pr-1">
         {payload.map((entry, i) => (
           <div key={i} className="flex items-center gap-2 py-0.5">
             <div className="w-2 h-2 rounded-full shrink-0 shadow-sm" style={{ backgroundColor: entry.color }} />
-            <span className="text-slate-400 flex-1">{entry.name}:</span>
-            <span className="font-bold text-white">{formatMoney(entry.value)}</span>
+            <span className="text-slate-500 flex-1">{entry.name}:</span>
+            <span className="font-bold text-slate-800">{formatMoney(entry.value)}</span>
           </div>
         ))}
       </div>
@@ -93,14 +93,14 @@ const CustomTooltip = ({ active, payload, label }) => {
 const PercentTooltip = ({ active, payload, label }) => {
   if (!active || !payload) return null
   return (
-    <div className="bg-[#121124]/90 border border-white/10 rounded-xl shadow-2xl p-3 text-xs backdrop-blur-md">
-      <div className="font-bold mb-2 text-white border-b border-white/5 pb-1">{label}</div>
+    <div className="bg-white/95 border border-slate-200/80 rounded-xl shadow-xl p-3 text-xs backdrop-blur-md">
+      <div className="font-bold mb-2 text-slate-800 border-b border-slate-100 pb-1">{label}</div>
       <div className="space-y-1 max-h-[200px] overflow-y-auto pr-1">
         {payload.map((entry, i) => (
           <div key={i} className="flex items-center gap-2 py-0.5">
             <div className="w-2 h-2 rounded-full shrink-0 shadow-sm" style={{ backgroundColor: entry.color }} />
-            <span className="text-slate-400 flex-1">{entry.name}:</span>
-            <span className="font-bold text-white">{formatPercent(entry.value)}</span>
+            <span className="text-slate-500 flex-1">{entry.name}:</span>
+            <span className="font-bold text-slate-800">{formatPercent(entry.value)}</span>
           </div>
         ))}
       </div>
@@ -250,12 +250,12 @@ export default function App() {
   return (
     <div className="flex h-screen max-h-screen bg-transparent p-4 gap-4 overflow-hidden">
       {/* Sleek Floating Left Sidebar */}
-      <aside className="group/sidebar w-20 hover:w-60 bg-[#121124]/95 border border-white/5 rounded-3xl flex flex-col items-center hover:items-start py-6 flex-shrink-0 shadow-2xl backdrop-blur-md justify-between transition-all duration-300 ease-in-out z-30">
+      <aside className="group/sidebar w-20 hover:w-60 bg-gradient-to-b from-[#f27a1a] to-[#e8690c] border border-orange-400/20 rounded-3xl flex flex-col items-center hover:items-start py-6 flex-shrink-0 shadow-2xl justify-between transition-all duration-300 ease-in-out z-30">
         <div className="flex flex-col items-center group-hover/sidebar:items-start gap-8 w-full group-hover/sidebar:px-4">
           {/* Logo Icon at Top */}
           <div
             onClick={() => setActiveTab('laporan')}
-            className="w-10 group-hover/sidebar:w-52 h-10 rounded-xl bg-gradient-to-tr from-violet-600 to-indigo-650 flex items-center justify-center group-hover/sidebar:justify-start group-hover/sidebar:px-3 shadow-lg shadow-violet-500/30 cursor-pointer hover:scale-105 transition-all overflow-hidden"
+            className="w-10 group-hover/sidebar:w-52 h-10 rounded-xl bg-white/15 border border-white/25 flex items-center justify-center group-hover/sidebar:justify-start group-hover/sidebar:px-3 shadow-lg cursor-pointer hover:scale-105 transition-all overflow-hidden"
           >
             <Activity size={20} className="text-white animate-pulse flex-shrink-0" />
             <span className="ml-3 text-xs font-bold text-white tracking-wider uppercase opacity-0 group-hover/sidebar:opacity-100 transition-opacity duration-200 whitespace-nowrap hidden group-hover/sidebar:inline">
@@ -269,8 +269,8 @@ export default function App() {
               type="button"
               onClick={() => setActiveTab('laporan')}
               className={`w-12 group-hover/sidebar:w-52 h-12 rounded-2xl flex items-center justify-center group-hover/sidebar:justify-start group-hover/sidebar:px-4 transition-all duration-300 relative cursor-pointer overflow-hidden ${activeTab === 'laporan'
-                  ? 'bg-gradient-to-tr from-violet-600 to-indigo-600 text-white shadow-lg shadow-violet-500/25 border border-violet-400/20'
-                  : 'text-slate-400 hover:text-slate-200 hover:bg-white/5'
+                  ? 'bg-white text-[#f27a1a] shadow-lg border border-white/20'
+                  : 'text-white/80 hover:text-white hover:bg-white/10'
                 }`}
             >
               <BarChart3 size={20} className="flex-shrink-0" />
@@ -281,8 +281,8 @@ export default function App() {
               type="button"
               onClick={() => setActiveTab('peta')}
               className={`w-12 group-hover/sidebar:w-52 h-12 rounded-2xl flex items-center justify-center group-hover/sidebar:justify-start group-hover/sidebar:px-4 transition-all duration-300 relative cursor-pointer overflow-hidden ${activeTab === 'peta'
-                  ? 'bg-gradient-to-tr from-violet-600 to-indigo-600 text-white shadow-lg shadow-violet-500/25 border border-violet-400/20'
-                  : 'text-slate-400 hover:text-slate-200 hover:bg-white/5'
+                  ? 'bg-white text-[#f27a1a] shadow-lg border border-white/20'
+                  : 'text-white/80 hover:text-white hover:bg-white/10'
                 }`}
             >
               <Map size={20} className="flex-shrink-0" />
@@ -293,8 +293,8 @@ export default function App() {
               type="button"
               onClick={() => setActiveTab('pdb')}
               className={`w-12 group-hover/sidebar:w-52 h-12 rounded-2xl flex items-center justify-center group-hover/sidebar:justify-start group-hover/sidebar:px-4 transition-all duration-300 relative cursor-pointer overflow-hidden ${activeTab === 'pdb'
-                  ? 'bg-gradient-to-tr from-violet-600 to-indigo-600 text-white shadow-lg shadow-violet-500/25 border border-violet-400/20'
-                  : 'text-slate-400 hover:text-slate-200 hover:bg-white/5'
+                  ? 'bg-white text-[#f27a1a] shadow-lg border border-white/20'
+                  : 'text-white/80 hover:text-white hover:bg-white/10'
                 }`}
             >
               <TrendingUp size={20} className="flex-shrink-0" />
@@ -305,8 +305,8 @@ export default function App() {
               type="button"
               onClick={() => setActiveTab('hubungan')}
               className={`w-12 group-hover/sidebar:w-52 h-12 rounded-2xl flex items-center justify-center group-hover/sidebar:justify-start group-hover/sidebar:px-4 transition-all duration-300 relative cursor-pointer overflow-hidden ${activeTab === 'hubungan'
-                  ? 'bg-gradient-to-tr from-violet-600 to-indigo-600 text-white shadow-lg shadow-violet-500/25 border border-violet-400/20'
-                  : 'text-slate-400 hover:text-slate-200 hover:bg-white/5'
+                  ? 'bg-white text-[#f27a1a] shadow-lg border border-white/20'
+                  : 'text-white/80 hover:text-white hover:bg-white/10'
                 }`}
             >
               <Share2 size={20} className="flex-shrink-0" />
@@ -317,8 +317,8 @@ export default function App() {
               type="button"
               onClick={() => setActiveTab('rantai-pasok')}
               className={`w-12 group-hover/sidebar:w-52 h-12 rounded-2xl flex items-center justify-center group-hover/sidebar:justify-start group-hover/sidebar:px-4 transition-all duration-300 relative cursor-pointer overflow-hidden ${activeTab === 'rantai-pasok'
-                  ? 'bg-gradient-to-tr from-violet-600 to-indigo-600 text-white shadow-lg shadow-violet-500/25 border border-violet-400/20'
-                  : 'text-slate-400 hover:text-slate-200 hover:bg-white/5'
+                  ? 'bg-white text-[#f27a1a] shadow-lg border border-white/20'
+                  : 'text-white/80 hover:text-white hover:bg-white/10'
                 }`}
             >
               <Layers size={20} className="flex-shrink-0" />
@@ -332,7 +332,7 @@ export default function App() {
           <button
             type="button"
             onClick={() => setActiveTab('laporan')}
-            className="w-12 group-hover/sidebar:w-52 h-12 rounded-2xl flex items-center justify-center group-hover/sidebar:justify-start group-hover/sidebar:px-4 text-slate-400 hover:text-red-400 hover:bg-red-500/10 transition-all cursor-pointer border-none bg-transparent overflow-hidden"
+            className="w-12 group-hover/sidebar:w-52 h-12 rounded-2xl flex items-center justify-center group-hover/sidebar:justify-start group-hover/sidebar:px-4 text-white/80 hover:text-red-200 hover:bg-white/10 transition-all cursor-pointer border-none bg-transparent overflow-hidden"
           >
             <LogOut size={20} className="flex-shrink-0" />
             <span className="ml-3 text-xs font-semibold whitespace-nowrap opacity-0 group-hover/sidebar:opacity-100 transition-opacity duration-200 hidden group-hover/sidebar:inline">Keluar</span>
@@ -344,17 +344,17 @@ export default function App() {
       <div className="flex-1 flex flex-col min-w-0 overflow-y-auto pr-1">
         {/* Top Header */}
         <header className="bg-transparent border-none sticky top-0 z-20 pb-4">
-          <div className="bg-[#121124]/75 border border-white/5 rounded-3xl p-4 flex items-center justify-between gap-4 flex-wrap shadow-2xl backdrop-blur-md">
+          <div className="bg-gradient-to-r from-[#00c0a8] to-[#00ab96] border border-teal-400/20 rounded-3xl p-4 flex items-center justify-between gap-4 flex-wrap shadow-2xl backdrop-blur-md text-white">
             <div className="flex items-center gap-3">
-              <div className="bg-gradient-to-tr from-violet-600 to-indigo-600 text-white p-2.5 rounded-xl shadow-lg shadow-violet-500/10">
+              <div className="bg-white/15 text-white p-2.5 rounded-xl shadow-md border border-white/20">
                 <BarChart3 size={20} />
               </div>
               <div>
                 <h1 className="text-base font-bold text-white leading-tight flex items-center gap-1.5">
                   FinSight
-                  <span className="text-[9px] bg-violet-500/25 border border-violet-500/20 text-violet-300 px-1.5 py-0.5 rounded-full font-semibold uppercase tracking-wider">Premium</span>
+                  <span className="text-[9px] bg-white/20 border border-white/25 text-white px-1.5 py-0.5 rounded-full font-semibold uppercase tracking-wider">Premium</span>
                 </h1>
-                <p className="text-[11px] text-slate-400">
+                <p className="text-[11px] text-teal-55">
                   {activeTab === 'laporan' && 'Analisis Profitabilitas per Sektor'}
                   {activeTab === 'peta' && 'Peta Provinsi & Sebaran Emiten'}
                   {activeTab === 'pdb' && 'Analisis PDB Makro & Sektor Terbaik'}
@@ -368,27 +368,27 @@ export default function App() {
 
             {/* Right controls */}
             <div className="flex items-center gap-3">
-              <button className="p-2 text-slate-400 hover:text-slate-200 rounded-full bg-slate-800/20 border border-white/5 transition-all cursor-pointer">
+              <button className="p-2 text-white hover:bg-white/15 rounded-full bg-white/10 border border-white/10 transition-all cursor-pointer">
                 <Search size={15} />
               </button>
-              <button className="p-2 text-slate-400 hover:text-slate-200 rounded-full bg-slate-800/20 border border-white/5 relative transition-all cursor-pointer">
+              <button className="p-2 text-white hover:bg-white/15 rounded-full bg-white/10 border border-white/10 relative transition-all cursor-pointer">
                 <Bell size={15} />
-                <span className="absolute top-1.5 right-1.5 w-1.5 h-1.5 rounded-full bg-violet-500 shadow shadow-violet-500/50"></span>
+                <span className="absolute top-1.5 right-1.5 w-1.5 h-1.5 rounded-full bg-orange-500 shadow shadow-orange-500/50 animate-pulse"></span>
               </button>
-              <button className="p-2 text-slate-400 hover:text-slate-200 rounded-full bg-slate-800/20 border border-white/5 transition-all cursor-pointer">
+              <button className="p-2 text-white hover:bg-white/15 rounded-full bg-white/10 border border-white/10 transition-all cursor-pointer">
                 <Info size={15} />
               </button>
 
               {/* User profile dropdown */}
-              <div className="flex items-center gap-2 bg-[#222044] border border-white/5 rounded-full pl-2 pr-3 py-1 shadow-md select-none">
-                <div className="w-6 h-6 rounded-full bg-gradient-to-tr from-violet-500 to-indigo-500 flex items-center justify-center text-[10px] font-bold text-white shadow shadow-violet-500/40">
+              <div className="flex items-center gap-2 bg-white/15 border border-white/25 rounded-full pl-2 pr-3 py-1 shadow-md select-none">
+                <div className="w-6 h-6 rounded-full bg-white text-[#00c0a8] flex items-center justify-center text-[10px] font-bold shadow shadow-teal-500/40">
                   DR
                 </div>
                 <div className="text-left hidden sm:block">
                   <div className="text-[10px] font-bold text-white leading-tight">Muthia Aisyah Putri</div>
-                  <div className="text-[8px] text-slate-400 leading-none">muthiaaisyahputri26@gmail.com</div>
+                  <div className="text-[8px] text-teal-100 leading-none">muthiaaisyahputri26@gmail.com</div>
                 </div>
-                <ChevronDown size={11} className="text-slate-400 ml-1 font-bold" />
+                <ChevronDown size={11} className="text-white ml-1 font-bold" />
               </div>
             </div>
           </div>
@@ -465,15 +465,15 @@ export default function App() {
                 </p>
                 <ResponsiveContainer width="100%" height={400}>
                   <LineChart data={improvementChartData}>
-                    <CartesianGrid strokeDasharray="3 3" stroke="rgba(255, 255, 255, 0.05)" />
-                    <XAxis dataKey="year" tick={{ fontSize: 11, fill: '#94a3b8' }} />
-                    <YAxis tick={{ fontSize: 11, fill: '#94a3b8' }} tickFormatter={v => formatMoneyShort(v)} />
+                    <CartesianGrid strokeDasharray="3 3" stroke="rgba(0, 0, 0, 0.06)" />
+                    <XAxis dataKey="year" tick={{ fontSize: 11, fill: '#475569' }} />
+                    <YAxis tick={{ fontSize: 11, fill: '#475569' }} tickFormatter={v => formatMoneyShort(v)} />
                     <Tooltip content={<CustomTooltip />} />
                     <Legend
                       wrapperStyle={{ fontSize: '11px', paddingTop: '12px', cursor: 'pointer' }}
                       onClick={(legendData) => setActiveLineSector(prev => prev === (legendData.dataKey || legendData.value) ? null : (legendData.dataKey || legendData.value))}
                     />
-                    <ReferenceLine y={0} stroke="rgba(255, 255, 255, 0.2)" />
+                    <ReferenceLine y={0} stroke="rgba(0, 0, 0, 0.15)" />
                     {data.sectors.map((sector, i) => {
                       const isHighlighted = activeLineSector === null || activeLineSector === sector;
                       return (
@@ -506,9 +506,9 @@ export default function App() {
                   </p>
                   <ResponsiveContainer width="100%" height={360}>
                     <BarChart data={profitChartData}>
-                      <CartesianGrid strokeDasharray="3 3" stroke="rgba(255, 255, 255, 0.05)" />
-                      <XAxis dataKey="year" tick={{ fontSize: 11, fill: '#94a3b8' }} />
-                      <YAxis tick={{ fontSize: 11, fill: '#94a3b8' }} tickFormatter={v => formatMoneyShort(v)} />
+                      <CartesianGrid strokeDasharray="3 3" stroke="rgba(0, 0, 0, 0.06)" />
+                      <XAxis dataKey="year" tick={{ fontSize: 11, fill: '#475569' }} />
+                      <YAxis tick={{ fontSize: 11, fill: '#475569' }} tickFormatter={v => formatMoneyShort(v)} />
                       <Tooltip content={<CustomTooltip />} />
                       <Legend wrapperStyle={{ fontSize: '11px', paddingTop: '12px' }} />
                       {data.sectors.map((sector, i) => (
@@ -534,11 +534,11 @@ export default function App() {
                   </p>
                   <ResponsiveContainer width="100%" height={360}>
                     <BarChart data={sectorGrowthSorted} layout="vertical">
-                      <CartesianGrid strokeDasharray="3 3" stroke="rgba(255, 255, 255, 0.05)" horizontal={false} />
-                      <XAxis type="number" tick={{ fontSize: 11, fill: '#94a3b8' }} tickFormatter={v => formatPercent(v)} />
-                      <YAxis type="category" dataKey="Sektor" tick={{ fontSize: 10, fill: '#cbd5e1' }} width={130} />
+                      <CartesianGrid strokeDasharray="3 3" stroke="rgba(0, 0, 0, 0.06)" horizontal={false} />
+                      <XAxis type="number" tick={{ fontSize: 11, fill: '#475569' }} tickFormatter={v => formatPercent(v)} />
+                      <YAxis type="category" dataKey="Sektor" tick={{ fontSize: 10, fill: '#334155' }} width={130} />
                       <Tooltip content={<PercentTooltip />} />
-                      <ReferenceLine x={0} stroke="rgba(255, 255, 255, 0.2)" />
+                      <ReferenceLine x={0} stroke="rgba(0, 0, 0, 0.15)" />
                       <Bar
                         dataKey="GrowthRate"
                         radius={[0, 4, 4, 0]}
@@ -568,16 +568,16 @@ export default function App() {
                 </p>
                 <ResponsiveContainer width="100%" height={500}>
                   <BarChart data={subindustryChartData} layout="vertical" margin={{ left: 20, right: 20 }}>
-                    <CartesianGrid strokeDasharray="3 3" stroke="rgba(255, 255, 255, 0.05)" horizontal={false} />
-                    <XAxis type="number" tick={{ fontSize: 11, fill: '#94a3b8' }} tickFormatter={v => formatPercent(v)} />
+                    <CartesianGrid strokeDasharray="3 3" stroke="rgba(0, 0, 0, 0.06)" horizontal={false} />
+                    <XAxis type="number" tick={{ fontSize: 11, fill: '#475569' }} tickFormatter={v => formatPercent(v)} />
                     <YAxis
                       type="category"
                       dataKey="Subindustri"
-                      tick={{ fontSize: 10, fill: '#cbd5e1' }}
+                      tick={{ fontSize: 10, fill: '#334155' }}
                       width={180}
                     />
                     <Tooltip content={<PercentTooltip />} />
-                    <ReferenceLine x={0} stroke="rgba(255, 255, 255, 0.2)" />
+                    <ReferenceLine x={0} stroke="rgba(0, 0, 0, 0.15)" />
                     <Bar dataKey="GrowthRate" radius={[0, 4, 4, 0]}>
                       {subindustryChartData.map((entry, i) => (
                         <Cell
@@ -649,9 +649,9 @@ export default function App() {
                   </p>
                   <ResponsiveContainer width="100%" height={320}>
                     <BarChart data={topCompanies} layout="vertical">
-                      <CartesianGrid strokeDasharray="3 3" stroke="rgba(255, 255, 255, 0.05)" horizontal={false} />
-                      <XAxis type="number" tick={{ fontSize: 11, fill: '#94a3b8' }} tickFormatter={v => formatMoneyShort(v)} />
-                      <YAxis type="category" dataKey="Ticker" tick={{ fontSize: 11, fill: '#cbd5e1' }} width={60} />
+                      <CartesianGrid strokeDasharray="3 3" stroke="rgba(0, 0, 0, 0.06)" horizontal={false} />
+                      <XAxis type="number" tick={{ fontSize: 11, fill: '#475569' }} tickFormatter={v => formatMoneyShort(v)} />
+                      <YAxis type="category" dataKey="Ticker" tick={{ fontSize: 11, fill: '#334155' }} width={60} />
                       <Tooltip content={<CustomTooltip />} />
                       <Bar dataKey="NetIncome" radius={[0, 4, 4, 0]} fill="#3b82f6" />
                     </BarChart>
@@ -833,29 +833,29 @@ export default function App() {
         {/* Sector Detail Modal */}
         {selectedSector && (
           <div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 backdrop-blur-sm"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4 backdrop-blur-sm"
             onClick={(e) => {
               if (e.target === e.currentTarget) { setSelectedSector(null); setSearchTerm('') }
             }}
           >
-            <div className="bg-[#121124] rounded-2xl border border-white/10 shadow-2xl w-full max-w-3xl max-h-[85vh] flex flex-col" onClick={e => e.stopPropagation()}>
-              <div className="flex items-center justify-between px-5 py-4 border-b border-white/5">
+            <div className="bg-white rounded-2xl border border-slate-200 shadow-2xl w-full max-w-3xl max-h-[85vh] flex flex-col" onClick={e => e.stopPropagation()}>
+              <div className="flex items-center justify-between px-5 py-4 border-b border-slate-100">
                 <div className="flex items-center gap-3">
                   <div
                     className="w-3.5 h-3.5 rounded-full shadow"
                     style={{ backgroundColor: SECTOR_COLORS[selectedSector] || '#cbd5e1' }}
                   />
-                  <h3 className="text-base font-bold text-white">{selectedSector}</h3>
+                  <h3 className="text-base font-bold text-slate-800">{selectedSector}</h3>
                   <span className="text-xs text-slate-400">— Annualised Profit {latestYear}</span>
                 </div>
                 <button
                   onClick={() => { setSelectedSector(null); setSearchTerm('') }}
-                  className="p-1.5 hover:bg-white/5 rounded-lg transition-colors border-none bg-transparent cursor-pointer"
+                  className="p-1.5 hover:bg-slate-100 rounded-lg transition-colors border-none bg-transparent cursor-pointer"
                 >
-                  <X size={18} className="text-slate-400 hover:text-white" />
+                  <X size={18} className="text-slate-400 hover:text-slate-700" />
                 </button>
               </div>
-              <div className="px-5 py-3 border-b border-white/5">
+              <div className="px-5 py-3 border-b border-slate-100">
                 <input
                   type="text"
                   placeholder="Cari ticker..."
@@ -866,8 +866,8 @@ export default function App() {
               </div>
               <div className="overflow-auto flex-1 px-5 py-2">
                 <table className="w-full text-xs text-left">
-                  <thead className="sticky top-0 bg-[#121124] border-b border-white/5">
-                    <tr className="border-b border-white/5 text-slate-400 font-semibold uppercase tracking-wider text-[9px]">
+                  <thead className="sticky top-0 bg-slate-50 border-b border-slate-200">
+                    <tr className="border-b border-slate-200 text-slate-500 font-semibold uppercase tracking-wider text-[9px]">
                       <th className="py-2.5">#</th>
                       <th className="py-2.5">Ticker</th>
                       <th className="py-2.5">Subsektor</th>
@@ -877,18 +877,18 @@ export default function App() {
                       <th className="py-2.5 text-right">Growth</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-white/5">
+                  <tbody className="divide-y divide-slate-100">
                     {(data.companiesBySector[selectedSector] || [])
                       .filter(c => !searchTerm || c.Ticker.toLowerCase().includes(searchTerm.toLowerCase()) || (c.Subsektor || '').toLowerCase().includes(searchTerm.toLowerCase()))
                       .map((c, i) => (
-                        <tr key={c.Ticker} className="hover:bg-violet-500/10 transition-colors">
-                          <td className="py-2 pr-3 text-slate-500">{i + 1}</td>
-                          <td className="py-2 pr-4 font-bold text-white">{c.Ticker}</td>
-                          <td className="py-2 pr-4 text-slate-300">{c.Subsektor || '-'}</td>
-                          <td className="py-2 pr-4 text-slate-350">{c.Industri || '-'}</td>
-                          <td className="py-2 pr-4 text-right font-bold text-white">{formatMoneyShort(c.NetIncome)}</td>
+                        <tr key={c.Ticker} className="hover:bg-slate-50 transition-colors">
+                          <td className="py-2 pr-3 text-slate-400">{i + 1}</td>
+                          <td className="py-2 pr-4 font-bold text-slate-800">{c.Ticker}</td>
+                          <td className="py-2 pr-4 text-slate-600">{c.Subsektor || '-'}</td>
+                          <td className="py-2 pr-4 text-slate-500">{c.Industri || '-'}</td>
+                          <td className="py-2 pr-4 text-right font-bold text-slate-800">{formatMoneyShort(c.NetIncome)}</td>
                           <td className="py-2 pr-4 text-right text-slate-400">{formatMoneyShort(c.PrevNetIncome)}</td>
-                          <td className={`py-2 text-right font-bold ${(c.GrowthRate || 0) >= 0 ? 'text-emerald-400' : 'text-rose-455'}`}>
+                          <td className={`py-2 text-right font-bold ${(c.GrowthRate || 0) >= 0 ? 'text-emerald-600' : 'text-rose-600'}`}>
                             {formatPercent(c.GrowthRate)}
                           </td>
                         </tr>
@@ -899,7 +899,7 @@ export default function App() {
                   <div className="text-center text-slate-500 py-8 italic text-xs">Tidak ada data perusahaan</div>
                 )}
               </div>
-              <div className="px-5 py-3 border-t border-white/5 text-[10px] text-slate-500 flex justify-between font-semibold">
+              <div className="px-5 py-3 border-t border-slate-200 text-[10px] text-slate-400 flex justify-between font-semibold">
                 <span>{(data.companiesBySector[selectedSector] || []).length} perusahaan</span>
                 <span>Klik di luar untuk tutup</span>
               </div>
@@ -910,29 +910,29 @@ export default function App() {
         {/* Subindustry Detail Modal */}
         {selectedSubindustry && (
           <div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 backdrop-blur-sm"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4 backdrop-blur-sm"
             onClick={(e) => {
               if (e.target === e.currentTarget) { setSelectedSubindustry(null); setSearchTerm('') }
             }}
           >
-            <div className="bg-[#121124] rounded-2xl border border-white/10 shadow-2xl w-full max-w-3xl max-h-[85vh] flex flex-col" onClick={e => e.stopPropagation()}>
-              <div className="flex items-center justify-between px-5 py-4 border-b border-white/5">
+            <div className="bg-white rounded-2xl border border-slate-200 shadow-2xl w-full max-w-3xl max-h-[85vh] flex flex-col" onClick={e => e.stopPropagation()}>
+              <div className="flex items-center justify-between px-5 py-4 border-b border-slate-100">
                 <div className="flex items-center gap-3">
                   <div
                     className="w-3.5 h-3.5 rounded-full shadow"
                     style={{ backgroundColor: SECTOR_COLORS[(data.companiesBySubindustry[selectedSubindustry]?.[0]?.Sektor)] || '#8b5cf6' }}
                   />
-                  <h3 className="text-base font-bold text-white">{selectedSubindustry}</h3>
+                  <h3 className="text-base font-bold text-slate-800">{selectedSubindustry}</h3>
                   <span className="text-xs text-slate-400">— Annualised Profit {latestYear}</span>
                 </div>
                 <button
                   onClick={() => { setSelectedSubindustry(null); setSearchTerm('') }}
-                  className="p-1.5 hover:bg-white/5 rounded-lg transition-colors border-none bg-transparent cursor-pointer"
+                  className="p-1.5 hover:bg-slate-100 rounded-lg transition-colors border-none bg-transparent cursor-pointer"
                 >
-                  <X size={18} className="text-slate-400 hover:text-white" />
+                  <X size={18} className="text-slate-400 hover:text-slate-700" />
                 </button>
               </div>
-              <div className="px-5 py-3 border-b border-white/5">
+              <div className="px-5 py-3 border-b border-slate-100">
                 <input
                   type="text"
                   placeholder="Cari ticker..."
@@ -943,8 +943,8 @@ export default function App() {
               </div>
               <div className="overflow-auto flex-1 px-5 py-2">
                 <table className="w-full text-xs text-left">
-                  <thead className="sticky top-0 bg-[#121124] border-b border-white/5">
-                    <tr className="border-b border-white/5 text-slate-400 font-semibold uppercase tracking-wider text-[9px]">
+                  <thead className="sticky top-0 bg-slate-50 border-b border-slate-200">
+                    <tr className="border-b border-slate-200 text-slate-500 font-semibold uppercase tracking-wider text-[9px]">
                       <th className="py-2.5">#</th>
                       <th className="py-2.5">Ticker</th>
                       <th className="py-2.5">Subsektor</th>
@@ -954,18 +954,18 @@ export default function App() {
                       <th className="py-2.5 text-right">Growth</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-white/5">
+                  <tbody className="divide-y divide-slate-100">
                     {(data.companiesBySubindustry[selectedSubindustry] || [])
                       .filter(c => !searchTerm || c.Ticker.toLowerCase().includes(searchTerm.toLowerCase()) || (c.Subsektor || '').toLowerCase().includes(searchTerm.toLowerCase()))
                       .map((c, i) => (
-                        <tr key={c.Ticker} className="hover:bg-violet-500/10 transition-colors">
-                          <td className="py-2 pr-3 text-slate-500">{i + 1}</td>
-                          <td className="py-2 pr-4 font-bold text-white">{c.Ticker}</td>
-                          <td className="py-2 pr-4 text-slate-300">{c.Subsektor || '-'}</td>
-                          <td className="py-2 pr-4 text-slate-350">{c.Industri || '-'}</td>
-                          <td className="py-2 pr-4 text-right font-bold text-white">{formatMoneyShort(c.NetIncome)}</td>
+                        <tr key={c.Ticker} className="hover:bg-slate-50 transition-colors">
+                          <td className="py-2 pr-3 text-slate-400">{i + 1}</td>
+                          <td className="py-2 pr-4 font-bold text-slate-800">{c.Ticker}</td>
+                          <td className="py-2 pr-4 text-slate-600">{c.Subsektor || '-'}</td>
+                          <td className="py-2 pr-4 text-slate-500">{c.Industri || '-'}</td>
+                          <td className="py-2 pr-4 text-right font-bold text-slate-800">{formatMoneyShort(c.NetIncome)}</td>
                           <td className="py-2 pr-4 text-right text-slate-400">{formatMoneyShort(c.PrevNetIncome)}</td>
-                          <td className={`py-2 text-right font-bold ${(c.GrowthRate || 0) >= 0 ? 'text-emerald-400' : 'text-rose-455'}`}>
+                          <td className={`py-2 text-right font-bold ${(c.GrowthRate || 0) >= 0 ? 'text-emerald-600' : 'text-rose-600'}`}>
                             {formatPercent(c.GrowthRate)}
                           </td>
                         </tr>
@@ -976,7 +976,7 @@ export default function App() {
                   <div className="text-center text-slate-500 py-8 italic text-xs">Tidak ada data perusahaan</div>
                 )}
               </div>
-              <div className="px-5 py-3 border-t border-white/5 text-[10px] text-slate-500 flex justify-between font-semibold">
+              <div className="px-5 py-3 border-t border-slate-200 text-[10px] text-slate-400 flex justify-between font-semibold">
                 <span>{(data.companiesBySubindustry[selectedSubindustry] || []).length} perusahaan</span>
                 <span>Klik di luar untuk tutup</span>
               </div>

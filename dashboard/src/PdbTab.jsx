@@ -11,9 +11,9 @@ import {
 
 // Curated colors for premium visual design
 const THEME_COLORS = {
-  size: '#3b82f6',        // Indigo / Blue for Sector Size
-  growth: '#10b981',      // Emerald Green for Growth
-  regulation: '#8b5cf6',  // Violet for Regulation
+  size: '#f27a1a',        // Orange for Sector Size
+  growth: '#00c0a8',      // Tosca for Growth
+  regulation: '#e2ba12',  // Yellow for Regulation
 }
 
 // Professional Indonesian definitions for the 15 PDB sectors
@@ -263,11 +263,11 @@ export default function PdbTab({ idxData }) {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
 
         {/* KPI 1: Sektor Terbaik */}
-        <div className="bg-gradient-to-br from-blue-50 to-white rounded-xl border border-blue-200/60 p-4 shadow-sm relative overflow-hidden">
-          <div className="absolute right-2 top-2 text-blue-100">
+        <div className="bg-gradient-to-br from-orange-50/50 to-white rounded-xl border border-orange-200/60 p-4 shadow-sm relative overflow-hidden">
+          <div className="absolute right-2 top-2 text-orange-100">
             <Award size={64} className="opacity-40" />
           </div>
-          <div className="text-xs font-semibold text-blue-600 uppercase tracking-wider mb-1">Subsektor Terbaik (Skor)</div>
+          <div className="text-xs font-semibold text-[#f27a1a] uppercase tracking-wider mb-1">Subsektor Terbaik (Skor)</div>
           <div className="text-base font-bold text-slate-800 truncate" title={kpis.bestSector?.subsector}>
             {kpis.bestSector?.subsector}
           </div>
@@ -284,18 +284,18 @@ export default function PdbTab({ idxData }) {
         </div>
 
         {/* KPI 2: Pertumbuhan Fisik Tertinggi (HK) */}
-        <div className="bg-gradient-to-br from-emerald-50 to-white rounded-xl border border-emerald-200/60 p-4 shadow-sm relative overflow-hidden">
-          <div className="absolute right-2 top-2 text-emerald-100">
+        <div className="bg-gradient-to-br from-teal-50/50 to-white rounded-xl border border-teal-200/60 p-4 shadow-sm relative overflow-hidden">
+          <div className="absolute right-2 top-2 text-teal-100">
             <TrendingUp size={64} className="opacity-40" />
           </div>
-          <div className="text-xs font-semibold text-emerald-600 uppercase tracking-wider mb-1">Pertumbuhan Riil Tercepat (YoY)</div>
+          <div className="text-xs font-semibold text-[#00c0a8] uppercase tracking-wider mb-1">Pertumbuhan Riil Tercepat (YoY)</div>
           <div className="text-base font-bold text-slate-800 truncate" title={kpis.fastestGrowth?.subsector}>
             {kpis.fastestGrowth?.subsector}
           </div>
           <div className="text-[10px] text-slate-400 font-semibold truncate mt-0.5">
             Sektor: {kpis.fastestGrowth?.sector}
           </div>
-          <div className="text-xs font-bold text-emerald-600 mt-1">
+          <div className="text-xs font-bold text-[#00c0a8] mt-1">
             +{formatPercent(kpis.fastestGrowth?.yoyGrowth)}
           </div>
           <div className="text-[9px] text-slate-400 mt-1.5">
@@ -304,11 +304,11 @@ export default function PdbTab({ idxData }) {
         </div>
 
         {/* KPI 3: Kontribusi PDB Terbesar (HB) */}
-        <div className="bg-gradient-to-br from-violet-50 to-white rounded-xl border border-violet-200/60 p-4 shadow-sm relative overflow-hidden">
-          <div className="absolute right-2 top-2 text-violet-100">
+        <div className="bg-gradient-to-br from-yellow-50/30 to-white rounded-xl border border-yellow-200/60 p-4 shadow-sm relative overflow-hidden">
+          <div className="absolute right-2 top-2 text-yellow-100">
             <Layers size={64} className="opacity-40" />
           </div>
-          <div className="text-xs font-semibold text-violet-600 uppercase tracking-wider mb-1">Kontributor PDB Terbesar</div>
+          <div className="text-xs font-semibold text-[#e2ba12] uppercase tracking-wider mb-1">Kontributor PDB Terbesar</div>
           <div className="text-base font-bold text-slate-800 truncate" title={kpis.largestPdb?.subsector}>
             {kpis.largestPdb?.subsector}
           </div>
@@ -332,15 +332,15 @@ export default function PdbTab({ idxData }) {
           <div className="grid grid-cols-3 gap-1.5 text-center mt-1">
             <div className="bg-slate-50 rounded p-1">
               <div className="text-[10px] text-slate-400 uppercase">Ukuran</div>
-              <div className="text-xs font-bold text-blue-600">{weights.size}%</div>
+              <div className="text-xs font-bold text-[#f27a1a]">{weights.size}%</div>
             </div>
             <div className="bg-slate-50 rounded p-1">
               <div className="text-[10px] text-slate-400 uppercase">Growth</div>
-              <div className="text-xs font-bold text-emerald-600">{weights.growth}%</div>
+              <div className="text-xs font-bold text-[#00c0a8]">{weights.growth}%</div>
             </div>
             <div className="bg-slate-50 rounded p-1">
               <div className="text-[10px] text-slate-400 uppercase">Regulasi</div>
-              <div className="text-xs font-bold text-violet-600">{weights.regulation}%</div>
+              <div className="text-xs font-bold text-[#e2ba12]">{weights.regulation}%</div>
             </div>
           </div>
           <div className="text-[9px] text-slate-400 mt-2 text-center">
@@ -475,15 +475,15 @@ export default function PdbTab({ idxData }) {
           </div>
 
           {/* Quick Explanation */}
-          <div className="bg-slate-800 text-slate-100 rounded-xl p-4 shadow-sm text-xs space-y-2.5">
-            <h4 className="font-bold flex items-center gap-1 text-slate-200">
-              <Shield size={14} className="text-yellow-400" />
+          <div className="bg-amber-50/60 border border-amber-200/50 text-slate-700 rounded-xl p-4 shadow-sm text-xs space-y-2.5">
+            <h4 className="font-bold flex items-center gap-1 text-slate-800">
+              <Shield size={14} className="text-[#e2ba12]" />
               Sektor Terbaik Nasional
             </h4>
-            <p className="leading-relaxed text-slate-300">
+            <p className="leading-relaxed text-slate-600">
               Sektor-sektor ini dinilai menggunakan multi-faktor ekonomi makro & regulasi. Industri Pengolahan secara konsisten menempati peringkat atas karena kontribusi nominalnya yang masif terhadap PDB (hampir 20%), meskipun pertumbuhannya kalah cepat dibanding sektor Pariwisata/Akomodasi (+13.14%).
             </p>
-            <p className="text-[10px] text-slate-400 leading-relaxed border-t border-slate-700 pt-2">
+            <p className="text-[10px] text-slate-500 leading-relaxed border-t border-amber-200/40 pt-2">
               *Geser slider di atas untuk menyesuaikan formula penilaian instan. Leaderboard di kanan akan langsung berurut ulang.
             </p>
           </div>
@@ -541,7 +541,7 @@ export default function PdbTab({ idxData }) {
                       <tr
                         key={item.subsector}
                         onClick={() => setSelectedSectorName(item.subsector)}
-                        className={`cursor-pointer transition-all hover:bg-slate-50/80 ${isSelected ? 'bg-violet-950/80 border-l-4 border-violet-500 font-medium' : ''
+                        className={`cursor-pointer transition-all hover:bg-slate-50/80 ${isSelected ? 'bg-orange-50/60 border-l-4 border-[#f27a1a] font-medium' : ''
                           }`}
                       >
                         {/* Rank */}
@@ -553,7 +553,7 @@ export default function PdbTab({ idxData }) {
 
                         {/* Subsector Name, Parent Badge & Nominal */}
                         <td className="py-3 px-3">
-                          <div className={`text-slate-800 font-semibold ${isSelected ? 'text-violet-100 font-bold' : ''}`}>
+                          <div className={`text-slate-800 font-semibold ${isSelected ? 'text-[#f27a1a] font-bold' : ''}`}>
                             {item.subsector}
                           </div>
                           <div className="text-[10px] text-slate-400 mt-1 flex items-center gap-1.5 flex-wrap">
@@ -664,32 +664,32 @@ export default function PdbTab({ idxData }) {
 
           {/* Evaluasi Kebijakan & Analisis Sektoral Pembiayaan */}
           <div className="space-y-2 -mt-2">
-            <span className="text-[10px] font-bold text-violet-400 uppercase tracking-wider block">Evaluasi Kebijakan & Analisis Sektoral Pembiayaan</span>
-            <div className="bg-[#171630] border border-white/10 rounded-xl p-4 shadow-sm relative overflow-hidden">
-              <div className="absolute right-4 top-4 text-indigo-500/5 pointer-events-none">
+            <span className="text-[10px] font-bold text-violet-600 uppercase tracking-wider block">Evaluasi Kebijakan & Analisis Sektoral Pembiayaan</span>
+            <div className="bg-[#fbf9ff] border border-[#e8e4f5] rounded-xl p-4 shadow-sm relative overflow-hidden">
+              <div className="absolute right-4 top-4 text-[#f27a1a]/5 pointer-events-none">
                 <Scale size={72} />
               </div>
-              <p className="text-[11px] text-slate-200 leading-relaxed font-normal relative z-10">
+              <p className="text-[11px] text-slate-700 leading-relaxed font-normal relative z-10">
                 {selectedSector.alasanEvaluasi || "Tidak ada rincian evaluasi."}
               </p>
             </div>
           </div>
 
           {/* Sektor Definition Banner */}
-          <div className="bg-[#171630] border border-white/10 rounded-xl p-5 flex items-start gap-4 shadow-xl">
-            <div className="p-2 bg-violet-500/10 text-violet-400 rounded-lg flex-shrink-0 mt-0.5">
-              <Sparkles size={16} className="text-violet-400" />
+          <div className="bg-[#fcfcff] border border-[#e2def0] rounded-xl p-5 flex items-start gap-4 shadow-sm">
+            <div className="p-2 bg-[#f27a1a]/10 text-[#f27a1a] rounded-lg flex-shrink-0 mt-0.5">
+              <Sparkles size={16} className="text-[#f27a1a]" />
             </div>
             <div className="flex-1 min-w-0">
-              <span className="text-[10px] font-bold text-violet-400 uppercase tracking-wider block mb-1">Deskripsi Lapangan Usaha</span>
-              <p className="text-[11px] text-slate-200 leading-relaxed font-normal">
+              <span className="text-[10px] font-bold text-violet-600 uppercase tracking-wider block mb-1">Deskripsi Lapangan Usaha</span>
+              <p className="text-[11px] text-slate-700 leading-relaxed font-normal">
                 {SECTOR_DEFINITIONS[selectedSector.sector] || "Penjelasan lengkap mengenai cakupan operasional lapangan usaha sektor ini."}
               </p>
 
               {/* Dynamic Subsectors Badge Section */}
               {selectedSector.subsectors && selectedSector.subsectors.length > 0 && (
-                <div className="mt-4 pt-3 border-t border-white/10">
-                  <span className="text-[10px] font-bold text-violet-400 uppercase tracking-wider block mb-2">
+                <div className="mt-4 pt-3 border-t border-slate-200">
+                  <span className="text-[10px] font-bold text-violet-600 uppercase tracking-wider block mb-2">
                     Subsektor Lain di Sektor {selectedSector.sector} ({selectedSector.subsectors.length})
                   </span>
                   <div className="flex flex-wrap gap-1.5 max-h-[100px] overflow-y-auto pr-1">
@@ -700,8 +700,8 @@ export default function PdbTab({ idxData }) {
                           key={sIdx}
                           className={`transition-all px-2.5 py-0.5 rounded text-[10px] inline-block cursor-default ${
                             isCurrent
-                              ? 'bg-violet-500/20 text-violet-200 border border-violet-400/30 font-bold shadow-sm'
-                              : 'bg-white/5 border border-white/10 text-slate-300 hover:bg-white/10 hover:text-white'
+                              ? 'bg-orange-100 text-[#f27a1a] border border-orange-200 font-bold shadow-sm'
+                              : 'bg-slate-50 border border-slate-200 text-slate-600 hover:bg-slate-100 hover:text-slate-800'
                           }`}
                         >
                           {sub}

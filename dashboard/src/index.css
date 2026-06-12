@@ -1,170 +1,180 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-:root {
-  color-scheme: dark;
-}
-
-body {
-  background: radial-gradient(circle at 80% 0%, #4c3c92 0%, #252148 50%, #181530 100%) no-repeat fixed !important;
-  color: #f8fafc !important;
-  font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif !important;
-}
-
-/* Glassmorphism Cards Overrides */
-.bg-white {
-  background-color: rgba(22, 21, 39, 0.6) !important;
-  backdrop-filter: blur(16px) !important;
-  -webkit-backdrop-filter: blur(16px) !important;
-  border: 1px solid rgba(255, 255, 255, 0.07) !important;
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.35) !important;
-}
-
-/* Inner panels / List containers / Checkboxes wrap */
-.bg-slate-50, .bg-slate-100, .bg-slate-50\/50, .bg-slate-50\/80, .bg-slate-150 {
-  background-color: rgba(30, 28, 56, 0.35) !important;
-  border-color: rgba(255, 255, 255, 0.06) !important;
-}
-
-/* Buttons inside white cards (like secondary actions) */
-button.bg-slate-100, button.bg-slate-50 {
-  background-color: rgba(139, 92, 246, 0.1) !important;
-  color: #c084fc !important;
-  border: 1px solid rgba(139, 92, 246, 0.2) !important;
-}
-button.bg-slate-100:hover, button.bg-slate-50:hover {
-  background-color: rgba(139, 92, 246, 0.2) !important;
-  color: #ffffff !important;
-}
-
-/* Inputs & Dropdowns */
-input[type="text"], input[type="search"], select, textarea {
-  background-color: rgba(14, 13, 28, 0.5) !important;
-  border: 1px solid rgba(255, 255, 255, 0.08) !important;
-  color: #f1f5f9 !important;
-  border-radius: 8px !important;
-}
-input[type="text"]:focus, select:focus {
-  border-color: #8b5cf6 !important;
-  box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.25) !important;
-}
-
-/* Text Overrides */
-.text-slate-800, .text-slate-900, .text-slate-700, .text-slate-850 {
-  color: #f8fafc !important;
-}
-
-.text-slate-600, .text-slate-500, .text-slate-400, .text-slate-450 {
-  color: #94a3b8 !important;
-}
-
-.text-blue-700, .text-blue-900, .text-blue-600 {
-  color: #a78bfa !important; /* Switch blue texts to light violet */
-}
-
-.bg-blue-50 {
-  background-color: rgba(139, 92, 246, 0.08) !important;
-  border-color: rgba(139, 92, 246, 0.15) !important;
-}
-
-.text-blue-700 {
-  color: #c084fc !important;
-}
-
-.border-blue-200 {
-  border-color: rgba(139, 92, 246, 0.15) !important;
-}
-
-/* Borders */
-.border-slate-200, .border-slate-100, .border-slate-150, .border-slate-300, .border-slate-250 {
-  border-color: rgba(255, 255, 255, 0.07) !important;
-}
-
-/* Header and navigation styling overrides */
-header {
-  background-color: transparent !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-  border-bottom: none !important;
-}
-
-thead, thead.sticky {
-  background-color: rgba(22, 21, 39, 0.95) !important;
-  color: #a78bfa !important;
-}
-
-tr.hover\:bg-slate-50\/50:hover, tr.hover\:bg-violet-50:hover, div.hover\:bg-slate-100:hover {
-  background-color: rgba(139, 92, 246, 0.12) !important;
-}
-
-/* Custom Leaflet Map Theme */
-.leaflet-container {
-  background-color: #0c0b19 !important;
-}
-.leaflet-tooltip {
-  font-size: 11px !important;
-  border-radius: 8px !important;
-  background-color: rgba(19, 18, 36, 0.92) !important;
-  border: 1px solid rgba(139, 92, 246, 0.3) !important;
-  color: #f1f5f9 !important;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5) !important;
-}
-.leaflet-popup-content-wrapper {
-  background-color: rgba(19, 18, 36, 0.95) !important;
-  border: 1px solid rgba(255, 255, 255, 0.08) !important;
-  color: #f1f5f9 !important;
-  border-radius: 12px !important;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6) !important;
-}
-.leaflet-popup-tip {
-  background-color: rgba(19, 18, 36, 0.95) !important;
-  border: 1px solid rgba(255, 255, 255, 0.08) !important;
-}
-.leaflet-popup-content h3 {
-  color: #ffffff !important;
-}
-
-/* Scrollbar Customization */
-::-webkit-scrollbar {
-  width: 7px;
-  height: 7px;
-}
-::-webkit-scrollbar-track {
-  background: rgba(12, 11, 23, 0.2);
-}
-::-webkit-scrollbar-thumb {
-  background: rgba(139, 92, 246, 0.3);
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(139, 92, 246, 0.55);
-}
-
-/* Fade-in and micro animations */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(4px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-.animate-fade-in {
-  animation: fadeIn 0.3s ease-out forwards;
-}
-
-/* SVG Graphics text color overrides (Maps/Force-Directed Graphs/Value Chains) */
-svg text {
-  font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
-}
-
-svg .fill-slate-700, svg .fill-slate-800 {
-  fill: #f8fafc !important;
-}
-
-svg .fill-slate-600, svg .fill-slate-500 {
-  fill: #cbd5e1 !important;
-}
-
-svg .fill-slate-400 {
-  fill: #94a3b8 !important;
-}
+ 
+ @tailwind base;
+ @tailwind components;
+ @tailwind utilities;
+ 
+ :root {
+   color-scheme: light;
+ }
+ 
+ body {
+   background: radial-gradient(circle at 80% 0%, #f7f3ff 0%, #fafcff 50%, #f2f4f8 100%) no-repeat fixed !important;
+   color: #1e293b !important;
+   font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif !important;
+ }
+ 
+ /* Glassmorphism Cards Overrides for Light Mode */
+ .bg-white {
+   background-color: rgba(255, 255, 255, 0.8) !important;
+   backdrop-filter: blur(16px) !important;
+   -webkit-backdrop-filter: blur(16px) !important;
+   border: 1px solid rgba(226, 232, 240, 0.8) !important;
+   box-shadow: 0 8px 32px 0 rgba(148, 163, 184, 0.08) !important;
+ }
+ 
+ /* Make card texts dark slate for readability */
+ .bg-white h2, .bg-white h3, .bg-white .text-white {
+   color: #0f172a !important;
+ }
+ 
+ .bg-white p, .bg-white .text-slate-400, .bg-white .text-slate-500, .bg-white .text-slate-650 {
+   color: #475569 !important;
+ }
+ 
+ .bg-white .text-slate-300, .bg-white .text-slate-350 {
+   color: #64748b !important;
+ }
+ 
+ /* Inner panels / List containers / Checkboxes wrap */
+ .bg-slate-50, .bg-slate-100, .bg-slate-50\/50, .bg-slate-50\/80, .bg-slate-150 {
+   background-color: rgba(248, 250, 252, 0.6) !important;
+   border-color: rgba(226, 232, 240, 0.8) !important;
+ }
+ 
+ /* Secondary Buttons inside cards (using BNI Tosca accent) */
+ button.bg-slate-100, button.bg-slate-50 {
+   background-color: rgba(0, 192, 168, 0.08) !important;
+   color: #009688 !important;
+   border: 1px solid rgba(0, 192, 168, 0.2) !important;
+ }
+ button.bg-slate-100:hover, button.bg-slate-50:hover {
+   background-color: rgba(0, 192, 168, 0.15) !important;
+   color: #00796b !important;
+ }
+ 
+ /* Inputs & Dropdowns */
+ input[type="text"], input[type="search"], select, textarea {
+   background-color: rgba(255, 255, 255, 0.9) !important;
+   border: 1px solid rgba(203, 213, 225, 0.8) !important;
+   color: #1e293b !important;
+   border-radius: 8px !important;
+ }
+ input[type="text"]:focus, select:focus {
+   border-color: #f27a1a !important; /* Wondr Orange focus */
+   box-shadow: 0 0 0 2px rgba(242, 122, 26, 0.2) !important;
+ }
+ 
+ /* Global Text Overrides */
+ .text-slate-900, .text-slate-850, .text-slate-800, .text-slate-700 {
+   color: #0f172a !important;
+ }
+ 
+ .text-slate-600, .text-slate-500, .text-slate-450 {
+   color: #475569 !important;
+ }
+ 
+ .text-blue-750, .text-blue-700, .text-blue-900, .text-blue-600 {
+   color: #f27a1a !important; /* BNI Orange instead of blue */
+ }
+ 
+ .bg-blue-50 {
+   background-color: rgba(242, 122, 26, 0.08) !important;
+   border-color: rgba(242, 122, 26, 0.15) !important;
+ }
+ 
+ .border-blue-200 {
+   border-color: rgba(242, 122, 26, 0.15) !important;
+ }
+ 
+ /* Borders */
+ .border-slate-200, .border-slate-100, .border-slate-150, .border-slate-300, .border-slate-250 {
+   border-color: rgba(226, 232, 240, 0.8) !important;
+ }
+ 
+ /* Header and navigation styling overrides */
+ header {
+   background-color: transparent !important;
+   backdrop-filter: none !important;
+   -webkit-backdrop-filter: none !important;
+   border-bottom: none !important;
+ }
+ 
+ thead, thead.sticky {
+   background-color: #f8fafc !important;
+   color: #f27a1a !important;
+   border-bottom: 2px solid rgba(242, 122, 26, 0.15) !important;
+ }
+ 
+ tr.hover\:bg-slate-50\/50:hover, tr.hover\:bg-violet-50:hover, div.hover\:bg-slate-100:hover {
+   background-color: rgba(242, 122, 26, 0.05) !important;
+ }
+ 
+ /* Custom Leaflet Map Theme (Light Base) */
+ .leaflet-container {
+   background-color: #f8fafc !important;
+ }
+ .leaflet-tooltip {
+   font-size: 11px !important;
+   border-radius: 8px !important;
+   background-color: rgba(255, 255, 255, 0.95) !important;
+   border: 1px solid rgba(242, 122, 26, 0.3) !important;
+   color: #1e293b !important;
+   box-shadow: 0 4px 16px rgba(148, 163, 184, 0.1) !important;
+ }
+ .leaflet-popup-content-wrapper {
+   background-color: rgba(255, 255, 255, 0.98) !important;
+   border: 1px solid rgba(226, 232, 240, 0.8) !important;
+   color: #1e293b !important;
+   border-radius: 12px !important;
+   box-shadow: 0 8px 32px rgba(148, 163, 184, 0.15) !important;
+ }
+ .leaflet-popup-tip {
+   background-color: rgba(255, 255, 255, 0.98) !important;
+   border: 1px solid rgba(226, 232, 240, 0.8) !important;
+ }
+ .leaflet-popup-content h3 {
+   color: #0f172a !important;
+ }
+ 
+ /* Scrollbar Customization - BNI Orange */
+ ::-webkit-scrollbar {
+   width: 7px;
+   height: 7px;
+ }
+ ::-webkit-scrollbar-track {
+   background: rgba(248, 250, 252, 0.3);
+ }
+ ::-webkit-scrollbar-thumb {
+   background: rgba(242, 122, 26, 0.3);
+   border-radius: 4px;
+ }
+ ::-webkit-scrollbar-thumb:hover {
+   background: rgba(242, 122, 26, 0.6);
+ }
+ 
+ /* Fade-in and micro animations */
+ @keyframes fadeIn {
+   from { opacity: 0; transform: translateY(4px); }
+   to { opacity: 1; transform: translateY(0); }
+ }
+ .animate-fade-in {
+   animation: fadeIn 0.3s ease-out forwards;
+ }
+ 
+ /* SVG Graphics text color overrides (Light Theme) */
+ svg text {
+   font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important;
+ }
+ 
+ svg .fill-slate-700, svg .fill-slate-800 {
+   fill: #1e293b !important;
+ }
+ 
+ svg .fill-slate-600, svg .fill-slate-500 {
+   fill: #475569 !important;
+ }
+ 
+ svg .fill-slate-400 {
+   fill: #64748b !important;
+ }

@@ -144,6 +144,7 @@ export default function HubunganTab() {
   const sizeByPercentRef = useRef(sizeByPercent)
   useEffect(() => {
     sizeByPercentRef.current = sizeByPercent
+    alphaRef.current = 0.5
   }, [sizeByPercent])
   const [colorMode, setColorMode] = useState('sector') // 'sector' or 'uniform'
   const [springLength, setSpringLength] = useState(100)
@@ -167,6 +168,7 @@ export default function HubunganTab() {
   const animFrameRef = useRef(null)
   const draggingNodeRef = useRef(null)
   const hasMovedRef = useRef(false)
+  const alphaRef = useRef(1.0)
   
   const width = 800
   const height = 550
@@ -528,6 +530,7 @@ export default function HubunganTab() {
     simNodesRef.current = sourceGraph.nodes.map(n => ({ ...n }))
     simLinksRef.current = sourceGraph.links.map(l => ({ ...l }))
     setSelectedNode(null)
+    alphaRef.current = 1.0
     setTick(t => t + 1) // Trigger initial redraw
   }, [sourceGraph])
 
@@ -777,6 +780,7 @@ export default function HubunganTab() {
   // 4. Force-directed Simulation physics loop (separate from state!)
   useEffect(() => {
     let active = true
+    alphaRef.current = 0.8 // Warm up when parameters change
 
     const runPhysicsTick = () => {
       if (!active) return
@@ -789,12 +793,19 @@ export default function HubunganTab() {
         return
       }
 
+      // If alpha is extremely small, skip calculations to freeze simulation
+      if (alphaRef.current <= 0.005) {
+        alphaRef.current = 0
+        animFrameRef.current = requestAnimationFrame(runPhysicsTick)
+        return
+      }
+
       const nodesMap = {}
       nodes.forEach(n => {
         nodesMap[n.id] = n
       })
 
-      // Repulsion (Coulomb repulsion force)
+      // Repulsion (Coulomb repulsion force) - scaled by alphaRef.current
       for (let i = 0; i < nodes.length; i++) {
         for (let j = i + 1; j < nodes.length; j++) {
           const u = nodes[i]
@@ -809,7 +820,7 @@ export default function HubunganTab() {
           if (u.isParent && v.isParent) {
             strength = repulsionStrength * 4.5
           }
-          const force = strength / Math.max(20, distSq)
+          const force = (strength / Math.max(20, distSq)) * alphaRef.current
           
           const fx = (dx / (dist || 1)) * force
           const fy = (dy / (dist || 1)) * force
@@ -825,7 +836,7 @@ export default function HubunganTab() {
         }
       }
 
-      // Spring attraction force along connections
+      // Spring attraction force along connections - scaled by alphaRef.current
       links.forEach(link => {
         const u = nodesMap[link.source]
         const v = nodesMap[link.target]
@@ -837,7 +848,7 @@ export default function HubunganTab() {
         const dist = Math.sqrt(dx * dx + dy * dy)
         
         const desiredLength = springLength
-        const k = 0.04
+        const k = 0.04 * alphaRef.current
         const force = k * (dist - desiredLength)
 
         const fx = (dx / (dist || 1)) * force
@@ -856,7 +867,7 @@ export default function HubunganTab() {
         }
       })
 
-      // Gravitational center force & Friction update
+      // Gravitational center force & Friction update - scaled by alphaRef.current
       const centerX = width / 2
       const centerY = height / 2
       const gravity = 0.008
@@ -876,10 +887,11 @@ export default function HubunganTab() {
           // Parent node: NO global center gravity pull (allows complete separation!).
           // Instead, we just apply a soft boundary force at the edges to prevent drifting completely off-screen.
           const margin = 80
-          if (node.x < margin) node.vx += 0.12
-          if (node.x > width - margin) node.vx -= 0.12
-          if (node.y < margin) node.vy += 0.12
-          if (node.y > height - margin) node.vy -= 0.12
+          const boundForce = 0.12 * alphaRef.current
+          if (node.x < margin) node.vx += boundForce
+          if (node.x > width - margin) node.vx -= boundForce
+          if (node.y < margin) node.vy += boundForce
+          if (node.y > height - margin) node.vy -= boundForce
         } else {
           // Child node: pull towards local cluster center
           let targetX = centerX
@@ -912,7 +924,7 @@ export default function HubunganTab() {
           }
 
           // Strong local grouping pull to its bank/emiten constellation center
-          const localGravity = 0.024
+          const localGravity = 0.024 * alphaRef.current
           node.vx += (targetX - node.x) * localGravity
           node.vy += (targetY - node.y) * localGravity
         }
@@ -955,9 +967,10 @@ export default function HubunganTab() {
             const nx = dx / dist
             const ny = dy / dist
             
-            // Push apart
-            const pushX = nx * overlap * 0.5
-            const pushY = ny * overlap * 0.5
+            // Push apart (scale collision push by alpha to make it smooth as it cools down)
+            const pushFactor = Math.min(1.0, alphaRef.current * 2.0)
+            const pushX = nx * overlap * 0.5 * pushFactor
+            const pushY = ny * overlap * 0.5 * pushFactor
             
             if (!u.isDragging && !u.isPinned) {
               u.x -= pushX
@@ -970,6 +983,9 @@ export default function HubunganTab() {
           }
         }
       }
+
+      // Cooling alpha decay
+      alphaRef.current *= 0.985
 
       // Redraw SVG elements
       setTick(t => t + 1)
@@ -1015,6 +1031,9 @@ export default function HubunganTab() {
       node.vy = 0
       hasMovedRef.current = true
       
+      // Inject slight energy so connected nodes follow smoothly
+      alphaRef.current = Math.max(alphaRef.current, 0.15)
+      
       setTick(t => t + 1)
     } else if (isPanning) {
       const dx = e.clientX - panStart.x
@@ -1040,6 +1059,7 @@ export default function HubunganTab() {
     node.isPinned = false
     node.vx = 0
     node.vy = 0
+    alphaRef.current = 0.5
     setTick(t => t + 1)
   }
 
@@ -1047,6 +1067,7 @@ export default function HubunganTab() {
     simNodesRef.current.forEach(n => {
       n.isPinned = false
     })
+    alphaRef.current = 0.8
     setTick(t => t + 1)
   }
 
@@ -1570,7 +1591,7 @@ export default function HubunganTab() {
                     markerHeight="6"
                     orient="auto-start-reverse"
                   >
-                    <path d="M 0 0 L 10 5 L 0 10 z" fill="rgba(255, 255, 255, 0.25)" />
+                    <path d="M 0 0 L 10 5 L 0 10 z" fill="rgba(15, 23, 42, 0.35)" />
                   </marker>
                 </defs>
 
@@ -1610,7 +1631,7 @@ export default function HubunganTab() {
                             y1={sourceNode.y}
                             x2={targetNode.x}
                             y2={targetNode.y}
-                            stroke="rgba(255, 255, 255, 0.15)"
+                            stroke="rgba(71, 85, 105, 0.35)"
                             strokeWidth={activeMode === 'loans' ? Math.max(1, Math.min(5, Math.log10(link.value) - 5)) : 1.5}
                             markerEnd="url(#arrow)"
                           />
@@ -1709,9 +1730,9 @@ export default function HubunganTab() {
                             <text
                               textAnchor="middle"
                               y={radius + 12}
-                              fill="#cbd5e1"
+                              fill="#000000"
                               fontSize={zoom > 0.85 ? 7.5 : 0}
-                              className="pointer-events-none group-hover:fill-white font-bold drop-shadow"
+                              className="pointer-events-none group-hover:fill-[#f27a1a] font-bold drop-shadow"
                             >
                               {node.label.length > 15 ? `${node.label.substring(0, 13)}...` : node.label}
                             </text>

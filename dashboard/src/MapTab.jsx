@@ -81,7 +81,7 @@ function normalizeSectorName(name) {
 }
 
 function getSectorColorStyle(sectorName) {
-  if (!sectorName) return { backgroundColor: 'rgba(255, 255, 255, 0.05)', color: '#94a3b8', borderColor: 'rgba(255, 255, 255, 0.1)', borderWidth: '1px', borderStyle: 'solid' }
+  if (!sectorName) return { backgroundColor: 'transparent', color: '#0f172a', borderColor: '#cbd5e1', borderWidth: '1px', borderStyle: 'solid' }
   const str = String(sectorName).trim().toLowerCase()
   let hash = 0
   for (let i = 0; i < str.length; i++) {
@@ -90,10 +90,10 @@ function getSectorColorStyle(sectorName) {
   const hues = [200, 220, 240, 260, 280, 300, 320, 340, 15, 35, 145, 170, 190]
   const hue = hues[Math.abs(hash) % hues.length]
   return {
-    backgroundColor: `hsla(${hue}, 70%, 15%, 0.35)`,
-    color: `hsl(${hue}, 90%, 75%)`,
-    borderColor: `hsla(${hue}, 70%, 50%, 0.25)`,
-    borderWidth: '1px',
+    backgroundColor: 'transparent',
+    color: `hsl(${hue}, 95%, 15%)`,
+    borderColor: `hsl(${hue}, 80%, 45%)`,
+    borderWidth: '1.5px',
     borderStyle: 'solid'
   }
 }
@@ -618,7 +618,7 @@ export default function MapTab() {
                               e.stopPropagation()
                               setProvinceSectorFilter(prev => (prev === sector ? null : sector))
                             }}
-                            className={`rounded-full font-semibold text-[9px] px-2.5 py-1 shadow-sm transition-all hover:scale-105 hover:shadow-md cursor-pointer border ${
+                            className={`rounded-full font-semibold text-[9px] px-2.5 py-1 shadow-sm transition-all hover:scale-105 hover:shadow-md cursor-pointer border bg-transparent ${
                               active
                                 ? 'ring-2 ring-offset-1 ring-slate-800 scale-105 font-bold'
                                 : 'opacity-75 hover:opacity-100'
@@ -700,12 +700,12 @@ export default function MapTab() {
                     key={sector}
                     type="button"
                     onClick={() => toggleSector(sector)}
-                    className={`text-[10px] px-2.5 py-1 rounded-full border transition-all cursor-pointer ${
+                    className={`text-[10px] px-2.5 py-1 rounded-full border transition-all cursor-pointer bg-transparent ${
                       active
-                        ? 'font-bold shadow-md scale-105 border-transparent'
-                        : 'opacity-55 hover:opacity-85 saturate-[0.6] hover:saturate-100 bg-slate-50 text-slate-450 border-slate-200'
+                        ? 'font-bold shadow-md scale-105'
+                        : 'opacity-40 hover:opacity-80 saturate-[0.6] hover:saturate-100'
                     }`}
-                    style={active ? style : {}}
+                    style={style}
                   >
                     {sector}
                   </button>
@@ -919,7 +919,7 @@ export default function MapTab() {
                       <td className="py-3 px-4">
                         {c.sektor_pdb ? (
                           <span
-                            className="text-[9px] px-2.5 py-1 rounded-full font-bold shadow-sm inline-block tracking-wide uppercase"
+                            className="text-[9px] px-2.5 py-1 rounded-full font-bold shadow-sm inline-block tracking-wide uppercase bg-transparent border"
                             style={getSectorColorStyle(c.sektor_pdb)}
                           >
                             {c.sektor_pdb}
