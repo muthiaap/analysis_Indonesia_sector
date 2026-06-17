@@ -429,10 +429,37 @@ def main():
         key=lambda sec: -get_national_total(sec)
     )
 
+    # Load National PDB data
+    pdb_national_path = ROOT / "PDB data 2025 2026.xlsx"
+    national_pdb_stats = {}
+    if pdb_national_path.exists():
+        print(f"Reading National PDB Excel: {pdb_national_path}")
+        wb_nat = openpyxl.load_workbook(pdb_national_path, read_only=True)
+        sheet_nat = wb_nat['Sheet3']
+        rows_nat = list(sheet_nat.iter_rows(values_only=True))
+        if len(rows_nat) > 0:
+            for r in rows_nat[1:]:
+                if not r or r[0] is None:
+                    continue
+                sec_name = str(r[0]).strip()
+                hb_val = r[10]
+                yoy_val = r[14]
+                try:
+                    hb_float = float(str(hb_val).replace(",", "."))
+                    yoy_float = float(str(yoy_val).replace(",", ".")) if yoy_val is not None else 0.0
+                    national_pdb_stats[sec_name] = {
+                        "value": hb_float * 1000000000, # Billions to absolute IDR
+                        "growth": yoy_float
+                    }
+                except (ValueError, TypeError):
+                    pass
+            print(f"Loaded national PDB stats for {len(national_pdb_stats)} sectors.")
+
     payload = {
         "latestYear": latest_year,
         "bkpmSectors": BKPM_SECTORS,
         "pdbSectors": pdb_sectors,
+        "nationalPdbStats": national_pdb_stats,
         "provinceStats": province_stats,
         "companiesByProvince": companies_by_province,
         "unlocatedCompanies": unlocated,

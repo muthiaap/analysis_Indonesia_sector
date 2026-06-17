@@ -3,11 +3,12 @@ import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer,
   AreaChart, Area, PieChart, Pie, Cell, ReferenceLine, LineChart, Line
 } from 'recharts'
-import { TrendingUp, TrendingDown, BarChart3, PieChart as PieIcon, Activity, ArrowUpRight, X, Map, Share2, Layers, LogOut, Bell, Info, Search, ChevronDown } from 'lucide-react'
+import { TrendingUp, TrendingDown, BarChart3, PieChart as PieIcon, Activity, ArrowUpRight, X, Map, Share2, Layers, LogOut, Bell, Info, Search, ChevronDown, Compass } from 'lucide-react'
 import MapTab from './MapTab'
 import PdbTab from './PdbTab'
 import HubunganTab from './HubunganTab'
 import RantaiPasokTab from './RantaiPasokTab'
+import DeepDiveTab from './DeepDiveTab'
 
 
 const COLORS = [
@@ -324,6 +325,18 @@ export default function App() {
               <Layers size={20} className="flex-shrink-0" />
               <span className="ml-3 text-xs font-semibold whitespace-nowrap opacity-0 group-hover/sidebar:opacity-100 transition-opacity duration-200 hidden group-hover/sidebar:inline">Rantai Pasok</span>
             </button>
+
+            <button
+              type="button"
+              onClick={() => setActiveTab('deep-dive')}
+              className={`w-12 group-hover/sidebar:w-52 h-12 rounded-2xl flex items-center justify-center group-hover/sidebar:justify-start group-hover/sidebar:px-4 transition-all duration-300 relative cursor-pointer overflow-hidden ${activeTab === 'deep-dive'
+                  ? 'bg-white text-[#f27a1a] shadow-lg border border-white/20'
+                  : 'text-white/80 hover:text-white hover:bg-white/10'
+                }`}
+            >
+              <Compass size={20} className="flex-shrink-0" />
+              <span className="ml-3 text-xs font-semibold whitespace-nowrap opacity-0 group-hover/sidebar:opacity-100 transition-opacity duration-200 hidden group-hover/sidebar:inline">Deep Dive Sektor</span>
+            </button>
           </div>
         </div>
 
@@ -360,6 +373,7 @@ export default function App() {
                   {activeTab === 'pdb' && 'Analisis PDB Makro & Sektor Terbaik'}
                   {activeTab === 'hubungan' && 'Struktur Afiliasi Grup & Kreditur'}
                   {activeTab === 'rantai-pasok' && 'Analisis Rantai Pasok B2B'}
+                  {activeTab === 'deep-dive' && 'Alur Penelusuran Sektor IDX → PDRB'}
                 </p>
               </div>
             </div>
@@ -400,6 +414,7 @@ export default function App() {
           {activeTab === 'pdb' && <PdbTab idxData={data} />}
           {activeTab === 'hubungan' && <HubunganTab />}
           {activeTab === 'rantai-pasok' && <RantaiPasokTab />}
+          {activeTab === 'deep-dive' && <DeepDiveTab />}
 
           {activeTab === 'laporan' && (
             <div className="space-y-6 animate-fade-in">

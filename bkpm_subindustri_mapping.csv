@@ -19,7 +19,7 @@ KEUANGAN,Perusahaan Holding Keuangan,Keuangan,Perusahaan Holding & Investasi,Per
 KEUANGAN,Perusahaan Investasi,Keuangan,Perusahaan Holding & Investasi,Perusahaan Holding & Investasi,curated,
 KONSTRUKSI,Konstruksi Bangunan,Infrastruktur,Konstruksi Bangunan,Konstruksi Bangunan,curated,
 KONSTRUKSI,Material Konstruksi,Barang Baku,Barang Baku,Material Konstruksi,curated,
-KONSTRUKSI,Mesin Konstruksi & Kendaraan Berat,Perindustrian,Barang Perindustrian,Mesin,curated,
+PERINDUSTRIAN,Mesin Konstruksi & Kendaraan Berat,Perindustrian,Barang Perindustrian,Mesin,curated,
 KONSTRUKSI,Produk & Perlengkapan Bangunan,Perindustrian,Barang Perindustrian,Produk & Perlengkapan Bangunan,curated,
 KONSTRUKSI,Pengembang & Operator Real Estat,Properti & Real Estat,Properti & Real Estat,Pengelola & Pengembang Real Estat,curated,
 KONSTRUKSI,Jasa Real Estat,Properti & Real Estat,Properti & Real Estat,Pengelola & Pengembang Real Estat,curated,

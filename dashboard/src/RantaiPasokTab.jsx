@@ -6,7 +6,7 @@ import {
 } from 'lucide-react'
 
 // Supply Chain Data
-const SUPPLY_CHAIN_DATA = {
+export const SUPPLY_CHAIN_DATA = {
   UNTR: {
     name: "PT United Tractors Tbk",
     ticker: "UNTR",
