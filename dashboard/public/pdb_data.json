@@ -50,6 +50,7 @@
       "Pengolahan Tembakau"
     ],
     "idxSubindustries": [
+      "Mesin Konstruksi & Kendaraan Berat",
       "Mesin & Komponen Perindustrian",
       "Peralatan Kantor"
     ]
@@ -113,14 +114,12 @@
       "Perangkat Lunak",
       "Peralatan Jaringan",
       "Aplikasi & Jasa Internet",
-      "Jasa & Konsultan TI",
-      "Jasa Telekomunikasi Kabel",
       "Jasa Telekomunikasi Nirkabel",
       "Jasa Telekomunikasi Terintegrasi"
     ]
   },
   {
-    "sector": "Pertanian, Kehutanan, dan Perikanan",
+    "sector": "Pertanian, Kehutanan dan Perikanan",
     "subsector": "Pertanian, Peternakan, Perburuan, dan Jasa Pertanian",
     "hk2025Q1": 66971.5,
     "hk2025Q2": 75876.0,
@@ -162,7 +161,7 @@
     ]
   },
   {
-    "sector": "Perdagangan Besar dan Eceran; Reparasi Mobil dan Sepeda Motor",
+    "sector": "Perdagangan Besar dan Eceran, Reparasi Mobil dan Sepeda Motor",
     "subsector": "Perdagangan Besar dan Eceran (bukan mobil dan motor)",
     "hk2025Q1": 61549.3,
     "hk2025Q2": 62514.8,
@@ -297,7 +296,10 @@
     "subsectors": [
       "Informasi dan Komunikasi"
     ],
-    "idxSubindustries": []
+    "idxSubindustries": [
+      "Jasa & Konsultan TI",
+      "Jasa Telekomunikasi Kabel"
+    ]
   },
   {
     "sector": "Penyediaan Akomodasi dan Makan Minum",
@@ -416,7 +418,8 @@
       "Jasa Kesehatan dan Kegiatan Sosial"
     ],
     "idxSubindustries": [
-      "Penyedia & Distribusi Perlengkapan Kesehatan"
+      "Penyedia & Distribusi Perlengkapan Kesehatan",
+      "Penyedia Jasa Kesehatan"
     ]
   },
   {
@@ -615,7 +618,6 @@
     "idxSubindustries": [
       "Konstruksi Bangunan",
       "Material Konstruksi",
-      "Mesin Konstruksi & Kendaraan Berat",
       "Produk & Perlengkapan Bangunan"
     ]
   },
@@ -870,10 +872,12 @@
     "subsectors": [
       "Jasa Pendidikan"
     ],
-    "idxSubindustries": []
+    "idxSubindustries": [
+      "Jasa Pendidikan"
+    ]
   },
   {
-    "sector": "Pertanian, Kehutanan, dan Perikanan",
+    "sector": "Pertanian, Kehutanan dan Perikanan",
     "subsector": "Perikanan",
     "hk2025Q1": 14494.5,
     "hk2025Q2": 13957.6,
@@ -1200,6 +1204,7 @@
       "Pengolahan Tembakau"
     ],
     "idxSubindustries": [
+      "Peralatan Olah Raga & Barang Hobi",
       "Ban",
       "Suku Cadang Otomotif"
     ]
@@ -1614,7 +1619,7 @@
     ]
   },
   {
-    "sector": "Perdagangan Besar dan Eceran; Reparasi Mobil dan Sepeda Motor",
+    "sector": "Perdagangan Besar dan Eceran, Reparasi Mobil dan Sepeda Motor",
     "subsector": "Mobil, Sepeda Motor, dan Reparasinya",
     "hk2025Q1": 18823.8,
     "hk2025Q2": 20472.2,
@@ -1920,7 +1925,7 @@
     ]
   },
   {
-    "sector": "Pertanian, Kehutanan, dan Perikanan",
+    "sector": "Pertanian, Kehutanan dan Perikanan",
     "subsector": "Kehutanan dan Penebangan Kayu",
     "hk2025Q1": 2446.7,
     "hk2025Q2": 2514.8,

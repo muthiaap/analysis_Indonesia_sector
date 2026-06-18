@@ -29,7 +29,7 @@ def main():
     df = df.dropna(subset=['sector', 'subsector'])
     
     # Standardize string fields
-    df['sector'] = df['sector'].astype(str).str.strip()
+    df['sector'] = df['sector'].astype(str).str.strip().str.replace(";", ",", regex=False).str.replace(", dan ", " dan ", regex=False)
     df['subsector'] = df['subsector'].astype(str).str.strip()
     
     # Group siblings (all subsectors belonging to the same parent sector)

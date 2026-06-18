@@ -4,7 +4,7 @@ import {
   Building2, Compass, HelpCircle, MapPin, TrendingUp,
   Briefcase, Link, Layers, DollarSign, Globe, Activity,
   ChevronDown, ChevronUp, ArrowLeft, Info, AlertTriangle,
-  Wrench, GraduationCap, Cpu, Sparkles
+  Wrench, GraduationCap, Cpu, Sparkles, Check, X, Shield
 } from 'lucide-react'
 import 'leaflet/dist/leaflet.css'
 import L from 'leaflet'
@@ -185,6 +185,17 @@ function normalizeSectorName(name) {
   return s
 }
 
+function parseRelatedNews(newsStr) {
+  if (!newsStr) return []
+  return newsStr.split(';').map(item => {
+    const parts = item.split(' - ')
+    const headline = parts[0]?.trim() || ''
+    const source = parts[1]?.trim() || 'Google Berita'
+    const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(headline + ' ' + source)}`
+    return { headline, source, url: searchUrl }
+  }).filter(item => item.headline)
+}
+
 function getChoroplethColor(count, maxCount) {
   if (!count || maxCount === 0) return '#f1f5f9'
   // Use square root scaling for visual spread and contrast
@@ -273,6 +284,20 @@ function SectorSparkline({ data, strokeColor, sectorName }) {
     </div>
   )
 }
+
+const cleanNodeNameForSupplyChain = (fullName) => {
+  if (!fullName) return '';
+  // Remove common corporate suffixes/prefixes case-insensitively
+  let name = fullName.replace(/\b(PT|PT\.|Tbk|Ltd\.|Ltd|CV|AB|GmbH|plc|\(Persero\)|Persero)\b/gi, '').trim();
+  name = name.replace(/\s+/g, ' ').trim();
+
+  const words = name.split(' ');
+  // If the cleaned name is long, show the first two words, otherwise show the whole cleaned name.
+  if (words.length > 2) {
+    return words.slice(0, 2).join(' ');
+  }
+  return name;
+};
 
 function CompanyNetworkFlow({ ticker, companyName, subs, debts, sectorColor }) {
   const [hoverNode, setHoverNode] = useState(null) // id: string
@@ -485,7 +510,7 @@ function CompanyNetworkFlow({ ticker, companyName, subs, debts, sectorColor }) {
         <div>
           <h5 className="font-extrabold text-slate-800 text-xs flex items-center gap-1.5">
             <Activity size={14} className="text-[#f27a1a] animate-pulse" />
-            Diagram Rantai Pasok & Kreditur
+            Supply Chain & Creditor Diagram
           </h5>
           <p className="text-[10px] text-slate-400 mt-0.5">
             {hasProfile
@@ -616,9 +641,7 @@ function CompanyNetworkFlow({ ticker, companyName, subs, debts, sectorColor }) {
               const isDimmed = hoverNode && !isHovered && hoverNode !== 'focus'
 
               // Name formatting to match supply chain
-              const displayName = hasProfile
-                ? node.name.split(' ')[0]
-                : node.name.replace(' Tbk', '').replace(' Ltd.', '').replace(' (Persero)', '').replace('PT ', '')
+              const displayName = cleanNodeNameForSupplyChain(node.name)
 
               return (
                 <g
@@ -694,7 +717,7 @@ function CompanyNetworkFlow({ ticker, companyName, subs, debts, sectorColor }) {
                 {ticker}
               </text>
               <text x="0" y="64" textAnchor="middle" className="fill-slate-400 font-medium text-[9px] select-none">
-                {companyName.replace('PT ', '').replace(' Tbk', '')}
+                {cleanNodeNameForSupplyChain(companyName)}
               </text>
             </g>
 
@@ -708,7 +731,7 @@ function CompanyNetworkFlow({ ticker, companyName, subs, debts, sectorColor }) {
               // Right side name formatting to match RantaiPasokTab
               const displayRightName = hasProfile
                 ? node.id.toUpperCase()
-                : node.name.replace(' Tbk', '').replace(' Ltd.', '').replace(' (Persero)', '').replace('PT ', '')
+                : cleanNodeNameForSupplyChain(node.name);
 
               return (
                 <g
@@ -756,6 +779,119 @@ function CompanyNetworkFlow({ ticker, companyName, subs, debts, sectorColor }) {
   )
 }
 
+function SubsectorRegulatoryPanel({ subsektorName, regData }) {
+  const [isOpen, setIsOpen] = useState(false);
+  const score = regData.skorRegulasiMaks10 || 0;
+  const news = parseRelatedNews(regData.beritaTerkait);
+
+  let scoreBadgeClass = "bg-slate-50 text-slate-600 border-slate-150";
+  if (score >= 8.0) scoreBadgeClass = "bg-emerald-50 text-emerald-700 border-emerald-200";
+  else if (score >= 7.0) scoreBadgeClass = "bg-amber-50 text-amber-700 border-amber-200";
+
+  return (
+    <div className="border-b border-slate-150 bg-slate-50/20">
+      <div
+        onClick={() => setIsOpen(!isOpen)}
+        className="px-4 py-2 bg-slate-50/50 hover:bg-slate-100/40 flex justify-between items-center cursor-pointer select-none transition-colors"
+      >
+        <span className="text-[10px] font-extrabold text-slate-500 uppercase tracking-wider flex items-center gap-1.5">
+          <Shield size={12} className="text-[#f27a1a]" />
+          Regulasi & Kebijakan Subsektor
+        </span>
+        <div className="flex items-center gap-2">
+          <span className={`text-[9.5px] font-bold px-2 py-0.5 rounded border ${scoreBadgeClass}`}>
+            Skor Regulasi: {score.toFixed(1)} / 10
+          </span>
+          {isOpen ? <ChevronUp size={14} className="text-slate-400" /> : <ChevronDown size={14} className="text-slate-400" />}
+        </div>
+      </div>
+
+      {isOpen && (
+        <div className="p-4 bg-white border-t border-slate-150 space-y-4 animate-fade-in">
+          {/* Checklist of 4 dimensions */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+            {/* 1. Insentif Fiskal */}
+            <div className={`p-3 rounded-xl border flex items-start gap-2.5 transition-all ${regData.insentifFiskal ? 'border-emerald-200 bg-emerald-50/10' : 'border-slate-200 bg-slate-50/30'}`}>
+              <div className={`p-1 rounded-md shrink-0 ${regData.insentifFiskal ? 'bg-emerald-100 text-emerald-600' : 'bg-red-50 text-red-500'}`}>
+                {regData.insentifFiskal ? <Check size={12} className="stroke-[3]" /> : <X size={12} className="stroke-[3]" />}
+              </div>
+              <div className="space-y-1">
+                <div className="text-[10.5px] font-bold text-slate-700 leading-tight">Insentif Fiskal</div>
+                <div className="text-[8px] bg-slate-100 px-1 py-0.2 rounded font-bold text-slate-500 inline-block">Score: {regData.insentifFiskalScore}/10</div>
+                <p className="text-[9.5px] text-slate-550 leading-relaxed font-normal">{regData.penjelasanInsentifFiskal || 'Tidak ada penjelasan.'}</p>
+              </div>
+            </div>
+
+            {/* 2. Rencana Strategis */}
+            <div className={`p-3 rounded-xl border flex items-start gap-2.5 transition-all ${regData.renstraPrioritas ? 'border-emerald-200 bg-emerald-50/10' : 'border-slate-200 bg-slate-50/30'}`}>
+              <div className={`p-1 rounded-md shrink-0 ${regData.renstraPrioritas ? 'bg-emerald-100 text-emerald-600' : 'bg-red-50 text-red-500'}`}>
+                {regData.renstraPrioritas ? <Check size={12} className="stroke-[3]" /> : <X size={12} className="stroke-[3]" />}
+              </div>
+              <div className="space-y-1">
+                <div className="text-[10.5px] font-bold text-slate-700 leading-tight">Renstra / Prioritas</div>
+                <div className="text-[8px] bg-slate-100 px-1 py-0.2 rounded font-bold text-slate-500 inline-block">Score: {regData.renstraPrioritasScore}/10</div>
+                <p className="text-[9.5px] text-slate-550 leading-relaxed font-normal">{regData.penjelasanRenstraPrioritas || 'Tidak ada penjelasan.'}</p>
+              </div>
+            </div>
+
+            {/* 3. Kemudahan Izin OSS */}
+            <div className={`p-3 rounded-xl border flex items-start gap-2.5 transition-all ${regData.ossIzin ? 'border-emerald-200 bg-emerald-50/10' : 'border-slate-200 bg-slate-50/30'}`}>
+              <div className={`p-1 rounded-md shrink-0 ${regData.ossIzin ? 'bg-emerald-100 text-emerald-600' : 'bg-red-50 text-red-500'}`}>
+                {regData.ossIzin ? <Check size={12} className="stroke-[3]" /> : <X size={12} className="stroke-[3]" />}
+              </div>
+              <div className="space-y-1">
+                <div className="text-[10.5px] font-bold text-slate-700 leading-tight">Kemudahan Izin OSS</div>
+                <div className="text-[8px] bg-slate-100 px-1 py-0.2 rounded font-bold text-slate-500 inline-block">Score: {regData.ossIzinScore}/10</div>
+                <p className="text-[9.5px] text-slate-550 leading-relaxed font-normal">{regData.penjelasanOssIzin || 'Tidak ada penjelasan.'}</p>
+              </div>
+            </div>
+
+            {/* 4. Plafon Kredit */}
+            <div className={`p-3 rounded-xl border flex items-start gap-2.5 transition-all ${regData.plafonKredit ? 'border-emerald-200 bg-emerald-50/10' : 'border-slate-200 bg-slate-50/30'}`}>
+              <div className={`p-1 rounded-md shrink-0 ${regData.plafonKredit ? 'bg-emerald-100 text-emerald-600' : 'bg-red-50 text-red-500'}`}>
+                {regData.plafonKredit ? <Check size={12} className="stroke-[3]" /> : <X size={12} className="stroke-[3]" />}
+              </div>
+              <div className="space-y-1">
+                <div className="text-[10.5px] font-bold text-slate-700 leading-tight">Plafon Kredit Prioritas</div>
+                <div className="text-[8px] bg-slate-100 px-1 py-0.2 rounded font-bold text-slate-500 inline-block">Score: {regData.plafonKreditScore}/10</div>
+                <p className="text-[9.5px] text-slate-550 leading-relaxed font-normal">{regData.penjelasanPlafonKredit || 'Tidak ada penjelasan.'}</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 border-t border-slate-100 pt-3">
+            {/* Alasan Evaluasi */}
+            <div className="lg:col-span-2 space-y-1 bg-violet-50/25 border border-violet-100/60 p-3 rounded-2xl">
+              <span className="text-[10px] font-bold text-violet-750 uppercase tracking-wider block">Evaluasi Kebijakan & Analisis Sektoral Pembiayaan</span>
+              <p className="text-[10.5px] leading-relaxed text-slate-600 font-normal">{regData.alasanEvaluasi || 'Tidak ada evaluasi.'}</p>
+            </div>
+
+            {/* Berita Terkait */}
+            {news.length > 0 && (
+              <div className="lg:col-span-1 space-y-2">
+                <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Headline Regulasi & Berita Terkait</span>
+                <div className="space-y-1.5 max-h-[140px] overflow-y-auto pr-1">
+                  {news.map((n, idx) => (
+                    <a
+                      key={idx}
+                      href={n.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block p-2 rounded-xl bg-slate-50 hover:bg-slate-100/80 border border-slate-150 hover:border-slate-300 text-[10px] text-blue-600 hover:text-blue-850 leading-snug transition-all"
+                    >
+                      📌 {n.headline} <strong className="text-slate-400 font-normal">({n.source})</strong>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default function DeepDiveTab() {
   const [loading, setLoading] = useState(true)
   const [loadError, setLoadError] = useState(null)
@@ -767,12 +903,14 @@ export default function DeepDiveTab() {
   const [subsData, setSubsData] = useState(null)
   const [dashboardData, setDashboardData] = useState(null)
   const [categoryMapping, setCategoryMapping] = useState(null)
+  const [pdbData, setPdbData] = useState(null)
 
   // Selection states
   const [selectedIdxSector, setSelectedIdxSector] = useState(null)
   const [selectedProvince, setSelectedProvince] = useState(null)
   const [hoverProvince, setHoverProvince] = useState(null)
   const [expandedCompany, setExpandedCompany] = useState(null) // Ticker code
+  const [expandedSidebarSubsector, setExpandedSidebarSubsector] = useState(null) // Normalized name string
 
   // POI & Hexagon states
   const [pois, setPois] = useState([])
@@ -810,14 +948,19 @@ export default function DeepDiveTab() {
         if (!r.ok) throw new Error(`gmaps_category_mapping.json: HTTP ${r.status}`)
         return r.json()
       }),
+      fetch('./pdb_data.json').then(r => {
+        if (!r.ok) throw new Error(`pdb_data.json: HTTP ${r.status}`)
+        return r.json()
+      }),
     ])
-      .then(([md, geo, debts, subs, dd, catMap]) => {
+      .then(([md, geo, debts, subs, dd, catMap, pdb]) => {
         setMapData(md)
         setGeoJson(geo)
         setDebtsData(debts)
         setSubsData(subs)
         setDashboardData(dd)
         setCategoryMapping(catMap)
+        setPdbData(pdb)
         setLoading(false)
       })
       .catch(err => {
@@ -834,6 +977,23 @@ export default function DeepDiveTab() {
     const unlocated = mapData.unlocatedCompanies || []
     return [...located, ...unlocated]
   }, [mapData])
+
+  // Lookup map for PDB subsector regulatory details by normalized subsector name
+  const pdbSubsectorsMap = useMemo(() => {
+    if (!pdbData) return {}
+    const map = {}
+    pdbData.forEach(item => {
+      if (item.subsector) {
+        map[normalizeSectorName(item.subsector)] = item
+      }
+    })
+    return map
+  }, [pdbData])
+
+  const getSubsectorRegulatoryData = useCallback((subsectorName) => {
+    if (!subsectorName) return null
+    return pdbSubsectorsMap[normalizeSectorName(subsectorName)] || null
+  }, [pdbSubsectorsMap])
 
   // Get historical trend data for a sector
   const getSectorHistory = useCallback((sec) => {
@@ -871,6 +1031,20 @@ export default function DeepDiveTab() {
     })
     return Array.from(sectorsSet)
   }, [selectedIdxSector, allCompanies])
+
+  const activePdbSubsectorsData = useMemo(() => {
+    if (!pdbData || !correspondingPdbSectors.length) return []
+    const normalizedActiveList = correspondingPdbSectors.map(s => normalizeSectorName(s))
+    const list = pdbData.filter(item =>
+      normalizedActiveList.includes(normalizeSectorName(item.sector))
+    )
+    list.sort((a, b) => {
+      const scoreA = a.skorRegulasiMaks10 || 0
+      const scoreB = b.skorRegulasiMaks10 || 0
+      return scoreB - scoreA
+    })
+    return list
+  }, [pdbData, correspondingPdbSectors])
 
   // Sum up all national PDB values to get the total national economy size
   const totalNationalPdb = useMemo(() => {
@@ -1180,9 +1354,9 @@ export default function DeepDiveTab() {
   // Mapped companies in active sector (nationwide)
   const filteredProvinceCompanies = useMemo(() => {
     if (!mapData || !selectedProvince || !selectedIdxSector) return []
-    
+
     const allCompanies = []
-    
+
     // Gather located companies from all provinces
     Object.keys(mapData.companiesByProvince).forEach(prov => {
       const list = mapData.companiesByProvince[prov] || []
@@ -1192,7 +1366,7 @@ export default function DeepDiveTab() {
         }
       })
     })
-    
+
     // Gather unlocated companies
     if (mapData.unlocatedCompanies) {
       mapData.unlocatedCompanies.forEach(c => {
@@ -1201,14 +1375,14 @@ export default function DeepDiveTab() {
         }
       })
     }
-    
+
     // Sort by NetIncome descending (with nulls at the end)
     allCompanies.sort((a, b) => {
       const aVal = a.NetIncome !== null ? a.NetIncome : -Infinity
       const bVal = b.NetIncome !== null ? b.NetIncome : -Infinity
       return bVal - aVal
     })
-    
+
     return allCompanies
   }, [mapData, selectedProvince, selectedIdxSector])
 
@@ -1267,7 +1441,7 @@ export default function DeepDiveTab() {
             </div>
             <div>
               <h2 className="text-lg font-extrabold text-slate-800 tracking-tight">
-                Deep Dive Alur Sektor: IDX Sektor → PDRB Regional
+                Sectoral Deep Dive: IDX Sector → Regional PDRB
               </h2>
               <p className="text-xs text-slate-500 mt-1 max-w-3xl leading-relaxed">
                 Fitur ini membantu Anda menganalisis keselarasan korelasi bisnis di sektor pasar modal dengan
@@ -1406,8 +1580,8 @@ export default function DeepDiveTab() {
                     setExpandedCompany(null)
                   }}
                   className="w-full py-2 px-3 rounded-xl text-center text-xs font-bold text-white transition-all shadow-md active:scale-95 cursor-pointer mt-3"
-                  style={{ 
-                    backgroundColor: color, 
+                  style={{
+                    backgroundColor: color,
                     boxShadow: `0 4px 12px -2px ${color}40`,
                   }}
                   onMouseEnter={(e) => {
@@ -1615,11 +1789,110 @@ export default function DeepDiveTab() {
             </div>
 
             {!selectedProvince ? (
-              <div className="text-center py-12 text-slate-400 space-y-2">
-                <HelpCircle size={30} className="mx-auto text-slate-300" />
-                <p className="text-[11px] leading-relaxed">
-                  Silakan klik salah satu wilayah provinsi di peta untuk meninjau indikator makro dan mendaftar emiten.
-                </p>
+              <div className="space-y-4">
+                <div className="text-center py-6 border border-dashed border-slate-200 bg-slate-50/50 rounded-xl space-y-2">
+                  <HelpCircle size={24} className="mx-auto text-slate-350" />
+                  <p className="text-[10px] text-slate-505 leading-normal max-w-[220px] mx-auto">
+                    Silakan klik salah satu wilayah provinsi di peta untuk meninjau indikator makro daerah & emiten.
+                  </p>
+                </div>
+
+                {activePdbSubsectorsData.length > 0 && (
+                  <div className="space-y-2.5 pt-2 border-t border-slate-100">
+                    <h5 className="font-extrabold text-[10px] uppercase text-slate-500 tracking-wider flex items-center gap-1">
+                      <Shield size={12} className="text-violet-650" />
+                      Profil Regulasi Nasional ({selectedIdxSector})
+                    </h5>
+
+                    <div className="space-y-2 max-h-[350px] overflow-y-auto pr-1 scrollbar-thin">
+                      {activePdbSubsectorsData.map(item => {
+                        const isExpanded = expandedSidebarSubsector === item.subsector;
+                        const score = item.skorRegulasiMaks10 || 0;
+                        const news = parseRelatedNews(item.beritaTerkait);
+
+                        let scoreBadgeClass = "bg-slate-50 text-slate-650 border-slate-150";
+                        if (score >= 8.0) scoreBadgeClass = "bg-emerald-50 text-emerald-700 border-emerald-200";
+                        else if (score >= 7.0) scoreBadgeClass = "bg-amber-50 text-amber-700 border-amber-200";
+
+                        return (
+                          <div
+                            key={item.subsector}
+                            className="border border-slate-150 rounded-xl overflow-hidden bg-slate-50/30 hover:border-slate-300 transition-all shadow-sm"
+                          >
+                            {/* Subsector Header */}
+                            <div
+                              onClick={() => setExpandedSidebarSubsector(isExpanded ? null : item.subsector)}
+                              className="px-3 py-2.5 bg-white flex justify-between items-center cursor-pointer select-none"
+                            >
+                              <span className="font-bold text-slate-700 text-[10.5px] leading-tight flex-1 pr-2">
+                                {item.subsector}
+                              </span>
+                              <div className="flex items-center gap-1.5 shrink-0">
+                                <span className={`text-[9px] font-bold px-1.5 py-0.5 rounded border ${scoreBadgeClass}`}>
+                                  🛡️ {score.toFixed(1)}
+                                </span>
+                                {isExpanded ? <ChevronUp size={12} className="text-slate-400" /> : <ChevronDown size={12} className="text-slate-400" />}
+                              </div>
+                            </div>
+
+                            {/* Collapsible Details */}
+                            {isExpanded && (
+                              <div className="p-3 bg-slate-50/70 border-t border-slate-100 text-[10px] space-y-2.5">
+                                {/* Checklist */}
+                                <div className="grid grid-cols-2 gap-1.5 text-[9px] font-semibold text-slate-650">
+                                  <div className={`flex items-center gap-1 p-1 rounded border ${item.insentifFiskal ? 'bg-emerald-50/40 border-emerald-100 text-emerald-800 font-bold' : 'bg-slate-50 border-slate-200/60'}`}>
+                                    {item.insentifFiskal ? <Check size={10} className="text-emerald-600" /> : <X size={10} className="text-red-500" />}
+                                    <span>Insentif Fiskal ({item.insentifFiskalScore}/10)</span>
+                                  </div>
+                                  <div className={`flex items-center gap-1 p-1 rounded border ${item.renstraPrioritas ? 'bg-emerald-50/40 border-emerald-100 text-emerald-800 font-bold' : 'bg-slate-50 border-slate-200/60'}`}>
+                                    {item.renstraPrioritas ? <Check size={10} className="text-emerald-600" /> : <X size={10} className="text-red-500" />}
+                                    <span>Renstra ({item.renstraPrioritasScore}/10)</span>
+                                  </div>
+                                  <div className={`flex items-center gap-1 p-1 rounded border ${item.ossIzin ? 'bg-emerald-50/40 border-emerald-100 text-emerald-800 font-bold' : 'bg-slate-50 border-slate-200/60'}`}>
+                                    {item.ossIzin ? <Check size={10} className="text-emerald-600" /> : <X size={10} className="text-red-500" />}
+                                    <span>Izin OSS ({item.ossIzinScore}/10)</span>
+                                  </div>
+                                  <div className={`flex items-center gap-1 p-1 rounded border ${item.plafonKredit ? 'bg-emerald-50/40 border-emerald-100 text-emerald-800 font-bold' : 'bg-slate-50 border-slate-200/60'}`}>
+                                    {item.plafonKredit ? <Check size={10} className="text-emerald-600" /> : <X size={10} className="text-red-500" />}
+                                    <span>Plafon Kredit ({item.plafonKreditScore}/10)</span>
+                                  </div>
+                                </div>
+
+                                {/* Alasan Evaluasi */}
+                                {item.alasanEvaluasi && (
+                                  <div className="bg-white p-2 rounded-lg border border-slate-150 text-[9.5px] leading-relaxed text-slate-600">
+                                    <span className="font-bold text-slate-700 block mb-0.5">Analisis Sektoral Pembiayaan:</span>
+                                    {item.alasanEvaluasi}
+                                  </div>
+                                )}
+
+                                {/* News */}
+                                {news.length > 0 && (
+                                  <div className="space-y-1">
+                                    <span className="font-bold text-slate-700 block text-[9px] uppercase tracking-wider">Regulasi & Berita Terkait:</span>
+                                    <div className="space-y-1 max-h-[100px] overflow-y-auto pr-1">
+                                      {news.map((n, nIdx) => (
+                                        <a
+                                          key={nIdx}
+                                          href={n.url}
+                                          target="_blank"
+                                          rel="noopener noreferrer"
+                                          className="block p-1 bg-white hover:bg-slate-50 rounded border border-slate-150 hover:border-slate-350 text-[9px] text-blue-600 hover:text-blue-800 leading-snug transition-all"
+                                        >
+                                          📌 {n.headline} <strong className="text-slate-400">({n.source})</strong>
+                                        </a>
+                                      ))}
+                                    </div>
+                                  </div>
+                                )}
+                              </div>
+                            )}
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
               </div>
             ) : (
               <div className="space-y-3">
@@ -1842,6 +2115,17 @@ export default function DeepDiveTab() {
                   </span>
                 </div>
 
+                {(() => {
+                  const regData = getSubsectorRegulatoryData(subsektorName);
+                  if (!regData) return null;
+                  return (
+                    <SubsectorRegulatoryPanel
+                      subsektorName={subsektorName}
+                      regData={regData}
+                    />
+                  );
+                })()}
+
                 {/* Company Table inside subsektor */}
                 <div className="overflow-x-auto">
                   <table className="w-full text-xs text-left">
@@ -1851,7 +2135,7 @@ export default function DeepDiveTab() {
                         <th className="py-2.5 px-4">Nama Perusahaan</th>
                         <th className="py-2.5 px-4">Subindustri IDX</th>
                         <th className="py-2.5 px-4 text-right">Laba Bersih Terbaru</th>
-                        <th className="py-2.5 px-4 text-center">Rantai Pasok & Bank</th>
+                        <th className="py-2.5 px-4 text-center">Supply Chain & Bank</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-slate-100 bg-white">
@@ -1878,8 +2162,23 @@ export default function DeepDiveTab() {
                                 })()}
                               </td>
                               <td className="py-3 px-4">
-                                <div className="font-medium text-slate-600 text-xs">{c.Subindustri || c.Industri || '-'}</div>
-                                <div className="text-[9px] text-slate-400 font-bold uppercase tracking-wider">IDX: {c.Sektor}</div>
+                                <div className="font-semibold text-slate-700 text-xs">{c.Subindustri || c.Industri || '-'}</div>
+                                <div className="flex flex-wrap items-center gap-1 mt-1">
+                                  <span className="text-[9px] px-1.5 py-0.5 bg-slate-100 text-slate-500 font-semibold rounded uppercase tracking-wider">IDX: {c.Sektor}</span>
+                                  {(() => {
+                                    const reg = getSubsectorRegulatoryData(subsektorName);
+                                    if (!reg) return null;
+                                    const score = reg.skorRegulasiMaks10 || 0;
+                                    return (
+                                      <span
+                                        className="text-[9px] px-1.5 py-0.5 bg-violet-50 text-violet-700 font-bold rounded flex items-center gap-0.5 border border-violet-100"
+                                        title={`Skor Regulasi Subsektor PDRB: ${score.toFixed(1)}/10`}
+                                      >
+                                        🛡️ {score.toFixed(1)}
+                                      </span>
+                                    );
+                                  })()}
+                                </div>
                               </td>
                               <td className="py-3 px-4 text-right font-extrabold text-slate-800 text-xs">
                                 {formatMoney(c.NetIncome)}
@@ -1916,7 +2215,7 @@ export default function DeepDiveTab() {
                                       <div className="space-y-2 bg-white rounded-xl border border-slate-200 p-4 shadow-sm">
                                         <h5 className="font-bold text-slate-800 text-xs flex items-center gap-1.5 border-b border-slate-100 pb-1.5">
                                           <Layers size={14} className="text-[#f27a1a]" />
-                                          Struktur Rantai Pasok & Anak Perusahaan
+                                          Supply Chain Structure & Subsidiaries
                                         </h5>
 
                                         {(() => {

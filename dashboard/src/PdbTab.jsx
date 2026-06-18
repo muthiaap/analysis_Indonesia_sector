@@ -8,6 +8,7 @@ import {
   Layers, Sparkles, Activity, Shield, ArrowUpRight, DollarSign, RefreshCw, Info,
   Newspaper
 } from 'lucide-react'
+import { SUPPLY_CHAIN_DATA } from './RantaiPasokTab'
 
 // Curated colors for premium visual design
 const THEME_COLORS = {
@@ -63,10 +64,21 @@ function formatPercent(val) {
   return (val * 100).toFixed(2) + '%'
 }
 
-export default function PdbTab({ idxData }) {
+export default function PdbTab({ idxData, onSelectCompany }) {
   const [rawPdbData, setRawPdbData] = useState([])
   const [loading, setLoading] = useState(true)
   const [selectedSectorName, setSelectedSectorName] = useState(null)
+
+  const handleCompanyClick = (ticker) => {
+    const uppercaseTicker = ticker.toUpperCase()
+    if (SUPPLY_CHAIN_DATA[uppercaseTicker]) {
+      if (onSelectCompany) {
+        onSelectCompany(uppercaseTicker)
+      }
+    } else {
+      alert(`Data Supply Chain untuk emiten ${uppercaseTicker} belum tersedia.`)
+    }
+  }
 
   // Custom sliders weight state (Default: Size 30%, Growth 40%, Regulation 30%)
   const [weights, setWeights] = useState({
@@ -1017,9 +1029,13 @@ export default function PdbTab({ idxData }) {
                       </thead>
                       <tbody className="divide-y divide-slate-100">
                         {idxCompanies.slice(0, 6).map((c) => (
-                          <tr key={c.Ticker} className="hover:bg-slate-50 transition-colors">
+                          <tr
+                            key={c.Ticker}
+                            onClick={() => handleCompanyClick(c.Ticker)}
+                            className="hover:bg-slate-50/80 transition-colors cursor-pointer"
+                          >
                             <td className="py-2 px-3">
-                              <span className="bg-blue-50 text-blue-700 px-2 py-0.5 rounded font-bold text-[10px] border border-blue-100 inline-block uppercase tracking-wide">
+                              <span className="bg-blue-50 text-blue-700 px-2 py-0.5 rounded font-bold text-[10px] border border-blue-100 inline-block uppercase tracking-wide hover:bg-blue-100 transition-colors">
                                 {c.Ticker}
                               </span>
                             </td>

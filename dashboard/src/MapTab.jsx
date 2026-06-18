@@ -1,9 +1,125 @@
 import { useEffect, useState, useMemo, useCallback } from 'react'
-import { MapContainer, TileLayer, GeoJSON, Popup } from 'react-leaflet'
-import { MapPin, Building2, Filter, Info, Briefcase, HelpCircle } from 'lucide-react'
+import { MapContainer, TileLayer, GeoJSON, Popup, Polygon, Tooltip, useMap } from 'react-leaflet'
+import { MapPin, Building2, Filter, Info, Briefcase, HelpCircle, Activity } from 'lucide-react'
 import 'leaflet/dist/leaflet.css'
+import L from 'leaflet'
+import * as h3 from 'h3-js'
+import { createClient } from '@supabase/supabase-js'
 
 const GEOJSON_URL = './38 Provinsi Indonesia - Provinsi.json'
+
+const SUPABASE_URL = 'https://ghrzerzsrloveonqwxak.supabase.co'
+const SUPABASE_ANON_KEY = 'sb_publishable_ydi0Id8axZagFDL8WVrcmw_cI18T_dy'
+
+const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
+
+function isPointInCoords(lat, lng, polygonCoords) {
+  let inside = false;
+  for (let i = 0, j = polygonCoords.length - 1; i < polygonCoords.length; j = i++) {
+    const xi = polygonCoords[i][0]; // lng
+    const yi = polygonCoords[i][1]; // lat
+    const xj = polygonCoords[j][0]; // lng
+    const yj = polygonCoords[j][1]; // lat
+
+    const intersect = ((yi > lat) !== (yj > lat))
+      && (lng < (xj - xi) * (lat - yi) / (yj - yi) + xi);
+    if (intersect) inside = !inside;
+  }
+  return inside;
+}
+
+function isPointInFeature(lat, lng, feature) {
+  if (!feature || !feature.geometry) return false;
+  const geom = feature.geometry;
+  if (geom.type === 'Polygon') {
+    return isPointInCoords(lat, lng, geom.coordinates[0]);
+  } else if (geom.type === 'MultiPolygon') {
+    return geom.coordinates.some(polygon => isPointInCoords(lat, lng, polygon[0]));
+  }
+  return false;
+}
+
+function getFeatureBBox(feature) {
+  let minLng = 180, maxLng = -180, minLat = 90, maxLat = -90;
+  const processCoords = (coords) => {
+    coords.forEach(([lng, lat]) => {
+      if (lng < minLng) minLng = lng;
+      if (lng > maxLng) maxLng = lng;
+      if (lat < minLat) minLat = lat;
+      if (lat > maxLat) maxLat = lat;
+    });
+  };
+
+  const geom = feature.geometry;
+  if (geom.type === 'Polygon') {
+    processCoords(geom.coordinates[0]);
+  } else if (geom.type === 'MultiPolygon') {
+    geom.coordinates.forEach(polygon => processCoords(polygon[0]));
+  }
+  return { minLng, maxLng, minLat, maxLat };
+}
+
+function generateMockPOIs(feature, count, categories) {
+  if (!feature || !categories || categories.length === 0) return [];
+  const bbox = getFeatureBBox(feature);
+  const pois = [];
+  let attempts = 0;
+  const maxAttempts = count * 35;
+
+  while (pois.length < count && attempts < maxAttempts) {
+    attempts++;
+    const lat = bbox.minLat + Math.random() * (bbox.maxLat - bbox.minLat);
+    const lng = bbox.minLng + Math.random() * (bbox.maxLng - bbox.minLng);
+
+    if (isPointInFeature(lat, lng, feature)) {
+      const category = categories[Math.floor(Math.random() * categories.length)];
+      pois.push({
+        id: `mock-${pois.length}-${Math.random().toString(36).substr(2, 9)}`,
+        name: `Mock ${category} ${pois.length + 1}`,
+        category: category,
+        coordinates: [lat, lng]
+      });
+    }
+  }
+  return pois;
+}
+
+function MapController({ selectedProvince, geoJson, onMapInstance }) {
+  const map = useMap();
+
+  useEffect(() => {
+    if (map && onMapInstance) {
+      onMapInstance(map);
+    }
+  }, [map, onMapInstance]);
+
+  // Zoom to the selected province when it changes
+  useEffect(() => {
+    if (!map || !selectedProvince || !geoJson) return;
+
+    const feature = geoJson.features.find(
+      f => f.properties.PROVINSI === selectedProvince
+    );
+
+    if (feature) {
+      try {
+        const layer = L.geoJSON(feature);
+        const bounds = layer.getBounds();
+        map.fitBounds(bounds, { padding: [30, 30], maxZoom: 8 });
+      } catch (err) {
+        console.warn('Error fitting bounds:', err);
+      }
+    }
+  }, [map, selectedProvince, geoJson]);
+
+  // Reset map view to national view when selectedProvince is cleared
+  useEffect(() => {
+    if (!map || selectedProvince) return;
+    map.setView([-2.5, 118], 5);
+  }, [map, selectedProvince]);
+
+  return null;
+}
 
 const BKPM_COLORS = {
   ENERGI: '#f59e0b',
@@ -190,6 +306,13 @@ export default function MapTab() {
   // Specific PDB Sector Filter (selected from top 5 list)
   const [selectedPdbSectorFilter, setSelectedPdbSectorFilter] = useState(null)
 
+  // H3 Hexagon and POI states
+  const [pois, setPois] = useState([])
+  const [isLoadingPois, setIsLoadingPois] = useState(false)
+  const [selectedHexagon, setSelectedHexagon] = useState(null)
+  const [categoryMapping, setCategoryMapping] = useState(null)
+  const [selectedHexSectorFilter, setSelectedHexSectorFilter] = useState('all')
+
   const handleSort = (field) => {
     if (sortBy === field) {
       setSortOrder(prev => (prev === 'asc' ? 'desc' : 'asc'))
@@ -210,11 +333,16 @@ export default function MapTab() {
         if (!r.ok) throw new Error(`GeoJSON: HTTP ${r.status}`)
         return r.json()
       }),
+      fetch('./gmaps_category_mapping.json').then(r => {
+        if (!r.ok) throw new Error(`gmaps_category_mapping.json: HTTP ${r.status}`)
+        return r.json()
+      }),
     ])
-      .then(([md, geo]) => {
+      .then(([md, geo, catMap]) => {
         setMapData(md)
         setGeoJson(geo)
         setSelectedSectors(md.pdbSectors || [])
+        setCategoryMapping(catMap)
       })
       .catch(err => {
         console.error(err)
@@ -263,6 +391,203 @@ export default function MapTab() {
     }
   }, [selectedPdbSectorFilter, provinceSectorFilter, selectedSectors])
 
+  // Active sectors for hexagon displaying/filtering
+  const activeHexagonSectors = useMemo(() => {
+    if (activeSingleSector) return [activeSingleSector]
+    return selectedSectors
+  }, [activeSingleSector, selectedSectors])
+
+  // Load POIs when selectedProvince or active sectors change
+  useEffect(() => {
+    const loadProvincePOIs = async () => {
+      if (!selectedProvince || !categoryMapping || !geoJson || activeHexagonSectors.length === 0) {
+        setPois([]);
+        setSelectedHexagon(null);
+        return;
+      }
+
+      setIsLoadingPois(true);
+      const feature = geoJson.features.find(
+        f => f.properties.PROVINSI === selectedProvince
+      );
+
+      if (!feature) {
+        setPois([]);
+        setIsLoadingPois(false);
+        return;
+      }
+
+      const bbox = getFeatureBBox(feature);
+
+      try {
+        console.log(`🔍 Fetching POIs for ${selectedProvince} from Supabase...`);
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 12000); // 12 second timeout
+
+        let allData = [];
+        let offset = 0;
+        const limit = 1000;
+        let hasMore = true;
+
+        while (hasMore) {
+          const { data, error } = await supabase
+            .from('pois_data')
+            .select('poi_id, poi_name, sector, category, latitude, longitude, h3_index, address, rating, rating_count, gmaps_url, merchant_bank_name')
+            .gte('latitude', bbox.minLat)
+            .lte('latitude', bbox.maxLat)
+            .gte('longitude', bbox.minLng)
+            .lte('longitude', bbox.maxLng)
+            .range(offset, offset + limit - 1)
+            .abortSignal(controller.signal);
+
+          if (error) throw error;
+
+          if (data && data.length > 0) {
+            allData = [...allData, ...data];
+            console.log(`📦 Loaded chunk: ${data.length} records (total loaded: ${allData.length})`);
+            if (data.length < limit || allData.length >= 20000) {
+              if (allData.length > 20000) {
+                allData = allData.slice(0, 20000);
+              }
+              hasMore = false;
+            } else {
+              offset += limit;
+            }
+          } else {
+            hasMore = false;
+          }
+        }
+
+        clearTimeout(timeoutId);
+
+        if (allData.length > 0) {
+          console.log(`✅ Loaded total ${allData.length} POIs inside bounding box from Supabase.`);
+
+          const mapped = allData
+            .filter(poi => isPointInFeature(poi.latitude, poi.longitude, feature))
+            .map(poi => {
+              const catClean = String(poi.category).trim().toLowerCase();
+              const pdbSector = categoryMapping[catClean] || null;
+              return {
+                id: String(poi.poi_id),
+                name: poi.poi_name,
+                category: poi.category,
+                coordinates: [poi.latitude, poi.longitude],
+                h3_index: poi.h3_index || h3.latLngToCell(poi.latitude, poi.longitude, 8),
+                pdbSector,
+                address: poi.address,
+                rating: poi.rating,
+                ratingCount: poi.rating_count,
+                gmapsUrl: poi.gmaps_url,
+                merchantBank: poi.merchant_bank_name
+              };
+            });
+
+          const matched = mapped.filter(poi =>
+            poi.pdbSector && activeHexagonSectors.includes(poi.pdbSector)
+          );
+
+          console.log(`✅ Filtered to ${matched.length} POIs matching sectors:`, activeHexagonSectors);
+          setPois(matched);
+          setIsLoadingPois(false);
+          return;
+        } else {
+          console.log('⚠️ No data returned from Supabase for this region. Falling back to mock generator.');
+        }
+      } catch (err) {
+        console.warn('❌ Supabase POI fetch failed or timed out:', err.message || err);
+        console.log('💡 Falling back to mock POI generation...');
+      }
+
+      // FALLBACK: Generate realistic mock POIs matching the category mapping
+      const validCategories = Object.keys(categoryMapping).filter(cat =>
+        activeHexagonSectors.includes(categoryMapping[cat])
+      );
+
+      const categoriesToUse = validCategories.length > 0 ? validCategories : ['Kantor', 'Pabrik', 'Toko'];
+
+      const provStat = mapData?.provinceStats?.[selectedProvince];
+      let sectorPdrb = 0;
+      if (provStat) {
+        if (activeSingleSector) {
+          sectorPdrb = getProvincePdrbValue(provStat, activeSingleSector);
+        } else {
+          if (selectedSectors && selectedSectors.length > 0 && provStat.top5Sectors) {
+            selectedSectors.forEach(secName => {
+              const normSec = normalizeSectorName(secName);
+              const matched = provStat.top5Sectors.find(s => normalizeSectorName(s.sector) === normSec);
+              if (matched) {
+                sectorPdrb += matched.value;
+              }
+            });
+          }
+          if (sectorPdrb === 0) {
+            sectorPdrb = provStat.pdrb || 0;
+          }
+        }
+      }
+      const count = Math.min(150, Math.max(30, Math.round(sectorPdrb / 5e9))) || 60;
+
+      console.log(`Generating ${count} mock POIs for ${selectedProvince} in PDB sectors:`, activeHexagonSectors);
+
+      const mockPois = generateMockPOIs(feature, count, categoriesToUse);
+
+      const mockPoisWithH3 = mockPois.map(poi => {
+        try {
+          const h3Index = h3.latLngToCell(poi.coordinates[0], poi.coordinates[1], 8);
+          const catClean = String(poi.category).trim().toLowerCase();
+          return {
+            ...poi,
+            h3_index: h3Index,
+            pdbSector: categoryMapping[catClean]
+          };
+        } catch (e) {
+          console.warn('H3 generation failed for coordinates:', poi.coordinates, e);
+          return null;
+        }
+      }).filter(Boolean);
+
+      console.log(`✅ Generated ${mockPoisWithH3.length} mock POIs with H3 indices.`);
+      setPois(mockPoisWithH3);
+      setIsLoadingPois(false);
+    };
+
+    loadProvincePOIs();
+  }, [selectedProvince, activeSingleSector, selectedSectors, categoryMapping, geoJson]);
+
+  // Compute H3 hexagons
+  const h3Hexagons = useMemo(() => {
+    if (!selectedProvince || pois.length === 0) return [];
+
+    const groups = {};
+    pois.forEach(poi => {
+      if (poi.h3_index) {
+        if (!groups[poi.h3_index]) groups[poi.h3_index] = [];
+        groups[poi.h3_index].push(poi);
+      }
+    });
+
+    return Object.entries(groups).map(([h3Index, poisInCell]) => {
+      try {
+        const boundary = h3.cellToBoundary(h3Index);
+        return {
+          h3Index,
+          boundary,
+          pois: poisInCell,
+          count: poisInCell.length
+        };
+      } catch (err) {
+        console.warn(`Failed to get boundary for H3 index ${h3Index}:`, err);
+        return null;
+      }
+    }).filter(Boolean);
+  }, [selectedProvince, pois]);
+
+  const maxPoiCountInHexagon = useMemo(() => {
+    if (h3Hexagons.length === 0) return 1;
+    return Math.max(...h3Hexagons.map(h => h.count)) || 1;
+  }, [h3Hexagons]);
+
   const maxCount = useMemo(() => {
     if (!mapData || !geoJson) return 1
     let max = 0
@@ -301,6 +626,27 @@ export default function MapTab() {
     return mapData.companiesByProvince[selectedProvince] || []
   }, [mapData, selectedProvince])
 
+  const allCompanies = useMemo(() => {
+    if (!mapData) return []
+    const list = []
+    Object.entries(mapData.companiesByProvince).forEach(([prov, companies]) => {
+      companies.forEach(c => {
+        list.push({
+          ...c,
+          provinsi_kantor: prov
+        })
+      })
+    })
+    const unlocated = mapData.unlocatedCompanies || []
+    unlocated.forEach(c => {
+      list.push({
+        ...c,
+        provinsi_kantor: 'Luar Koordinat/Lainnya'
+      })
+    })
+    return list
+  }, [mapData])
+
   const selectedProvStats = useMemo(() => {
     if (!mapData || !selectedProvince) return null
     return mapData.provinceStats[selectedProvince] || null
@@ -337,7 +683,7 @@ export default function MapTab() {
 
   const filteredCompanies = useMemo(() => {
     if (!selectedProvince) return []
-    let list = [...provinceCompanies]
+    let list = [...allCompanies]
     
     // Identify if the user is actively filtering sectors
     const isSidebarFiltered = selectedSectors && mapData?.pdbSectors && selectedSectors.length < mapData.pdbSectors.length
@@ -401,7 +747,7 @@ export default function MapTab() {
     })
 
     return list
-  }, [provinceCompanies, selectedProvince, selectedSectors, provinceSectorFilter, companySearch, sortBy, sortOrder, normalizedTop5Sectors, selectedPdbSectorFilter])
+  }, [allCompanies, selectedProvince, selectedSectors, provinceSectorFilter, companySearch, sortBy, sortOrder, normalizedTop5Sectors, selectedPdbSectorFilter])
 
   const style = useCallback(
     feature => {
@@ -412,12 +758,23 @@ export default function MapTab() {
         : getProvincePdrbValue(provStat, activeSingleSector)
       const maxVal = mapMetric === 'emiten' ? maxCount : maxPdrb
       const selected = selectedProvince === name
+
+      if (selectedProvince && !selected) {
+        return {
+          fillColor: '#cbd5e1',
+          weight: 0.5,
+          opacity: 0.3,
+          color: '#94a3b8',
+          fillOpacity: 0.1,
+        }
+      }
+
       return {
         fillColor: getChoroplethColor(count, maxVal, mapMetric),
-        weight: selected ? 2.5 : 1,
-        opacity: 1,
-        color: selected ? '#1d4ed8' : '#64748b',
-        fillOpacity: selected ? 0.92 : 0.82,
+        weight: selected ? 0 : 1,
+        opacity: selected ? 0 : 1,
+        color: selected ? 'transparent' : '#64748b',
+        fillOpacity: selected ? 0 : 0.82,
       }
     },
     [provinceCounts, maxCount, maxPdrb, mapMetric, mapData, selectedProvince, activeSingleSector, getProvincePdrbValue]
@@ -457,10 +814,12 @@ export default function MapTab() {
           setProvinceSectorFilter(null)
           setSelectedPdbSectorFilter(null)
           setPopupLatLng(e.latlng)
+          setSelectedHexagon(null)
+          setSelectedHexSectorFilter('all')
         },
       })
     },
-    [provinceCounts, mapData, mapMetric, activeSingleSector, getProvincePdrbValue, setPopupLatLng, setSelectedProvince, setCompanySearch, setProvinceSectorFilter, setSelectedPdbSectorFilter]
+    [provinceCounts, mapData, mapMetric, activeSingleSector, getProvincePdrbValue, setPopupLatLng, setSelectedProvince, setCompanySearch, setProvinceSectorFilter, setSelectedPdbSectorFilter, setSelectedHexagon, setSelectedHexSectorFilter]
   )
 
   const toggleSector = sector => {
@@ -474,6 +833,35 @@ export default function MapTab() {
 
   const selectAllSectors = () => setSelectedSectors(mapData?.pdbSectors || [])
   const selectNoneSectors = () => setSelectedSectors([])
+
+  // Unique sectors present in the current H3 hexagon
+  const uniqueSectorsInHexagon = useMemo(() => {
+    if (!selectedHexagon) return []
+    const sectors = new Set()
+    selectedHexagon.pois.forEach(p => {
+      if (p.pdbSector) sectors.add(p.pdbSector)
+    })
+    return Array.from(sectors).sort()
+  }, [selectedHexagon])
+
+  // Unique subsectors/categories present in the current H3 hexagon
+  const uniqueCategoriesInHexagon = useMemo(() => {
+    if (!selectedHexagon) return []
+    const categories = new Set()
+    selectedHexagon.pois.forEach(p => {
+      if (p.category) categories.add(p.category)
+    })
+    return Array.from(categories).sort()
+  }, [selectedHexagon])
+
+  // Filtered POIs inside the current H3 hexagon
+  const filteredHexagonPois = useMemo(() => {
+    if (!selectedHexagon) return []
+    if (selectedHexSectorFilter === 'all') return selectedHexagon.pois
+    return selectedHexagon.pois.filter(
+      p => p.pdbSector === selectedHexSectorFilter || p.category === selectedHexSectorFilter
+    )
+  }, [selectedHexagon, selectedHexSectorFilter])
 
   if (loadError) {
     return (
@@ -510,7 +898,8 @@ export default function MapTab() {
       </div>
 
       <div className="grid grid-cols-1 xl:grid-cols-3 gap-4">
-        <div className="xl:col-span-2 bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm flex flex-col">
+        <div className="xl:col-span-2 space-y-4 flex flex-col">
+          <div className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm flex flex-col">
           {/* Header Map with Metric Toggle */}
           <div className="px-4 py-3 border-b border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-slate-50/50">
             <div className="flex items-center gap-2">
@@ -565,12 +954,54 @@ export default function MapTab() {
                 subdomains="abcd"
                 maxZoom={20}
               />
+              <MapController selectedProvince={selectedProvince} geoJson={geoJson} />
               <GeoJSON
                 key={selectedSectors.join(',') + (selectedProvince || '') + mapMetric}
                 data={geoJson}
                 style={style}
                 onEachFeature={onEachFeature}
               />
+              {selectedProvince && h3Hexagons.map(hex => {
+                const baseColor = '#f27a1a';
+                const opacity = 0.25 + 0.6 * (hex.count / maxPoiCountInHexagon);
+                const isSelected = selectedHexagon && selectedHexagon.hexagonId === hex.h3Index;
+
+                return (
+                  <Polygon
+                    key={hex.h3Index}
+                    positions={hex.boundary}
+                    pathOptions={{
+                      fillColor: baseColor,
+                      fillOpacity: opacity,
+                      color: isSelected ? '#ffffff' : baseColor,
+                      weight: isSelected ? 2.5 : 0.8,
+                      opacity: 0.9
+                    }}
+                    eventHandlers={{
+                      click: (e) => {
+                        e.originalEvent?.stopPropagation();
+                        if (selectedHexagon && selectedHexagon.hexagonId === hex.h3Index) {
+                          setSelectedHexagon(null);
+                        } else {
+                          setSelectedHexagon({
+                            hexagonId: hex.h3Index,
+                            pois: hex.pois
+                          });
+                          setSelectedHexSectorFilter('all');
+                        }
+                      }
+                    }}
+                  >
+                    <Tooltip sticky>
+                      <div className="p-1 font-sans text-xs text-slate-800">
+                        <div className="font-bold border-b pb-0.5 mb-1 text-[11px]">H3 Hexagon Cell</div>
+                        <div className="text-[10px]">Index: <span className="font-mono">{hex.h3Index}</span></div>
+                        <div className="text-[10px]">Lokasi/POI Sektor: <strong className="text-orange-600">{hex.count}</strong></div>
+                      </div>
+                    </Tooltip>
+                  </Polygon>
+                );
+              })}
               {selectedProvince && popupLatLng && (
                 <Popup
                   position={popupLatLng}
@@ -666,6 +1097,127 @@ export default function MapTab() {
             </span>
           </div>
         </div>
+
+        {/* Selected Hexagon Details Card */}
+        {selectedProvince && selectedHexagon && (
+          <div className="bg-gradient-to-br from-slate-50 to-blue-50/20 p-4 rounded-xl border border-slate-200 text-xs space-y-3 shadow-sm animate-fade-in">
+            <div className="font-extrabold text-slate-800 text-[10.5px] uppercase tracking-wider border-b border-slate-100 pb-1.5 flex justify-between items-center">
+              <span className="flex items-center gap-1">
+                <Building2 size={13} className="text-blue-500 animate-pulse" />
+                Daftar Lokasi di Cell H3
+              </span>
+              <button
+                type="button"
+                onClick={() => setSelectedHexagon(null)}
+                className="text-[9.5px] text-slate-500 hover:text-slate-800 font-bold bg-slate-100 hover:bg-slate-200 border-none rounded-md px-2 py-0.5 cursor-pointer transition-all animate-fade-in"
+              >
+                Tutup
+              </button>
+            </div>
+
+            <div className="text-[10px] text-slate-550 flex flex-col sm:flex-row justify-between sm:items-center gap-2 border-b border-slate-100 pb-1.5">
+              <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
+                <span>Cell ID: <strong className="font-mono text-slate-700">{selectedHexagon.hexagonId.substring(0, 15)}</strong></span>
+                <span className="bg-blue-100 text-blue-800 px-1.5 py-0.5 rounded font-bold">{filteredHexagonPois.length} Terfilter / {selectedHexagon.pois.length} Tempat</span>
+              </div>
+
+              <div className="flex items-center gap-1.5">
+                <span className="text-[9px] text-slate-400 font-bold uppercase">Saring Sektor/Kategori:</span>
+                <select
+                  value={selectedHexSectorFilter}
+                  onChange={(e) => setSelectedHexSectorFilter(e.target.value)}
+                  className="text-[9.5px] bg-white border border-slate-200 rounded px-2 py-0.5 focus:outline-none focus:ring-1 focus:ring-blue-500 font-semibold text-slate-700 cursor-pointer"
+                >
+                  <option value="all">Semua Sektor & Kategori</option>
+                  
+                  {uniqueSectorsInHexagon.length > 0 && (
+                    <optgroup label="Sektor PDB">
+                      {uniqueSectorsInHexagon.map(sec => (
+                        <option key={sec} value={sec}>{sec}</option>
+                      ))}
+                    </optgroup>
+                  )}
+
+                  {uniqueCategoriesInHexagon.length > 0 && (
+                    <optgroup label="Kategori Bisnis">
+                      {uniqueCategoriesInHexagon.map(cat => (
+                        <option key={cat} value={cat}>{cat}</option>
+                      ))}
+                    </optgroup>
+                  )}
+                </select>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 max-h-[350px] overflow-y-auto pr-1 scrollbar-thin">
+              {filteredHexagonPois.length === 0 ? (
+                <div className="col-span-2 text-center py-8 text-slate-400 italic">
+                  Tidak ada lokasi yang cocok dengan saringan filter ini.
+                </div>
+              ) : (
+                filteredHexagonPois.map(poi => {
+                  const hasRating = poi.rating && poi.rating !== 'NULL' && poi.rating !== '';
+                  const hasAddress = poi.address && poi.address !== 'NULL' && poi.address !== '';
+                  const hasBank = poi.merchantBank && poi.merchantBank !== 'NULL' && poi.merchantBank !== '';
+
+                  return (
+                    <div key={poi.id} className="bg-white p-2.5 rounded-lg border border-slate-150 text-[10px] shadow-sm hover:border-slate-350 transition-all space-y-1">
+                      <div className="flex justify-between items-start gap-2">
+                        <div className="font-extrabold text-slate-800 leading-snug" title={poi.name}>{poi.name}</div>
+                        {hasRating && (
+                          <div className="shrink-0 flex items-center gap-0.5 bg-amber-50 border border-amber-200 text-amber-800 px-1 py-0.5 rounded text-[8.5px] font-bold">
+                            <span>⭐</span>
+                            <span>{poi.rating}</span>
+                            {poi.ratingCount && poi.ratingCount !== '0' && poi.ratingCount !== 'NULL' && (
+                              <span className="text-slate-400 font-normal text-[8px]">({poi.ratingCount})</span>
+                            )}
+                          </div>
+                        )}
+                      </div>
+
+                      <div className="flex flex-wrap gap-1 mt-1">
+                        <span className="inline-block px-1.5 py-0.5 rounded text-[8.5px] font-bold bg-slate-100 text-slate-600 border border-slate-200">
+                          {poi.category}
+                        </span>
+                        {poi.pdbSector && (
+                          <span className="inline-block px-1.5 py-0.5 rounded text-[8.5px] font-bold bg-blue-50 text-blue-700 border border-blue-100">
+                            {poi.pdbSector}
+                          </span>
+                        )}
+                        {hasBank && (
+                          <span className="inline-block px-1.5 py-0.5 rounded text-[8.5px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-100">
+                            💳 {poi.merchantBank}
+                          </span>
+                        )}
+                      </div>
+
+                      {hasAddress && (
+                        <div className="text-[9px] text-slate-400 leading-normal flex items-start gap-1 mt-1 pt-1 border-t border-slate-50">
+                          <span className="shrink-0 mt-0.5">📍</span>
+                          <span className="truncate max-w-[200px]" title={poi.address}>{poi.address}</span>
+                        </div>
+                      )}
+
+                      {poi.gmapsUrl && poi.gmapsUrl !== 'NULL' && (
+                        <div className="flex justify-end pt-1">
+                          <a
+                            href={poi.gmapsUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-0.5 text-blue-600 hover:text-blue-800 hover:underline text-[9px] font-extrabold"
+                          >
+                            Buka Google Maps ↗
+                          </a>
+                        </div>
+                      )}
+                    </div>
+                  );
+                })
+              )}
+            </div>
+          </div>
+        )}
+      </div>
 
         {/* Sidebar Controls & Premium Metrics Panel */}
         <div className="space-y-4">
@@ -830,6 +1382,52 @@ export default function MapTab() {
               </div>
             )}
           </div>
+
+          {/* H3 Hexagon Density Analysis Card */}
+          {selectedProvince && (
+            <div className="bg-white rounded-xl border border-slate-200 p-4 shadow-sm space-y-3">
+              <div className="font-bold text-slate-700 text-[10px] uppercase tracking-wider border-b border-slate-100 pb-1 flex justify-between items-center">
+                <span>Sebaran Lokasi & POI</span>
+                <span className="text-[9px] px-1.5 py-0.5 bg-blue-100 text-blue-700 font-bold rounded">H3 Resolusi 8</span>
+              </div>
+
+              {isLoadingPois ? (
+                <div className="flex items-center justify-center py-4 text-slate-400 gap-1.5 text-xs">
+                  <Activity className="animate-spin text-blue-500" size={14} />
+                  <span>Memuat sebaran lokasi...</span>
+                </div>
+              ) : (
+                <div className="space-y-2 text-xs">
+                  <div className="flex justify-between items-center text-[10px]">
+                    <span className="text-slate-555">Total POI Sektor Aktif:</span>
+                    <strong className="text-slate-800 text-xs font-bold">{pois.length} POI</strong>
+                  </div>
+
+                  {pois.length > 0 && categoryMapping && (
+                    <div className="bg-slate-50 rounded-lg border border-slate-200 p-2 max-h-[110px] overflow-y-auto space-y-1">
+                      <div className="text-[9px] font-bold text-slate-400 uppercase mb-1">Kategori Terbanyak:</div>
+                      {Object.entries(
+                        pois.reduce((acc, p) => {
+                          acc[p.category] = (acc[p.category] || 0) + 1;
+                          return acc;
+                        }, {})
+                      )
+                        .sort((a, b) => b[1] - a[1])
+                        .slice(0, 4)
+                        .map(([cat, count]) => (
+                          <div key={cat} className="flex justify-between items-center text-[9.5px] text-slate-650">
+                            <span className="truncate max-w-[140px]" title={cat}>• {cat}</span>
+                            <span className="font-bold text-slate-800">{count}</span>
+                          </div>
+                        ))}
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
+          )}
+
+
         </div>
       </div>
 
@@ -909,8 +1507,11 @@ export default function MapTab() {
                       className="hover:bg-slate-50/50 transition-colors align-top"
                     >
                       <td className="py-3 px-4 font-bold text-slate-900 text-sm">{c.Ticker}</td>
-                      <td className="py-3 px-4">
+                      <td className="py-3 px-4 space-y-1">
                         <div className="font-semibold text-slate-700 text-xs">{c.NamaPerusahaan || '-'}</div>
+                        {c.provinsi_kantor && (
+                          <div className="text-[10px] text-slate-400 font-medium">Kantor: {c.provinsi_kantor}</div>
+                        )}
                       </td>
                       <td className="py-3 px-4 space-y-1">
                         <div className="font-semibold text-slate-700 text-xs">{c.Subindustri || '-'}</div>

@@ -1,0 +1,104 @@
+All Subindustries in Companies with Mapping Status:
+Subindustri                                        | Count | Sektor IDX                | sektor_pdb                          | subsektor_pdb
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Pengembang & Operator Real Estat                   | 91    | Properti & Real Estat     | Real Estate                         | Real Estate
+Bank                                               | 48    | Keuangan                  | Jasa Keuangan dan Asuransi          | Jasa Penunjang Keuangan
+Perkebunan & Tanaman Pangan                        | 36    | Barang Konsumen Primer    | Pertanian, Kehutanan, dan Perikanan | Pertanian, Peternakan, Perburuan dan Jasa Pertanian
+Hotel, Resor & Kapal Pesiar                        | 31    | Barang Konsumen Non-Primer | Penyediaan Akomodasi dan Makan Minum | Penyediaan Akomodasi
+Konstruksi Bangunan                                | 29    | Infrastruktur             | Konstruksi                          | Konstruksi
+Makanan Olahan                                     | 29    | Barang Konsumen Primer    | Industri Pengolahan                 | Industri Makanan dan Minuman
+Logistik & Pengantaran                             | 28    | Transportasi & Logistik   | Transportasi dan Pergudangan        | Pergudangan dan Jasa Penunjang Angkutan; Pos dan Kurir
+Produksi Batu Bara                                 | 26    | Energi                    | Pertambangan dan Penggalian         | Pertambangan Batubara dan Lignit
+Ikan, Daging & Produk Unggas                       | 21    | Barang Konsumen Primer    | Pertanian, Kehutanan, dan Perikanan | Perikanan
+Wadah & Kemasan                                    | 21    | Barang Baku               | Industri Pengolahan                 | Industri Karet, Barang dari Karet dan Plastik
+Distribusi Batu Bara                               | 21    | Energi                    | Industri Pengolahan                 | Industri Batubara dan Pengilangan Migas
+Jasa & Perlengkapan Minyak, Gas & Batu Bara        | 21    | Energi                    | Industri Pengolahan                 | Industri Batubara dan Pengilangan Migas
+Barang Kimia Dasar                                 | 20    | Barang Baku               | Industri Pengolahan                 | Industri Kimia, Farmasi dan Obat Tradisional
+Aplikasi & Jasa Internet                           | 19    | Teknologi                 | Industri Pengolahan                 | Industri Barang Logam; Komputer, Barang Elektronik, Optik; dan Peralatan Listrik
+Logam & Mineral Lainnya                            | 17    | Barang Baku               | Pertambangan dan Penggalian         | Pertambangan Bijih Logam
+Tekstil                                            | 15    | Barang Konsumen Non-Primer | Industri Pengolahan                 | Industri Tekstil dan Pakaian Jadi
+Penyedia Jasa Kesehatan                            | 15    | Kesehatan                 | nan                                 | nan
+Farmasi                                            | 15    | Kesehatan                 | Industri Pengolahan                 | Industri Kimia, Farmasi dan Obat Tradisional
+Asuransi Umum                                      | 14    | Keuangan                  | Jasa Keuangan dan Asuransi          | Asuransi dan Dana Pensiun
+Pembiayaan Konsumen                                | 14    | Keuangan                  | Jasa Keuangan dan Asuransi          | Jasa Keuangan Lainnya
+Penyimpanan & Distribusi Minyak & Gas              | 14    | Energi                    | Industri Pengolahan                 | Industri Batubara dan Pengilangan Migas
+Produk & Perlengkapan Bangunan                     | 14    | Perindustrian             | Konstruksi                          | Konstruksi
+Perusahaan Holding Keuangan                        | 14    | Keuangan                  | Jasa Keuangan dan Asuransi          | Jasa Perantara Keuangan
+Jasa Telekomunikasi Nirkabel                       | 14    | Infrastruktur             | Industri Pengolahan                 | Industri Barang Logam; Komputer, Barang Elektronik, Optik; dan Peralatan Listrik
+Suku Cadang Otomotif                               | 12    | Barang Konsumen Non-Primer | Industri Pengolahan                 | Industri Alat Angkutan
+Material Konstruksi                                | 12    | Barang Baku               | Konstruksi                          | Konstruksi
+Jasa & Konsultan TI                                | 11    | Teknologi                 | Informasi dan Komunikasi            | Informasi dan Komunikasi
+Rumah Makan                                        | 11    | Barang Konsumen Non-Primer | Penyediaan Akomodasi dan Makan Minum | Penyediaan Makan Minum
+Produk Perawatan Tubuh                             | 11    | Barang Konsumen Primer    | Industri Pengolahan                 | Industri Kimia, Farmasi dan Obat Tradisional
+Mesin Konstruksi & Kendaraan Berat                 | 10    | Perindustrian             | Industri Pengolahan                 | Industri Mesin dan Perlengkapan
+Utilitas Listrik                                   | 9     | Infrastruktur             | Pengadaan Listrik dan Gas           | Pengadaan Gas dan Produksi Es
+Transportasi Jalanan                               | 9     | Transportasi & Logistik   | Transportasi dan Pergudangan        | Angkutan Darat
+Baja & Besi                                        | 9     | Barang Baku               | Industri Pengolahan                 | Industri Barang Galian bukan Logam
+Produsen Furnitur Rumah                            | 9     | Barang Konsumen Non-Primer | Industri Pengolahan                 | Industri Kayu, Barang dari Kayu dan Gabus dan Barang Anyaman dari Bambu, Rotan dan Sejenisnya
+Penyedia & Distribusi Perlengkapan Kesehatan       | 8     | Kesehatan                 | Jasa Kesehatan dan Kegiatan Sosial  | Jasa Kesehatan dan Kegiatan Sosial
+Ritel Barang Rumah Tangga                          | 7     | Barang Konsumen Non-Primer | Perdagangan Besar dan Eceran; Reparasi Mobil dan Sepeda Motor | Perdagangan Besar dan Eceran, Bukan Mobil dan Sepeda Motor
+Barang Kimia Khusus                                | 7     | Barang Baku               | Industri Pengolahan                 | Industri Kimia, Farmasi dan Obat Tradisional
+Mesin & Komponen Perindustrian                     | 7     | Perindustrian             | Industri Pengolahan                 | Industri Mesin dan Perlengkapan
+Supermarket                                        | 7     | Barang Konsumen Primer    | Perdagangan Besar dan Eceran; Reparasi Mobil dan Sepeda Motor | Perdagangan Besar dan Eceran, Bukan Mobil dan Sepeda Motor
+Komponen & Peralatan Kelistrikan                   | 7     | Perindustrian             | Industri Pengolahan                 | Industri Barang Logam; Komputer, Barang Elektronik, Optik; dan Peralatan Listrik
+Jasa Telekomunikasi Kabel                          | 7     | Infrastruktur             | Informasi dan Komunikasi            | Informasi dan Komunikasi
+Ritel Elektronik                                   | 7     | Barang Konsumen Non-Primer | Industri Pengolahan                 | Industri Barang Logam; Komputer, Barang Elektronik, Optik; dan Peralatan Listrik
+Minuman Ringan                                     | 6     | Barang Konsumen Primer    | Industri Pengolahan                 | Industri Makanan dan Minuman
+Ritel Otomotif                                     | 6     | Barang Konsumen Non-Primer | Perdagangan Besar dan Eceran; Reparasi Mobil dan Sepeda Motor | Perdagangan Mobil, Sepeda Motor dan Reparasinya
+Peralatan Kantor                                   | 6     | Perindustrian             | Industri Pengolahan                 | Industri Mesin dan Perlengkapan
+Perusahaan Investasi                               | 6     | Keuangan                  | Jasa Keuangan dan Asuransi          | Jasa Perantara Keuangan
+Pakaian, Aksesoris, & Tas                          | 6     | Barang Konsumen Non-Primer | Industri Pengolahan                 | Industri Tekstil dan Pakaian Jadi
+Kertas                                             | 6     | Barang Baku               | Industri Pengolahan                 | Industri Kertas dan Barang dari Kertas; Percetakan dan Reproduksi Media Rekaman
+Perangkat Lunak                                    | 6     | Teknologi                 | Industri Pengolahan                 | Industri Barang Logam; Komputer, Barang Elektronik, Optik; dan Peralatan Listrik
+Penyiaran                                          | 6     | Barang Konsumen Non-Primer | Industri Pengolahan                 | Industri Kertas dan Barang dari Kertas; Percetakan dan Reproduksi Media Rekaman
+Alumunium                                          | 5     | Barang Baku               | Industri Pengolahan                 | Industri Logam Dasar
+Perusahaan Holding Multi-sektor                    | 5     | Perindustrian             | Industri Pengolahan                 | Industri Pengolahan Lainnya; Jasa Reparasi dan Pemasangan Mesin dan Peralatan
+Perangkat Komputer                                 | 5     | Teknologi                 | Industri Pengolahan                 | Industri Barang Logam; Komputer, Barang Elektronik, Optik; dan Peralatan Listrik
+Ritel Pakaian & Tekstil                            | 5     | Barang Konsumen Non-Primer | Industri Pengolahan                 | Industri Tekstil dan Pakaian Jadi
+Minuman Keras                                      | 5     | Barang Konsumen Primer    | Industri Pengolahan                 | Industri Makanan dan Minuman
+Fasilitas Rekreasi & Olah Raga                     | 5     | Barang Konsumen Non-Primer | Penyediaan Akomodasi dan Makan Minum | Penyediaan Akomodasi
+Ritel & Distributor Makanan                        | 5     | Barang Konsumen Primer    | Penyediaan Akomodasi dan Makan Minum | Penyediaan Makan Minum
+Produk Susu Olahan                                 | 5     | Barang Konsumen Primer    | Industri Pengolahan                 | Industri Makanan dan Minuman
+Produksi & Penyulingan Minyak & Gas                | 5     | Energi                    | Pertambangan dan Penggalian         | Pertambangan Minyak, Gas dan Panas Bumi
+Kayu                                               | 5     | Barang Baku               | Industri Pengolahan                 | Industri Kayu, Barang dari Kayu dan Gabus dan Barang Anyaman dari Bambu, Rotan dan Sejenisnya
+Bank Investasi & Perantara Perdagangan             | 5     | Keuangan                  | Jasa Keuangan dan Asuransi          | Jasa Perantara Keuangan
+Emas                                               | 4     | Barang Baku               | Industri Pengolahan                 | Industri Logam Dasar
+Jasa Pendukung Bisnis                              | 4     | Perindustrian             | Industri Pengolahan                 | Industri Pengolahan Lainnya; Jasa Reparasi dan Pemasangan Mesin dan Peralatan
+Agen Perjalanan                                    | 4     | Barang Konsumen Non-Primer | Penyediaan Akomodasi dan Makan Minum | Penyediaan Akomodasi
+Asuransi Jiwa                                      | 4     | Keuangan                  | Jasa Keuangan dan Asuransi          | Asuransi dan Dana Pensiun
+Peralatan Olah Raga & Barang Hobi                  | 4     | Barang Konsumen Non-Primer | nan                                 | nan
+Periklanan                                         | 4     | Barang Konsumen Non-Primer | Industri Pengolahan                 | Industri Kertas dan Barang dari Kertas; Percetakan dan Reproduksi Media Rekaman
+Ban                                                | 4     | Barang Konsumen Non-Primer | Industri Pengolahan                 | Industri Alat Angkutan
+Perangkat & Instrumen Elektronik                   | 4     | Teknologi                 | Industri Pengolahan                 | Industri Barang Logam; Komputer, Barang Elektronik, Optik; dan Peralatan Listrik
+Hiburan & Film                                     | 4     | Barang Konsumen Non-Primer | Penyediaan Akomodasi dan Makan Minum | Penyediaan Akomodasi
+Rokok                                              | 4     | Barang Konsumen Primer    | Industri Pengolahan                 | Industri Pengolahan Tembakau
+Operator Pelabuhan                                 | 4     | Infrastruktur             | Transportasi dan Pergudangan        | Angkutan Laut
+Perlengkapan Rumah Tangga                          | 4     | Barang Konsumen Non-Primer | Industri Pengolahan                 | Industri Furnitur
+Distributor Barang Konsumen                        | 4     | Barang Konsumen Non-Primer | Perdagangan Besar dan Eceran; Reparasi Mobil dan Sepeda Motor | Perdagangan Besar dan Eceran, Bukan Mobil dan Sepeda Motor
+Penerbitan                                         | 3     | Barang Konsumen Non-Primer | Industri Pengolahan                 | Industri Kertas dan Barang dari Kertas; Percetakan dan Reproduksi Media Rekaman
+Jasa Pendidikan                                    | 3     | Barang Konsumen Non-Primer | nan                                 | nan
+Operator Jalan Tol & Rel                           | 3     | Infrastruktur             | Transportasi dan Pergudangan        | Angkutan Rel
+Maskapai Penerbangan                               | 3     | Transportasi & Logistik   | Transportasi dan Pergudangan        | Angkutan Udara
+Jasa Penelitian & Konsultasi                       | 3     | Perindustrian             | Industri Pengolahan                 | Industri Pengolahan Lainnya; Jasa Reparasi dan Pemasangan Mesin dan Peralatan
+Ritel & Distributor Obat-obatan                    | 3     | Barang Konsumen Primer    | Industri Pengolahan                 | Industri Kimia, Farmasi dan Obat Tradisional
+Barang Kimia Pertanian                             | 3     | Barang Baku               | Pertanian, Kehutanan, dan Perikanan | Pertanian, Peternakan, Perburuan dan Jasa Pertanian
+Jasa Personalia                                    | 3     | Perindustrian             | Industri Pengolahan                 | Industri Pengolahan Lainnya; Jasa Reparasi dan Pemasangan Mesin dan Peralatan
+Department Store                                   | 3     | Barang Konsumen Non-Primer | Perdagangan Besar dan Eceran; Reparasi Mobil dan Sepeda Motor | Perdagangan Besar dan Eceran, Bukan Mobil dan Sepeda Motor
+Perdagangan Aneka Barang Perindustrian             | 3     | Perindustrian             | Perdagangan Besar dan Eceran; Reparasi Mobil dan Sepeda Motor | Perdagangan Besar dan Eceran, Bukan Mobil dan Sepeda Motor
+Tembaga                                            | 2     | Barang Baku               | Industri Pengolahan                 | Industri Logam Dasar
+Jasa Pengeboran Minyak & Gas                       | 2     | Energi                    | Industri Pengolahan                 | Industri Batubara dan Pengilangan Migas
+Alas Kaki                                          | 2     | Barang Konsumen Non-Primer | Industri Pengolahan                 | Industri Kulit, Barang dari Kulit dan Alas Kaki
+Operator Bandar Udara                              | 2     | Infrastruktur             | Transportasi dan Pergudangan        | Angkutan Udara
+Jasa Pengelolaan Lingkungan & Sarana               | 2     | Perindustrian             | Industri Pengolahan                 | Industri Pengolahan Lainnya; Jasa Reparasi dan Pemasangan Mesin dan Peralatan
+Produk Hutan Lainnya                               | 2     | Barang Baku               | Pertanian, Kehutanan, dan Perikanan | Kehutanan dan Penebangan Kayu
+Penyiaran Berbayar                                 | 2     | Barang Konsumen Non-Primer | Industri Pengolahan                 | Industri Kertas dan Barang dari Kertas; Percetakan dan Reproduksi Media Rekaman
+Peralatan Energi Alternatif                        | 2     | Energi                    | Industri Pengolahan                 | Industri Pengolahan Non Migas
+Peralatan Jaringan                                 | 2     | Teknologi                 | Industri Pengolahan                 | Industri Barang Logam; Komputer, Barang Elektronik, Optik; dan Peralatan Listrik
+Manajemen Investasi                                | 1     | Keuangan                  | Jasa Keuangan dan Asuransi          | Jasa Perantara Keuangan
+Barang Elektronik Konsumen                         | 1     | Barang Konsumen Non-Primer | Industri Pengolahan                 | Industri Barang Logam; Komputer, Barang Elektronik, Optik; dan Peralatan Listrik
+Utilitas Gas                                       | 1     | Infrastruktur             | Pengadaan Listrik dan Gas           | Ketenagalistrikan
+Jasa Real Estat                                    | 1     | Properti & Real Estat     | Real Estate                         | Real Estate
+Percetakan Komersial                               | 1     | Perindustrian             | Industri Pengolahan                 | Industri Kertas dan Barang dari Kertas; Percetakan dan Reproduksi Media Rekaman
+Reasuransi                                         | 1     | Keuangan                  | Jasa Keuangan dan Asuransi          | Asuransi dan Dana Pensiun
+Peralatan Rumah Tangga                             | 1     | Barang Konsumen Non-Primer | Industri Pengolahan                 | Industri Furnitur
+Jasa Telekomunikasi Terintegrasi                   | 1     | Infrastruktur             | Industri Pengolahan                 | Industri Barang Logam; Komputer, Barang Elektronik, Optik; dan Peralatan Listrik

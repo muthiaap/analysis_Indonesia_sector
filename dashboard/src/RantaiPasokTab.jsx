@@ -590,6 +590,7 @@ const ECOSYSTEM_DATA = {
   untr_coal: {
     title: "Ekosistem Alat Berat & Batubara (Jangkar: UNTR)",
     description: "Memetakan rantai pasok batu bara terintegrasi dari penyediaan alat berat utama oleh UNTR dan kontraktor PAMA hingga penyerapan oleh PLTU hilir.",
+    columnHeaders: ["Prinsipal & BBM", "Agen Tunggal", "Kontraktor Jasa", "Konsesi Tambang", "Pembangkit & Ritel"],
     nodes: [
       { id: "komatsu", name: "Komatsu Ltd.", logo: "K", tier: 1, x: 100, y: 70, desc: "Principal utama untuk penyediaan armada berat (excavator, bulldozer) konstruksi dan tambang.", country: "Jepang" },
       { id: "scania", name: "Scania CV AB", logo: "S", tier: 1, x: 100, y: 155, desc: "Produsen otomotif Swedia yang menyuplai dump truck raksasa dan bus premium.", country: "Swedia" },
@@ -658,6 +659,7 @@ const ECOSYSTEM_DATA = {
   ev_battery: {
     title: "Ekosistem Nikel & Baterai EV (Jangkar: ANTM)",
     description: "Memetakan rantai pasok hilirisasi nikel dari penambangan bijih nikel laterit oleh ANTM/INCO, pemurnian HPAL menjadi MHP, hingga sel baterai dan mobil listrik.",
+    columnHeaders: ["Tambang Hulu", "Smelter / HPAL", "Prekursor & Katoda", "Sel Baterai", "Pabrikan EV & Ritel"],
     nodes: [
       { id: "antm", name: "PT Aneka Tambang Tbk (ANTM)", logo: "AN", tier: 1, x: 100, y: 100, desc: "BUMN tambang terdiversifikasi produsen bijih nikel laterit.", country: "Indonesia" },
       { id: "inco", name: "PT Vale Indonesia Tbk (INCO)", logo: "V", tier: 1, x: 100, y: 260, desc: "Produsen nikel matte terbesar di Indonesia dengan konsesi Sorowako.", country: "Indonesia" },
@@ -693,6 +695,7 @@ const ECOSYSTEM_DATA = {
   automotive: {
     title: "Ekosistem Otomotif & Ritel (Jangkar: ASII)",
     description: "Memetakan rantai pasok otomotif raksasa Grup Astra dari penyediaan komponen oleh AUTO, perakitan unit mobil/motor, pembiayaan, hingga konsumen ritel.",
+    columnHeaders: ["Prinsipal & Komponen", "Holding Jangkar", "Perakitan / APM", "Dealer & Kredit", "Pasar Ritel & Fleet"],
     nodes: [
       { id: "toyota_global", name: "Toyota Motor Corp", logo: "T", tier: 1, x: 100, y: 70, desc: "Prinsipal global penyedia lisensi, paten, dan mesin mobil.", country: "Jepang" },
       { id: "honda_global", name: "Honda Motor Co Ltd", logo: "H", tier: 1, x: 100, y: 175, desc: "Prinsipal global penyedia lisensi sepeda motor terlaris.", country: "Jepang" },
@@ -729,6 +732,7 @@ const ECOSYSTEM_DATA = {
   infrastructure: {
     title: "Ekosistem Semen & Infrastruktur (Jangkar: SMGR)",
     description: "Memetakan rantai pasok konstruksi sipil nasional dari penyediaan bahan pengikat semen oleh SMGR, beton pracetak oleh WTON, hingga proyek tol dan IKN oleh BUMN Karya.",
+    columnHeaders: ["Energi & Tambang", "Semen Jangkar", "Olahan Beton", "Kontraktor & Dev", "Proyek & Ritel"],
     nodes: [
       { id: "coal_energy", name: "Pemasok Batubara Kiln", logo: "C", tier: 1, x: 100, y: 100, desc: "Batu bara sebagai energi utama kiln pembakar clinker semen.", country: "Indonesia" },
       { id: "quarry_lime", name: "Quarry Batu Kapur", logo: "Q", tier: 1, x: 100, y: 260, desc: "Konsesi tambang batu kapur bahan baku kalsium karbonat.", country: "Indonesia" },
@@ -764,6 +768,7 @@ const ECOSYSTEM_DATA = {
   food_beverage: {
     title: "Ekosistem Konsumer Ritel & F&B (Jangkar: INDF / ICBP)",
     description: "Memetakan rantai pasok makanan olahan terintegrasi dari impor gandum Bogasari dan CPO perkebunan sawit, produksi mie instan ICBP, hingga distribusi ritel modern dan tradisional.",
+    columnHeaders: ["Bahan Pertanian", "Penggilingan / INDF", "Makanan Olahan / ICBP", "Ritel & Warmindo", "Pasar Ritel & Ekspor"],
     nodes: [
       { id: "wheat_import", name: "Pemasok Gandum Impor", logo: "G", tier: 1, x: 100, y: 70, desc: "Penyedia gandum mentah impor dari Australia untuk divisi Bogasari.", country: "Australia" },
       { id: "simplat_lsip", name: "Kebun Sawit (SIMP/LSIP)", logo: "S", tier: 1, x: 100, y: 175, desc: "Perkebunan kelapa sawit grup Salim pemasok CPO minyak goreng.", country: "Indonesia" },
@@ -800,6 +805,7 @@ const ECOSYSTEM_DATA = {
   telecommunication: {
     title: "Ekosistem Telekomunikasi & Infrastruktur Digital (Jangkar: TLKM)",
     description: "Memetakan rantai nilai jaringan konektivitas digital dari penyediaan perangkat keras serat optik hulu, backbone Telkom, layanan seluler Telkomsel, hingga sektor perbankan dan pelanggan ritel.",
+    columnHeaders: ["Infrastruktur Hulu", "Jaringan Utama / TLKM", "Operator / Telkomsel", "Klien Data & Ritel", "Pasar Seluler & Enterprise"],
     nodes: [
       { id: "voksel_cable", name: "PT Voksel Electric Tbk", logo: "V", tier: 1, x: 100, y: 70, desc: "Pemasok kabel serat optik bawah laut dan darat nasional.", country: "Indonesia" },
       { id: "cisco_juniper", name: "Cisco & Juniper Networks", logo: "C", tier: 1, x: 100, y: 160, desc: "Pemasok global router core dan switch jaringan data pusat.", country: "Amerika Serikat" },
@@ -846,6 +852,7 @@ const ECOSYSTEM_DATA = {
   fmcg_unilever: {
     title: "Ekosistem Barang Konsumsi / FMCG (Jangkar: UNVR)",
     description: "Memetakan rantai pasok barang konsumen cepat saji Unilever, mulai dari pasokan kelapa sawit AALI, kemasan karton Sinarmas, kimia aktif Dow/BASF, produksi UNVR, logistik ULI & GoToko B2B, hingga ritel.",
+    columnHeaders: ["Energi & Bahan Baku", "Pabrikan / UNVR", "Distributor Utama / ULI", "Ritel & e-B2B", "Pasar Ritel & Horeka"],
     nodes: [
       { id: "aali_sawit", name: "Kebun Sawit Astra (AALI)", logo: "A", tier: 1, x: 100, y: 70, desc: "Pemasok CPO dan oleokimia untuk bahan dasar sabun.", country: "Indonesia" },
       { id: "sinarmas_box", name: "Kemasan Karton Sinarmas", logo: "S", tier: 1, x: 100, y: 175, desc: "Pemasok kemasan kardus box logistik bersertifikasi FSC.", country: "Indonesia" },
@@ -885,8 +892,7 @@ const ECOSYSTEM_DATA = {
   }
 }
 
-export default function RantaiPasokTab() {
-  const [selectedFocus, setSelectedFocus] = useState('UNTR')
+export default function RantaiPasokTab({ selectedFocus, setSelectedFocus }) {
   const [hoveredNode, setHoveredNode] = useState(null)
   const [selectedNode, setSelectedNode] = useState(null)
   const [searchTerm, setSearchTerm] = useState('')
@@ -1271,7 +1277,7 @@ export default function RantaiPasokTab() {
             <Layers size={22} />
           </div>
           <div>
-            <h2 className="text-lg font-bold text-slate-800">Visualisasi Rantai Pasok B2B (Value Chain)</h2>
+            <h2 className="text-lg font-bold text-slate-800">B2B Supply Chain Visualization (Value Chain)</h2>
             <p className="text-xs text-slate-500">Pemetaan alur supplier, operasi internal, dan pelanggan B2B secara detail</p>
           </div>
         </div>
@@ -1486,23 +1492,23 @@ export default function RantaiPasokTab() {
               <div className="text-[11px] text-slate-500 space-y-2 pt-2 border-t border-slate-100">
                 <div className="flex items-center gap-2">
                   <span className="w-2.5 h-2.5 rounded-full bg-blue-500 inline-block" />
-                  <span>Tier 1: Prinsipal / Supplier Utama</span>
+                  <span>Tier 1: {currentEcosystem.columnHeaders?.[0] || "Prinsipal / Supplier Utama"}</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="w-2.5 h-2.5 rounded-full bg-amber-500 inline-block" />
-                  <span>Tier 2: Distributor / Penyedia Solusi</span>
+                  <span>Tier 2: {currentEcosystem.columnHeaders?.[1] || "Distributor / Penyedia Solusi"}</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 inline-block" />
-                  <span>Tier 3: Kontraktor Penambangan</span>
+                  <span>Tier 3: {currentEcosystem.columnHeaders?.[2] || "Operasional / Kontraktor"}</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="w-2.5 h-2.5 rounded-full bg-indigo-500 inline-block" />
-                  <span>Tier 4: Konsesi Tambang / Klien B2B</span>
+                  <span>Tier 4: {currentEcosystem.columnHeaders?.[3] || "Klien B2B / Pembeli Utama"}</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="w-2.5 h-2.5 rounded-full bg-violet-500 inline-block" />
-                  <span>Tier 5: Pembangkit / Pengguna Akhir</span>
+                  <span>Tier 5: {currentEcosystem.columnHeaders?.[4] || "Pengguna Akhir / Konsumen"}</span>
                 </div>
               </div>
               <div className="bg-amber-50/50 border border-amber-200/50 p-3 rounded-lg flex gap-2">
@@ -1576,11 +1582,11 @@ export default function RantaiPasokTab() {
           {/* Column Indicators */}
           {viewMode === 'longChain' ? (
             <div className="flex justify-between text-[9px] font-bold text-slate-400 px-2 select-none tracking-wider uppercase">
-              <span className="flex items-center gap-0.5"><Globe size={10} /> Tier 1: Prinsipal</span>
-              <span className="flex items-center gap-0.5"><Cpu size={10} /> Tier 2: Distributor</span>
-              <span className="flex items-center gap-0.5"><Activity size={10} /> Tier 3: Kontraktor</span>
-              <span className="flex items-center gap-0.5"><Building2 size={10} /> Tier 4: Tambang</span>
-              <span className="flex items-center gap-0.5"><Trees size={10} /> Tier 5: Energi</span>
+              <span className="flex items-center gap-0.5"><Globe size={10} /> Tier 1: {currentEcosystem.columnHeaders?.[0]}</span>
+              <span className="flex items-center gap-0.5"><Cpu size={10} /> Tier 2: {currentEcosystem.columnHeaders?.[1]}</span>
+              <span className="flex items-center gap-0.5"><Activity size={10} /> Tier 3: {currentEcosystem.columnHeaders?.[2]}</span>
+              <span className="flex items-center gap-0.5"><Building2 size={10} /> Tier 4: {currentEcosystem.columnHeaders?.[3]}</span>
+              <span className="flex items-center gap-0.5"><Trees size={10} /> Tier 5: {currentEcosystem.columnHeaders?.[4]}</span>
             </div>
           ) : (
             <div className="flex justify-between text-[11px] font-bold text-slate-400 px-4 select-none">
@@ -2036,9 +2042,9 @@ export default function RantaiPasokTab() {
               <div className="bg-slate-50 text-slate-400 p-4 rounded-full">
                 <HelpCircle size={32} />
               </div>
-              <h3 className="text-sm font-bold text-slate-700">Detail Rantai Pasok</h3>
+              <h3 className="text-sm font-bold text-slate-700">Supply Chain Details</h3>
               <p className="text-xs text-slate-400 leading-relaxed max-w-[200px]">
-                Arahkan kursor (hover) atau klik salah satu lingkaran/kotak di diagram untuk melihat penjelasan hubungan bisnis secara lengkap.
+                Hover or click on any circle/box in the diagram to view detailed business relationship explanations.
               </p>
             </div>
           )}

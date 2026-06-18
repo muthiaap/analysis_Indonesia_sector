@@ -1135,10 +1135,10 @@ export default function HubunganTab() {
       const percentage = node.percentage || 100
       return 7 + (percentage / 100) * 11
     } else {
-      // Sizing company node logarithmically based on their total IDR-equivalent debt
+      // Sizing company node logarithmically based on their total IDR-equivalent debt with a steeper scaling to make differences clear
       const val = node.totalLoanVal || 1
       const logVal = Math.log10(val) // ranges from ~6 (millions) to ~12 (trillions)
-      return Math.max(8, Math.min(22, (logVal - 5) * 2.2))
+      return Math.max(6, Math.min(26, (logVal - 7) * 3.8))
     }
   }
 
@@ -1185,7 +1185,7 @@ export default function HubunganTab() {
                 <div>
                   <h2 className="font-bold text-slate-800 flex items-center gap-1.5 text-sm">
                     <Building2 size={16} className="text-blue-600" />
-                    Struktur Grup Emiten
+                    Group and Credit Graph
                   </h2>
                   <p className="text-[10px] text-slate-400 mt-0.5">Pilih emiten dan visualisasikan peta grup perusahaannya.</p>
                 </div>
@@ -1606,11 +1606,11 @@ export default function HubunganTab() {
                       if (!sourceNode || !targetNode) return null
 
                       // Visual coloring based on mode
-                      let glowColor = '#ec4899'
+                      let glowColor = '#f27a1a'
                       if (activeMode === 'subsidiaries') {
-                        glowColor = colorMode === 'sector' ? (SECTOR_COLORS[targetNode.category] || '#475569') : '#ec4899'
+                        glowColor = colorMode === 'sector' ? (SECTOR_COLORS[targetNode.category] || '#475569') : '#f27a1a'
                       } else {
-                        glowColor = '#f43f5e' // Rose color for debt connections
+                        glowColor = '#f27a1a' // Orange color for debt connections
                       }
 
                       return (
@@ -1647,13 +1647,13 @@ export default function HubunganTab() {
                       const isSelected = selectedNode && selectedNode.id === node.id
                       
                       // Node colors
-                      let fillCol = '#ec4899'
+                      let fillCol = '#f27a1a'
                       if (node.isParent) {
-                        fillCol = node.isBank ? '#6366f1' : '#2563eb' // Indigo for banks, Blue for companies
+                        fillCol = node.isBank ? '#00c0a8' : '#2563eb' // Teal for banks, Blue for companies
                       } else if (activeMode === 'subsidiaries' && colorMode === 'sector') {
                         fillCol = SECTOR_COLORS[node.category] || '#64748b'
                       } else if (activeMode === 'loans') {
-                        fillCol = '#f43f5e' // Rose for debtor company nodes
+                        fillCol = '#f27a1a' // Orange for debtor company nodes
                       }
 
                       return (
@@ -1795,8 +1795,8 @@ export default function HubunganTab() {
                       className="absolute -right-6 -bottom-6 w-20 h-20 rounded-full opacity-10"
                       style={{ 
                         backgroundColor: selectedNode.isParent 
-                          ? (selectedNode.isBank ? '#6366f1' : '#2563eb')
-                          : (activeMode === 'subsidiaries' ? (SECTOR_COLORS[selectedNode.category] || '#64748b') : '#f43f5e') 
+                          ? (selectedNode.isBank ? '#00c0a8' : '#2563eb')
+                          : (activeMode === 'subsidiaries' ? (SECTOR_COLORS[selectedNode.category] || '#64748b') : '#f27a1a') 
                       }}
                     />
 
@@ -1805,8 +1805,8 @@ export default function HubunganTab() {
                         className="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-xs shadow-md p-1 text-center"
                         style={{ 
                           backgroundColor: selectedNode.isParent 
-                            ? (selectedNode.isBank ? '#6366f1' : '#2563eb')
-                            : (activeMode === 'subsidiaries' ? (SECTOR_COLORS[selectedNode.category] || '#64748b') : '#f43f5e') 
+                            ? (selectedNode.isBank ? '#00c0a8' : '#2563eb')
+                            : (activeMode === 'subsidiaries' ? (SECTOR_COLORS[selectedNode.category] || '#64748b') : '#f27a1a') 
                         }}
                       >
                         {selectedNode.isParent 
@@ -1980,11 +1980,11 @@ export default function HubunganTab() {
                         <span className="font-bold text-slate-700 block mb-1.5 text-[10px]">Petunjuk Warna Graf</span>
                         <div className="space-y-1.5 text-[9px]">
                           <div className="flex items-center gap-1.5">
-                            <div className="w-2.5 h-2.5 rounded-full bg-indigo-500 shrink-0 border border-white shadow-sm" />
+                            <div className="w-2.5 h-2.5 rounded-full bg-[#00c0a8] shrink-0 border border-white shadow-sm" />
                             <span className="text-slate-700 font-bold">Bank Kreditur (Pemberi Pinjaman)</span>
                           </div>
                           <div className="flex items-center gap-1.5">
-                            <div className="w-2.5 h-2.5 rounded-full bg-rose-500 shrink-0 border border-white shadow-sm" />
+                            <div className="w-2.5 h-2.5 rounded-full bg-[#f27a1a] shrink-0 border border-white shadow-sm" />
                             <span className="text-slate-700 font-bold">Emiten Debitur (Penerima Pinjaman)</span>
                           </div>
                           <p className="text-[8px] text-slate-400 leading-normal mt-1 border-t border-slate-200 pt-1">
@@ -2027,11 +2027,11 @@ export default function HubunganTab() {
                         <span className="font-bold text-slate-700 block mb-1.5 text-[10px]">Petunjuk Warna Graf</span>
                         <div className="space-y-1.5 text-[9px]">
                           <div className="flex items-center gap-1.5">
-                            <div className="w-2.5 h-2.5 rounded-full bg-indigo-500 shrink-0 border border-white shadow-sm" />
+                            <div className="w-2.5 h-2.5 rounded-full bg-[#00c0a8] shrink-0 border border-white shadow-sm" />
                             <span className="text-slate-700 font-bold">Bank Kreditur (Pemberi Pinjaman)</span>
                           </div>
                           <div className="flex items-center gap-1.5">
-                            <div className="w-2.5 h-2.5 rounded-full bg-rose-500 shrink-0 border border-white shadow-sm" />
+                            <div className="w-2.5 h-2.5 rounded-full bg-[#f27a1a] shrink-0 border border-white shadow-sm" />
                             <span className="text-slate-700 font-bold">Emiten Debitur (Penerima Pinjaman)</span>
                           </div>
                           <p className="text-[8px] text-slate-400 leading-normal mt-1 border-t border-slate-200 pt-1">

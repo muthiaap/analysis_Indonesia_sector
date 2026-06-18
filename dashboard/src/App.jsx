@@ -58,17 +58,44 @@ function formatPercent(val) {
 
 function parseMoneyInput(val) {
   if (!val) return null
-  const s = val.toLowerCase().replace(/[^0-9.tbm-]/g, '')
-  if (!s) return null
-  const multiplier = s.endsWith('t') ? 1e12 : s.endsWith('b') ? 1e9 : s.endsWith('m') ? 1e6 : 1
-  const num = parseFloat(s.replace(/[tbm]/g, ''))
+  let s = val.trim().toLowerCase()
+  
+  // Normalize decimal comma (Indonesian format) to dot
+  if (s.includes(',') && !s.includes('.')) {
+    s = s.replace(/,/g, '.')
+  } else if (s.includes(',') && s.includes('.')) {
+    if (s.indexOf(',') < s.indexOf('.')) {
+      s = s.replace(/,/g, '') // English format: 1,250.50
+    } else {
+      s = s.replace(/\./g, '').replace(/,/g, '.') // Indonesian format: 1.250,50
+    }
+  }
+
+  // Determine multiplier based on suffixes
+  let multiplier = 1
+  if (s.endsWith('t') || s.includes('triliun') || s.includes('trillion')) {
+    multiplier = 1e12
+  } else if (s.includes('million') || s.includes('juta') || s.includes('jt') || s.endsWith('j')) {
+    multiplier = 1e6
+  } else if (s.endsWith('b') || s.includes('billion') || s.endsWith('m') || s.includes('miliar') || s.includes('milyar')) {
+    multiplier = 1e9 // Indonesian 'M' = Miliar
+  }
+
+  // Extract digits, dot, and minus sign
+  const numStr = s.replace(/[^0-9.-]/g, '')
+  const num = parseFloat(numStr)
   if (isNaN(num)) return null
   return num * multiplier
 }
 
 function parsePercentInput(val) {
   if (!val) return null
-  const num = parseFloat(val.replace('%', ''))
+  let s = val.trim().toLowerCase()
+  if (s.includes(',') && !s.includes('.')) {
+    s = s.replace(/,/g, '.')
+  }
+  const numStr = s.replace(/[^0-9.-]/g, '')
+  const num = parseFloat(numStr)
   if (isNaN(num)) return null
   return num / 100
 }
@@ -118,6 +145,7 @@ export default function App() {
   const [subSearchTerm, setSubSearchTerm] = useState('')
   const [subSectorFilter, setSubSectorFilter] = useState('All')
   const [activeLineSector, setActiveLineSector] = useState(null)
+  const [selectedSupplyChainFocus, setSelectedSupplyChainFocus] = useState('UNTR')
 
   // Table sort & filters
   const [sectorSort, setSectorSort] = useState({ column: 'NetIncome', direction: 'desc' })
@@ -270,72 +298,72 @@ export default function App() {
               type="button"
               onClick={() => setActiveTab('laporan')}
               className={`w-12 group-hover/sidebar:w-52 h-12 rounded-2xl flex items-center justify-center group-hover/sidebar:justify-start group-hover/sidebar:px-4 transition-all duration-300 relative cursor-pointer overflow-hidden ${activeTab === 'laporan'
-                  ? 'bg-white text-[#f27a1a] shadow-lg border border-white/20'
-                  : 'text-white/80 hover:text-white hover:bg-white/10'
+                ? 'bg-white text-[#f27a1a] shadow-lg border border-white/20'
+                : 'text-white/80 hover:text-white hover:bg-white/10'
                 }`}
             >
               <BarChart3 size={20} className="flex-shrink-0" />
-              <span className="ml-3 text-xs font-semibold whitespace-nowrap opacity-0 group-hover/sidebar:opacity-100 transition-opacity duration-200 hidden group-hover/sidebar:inline">Laporan Keuangan</span>
+              <span className="ml-3 text-xs font-semibold whitespace-nowrap opacity-0 group-hover/sidebar:opacity-100 transition-opacity duration-200 hidden group-hover/sidebar:inline">Dashboard IDX Sector</span>
             </button>
 
             <button
               type="button"
               onClick={() => setActiveTab('peta')}
               className={`w-12 group-hover/sidebar:w-52 h-12 rounded-2xl flex items-center justify-center group-hover/sidebar:justify-start group-hover/sidebar:px-4 transition-all duration-300 relative cursor-pointer overflow-hidden ${activeTab === 'peta'
-                  ? 'bg-white text-[#f27a1a] shadow-lg border border-white/20'
-                  : 'text-white/80 hover:text-white hover:bg-white/10'
+                ? 'bg-white text-[#f27a1a] shadow-lg border border-white/20'
+                : 'text-white/80 hover:text-white hover:bg-white/10'
                 }`}
             >
               <Map size={20} className="flex-shrink-0" />
-              <span className="ml-3 text-xs font-semibold whitespace-nowrap opacity-0 group-hover/sidebar:opacity-100 transition-opacity duration-200 hidden group-hover/sidebar:inline">Peta Provinsi</span>
+              <span className="ml-3 text-xs font-semibold whitespace-nowrap opacity-0 group-hover/sidebar:opacity-100 transition-opacity duration-200 hidden group-hover/sidebar:inline">Regional PDRB Map</span>
             </button>
 
             <button
               type="button"
               onClick={() => setActiveTab('pdb')}
               className={`w-12 group-hover/sidebar:w-52 h-12 rounded-2xl flex items-center justify-center group-hover/sidebar:justify-start group-hover/sidebar:px-4 transition-all duration-300 relative cursor-pointer overflow-hidden ${activeTab === 'pdb'
-                  ? 'bg-white text-[#f27a1a] shadow-lg border border-white/20'
-                  : 'text-white/80 hover:text-white hover:bg-white/10'
+                ? 'bg-white text-[#f27a1a] shadow-lg border border-white/20'
+                : 'text-white/80 hover:text-white hover:bg-white/10'
                 }`}
             >
               <TrendingUp size={20} className="flex-shrink-0" />
-              <span className="ml-3 text-xs font-semibold whitespace-nowrap opacity-0 group-hover/sidebar:opacity-100 transition-opacity duration-200 hidden group-hover/sidebar:inline">Analisis PDB</span>
+              <span className="ml-3 text-xs font-semibold whitespace-nowrap opacity-0 group-hover/sidebar:opacity-100 transition-opacity duration-200 hidden group-hover/sidebar:inline">PDB Sector Analysis</span>
             </button>
 
             <button
               type="button"
               onClick={() => setActiveTab('hubungan')}
               className={`w-12 group-hover/sidebar:w-52 h-12 rounded-2xl flex items-center justify-center group-hover/sidebar:justify-start group-hover/sidebar:px-4 transition-all duration-300 relative cursor-pointer overflow-hidden ${activeTab === 'hubungan'
-                  ? 'bg-white text-[#f27a1a] shadow-lg border border-white/20'
-                  : 'text-white/80 hover:text-white hover:bg-white/10'
+                ? 'bg-white text-[#f27a1a] shadow-lg border border-white/20'
+                : 'text-white/80 hover:text-white hover:bg-white/10'
                 }`}
             >
               <Share2 size={20} className="flex-shrink-0" />
-              <span className="ml-3 text-xs font-semibold whitespace-nowrap opacity-0 group-hover/sidebar:opacity-100 transition-opacity duration-200 hidden group-hover/sidebar:inline">Struktur Grup</span>
+              <span className="ml-3 text-xs font-semibold whitespace-nowrap opacity-0 group-hover/sidebar:opacity-100 transition-opacity duration-200 hidden group-hover/sidebar:inline">Group and Credit Graph</span>
             </button>
 
             <button
               type="button"
               onClick={() => setActiveTab('rantai-pasok')}
               className={`w-12 group-hover/sidebar:w-52 h-12 rounded-2xl flex items-center justify-center group-hover/sidebar:justify-start group-hover/sidebar:px-4 transition-all duration-300 relative cursor-pointer overflow-hidden ${activeTab === 'rantai-pasok'
-                  ? 'bg-white text-[#f27a1a] shadow-lg border border-white/20'
-                  : 'text-white/80 hover:text-white hover:bg-white/10'
+                ? 'bg-white text-[#f27a1a] shadow-lg border border-white/20'
+                : 'text-white/80 hover:text-white hover:bg-white/10'
                 }`}
             >
               <Layers size={20} className="flex-shrink-0" />
-              <span className="ml-3 text-xs font-semibold whitespace-nowrap opacity-0 group-hover/sidebar:opacity-100 transition-opacity duration-200 hidden group-hover/sidebar:inline">Rantai Pasok</span>
+              <span className="ml-3 text-xs font-semibold whitespace-nowrap opacity-0 group-hover/sidebar:opacity-100 transition-opacity duration-200 hidden group-hover/sidebar:inline">Supply Chain</span>
             </button>
 
             <button
               type="button"
               onClick={() => setActiveTab('deep-dive')}
               className={`w-12 group-hover/sidebar:w-52 h-12 rounded-2xl flex items-center justify-center group-hover/sidebar:justify-start group-hover/sidebar:px-4 transition-all duration-300 relative cursor-pointer overflow-hidden ${activeTab === 'deep-dive'
-                  ? 'bg-white text-[#f27a1a] shadow-lg border border-white/20'
-                  : 'text-white/80 hover:text-white hover:bg-white/10'
+                ? 'bg-white text-[#f27a1a] shadow-lg border border-white/20'
+                : 'text-white/80 hover:text-white hover:bg-white/10'
                 }`}
             >
               <Compass size={20} className="flex-shrink-0" />
-              <span className="ml-3 text-xs font-semibold whitespace-nowrap opacity-0 group-hover/sidebar:opacity-100 transition-opacity duration-200 hidden group-hover/sidebar:inline">Deep Dive Sektor</span>
+              <span className="ml-3 text-xs font-semibold whitespace-nowrap opacity-0 group-hover/sidebar:opacity-100 transition-opacity duration-200 hidden group-hover/sidebar:inline">Sectoral Deep Dive</span>
             </button>
           </div>
         </div>
@@ -368,12 +396,12 @@ export default function App() {
                   <span className="text-[9px] bg-white/20 border border-white/25 text-white px-1.5 py-0.5 rounded-full font-semibold uppercase tracking-wider">Premium</span>
                 </h1>
                 <p className="text-[11px] text-teal-55">
-                  {activeTab === 'laporan' && 'Analisis Profitabilitas per Sektor'}
-                  {activeTab === 'peta' && 'Peta Provinsi & Sebaran Emiten'}
-                  {activeTab === 'pdb' && 'Analisis PDB Makro & Sektor Terbaik'}
-                  {activeTab === 'hubungan' && 'Struktur Afiliasi Grup & Kreditur'}
-                  {activeTab === 'rantai-pasok' && 'Analisis Rantai Pasok B2B'}
-                  {activeTab === 'deep-dive' && 'Alur Penelusuran Sektor IDX → PDRB'}
+                  {activeTab === 'laporan' && 'Dashboard IDX Sector - Profitability Analysis'}
+                  {activeTab === 'peta' && 'Regional PDRB Map & Issuer Distribution'}
+                  {activeTab === 'pdb' && 'PDB Sector Analysis - Macro GDP & Best Sectors'}
+                  {activeTab === 'hubungan' && 'Group and Credit Graph - Affiliates & Debt Network'}
+                  {activeTab === 'rantai-pasok' && 'Supply Chain - B2B Value Chain Analysis'}
+                  {activeTab === 'deep-dive' && 'Sectoral Deep Dive - IDX Sector to PDRB Mapping'}
                 </p>
               </div>
             </div>
@@ -408,12 +436,24 @@ export default function App() {
           </div>
         </header>
 
-        {/* Tab Components Rendering */}
         <div className="flex-1 space-y-6">
           {activeTab === 'peta' && <MapTab />}
-          {activeTab === 'pdb' && <PdbTab idxData={data} />}
+          {activeTab === 'pdb' && (
+            <PdbTab
+              idxData={data}
+              onSelectCompany={(ticker) => {
+                setSelectedSupplyChainFocus(ticker)
+                setActiveTab('rantai-pasok')
+              }}
+            />
+          )}
           {activeTab === 'hubungan' && <HubunganTab />}
-          {activeTab === 'rantai-pasok' && <RantaiPasokTab />}
+          {activeTab === 'rantai-pasok' && (
+            <RantaiPasokTab
+              selectedFocus={selectedSupplyChainFocus}
+              setSelectedFocus={setSelectedSupplyChainFocus}
+            />
+          )}
           {activeTab === 'deep-dive' && <DeepDiveTab />}
 
           {activeTab === 'laporan' && (
@@ -499,6 +539,7 @@ export default function App() {
                           stroke={SECTOR_COLORS[sector] || COLORS[i % COLORS.length]}
                           strokeWidth={isHighlighted ? 3 : 1}
                           opacity={isHighlighted ? 1 : 0.15}
+                          dot={false}
                           activeDot={{ r: isHighlighted ? 6 : 2 }}
                           onClick={() => setActiveLineSector(prev => prev === sector ? null : sector)}
                           className="cursor-pointer transition-all duration-200"
@@ -736,8 +777,12 @@ export default function App() {
                     />
                   </div>
                   <button
-                    onClick={() => setSubFilters({ minProfit: '', maxProfit: '', minGrowth: '', maxGrowth: '' })}
-                    className="text-xs text-violet-400 hover:text-violet-300 underline font-semibold bg-transparent border-none cursor-pointer"
+                    onClick={() => {
+                      setSubFilters({ minProfit: '', maxProfit: '', minGrowth: '', maxGrowth: '' })
+                      setSubSearchTerm('')
+                      setSubSectorFilter('All')
+                    }}
+                    className="text-xs text-violet-450 hover:text-violet-300 underline font-semibold bg-transparent border-none cursor-pointer"
                   >
                     Reset filters
                   </button>
@@ -782,10 +827,10 @@ export default function App() {
                           const maxProfit = parseMoneyInput(subFilters.maxProfit)
                           const minGrowth = parsePercentInput(subFilters.minGrowth)
                           const maxGrowth = parsePercentInput(subFilters.maxGrowth)
-                          if (minProfit !== null && s.NetIncome < minProfit) return false
-                          if (maxProfit !== null && s.NetIncome > maxProfit) return false
-                          if (minGrowth !== null && (s.GrowthRate || 0) < minGrowth) return false
-                          if (maxGrowth !== null && (s.GrowthRate || 0) > maxGrowth) return false
+                          if (minProfit !== null && (s.NetIncome === null || s.NetIncome === undefined || s.NetIncome < minProfit)) return false
+                          if (maxProfit !== null && (s.NetIncome === null || s.NetIncome === undefined || s.NetIncome > maxProfit)) return false
+                          if (minGrowth !== null && (s.GrowthRate === null || s.GrowthRate === undefined || s.GrowthRate < minGrowth)) return false
+                          if (maxGrowth !== null && (s.GrowthRate === null || s.GrowthRate === undefined || s.GrowthRate > maxGrowth)) return false
                           return matchesSearch && matchesSector
                         })
                         .sort((a, b) => {
@@ -809,7 +854,7 @@ export default function App() {
                           const share = totalLatestProfit ? (s.NetIncome || 0) / totalLatestProfit : 0
                           return (
                             <tr
-                              key={s.Subindustri}
+                              key={`${s.Subindustri}-${s.Industri || i}`}
                               className="hover:bg-violet-500/10 cursor-pointer transition-colors align-top"
                               onClick={() => setSelectedSubindustry(s.Subindustri)}
                             >

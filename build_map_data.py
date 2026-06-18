@@ -442,6 +442,8 @@ def main():
                 if not r or r[0] is None:
                     continue
                 sec_name = str(r[0]).strip()
+                # Clean sector name to match BPS standard spelling
+                sec_name = sec_name.replace(";", ",").replace(", dan ", " dan ")
                 hb_val = r[10]
                 yoy_val = r[14]
                 try:
