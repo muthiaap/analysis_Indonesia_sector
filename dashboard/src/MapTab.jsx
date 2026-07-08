@@ -310,6 +310,7 @@ export default function MapTab() {
   // Perusahaan (Google Maps) mode: selected sector for the company-name list panel
   const [selectedCompanySector, setSelectedCompanySector] = useState(null)
   const [showAllCompanies, setShowAllCompanies] = useState(false)
+  const [showAllProvinceCompanies, setShowAllProvinceCompanies] = useState(false)
 
   // H3 Hexagon and POI states
   const [pois, setPois] = useState([])
@@ -389,12 +390,15 @@ export default function MapTab() {
     return 0
   }, [])
 
-  // Automatically switch map metric to 'pdrb' when a single sector is selected
+  // Automatically switch map metric to 'pdrb' when a single sector is selected.
+  // Never override 'perusahaan' mode — the user's explicit choice must stay, and
+  // perusahaan already colors the map by PDRB anyway.
   useEffect(() => {
+    if (mapMetric === 'perusahaan') return
     if (selectedPdbSectorFilter || provinceSectorFilter || (selectedSectors && selectedSectors.length === 1)) {
       setMapMetric('pdrb')
     }
-  }, [selectedPdbSectorFilter, provinceSectorFilter, selectedSectors])
+  }, [selectedPdbSectorFilter, provinceSectorFilter, selectedSectors, mapMetric])
 
   // Active sectors for hexagon displaying/filtering
   const activeHexagonSectors = useMemo(() => {
@@ -707,6 +711,23 @@ export default function MapTab() {
     return topCompaniesForSector(pois, selectedCompanySector, showAllCompanies ? 1000 : 20)
   }, [pois, selectedCompanySector, showAllCompanies])
 
+  // Full province business list for the bottom "Daftar Perusahaan" table (perusahaan mode).
+  // Honors the selected sector bubble (if any) and the search box.
+  const provinceCompanyList = useMemo(() => {
+    const base = (pois || []).filter(p => top5SectorNames.includes(p.pdbSector))
+    const scoped = selectedCompanySector ? base.filter(p => p.pdbSector === selectedCompanySector) : base
+    let list = dedupeCompanies(scoped).sort((a, b) => b.ratingCount - a.ratingCount)
+    if (companySearch) {
+      const q = companySearch.toLowerCase()
+      list = list.filter(c =>
+        (c.name || '').toLowerCase().includes(q) ||
+        (c.category || '').toLowerCase().includes(q) ||
+        (c.pdbSector || '').toLowerCase().includes(q)
+      )
+    }
+    return list
+  }, [pois, top5SectorNames, selectedCompanySector, companySearch])
+
   const filteredCompanies = useMemo(() => {
     if (!selectedProvince) return []
     let list = [...allCompanies]
@@ -851,6 +872,7 @@ export default function MapTab() {
           setSelectedHexSectorFilter('all')
           setSelectedCompanySector(null)
           setShowAllCompanies(false)
+          setShowAllProvinceCompanies(false)
         },
       })
     },
@@ -1538,8 +1560,93 @@ export default function MapTab() {
         </div>
       </div>
 
-      {/* Row 2: Full-Width Premium Emiten Table Card */}
-      {selectedProvince && (
+      {/* Row 2a: Full-Width Perusahaan (Google Maps) Table Card — perusahaan mode */}
+      {selectedProvince && mapMetric === 'perusahaan' && (
+        <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden p-4 space-y-4 animate-fade-in">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 border-b border-slate-100 pb-3">
+            <div>
+              <h3 className="font-bold text-slate-800 text-sm sm:text-base flex items-center gap-1.5">
+                <Building2 size={16} className="text-blue-600" />
+                Daftar Perusahaan (Google Maps) — {selectedProvince}
+              </h3>
+              <p className="text-[11px] text-slate-400 mt-0.5">
+                Bisnis paling menonjol dari Google Maps di Top 5 sektor unggulan daerah, diurutkan berdasarkan jumlah ulasan.
+                {selectedCompanySector && (
+                  <span className="ml-1 font-semibold text-blue-600">Sektor: {selectedCompanySector}</span>
+                )}
+              </p>
+            </div>
+            <div className="flex flex-wrap items-center gap-2">
+              <input
+                type="text"
+                placeholder="Cari perusahaan (nama, kategori, sektor)..."
+                value={companySearch}
+                onChange={e => setCompanySearch(e.target.value)}
+                className="text-xs border border-slate-250 rounded-lg px-3 py-1.5 w-64 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+              />
+              {selectedCompanySector && (
+                <span className="text-[9px] px-2 py-0.5 rounded bg-blue-600 text-white font-semibold flex items-center gap-1 shadow-sm">
+                  {selectedCompanySector}
+                  <button
+                    type="button"
+                    onClick={() => setSelectedCompanySector(null)}
+                    className="hover:text-slate-200 font-bold ml-1 text-xs cursor-pointer focus:outline-none"
+                    title="Hapus filter sektor"
+                  >
+                    ×
+                  </button>
+                </span>
+              )}
+            </div>
+          </div>
+
+          {provinceCompanyList.length === 0 ? (
+            <p className="text-xs text-slate-400 p-8 text-center italic">
+              {isLoadingPois ? 'Memuat perusahaan dari Google Maps…' : 'Tidak ada perusahaan yang cocok.'}
+            </p>
+          ) : (
+            <>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 max-h-[480px] overflow-y-auto pr-1">
+                {(showAllProvinceCompanies ? provinceCompanyList : provinceCompanyList.slice(0, 30)).map((c, i) => (
+                  <div key={`${c.name}-${i}`} className="bg-slate-50 p-2.5 rounded-lg border border-slate-150 space-y-1 text-[11px]">
+                    <div className="font-extrabold text-slate-800 leading-snug" title={c.name}>{c.name}</div>
+                    <div className="flex flex-wrap gap-1">
+                      <span className="inline-block px-1.5 py-0.5 rounded text-[8.5px] font-bold bg-slate-100 text-slate-600 border border-slate-200">{c.category}</span>
+                      {c.pdbSector && (
+                        <span className="inline-block px-1.5 py-0.5 rounded text-[8.5px] font-bold bg-indigo-50 text-indigo-700 border border-indigo-100" title={c.pdbSector}>{c.pdbSector.length > 22 ? c.pdbSector.slice(0, 22) + '…' : c.pdbSector}</span>
+                      )}
+                      {c.ratingCount > 0 && (
+                        <span className="inline-block px-1.5 py-0.5 rounded text-[8.5px] font-bold bg-amber-50 text-amber-800 border border-amber-200">⭐ {c.rating} ({c.ratingCount})</span>
+                      )}
+                      {c.locationCount > 1 && (
+                        <span className="inline-block px-1.5 py-0.5 rounded text-[8.5px] font-bold bg-blue-50 text-blue-700 border border-blue-100">{c.locationCount} lokasi</span>
+                      )}
+                    </div>
+                    {c.gmapsUrl && c.gmapsUrl !== 'NULL' && (
+                      <a href={c.gmapsUrl} target="_blank" rel="noopener noreferrer" className="inline-flex text-blue-600 hover:text-blue-800 hover:underline text-[9px] font-extrabold">Buka Google Maps ↗</a>
+                    )}
+                  </div>
+                ))}
+              </div>
+              <div className="flex items-center justify-between text-[10px] text-slate-400 font-semibold px-2">
+                <span>🟢 Menampilkan {showAllProvinceCompanies ? provinceCompanyList.length : Math.min(30, provinceCompanyList.length)} dari {provinceCompanyList.length} perusahaan (sampel)</span>
+                {!showAllProvinceCompanies && provinceCompanyList.length > 30 && (
+                  <button
+                    type="button"
+                    onClick={() => setShowAllProvinceCompanies(true)}
+                    className="text-blue-600 hover:text-blue-800 font-bold cursor-pointer"
+                  >
+                    Tampilkan semua ↓
+                  </button>
+                )}
+              </div>
+            </>
+          )}
+        </div>
+      )}
+
+      {/* Row 2: Full-Width Premium Emiten Table Card — emiten/pdrb mode */}
+      {selectedProvince && mapMetric !== 'perusahaan' && (
         <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden p-4 space-y-4 animate-fade-in">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 border-b border-slate-100 pb-3">
             <div>
