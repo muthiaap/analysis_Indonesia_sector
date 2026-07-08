@@ -300,8 +300,8 @@ export default function MapTab() {
   const [sortBy, setSortBy] = useState('laba') // 'laba', 'sektor', 'ticker'
   const [sortOrder, setSortOrder] = useState('desc') // 'asc', 'desc'
   
-  // Metric Coloring Mode: 'emiten' (listed companies count) or 'pdrb' (nominal regional GDP)
-  const [mapMetric, setMapMetric] = useState('emiten') 
+  // Metric Coloring Mode: 'perusahaan' (Google Maps companies), 'emiten' (listed companies count) or 'pdrb' (nominal regional GDP)
+  const [mapMetric, setMapMetric] = useState('perusahaan')
   
   // Specific PDB Sector Filter (selected from top 5 list)
   const [selectedPdbSectorFilter, setSelectedPdbSectorFilter] = useState(null)
@@ -753,10 +753,13 @@ export default function MapTab() {
     feature => {
       const name = feature.properties.PROVINSI
       const provStat = mapData?.provinceStats?.[name]
-      const count = mapMetric === 'emiten'
+      // 'perusahaan' mode colors by PDRB (we only have POI company data per province on click).
+      const colorByCount = mapMetric === 'emiten'
+      const count = colorByCount
         ? (provinceCounts[name] || 0)
         : getProvincePdrbValue(provStat, activeSingleSector)
-      const maxVal = mapMetric === 'emiten' ? maxCount : maxPdrb
+      const maxVal = colorByCount ? maxCount : maxPdrb
+      const scaleMode = colorByCount ? 'emiten' : 'pdrb'
       const selected = selectedProvince === name
 
       if (selectedProvince && !selected) {
@@ -770,7 +773,7 @@ export default function MapTab() {
       }
 
       return {
-        fillColor: getChoroplethColor(count, maxVal, mapMetric),
+        fillColor: getChoroplethColor(count, maxVal, scaleMode),
         weight: selected ? 0 : 1,
         opacity: selected ? 0 : 1,
         color: selected ? 'transparent' : '#64748b',
@@ -790,6 +793,10 @@ export default function MapTab() {
       let tooltipContent = ''
       if (mapMetric === 'emiten') {
         tooltipContent = `<strong>${name}</strong><br/>🏢 ${count} emiten publik`
+      } else if (mapMetric === 'perusahaan') {
+        const pdrbVal = provStat?.pdrb
+        const pdrbText = pdrbVal ? `${formatMoney(pdrbVal)} (${pdrbYear})` : '-'
+        tooltipContent = `<strong>${name}</strong><br/>📈 PDRB: <strong>${pdrbText}</strong><br/>🏢 Klik untuk lihat perusahaan (Google Maps)`
       } else {
         if (activeSingleSector) {
           const pdrbVal = getProvincePdrbValue(provStat, activeSingleSector)
@@ -921,6 +928,17 @@ export default function MapTab() {
 
             {/* Sliding Pill Metric Toggle */}
             <div className="flex items-center gap-0.5 bg-slate-150 p-0.5 rounded-lg border border-slate-200/80 shadow-inner">
+              <button
+                type="button"
+                onClick={() => setMapMetric('perusahaan')}
+                className={`text-xs px-3 py-1 rounded-md font-semibold transition-all cursor-pointer ${
+                  mapMetric === 'perusahaan'
+                    ? 'bg-white text-blue-700 shadow-sm border border-slate-200'
+                    : 'text-slate-500 hover:text-slate-800'
+                }`}
+              >
+                🏢 Perusahaan (Google Maps)
+              </button>
               <button
                 type="button"
                 onClick={() => setMapMetric('emiten')}
