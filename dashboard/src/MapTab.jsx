@@ -1297,52 +1297,46 @@ export default function MapTab() {
           </div>
         )}
 
-        {/* Perusahaan (Google Maps) company list for the selected sector */}
-        {selectedProvince && mapMetric === 'perusahaan' && selectedCompanySector && (
-          <div className="bg-white p-4 rounded-xl border border-slate-200 text-xs space-y-3 shadow-sm">
-            <div className="font-extrabold text-slate-800 text-[10.5px] uppercase tracking-wider border-b border-slate-100 pb-1.5 flex justify-between items-center">
-              <span className="flex items-center gap-1">
-                <Building2 size={13} className="text-blue-500" />
-                Perusahaan (Google Maps) — {selectedCompanySector}
-              </span>
-              <button
-                type="button"
-                onClick={() => setSelectedCompanySector(null)}
-                className="text-[9.5px] text-slate-500 hover:text-slate-800 font-bold bg-slate-100 hover:bg-slate-200 border-none rounded-md px-2 py-0.5 cursor-pointer"
-              >
-                Tutup
-              </button>
+        {/* Sebaran Lokasi & POI (relocated here to balance the left column) */}
+        {selectedProvince && (
+          <div className="bg-white rounded-xl border border-slate-200 p-4 shadow-sm space-y-3">
+            <div className="font-bold text-slate-700 text-[10px] uppercase tracking-wider border-b border-slate-100 pb-1 flex justify-between items-center">
+              <span>Sebaran Lokasi & POI</span>
+              <span className="text-[9px] px-1.5 py-0.5 bg-blue-100 text-blue-700 font-bold rounded">H3 Resolusi 8</span>
             </div>
-            <div className="text-[9px] text-slate-400">
-              Menampilkan {companyListForSector.length} perusahaan paling menonjol (diurutkan berdasarkan jumlah ulasan). Data titik Google Maps, bukan entitas hukum.
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-2 max-h-[350px] overflow-y-auto pr-1">
-              {companyListForSector.map((c, i) => (
-                <div key={`${c.name}-${i}`} className="bg-slate-50 p-2.5 rounded-lg border border-slate-150 space-y-1">
-                  <div className="font-extrabold text-slate-800 leading-snug" title={c.name}>{c.name}</div>
-                  <div className="flex flex-wrap gap-1">
-                    <span className="inline-block px-1.5 py-0.5 rounded text-[8.5px] font-bold bg-slate-100 text-slate-600 border border-slate-200">{c.category}</span>
-                    {c.ratingCount > 0 && (
-                      <span className="inline-block px-1.5 py-0.5 rounded text-[8.5px] font-bold bg-amber-50 text-amber-800 border border-amber-200">⭐ {c.rating} ({c.ratingCount})</span>
-                    )}
-                    {c.locationCount > 1 && (
-                      <span className="inline-block px-1.5 py-0.5 rounded text-[8.5px] font-bold bg-blue-50 text-blue-700 border border-blue-100">{c.locationCount} lokasi</span>
-                    )}
-                  </div>
-                  {c.gmapsUrl && c.gmapsUrl !== 'NULL' && (
-                    <a href={c.gmapsUrl} target="_blank" rel="noopener noreferrer" className="inline-flex text-blue-600 hover:text-blue-800 hover:underline text-[9px] font-extrabold">Buka Google Maps ↗</a>
-                  )}
+
+            {isLoadingPois ? (
+              <div className="flex items-center justify-center py-4 text-slate-400 gap-1.5 text-xs">
+                <Activity className="animate-spin text-blue-500" size={14} />
+                <span>Memuat sebaran lokasi...</span>
+              </div>
+            ) : (
+              <div className="space-y-2 text-xs">
+                <div className="flex justify-between items-center text-[10px]">
+                  <span className="text-slate-555">Total POI Sektor Aktif:</span>
+                  <strong className="text-slate-800 text-xs font-bold">{pois.length} POI</strong>
                 </div>
-              ))}
-            </div>
-            {!showAllCompanies && companyListForSector.length >= 20 && (
-              <button
-                type="button"
-                onClick={() => setShowAllCompanies(true)}
-                className="w-full text-[10px] font-bold text-blue-600 hover:text-blue-800 bg-blue-50 hover:bg-blue-100 border border-blue-100 rounded-md py-1.5 cursor-pointer"
-              >
-                Tampilkan semua perusahaan
-              </button>
+
+                {pois.length > 0 && categoryMapping && (
+                  <div className="bg-slate-50 rounded-lg border border-slate-200 p-2 max-h-[110px] overflow-y-auto space-y-1">
+                    <div className="text-[9px] font-bold text-slate-400 uppercase mb-1">Kategori Terbanyak:</div>
+                    {Object.entries(
+                      pois.reduce((acc, p) => {
+                        acc[p.category] = (acc[p.category] || 0) + 1;
+                        return acc;
+                      }, {})
+                    )
+                      .sort((a, b) => b[1] - a[1])
+                      .slice(0, 4)
+                      .map(([cat, count]) => (
+                        <div key={cat} className="flex justify-between items-center text-[9.5px] text-slate-650">
+                          <span className="truncate max-w-[140px]" title={cat}>• {cat}</span>
+                          <span className="font-bold text-slate-800">{count}</span>
+                        </div>
+                      ))}
+                  </div>
+                )}
+              </div>
             )}
           </div>
         )}
@@ -1521,49 +1515,6 @@ export default function MapTab() {
             )}
           </div>
 
-          {/* H3 Hexagon Density Analysis Card */}
-          {selectedProvince && (
-            <div className="bg-white rounded-xl border border-slate-200 p-4 shadow-sm space-y-3">
-              <div className="font-bold text-slate-700 text-[10px] uppercase tracking-wider border-b border-slate-100 pb-1 flex justify-between items-center">
-                <span>Sebaran Lokasi & POI</span>
-                <span className="text-[9px] px-1.5 py-0.5 bg-blue-100 text-blue-700 font-bold rounded">H3 Resolusi 8</span>
-              </div>
-
-              {isLoadingPois ? (
-                <div className="flex items-center justify-center py-4 text-slate-400 gap-1.5 text-xs">
-                  <Activity className="animate-spin text-blue-500" size={14} />
-                  <span>Memuat sebaran lokasi...</span>
-                </div>
-              ) : (
-                <div className="space-y-2 text-xs">
-                  <div className="flex justify-between items-center text-[10px]">
-                    <span className="text-slate-555">Total POI Sektor Aktif:</span>
-                    <strong className="text-slate-800 text-xs font-bold">{pois.length} POI</strong>
-                  </div>
-
-                  {pois.length > 0 && categoryMapping && (
-                    <div className="bg-slate-50 rounded-lg border border-slate-200 p-2 max-h-[110px] overflow-y-auto space-y-1">
-                      <div className="text-[9px] font-bold text-slate-400 uppercase mb-1">Kategori Terbanyak:</div>
-                      {Object.entries(
-                        pois.reduce((acc, p) => {
-                          acc[p.category] = (acc[p.category] || 0) + 1;
-                          return acc;
-                        }, {})
-                      )
-                        .sort((a, b) => b[1] - a[1])
-                        .slice(0, 4)
-                        .map(([cat, count]) => (
-                          <div key={cat} className="flex justify-between items-center text-[9.5px] text-slate-650">
-                            <span className="truncate max-w-[140px]" title={cat}>• {cat}</span>
-                            <span className="font-bold text-slate-800">{count}</span>
-                          </div>
-                        ))}
-                    </div>
-                  )}
-                </div>
-              )}
-            </div>
-          )}
 
 
         </div>
