@@ -1467,15 +1467,22 @@ export default function MapTab() {
                     
                     <div className="space-y-2">
                       {selectedProvStats.top5Sectors.map((s, idx) => {
-                        const isSelected = selectedPdbSectorFilter === s.sector
+                        const isSelected = mapMetric === 'perusahaan'
+                          ? selectedCompanySector === s.sector
+                          : selectedPdbSectorFilter === s.sector
                         const percentage = (s.share * 100).toFixed(1)
-                        
+
                         return (
                           <button
                             key={s.sector}
                             type="button"
                             onClick={() => {
-                              setSelectedPdbSectorFilter(prev => prev === s.sector ? null : s.sector)
+                              if (mapMetric === 'perusahaan') {
+                                setShowAllProvinceCompanies(false)
+                                setSelectedCompanySector(prev => prev === s.sector ? null : s.sector)
+                              } else {
+                                setSelectedPdbSectorFilter(prev => prev === s.sector ? null : s.sector)
+                              }
                             }}
                             className={`w-full text-left p-2 rounded-lg border transition-all cursor-pointer block ${
                               isSelected
@@ -1504,7 +1511,9 @@ export default function MapTab() {
                       })}
                     </div>
                     <p className="text-[8px] text-slate-400 leading-tight italic">
-                      *Klik sektor di atas untuk menyaring daftar emiten terkait di bawah secara dinamis.
+                      {mapMetric === 'perusahaan'
+                        ? '*Klik sektor di atas untuk menyaring daftar perusahaan (Google Maps) di bawah secara dinamis.'
+                        : '*Klik sektor di atas untuk menyaring daftar emiten terkait di bawah secara dinamis.'}
                     </p>
                   </div>
                 )}
