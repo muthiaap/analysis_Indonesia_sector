@@ -5,6 +5,7 @@ import 'leaflet/dist/leaflet.css'
 import L from 'leaflet'
 import * as h3 from 'h3-js'
 import { createClient } from '@supabase/supabase-js'
+import { poisToSectorCounts, topCompaniesForSector, dedupeCompanies } from './lib/companyPois'
 
 const GEOJSON_URL = './38 Provinsi Indonesia - Provinsi.json'
 
@@ -305,6 +306,10 @@ export default function MapTab() {
   
   // Specific PDB Sector Filter (selected from top 5 list)
   const [selectedPdbSectorFilter, setSelectedPdbSectorFilter] = useState(null)
+
+  // Perusahaan (Google Maps) mode: selected sector for the company-name list panel
+  const [selectedCompanySector, setSelectedCompanySector] = useState(null)
+  const [showAllCompanies, setShowAllCompanies] = useState(false)
 
   // H3 Hexagon and POI states
   const [pois, setPois] = useState([])
@@ -681,6 +686,27 @@ export default function MapTab() {
       .sort((a, b) => b.count - a.count)
   }, [provinceCompanies, selectedProvStats])
 
+  // --- Perusahaan (Google Maps) mode: derive company data from fetched POIs ---
+  const top5SectorNames = useMemo(() => {
+    if (!selectedProvStats?.top5Sectors) return []
+    return selectedProvStats.top5Sectors.map(s => s.sector)
+  }, [selectedProvStats])
+
+  const companySectorBubbles = useMemo(
+    () => poisToSectorCounts(pois, top5SectorNames),
+    [pois, top5SectorNames]
+  )
+
+  const dedupedCompanyCount = useMemo(
+    () => dedupeCompanies((pois || []).filter(p => top5SectorNames.includes(p.pdbSector))).length,
+    [pois, top5SectorNames]
+  )
+
+  const companyListForSector = useMemo(() => {
+    if (!selectedCompanySector) return []
+    return topCompaniesForSector(pois, selectedCompanySector, showAllCompanies ? 1000 : 20)
+  }, [pois, selectedCompanySector, showAllCompanies])
+
   const filteredCompanies = useMemo(() => {
     if (!selectedProvince) return []
     let list = [...allCompanies]
@@ -823,10 +849,12 @@ export default function MapTab() {
           setPopupLatLng(e.latlng)
           setSelectedHexagon(null)
           setSelectedHexSectorFilter('all')
+          setSelectedCompanySector(null)
+          setShowAllCompanies(false)
         },
       })
     },
-    [provinceCounts, mapData, mapMetric, activeSingleSector, getProvincePdrbValue, setPopupLatLng, setSelectedProvince, setCompanySearch, setProvinceSectorFilter, setSelectedPdbSectorFilter, setSelectedHexagon, setSelectedHexSectorFilter]
+    [provinceCounts, mapData, mapMetric, activeSingleSector, getProvincePdrbValue, setPopupLatLng, setSelectedProvince, setCompanySearch, setProvinceSectorFilter, setSelectedPdbSectorFilter, setSelectedHexagon, setSelectedHexSectorFilter, setSelectedCompanySector, setShowAllCompanies]
   )
 
   const toggleSector = sector => {
@@ -1047,25 +1075,36 @@ export default function MapTab() {
                         {selectedProvStats.umr && (
                           <div>💰 UMR BKPM: <strong className="text-slate-800">{selectedProvStats.umr} ({selectedProvStats.umrYear})</strong></div>
                         )}
-                        <div>🏢 Emiten Terdaftar: <strong className="text-slate-800">{provinceCompanies.length} emiten</strong></div>
+                        {mapMetric === 'perusahaan' ? (
+                          <div>🏢 Perusahaan (Google Maps): <strong className="text-slate-800">{dedupedCompanyCount}</strong></div>
+                        ) : (
+                          <div>🏢 Emiten Terdaftar: <strong className="text-slate-800">{provinceCompanies.length} emiten</strong></div>
+                        )}
                       </div>
                     )}
 
                     <p className="text-[9px] text-slate-400 mb-1.5 font-bold uppercase tracking-wider">
-                      PILAH EMITEN DI SEKTOR PDB / PDRB:
+                      {mapMetric === 'perusahaan' ? 'PERUSAHAAN PER SEKTOR (TOP 5 PDRB):' : 'PILAH EMITEN DI SEKTOR PDB / PDRB:'}
                     </p>
                     <div className="flex flex-wrap gap-1.5 justify-start max-h-[160px] overflow-y-auto pr-1">
-                      {provinceSectorBubbles.map(({ sector, count }) => {
-                        const active = provinceSectorFilter === sector
+                      {(mapMetric === 'perusahaan' ? companySectorBubbles : provinceSectorBubbles).map(({ sector, count }) => {
+                        const active = mapMetric === 'perusahaan'
+                          ? selectedCompanySector === sector
+                          : provinceSectorFilter === sector
                         const style = getSectorColorStyle(sector)
                         return (
                           <button
                             key={sector}
                             type="button"
-                            title={`${sector}: ${count} emiten`}
+                            title={`${sector}: ${count}`}
                             onClick={(e) => {
                               e.stopPropagation()
-                              setProvinceSectorFilter(prev => (prev === sector ? null : sector))
+                              if (mapMetric === 'perusahaan') {
+                                setShowAllCompanies(false)
+                                setSelectedCompanySector(prev => (prev === sector ? null : sector))
+                              } else {
+                                setProvinceSectorFilter(prev => (prev === sector ? null : sector))
+                              }
                             }}
                             className={`rounded-full font-semibold text-[9px] px-2.5 py-1 shadow-sm transition-all hover:scale-105 hover:shadow-md cursor-pointer border bg-transparent ${
                               active
