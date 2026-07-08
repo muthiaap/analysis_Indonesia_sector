@@ -17,6 +17,7 @@ export const SUPPLY_CHAIN_DATA = {
     netIncome: "Rp 20.6 T (FY2025)",
     employeeCount: "~29,000 karyawan",
     headquarters: "Jakarta Timur, DKI Jakarta",
+    lastEnriched: "2026-07-08",
     upstream: [
       { id: "komatsu", name: "Komatsu Ltd.", country: "Jepang", type: "Alat Berat Utama", desc: "Principal utama untuk alat berat konstruksi dan pertambangan. Menyuplai hydraulic excavators, bulldozers, dump trucks, dan wheel loaders. Kemitraan eksklusif terjalin sejak tahun 1973.", logo: "K", color: "from-amber-500 to-yellow-600", keyProducts: ["Excavator", "Bulldozer", "Dump Truck"], relevance: "Sangat Tinggi (Pemasok Inti)" },
       { id: "scania", name: "Scania CV AB", country: "Swedia", type: "Kendaraan Niaga", desc: "Penyedia truk kategori berat (heavy-duty trucks) untuk angkutan tambang/logistik dan bus premium untuk transportasi antarkota.", logo: "S", color: "from-blue-600 to-indigo-700", keyProducts: ["Heavy Truck", "Premium Bus", "Chassis"], relevance: "Tinggi" },
@@ -24,7 +25,8 @@ export const SUPPLY_CHAIN_DATA = {
       { id: "bomag", name: "Bomag GmbH", country: "Jerman", type: "Alat Konstruksi", desc: "Produsen global peralatan pemadat tanah (soil compactors), asphalt pavers, dan cold planers untuk pembangunan jalan tol dan infrastruktur sipil.", logo: "B", color: "from-orange-500 to-red-600", keyProducts: ["Soil Compactor", "Asphalt Roller"], relevance: "Medium" },
       { id: "tadano", name: "Tadano Ltd.", country: "Jepang", type: "Alat Konstruksi", desc: "Pemasok alat angkat berat seperti telescopic cranes, crawler cranes, dan all-terrain cranes untuk konstruksi sipil dan migas.", logo: "T", color: "from-cyan-500 to-blue-600", keyProducts: ["Mobile Crane", "Cargo Crane"], relevance: "Medium" },
       { id: "pertamina", name: "PT Pertamina (Persero)", country: "Indonesia", type: "Lubricants & Fuel", desc: "Mitra penyedia bahan bakar minyak (BBM) industri dan pelumas (lubricants) berkualitas untuk mendukung operasional alat berat di berbagai site penambangan.", logo: "P", color: "from-emerald-500 to-teal-600", keyProducts: ["BBM Industri", "Mediteran Lube"], relevance: "Tinggi (Operasional)" },
-      { id: "shell", name: "Shell plc", country: "Global", type: "Lubricants & Fuel", desc: "Pemasok cairan hidrolik (hydraulic fluids) dan pelumas mesin performa tinggi khusus untuk alat berat yang beroperasi di kondisi ekstrem.", logo: "S", color: "from-yellow-400 to-orange-500", keyProducts: ["Rimula Engine Oil", "Tellus Hyd Fluid"], relevance: "Medium" }
+      { id: "shell", name: "Shell plc", country: "Global", type: "Lubricants & Fuel", desc: "Pemasok cairan hidrolik (hydraulic fluids) dan pelumas mesin performa tinggi khusus untuk alat berat yang beroperasi di kondisi ekstrem.", logo: "S", color: "from-yellow-400 to-orange-500", keyProducts: ["Rimula Engine Oil", "Tellus Hyd Fluid"], relevance: "Medium" },
+      { id: "bridgestone", name: "Bridgestone Corporation", country: "Jepang", type: "Komponen (Ban OTR)", desc: "Pemasok ban raksasa off-the-road (OTR) untuk dump truck dan wheel loader Komatsu yang beroperasi di medan tambang berat.", logo: "B", color: "from-slate-600 to-slate-800", keyProducts: ["Ban OTR Radial", "Ban Rigid Truck"], relevance: "Medium" }
     ],
     internal: [
       { id: "komatsu_indonesia", name: "PT Komatsu Indonesia", role: "Perakitan & Manufaktur", desc: "Entitas terafiliasi yang merakit hydraulic excavator kelas 20 ton (PC200) secara lokal di Cakung untuk menekan biaya impor dan mempercepat pengiriman.", icon: "factory" },
@@ -39,7 +41,8 @@ export const SUPPLY_CHAIN_DATA = {
       { id: "wika", name: "PT Wijaya Karya Tbk (WIKA)", sector: "Konstruksi & Infrastruktur", parent: "BUMN Karya", desc: "Menggunakan pemadat Bomag, crane Tadano, dan excavator Komatsu dari UNTR untuk pembangunan jalan tol, bendungan, dan proyek IKN.", logo: "W", share: 5, volume: "Medium", relationType: "B2B Client (BUMN)" },
       { id: "ptpp", name: "PT Pembangunan Perumahan Tbk", sector: "Konstruksi & Infrastruktur", parent: "BUMN Karya", desc: "BUMN konstruksi sipil yang memesan alat pemadat jalan dan excavator dari UNTR untuk pembangunan bandara, pelabuhan, dan gedung tinggi.", logo: "P", share: 4, volume: "Medium", relationType: "B2B Client (BUMN)" },
       { id: "sinarmas", name: "Grup Sinarmas Forestry", sector: "Kehutanan & Agribisnis", parent: "Sinarmas Group", desc: "Menggunakan excavator Komatsu tipe kehutanan khusus (forestry spec) untuk penebangan, angkutan kayu, dan penyiapan lahan hutan tanaman industri.", logo: "S", share: 3, volume: "Medium", relationType: "B2B Client" },
-      { id: "aali", name: "PT Astra Agro Lestari Tbk", sector: "Kehutanan & Agribisnis", parent: "Grup Astra (Afiliasi)", desc: "Perusahaan kelapa sawit terafiliasi yang memesan alat berat pertanian (traktor) dan wheel loader Komatsu untuk pengolahan tandan buah segar di pabrik kelapa sawit.", logo: "A", share: 2, volume: "Rendah", relationType: "Affiliated B2B Client" }
+      { id: "aali", name: "PT Astra Agro Lestari Tbk", sector: "Kehutanan & Agribisnis", parent: "Grup Astra (Afiliasi)", desc: "Perusahaan kelapa sawit terafiliasi yang memesan alat berat pertanian (traktor) dan wheel loader Komatsu untuk pengolahan tandan buah segar di pabrik kelapa sawit.", logo: "A", share: 2, volume: "Rendah", relationType: "Affiliated B2B Client" },
+      { id: "mind_id", name: "MIND ID (Holding Tambang BUMN)", sector: "Tambang & Mineral", parent: "BUMN Holding", desc: "Grup holding pertambangan BUMN yang mengonsolidasikan pembelian alat berat untuk anggota seperti ANTM, PTBA, dan Inalum.", logo: "M", share: 3, volume: "Medium", relationType: "B2B Client (BUMN)" }
     ]
   },
   ADRO: {
@@ -52,10 +55,12 @@ export const SUPPLY_CHAIN_DATA = {
     netIncome: "Rp 24.8 T (FY2025)",
     employeeCount: "~14,000 karyawan",
     headquarters: "Jakarta Selatan, DKI Jakarta",
+    lastEnriched: "2026-07-08",
     upstream: [
       { id: "untr", name: "PT United Tractors Tbk", country: "Indonesia", type: "Alat Berat", desc: "Menyuplai armada pertambangan Komatsu (dump truck, excavator) dan suku cadang untuk kelancaran operasional di site tambang Adaro.", logo: "U", color: "from-blue-500 to-indigo-600", keyProducts: ["Excavator Komatsu", "Heavy Dump Truck"], relevance: "Sangat Tinggi" },
       { id: "sis", name: "PT Saptaindra Sejati (SIS)", country: "Indonesia", type: "Jasa Penambangan", desc: "Anak usaha kontraktor internal yang menyuplai jasa operasional pertambangan, pengeboran, dan pemindahan tanah batubara.", logo: "S", color: "from-emerald-500 to-green-600", keyProducts: ["Overburden Removal", "Coal Hauling"], relevance: "Sangat Tinggi" },
-      { id: "pertamina_ad", name: "PT Pertamina (Persero)", country: "Indonesia", type: "Lubricants & Fuel", desc: "Pemasok utama solar industri (HSD) untuk bahan bakar armada dump truck raksasa dan tongkang logistik batu bara.", logo: "P", color: "from-emerald-500 to-teal-600", keyProducts: ["Solar Industri", "Pelumas"], relevance: "Tinggi" }
+      { id: "pertamina_ad", name: "PT Pertamina (Persero)", country: "Indonesia", type: "Lubricants & Fuel", desc: "Pemasok utama solar industri (HSD) untuk bahan bakar armada dump truck raksasa dan tongkang logistik batu bara.", logo: "P", color: "from-emerald-500 to-teal-600", keyProducts: ["Solar Industri", "Pelumas"], relevance: "Tinggi" },
+      { id: "trakindo", name: "PT Trakindo Utama", country: "Indonesia", type: "Alat Berat (Caterpillar)", desc: "Dealer tunggal alat berat Caterpillar yang menyuplai dump truck dan dozer sebagai armada alternatif di site tambang Adaro.", logo: "T", color: "from-yellow-500 to-amber-600", keyProducts: ["Caterpillar Dozer", "Off-Highway Truck"], relevance: "Tinggi" }
     ],
     internal: [
       { id: "coal_washing", name: "Fasilitas Coal Washing", role: "Peningkatan Mutu", desc: "Fasilitas pencucian batubara di Kalimantan Selatan untuk memisahkan batubara dari kotoran batu dan menaikkan nilai kalori.", icon: "factory" },
@@ -66,7 +71,8 @@ export const SUPPLY_CHAIN_DATA = {
       { id: "pln", name: "PT PLN (Persero)", sector: "Utilitas Domestik", parent: "BUMN Indonesia", desc: "Pembeli batubara domestik terbesar untuk menyuplai PLTU sistem interkoneksi Jawa-Bali-Sumatera melalui kebijakan DMO.", logo: "P", share: 25, volume: "Tinggi", relationType: "DMO Contract" },
       { id: "jpower", name: "Electric Power Development (J-Power)", sector: "Pembangkit Internasional", parent: "Jepang", desc: "Mitra pembeli batu bara kalori menengah-tinggi asal Jepang untuk PLTU ramah lingkungan di wilayah Asia Timur.", logo: "J", share: 15, volume: "Tinggi", relationType: "Long-term Export Client" },
       { id: "smelter_nikel", name: "Smelter Nikel Morowali", sector: "Metalurgi & Industri", parent: "Konsorsium China/Indo", desc: "Menyerap pasokan batu bara Adaro sebagai bahan bakar pembangkit listrik captive (mandiri) di kawasan industri nikel.", logo: "S", share: 18, volume: "Tinggi", relationType: "B2B Client" },
-      { id: "china_energy", name: "China Energy Investment", sector: "Energi Global", parent: "BUMN China", desc: "Perusahaan pembangkit listrik terbesar di China yang mengimpor batubara Adaro dalam volume besar untuk mengamankan stok energi nasional.", logo: "C", share: 20, volume: "Tinggi", relationType: "Spot & Term Client" }
+      { id: "china_energy", name: "China Energy Investment", sector: "Energi Global", parent: "BUMN China", desc: "Perusahaan pembangkit listrik terbesar di China yang mengimpor batubara Adaro dalam volume besar untuk mengamankan stok energi nasional.", logo: "C", share: 20, volume: "Tinggi", relationType: "Spot & Term Client" },
+      { id: "adaro_minerals", name: "PT Adaro Minerals Indonesia Tbk (ADMR)", sector: "Metalurgi & Kokas", parent: "Grup Adaro", desc: "Anak usaha yang menyerap batu bara metalurgi (coking coal) untuk hilirisasi menjadi kokas dan aluminium.", logo: "A", share: 8, volume: "Tinggi", relationType: "Affiliated B2B Client" }
     ]
   },
   WIKA: {
@@ -79,10 +85,12 @@ export const SUPPLY_CHAIN_DATA = {
     netIncome: "Rp -1.2 T (FY2025)",
     employeeCount: "~11,000 karyawan",
     headquarters: "Jakarta Timur, DKI Jakarta",
+    lastEnriched: "2026-07-08",
     upstream: [
       { id: "smgr", name: "PT Semen Indonesia (Persero) Tbk", country: "Indonesia", type: "Bahan Baku Utama", desc: "Pemasok semen curah dan bahan pengikat beton berkualitas tinggi untuk seluruh proyek konstruksi sipil dan gedung WIKA.", logo: "S", color: "from-blue-500 to-indigo-600", keyProducts: ["Semen Curah", "Beton Ready-mix"], relevance: "Sangat Tinggi" },
       { id: "kras", name: "PT Krakatau Steel (Persero) Tbk", country: "Indonesia", type: "Bahan Baku Utama", desc: "Penyedia baja tulangan, baja profil, dan lembaran plat besi untuk struktur jembatan dan kerangka beton bertulang proyek infrastruktur.", logo: "K", color: "from-red-500 to-rose-600", keyProducts: ["Baja Tulangan", "Wire Rod"], relevance: "Tinggi" },
-      { id: "untr", name: "PT United Tractors Tbk (UNTR)", country: "Indonesia", type: "Alat Berat", desc: "Menyediakan sewa dan pembelian armada excavator Komatsu, crane Tadano, dan pemadat tanah Bomag untuk pengerjaan tanah proyek sipil.", logo: "U", color: "from-amber-500 to-yellow-600", keyProducts: ["Excavator", "Mobile Crane", "Compactor"], relevance: "Tinggi" }
+      { id: "untr", name: "PT United Tractors Tbk (UNTR)", country: "Indonesia", type: "Alat Berat", desc: "Menyediakan sewa dan pembelian armada excavator Komatsu, crane Tadano, dan pemadat tanah Bomag untuk pengerjaan tanah proyek sipil.", logo: "U", color: "from-amber-500 to-yellow-600", keyProducts: ["Excavator", "Mobile Crane", "Compactor"], relevance: "Tinggi" },
+      { id: "sika_basf", name: "Pemasok Bahan Kimia Konstruksi (Sika/BASF)", country: "Global", type: "Bahan Kimia Konstruksi", desc: "Pemasok admixture beton, waterproofing, dan grouting untuk meningkatkan mutu dan durabilitas struktur beton proyek.", logo: "S", color: "from-yellow-500 to-red-600", keyProducts: ["Concrete Admixture", "Waterproofing"], relevance: "Medium" }
     ],
     internal: [
       { id: "wika_beton", name: "PT Wijaya Karya Beton Tbk (WTON)", role: "Beton Pracetak", desc: "Anak usaha publik yang memproduksi tiang pancang (pile), balok jembatan (girder), dan bantalan rel kereta api untuk konsumsi proyek WIKA.", icon: "factory" },
@@ -93,7 +101,8 @@ export const SUPPLY_CHAIN_DATA = {
       { id: "pupr", name: "Kementerian PUPR", sector: "Pemerintah / Sipil", parent: "Republik Indonesia", desc: "Klien utama pemberi kontrak proyek bendungan, irigasi, jalan nasional, dan pengembangan infrastruktur dasar di Ibu Kota Nusantara (IKN).", logo: "P", share: 35, volume: "Tinggi", relationType: "Government Contract" },
       { id: "jasa_marga", name: "PT Jasa Marga (Persero) Tbk", sector: "Operator Jalan Tol", parent: "BUMN Indonesia", desc: "Pemilik proyek jalan tol konsesi di mana WIKA bertindak sebagai kontraktor utama pembangunan fisik badan jalan tol.", logo: "J", share: 20, volume: "Tinggi", relationType: "B2B Client" },
       { id: "kai", name: "PT Kereta Api Indonesia (Persero)", sector: "Transportasi Rel", parent: "BUMN Indonesia", desc: "Klien pemberi kerja untuk proyek perkeretaapian seperti LRT Jabodebek, High Speed Railway Jakarta-Bandung, dan stasiun modern.", logo: "K", share: 15, volume: "Medium", relationType: "B2B Client" },
-      { id: "angkasa_pura", name: "PT Angkasa Pura Indonesia", sector: "Operator Bandara", parent: "BUMN Indonesia", desc: "Pemberi kerja untuk proyek perluasan terminal bandara, perpanjangan runway, dan fasilitas hanggar pesawat udara.", logo: "A", share: 10, volume: "Medium", relationType: "B2B Client" }
+      { id: "angkasa_pura", name: "PT Angkasa Pura Indonesia", sector: "Operator Bandara", parent: "BUMN Indonesia", desc: "Pemberi kerja untuk proyek perluasan terminal bandara, perpanjangan runway, dan fasilitas hanggar pesawat udara.", logo: "A", share: 10, volume: "Medium", relationType: "B2B Client" },
+      { id: "ikn_otorita", name: "Otorita Ibu Kota Nusantara (IKN)", sector: "Pemerintah / Sipil", parent: "Republik Indonesia", desc: "Pemberi kontrak pembangunan gedung pemerintahan, jalan, dan infrastruktur dasar di ibu kota baru Nusantara.", logo: "I", share: 12, volume: "Tinggi", relationType: "Government Contract" }
     ]
   },
   ASII: {
@@ -106,11 +115,13 @@ export const SUPPLY_CHAIN_DATA = {
     netIncome: "Rp 33.8 T (FY2025)",
     employeeCount: "~200,000 karyawan",
     headquarters: "Jakarta Utara, DKI Jakarta",
+    lastEnriched: "2026-07-08",
     upstream: [
       { id: "toyota", name: "Toyota Motor Corp.", country: "Jepang", type: "Prinsipal Global", desc: "Pemilik lisensi merk Toyota. Menyuplai teknologi, mesin, dan komponen CKD (Completely Knocked Down) untuk dirakit secara lokal oleh TMMIN.", logo: "T", color: "from-red-600 to-rose-700", keyProducts: ["Desain & Lisensi", "Mesin Toyota", "Komponen CKD"], relevance: "Sangat Tinggi" },
       { id: "honda", name: "Honda Motor Co. Ltd.", country: "Jepang", type: "Prinsipal Global", desc: "Pemegang lisensi sepeda motor Honda. Menyuplai mesin, desain, dan komponen inti untuk sepeda motor terlaris di pasar massal Indonesia.", logo: "H", color: "from-red-500 to-red-650", keyProducts: ["Lisensi Motor", "Komponen Inti"], relevance: "Sangat Tinggi" },
       { id: "daihatsu_isuzu", name: "Daihatsu & Isuzu", country: "Jepang", type: "Prinsipal Global", desc: "Prinsipal global untuk mobil penumpang kompak (Daihatsu) dan kendaraan niaga/truk angkut tambang (Isuzu).", logo: "D", color: "from-blue-600 to-cyan-600", keyProducts: ["Lisensi Daihatsu", "Truk Niaga Isuzu"], relevance: "Tinggi" },
-      { id: "auto_up", name: "PT Astra Otoparts Tbk (AUTO)", country: "Indonesia", type: "Pemasok Komponen", desc: "Pabrikan komponen otomotif terbesar di Indonesia (anak usaha Astra) yang didukung oleh rantai pasok lokal (Tier 2/3) ratusan UMKM cetakan besi/karet.", logo: "A", color: "from-indigo-500 to-blue-600", keyProducts: ["Baterai GS Astra", "Ban Aspira", "Part Transmisi"], relevance: "Sangat Tinggi" }
+      { id: "auto_up", name: "PT Astra Otoparts Tbk (AUTO)", country: "Indonesia", type: "Pemasok Komponen", desc: "Pabrikan komponen otomotif terbesar di Indonesia (anak usaha Astra) yang didukung oleh rantai pasok lokal (Tier 2/3) ratusan UMKM cetakan besi/karet.", logo: "A", color: "from-indigo-500 to-blue-600", keyProducts: ["Baterai GS Astra", "Ban Aspira", "Part Transmisi"], relevance: "Sangat Tinggi" },
+      { id: "denso", name: "DENSO Corporation", country: "Jepang", type: "Komponen Elektronik", desc: "Pemasok komponen sistem kelistrikan, AC, dan engine management (ECU) untuk perakitan mobil Toyota dan Daihatsu di Indonesia.", logo: "D", color: "from-red-500 to-rose-600", keyProducts: ["ECU", "Sistem AC", "Spark Plug"], relevance: "Tinggi" }
     ],
     internal: [
       { id: "pabrik_manufaktur", name: "Manufaktur (AHM / ADM / TMMIN)", role: "Perakitan Utama", desc: "Pabrik perakitan raksasa di Karawang/Sunter yang merakit motor Honda (AHM) dan mobil Toyota/Daihatsu (ADM & TMMIN) untuk pasar lokal dan ekspor.", icon: "factory" },
@@ -121,7 +132,8 @@ export const SUPPLY_CHAIN_DATA = {
       { id: "retail_consumers", name: "Konsumen Retail Indonesia", sector: "Pasar Massal Otomotif", parent: "Masyarakat Umum", desc: "Konsumen individu di Indonesia yang membeli sepeda motor Honda dan mobil penumpang Toyota/Daihatsu untuk kebutuhan transportasi pribadi.", logo: "K", share: 35, volume: "Sangat Tinggi", relationType: "Mass Market (B2C)" },
       { id: "finance_acc_fif", name: "Pembiayaan (ACC & FIFGROUP)", sector: "Jasa Pembiayaan", parent: "Anak Usaha ASII", desc: "Bertindak sebagai fasilitator pembayaran. Menalangi dana pembelian unit ke dealer sehingga konsumen B2C/B2B dapat mengangsur secara kredit.", logo: "F", share: 30, volume: "Tinggi", relationType: "Internal Financial Enabler" },
       { id: "trac_rental", name: "PT Serasi Autoraya (TRAC)", sector: "Rental & Fleet Korporat", parent: "Anak Usaha ASII", desc: "Pembeli B2B dalam skala besar dari main dealer Astra untuk disewakan kembali sebagai kendaraan operasional kantor atau B2B fleet.", logo: "T", share: 20, volume: "Tinggi", relationType: "Subsidiary & Captive Client" },
-      { id: "fleet_mining_log", name: "Sektor Tambang & Logistik", sector: "Armada Niaga Korporat", parent: "Lintas Sektor B2B", desc: "Perusahaan tambang dan ekspedisi (termasuk UNTR & Adaro) yang membeli unit truk Isuzu untuk armada logistik jarak jauh.", logo: "S", share: 15, volume: "Medium", relationType: "B2B Client" }
+      { id: "fleet_mining_log", name: "Sektor Tambang & Logistik", sector: "Armada Niaga Korporat", parent: "Lintas Sektor B2B", desc: "Perusahaan tambang dan ekspedisi (termasuk UNTR & Adaro) yang membeli unit truk Isuzu untuk armada logistik jarak jauh.", logo: "S", share: 15, volume: "Medium", relationType: "B2B Client" },
+      { id: "astra_export", name: "Pasar Ekspor CBU (Timur Tengah & ASEAN)", sector: "Ekspor Otomotif", parent: "Lintas Negara", desc: "Tujuan ekspor kendaraan utuh (CBU) rakitan lokal seperti Toyota Rush/Avanza ke lebih dari 80 negara.", logo: "E", share: 10, volume: "Tinggi", relationType: "B2B Export" }
     ]
   },
   "BBRI": {
@@ -134,6 +146,7 @@ export const SUPPLY_CHAIN_DATA = {
     "netIncome": "Rp 60.4 T (FY2023)",
     "employeeCount": "~110,000 karyawan",
     "headquarters": "Jakarta Pusat, DKI Jakarta",
+    "lastEnriched": "2026-07-08",
     "upstream": [
       {
         "id": "google_cloud",
@@ -191,6 +204,20 @@ export const SUPPLY_CHAIN_DATA = {
           "Credit Guarantee Insurance"
         ],
         "relevance": "Sangat Tinggi"
+      },
+      {
+        "id": "visa_mastercard",
+        "name": "Visa & Mastercard",
+        "country": "Amerika Serikat",
+        "type": "Jaringan Pembayaran",
+        "desc": "Penyedia jaringan pemrosesan transaksi kartu debit/kredit lintas negara untuk kartu terbitan BBRI.",
+        "logo": "V",
+        "color": "from-blue-600 to-yellow-500",
+        "keyProducts": [
+          "Payment Gateway",
+          "Card Network"
+        ],
+        "relevance": "Tinggi"
       }
     ],
     "internal": [
@@ -265,6 +292,17 @@ export const SUPPLY_CHAIN_DATA = {
         "desc": "Individual retail banking clients utilizing home ownership loans (KPR), consumer loans (Briguna), credit cards, and digital assets via BRImo.",
         "logo": "R",
         "share": 15,
+        "volume": "Tinggi",
+        "relationType": "B2B Client"
+      },
+      {
+        "id": "petani_kur",
+        "name": "Segmen Petani & Nelayan KUR",
+        "sector": "Pertanian & Perikanan Rakyat",
+        "parent": "Independen",
+        "desc": "Jutaan petani dan nelayan penerima Kredit Usaha Rakyat (KUR) sektor pertanian untuk modal tanam dan alat tangkap.",
+        "logo": "P",
+        "share": 12,
         "volume": "Tinggi",
         "relationType": "B2B Client"
       }
