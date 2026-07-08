@@ -57,6 +57,12 @@ Google Maps *establishments* (branches/locations), not legal entities — so a
 "company" here means a prominent establishment. Chain branches are deduped by
 normalized name so e.g. "Bank BCA" appears once.
 
+**"Big company" approximation:** We cannot reliably isolate large legal entities
+from POI points. Instead, after dedup-by-name, we **rank by review count** and
+**default the displayed list to the top ~20 most-prominent per sector** (a "big
+company" proxy), with a "Tampilkan semua" toggle to reveal the full list. Counts
+shown are the full deduped counts; only the *list* is capped by default.
+
 ### Behavior
 - **Metric toggle** gains a primary option **`🏢 Perusahaan (Google Maps)`**.
   `🏢 Emiten Publik` becomes the **secondary** toggle (retained, not removed).
@@ -68,19 +74,24 @@ normalized name so e.g. "Bank BCA" appears once.
   sector.
 - **Clicking a sector bubble** shows, in the side panel, the **list of company
   names** for that province+sector: deduped by normalized name, ranked by
-  `rating_count` (review count) descending, each showing name, category, rating,
-  review count, and Google Maps link.
+  `rating_count` (review count) descending, **capped to the top ~20 by default**
+  with a "show all" toggle, each showing name, category, rating, review count,
+  and Google Maps link.
 - Applies identically to **MapTab.jsx** and **DeepDiveTab.jsx** (shared logic
   extracted into a small helper module to avoid duplicating it in both files).
 
 ### Choropleth coloring
-- In `emiten` and `pdrb` modes: unchanged.
-- In `perusahaan` mode: color provinces by cached real-company count **where we
-  have it** (Bali). Counts for coloring are obtained via lightweight Supabase
-  `count` (head) queries per province bbox+sector, cached in component state.
-  Provinces with no cached POI data render as "no data" (neutral gray) with a
-  tooltip explaining they are not yet scraped. This keeps the national map honest
-  until phase-2 scraping fills it in.
+- Province **coloring stays based on PDRB** in `perusahaan` mode (and unchanged in
+  `emiten`/`pdrb` modes). We do NOT recolor the national map by company count,
+  because we only have POI data for Bali — coloring by company count would make
+  every other province look empty/misleading.
+- What `perusahaan` mode changes is the **numbers**: the province tooltip, popup
+  summary, sector bubbles, and click-through list all display **real company
+  counts from POI data** (available where POIs exist, e.g. Bali). Provinces
+  without POI data simply show a company count of 0 / "—" while still colored by
+  PDRB.
+- No per-province `count` queries or "not yet scraped" gray-out needed. Counts
+  come from the POIs already fetched on province click.
 
 ### Shared helper (new)
 `dashboard/src/lib/companyPois.js`:
