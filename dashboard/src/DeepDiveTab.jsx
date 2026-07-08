@@ -11,6 +11,7 @@ import L from 'leaflet'
 import * as h3 from 'h3-js'
 import { createClient } from '@supabase/supabase-js'
 import { SUPPLY_CHAIN_DATA } from './RantaiPasokTab'
+import { dedupeCompanies } from './lib/companyPois'
 
 const GEOJSON_URL = './38 Provinsi Indonesia - Provinsi.json'
 
@@ -914,6 +915,7 @@ export default function DeepDiveTab() {
 
   // POI & Hexagon states
   const [pois, setPois] = useState([])
+  const [showAllDeepDiveCompanies, setShowAllDeepDiveCompanies] = useState(false)
   const [isLoadingPois, setIsLoadingPois] = useState(false)
   const [selectedHexagon, setSelectedHexagon] = useState(null) // { hexagonId, pois }
   const [mapInstance, setMapInstance] = useState(null)
@@ -1258,6 +1260,18 @@ export default function DeepDiveTab() {
 
     loadProvincePOIs();
   }, [selectedProvince, selectedIdxSector, categoryMapping, geoJson, correspondingPdbSectors]);
+
+  // Perusahaan (Google Maps): rank the loaded (already sector-filtered) POIs as
+  // deduped companies by review count. Reset the "show all" toggle when the
+  // underlying POIs change.
+  useEffect(() => { setShowAllDeepDiveCompanies(false) }, [selectedProvince, selectedIdxSector])
+
+  const deepDiveCompanies = useMemo(() => {
+    const ranked = dedupeCompanies(pois).sort((a, b) => b.ratingCount - a.ratingCount)
+    return showAllDeepDiveCompanies ? ranked : ranked.slice(0, 20)
+  }, [pois, showAllDeepDiveCompanies])
+
+  const deepDiveCompanyTotal = useMemo(() => dedupeCompanies(pois).length, [pois])
 
   // Compute H3 hexagons
   const h3Hexagons = useMemo(() => {
@@ -2069,6 +2083,53 @@ export default function DeepDiveTab() {
           </div>
         </div>
       </div>
+
+      {/* Perusahaan (Google Maps) for the selected province + sector */}
+      {selectedProvince && deepDiveCompanies.length > 0 && (
+        <div className="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm space-y-3">
+          <div className="border-b border-slate-100 pb-2 flex items-center justify-between">
+            <h3 className="font-extrabold text-slate-800 text-sm flex items-center gap-1.5">
+              <Building2 size={18} className="text-blue-600" />
+              Perusahaan (Google Maps) — {selectedProvince} · Sektor {selectedIdxSector}
+            </h3>
+            <span className="text-[10px] text-slate-400">{deepDiveCompanyTotal} perusahaan (sampel)</span>
+          </div>
+          <div className="text-[10px] text-slate-400">
+            Perusahaan paling menonjol diurutkan berdasarkan jumlah ulasan. Data titik Google Maps, bukan entitas hukum.
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 max-h-[360px] overflow-y-auto pr-1">
+            {deepDiveCompanies.map((c, i) => (
+              <div key={`${c.name}-${i}`} className="bg-slate-50 p-2.5 rounded-lg border border-slate-150 space-y-1 text-[11px]">
+                <div className="font-extrabold text-slate-800 leading-snug" title={c.name}>{c.name}</div>
+                <div className="flex flex-wrap gap-1">
+                  <span className="inline-block px-1.5 py-0.5 rounded text-[8.5px] font-bold bg-slate-100 text-slate-600 border border-slate-200">{c.category}</span>
+                  {c.pdbSector && (
+                    <span className="inline-block px-1.5 py-0.5 rounded text-[8.5px] font-bold bg-indigo-50 text-indigo-700 border border-indigo-100">{c.pdbSector}</span>
+                  )}
+                  {c.ratingCount > 0 && (
+                    <span className="inline-block px-1.5 py-0.5 rounded text-[8.5px] font-bold bg-amber-50 text-amber-800 border border-amber-200">⭐ {c.rating} ({c.ratingCount})</span>
+                  )}
+                  {c.locationCount > 1 && (
+                    <span className="inline-block px-1.5 py-0.5 rounded text-[8.5px] font-bold bg-blue-50 text-blue-700 border border-blue-100">{c.locationCount} lokasi</span>
+                  )}
+                </div>
+                {c.gmapsUrl && c.gmapsUrl !== 'NULL' && (
+                  <a href={c.gmapsUrl} target="_blank" rel="noopener noreferrer" className="inline-flex text-blue-600 hover:text-blue-800 hover:underline text-[9px] font-extrabold">Buka Google Maps ↗</a>
+                )}
+              </div>
+            ))}
+          </div>
+          {!showAllDeepDiveCompanies && deepDiveCompanyTotal > 20 && (
+            <button
+              type="button"
+              onClick={() => setShowAllDeepDiveCompanies(true)}
+              className="w-full text-[10px] font-bold text-blue-600 hover:text-blue-800 bg-blue-50 hover:bg-blue-100 border border-blue-100 rounded-md py-1.5 cursor-pointer"
+            >
+              Tampilkan semua perusahaan
+            </button>
+          )}
+        </div>
+      )}
 
       {/* Bottom section: Subsektor lists & emiten data (accordions) */}
       <div className="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm space-y-4">
