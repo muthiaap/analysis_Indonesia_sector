@@ -39,7 +39,8 @@ upright.
 - Produces:
   - `trimEndpoint(x1, y1, x2, y2, targetRadius, arrowLen) -> { x: number, y: number }`
   - `captionTransform(x1, y1, x2, y2) -> { x: number, y: number, angle: number }`
-  - `EDGE_IDLE`, `EDGE_HIGHLIGHT`, `ARROW_LEN` constants.
+  - constants `EDGE_IDLE`, `EDGE_HIGHLIGHT`, `ARROW_LEN`, `ARROW_ASPECT`,
+    `PILL_CHAR_W`, `PILL_PAD_X`, `PILL_H`.
 
 - [ ] **Step 1: Write the failing test**
 
@@ -47,7 +48,7 @@ Create `dashboard/src/lib/graphEdges.test.js`:
 
 ```js
 import { describe, it, expect } from 'vitest'
-import { trimEndpoint, captionTransform, ARROW_LEN } from './graphEdges'
+import { trimEndpoint, captionTransform } from './graphEdges'
 
 describe('trimEndpoint', () => {
   it('lands the arrow tip on the circumference of a r=24 node', () => {
@@ -119,13 +120,13 @@ describe('captionTransform', () => {
     expect(y).toBe(7)
   })
 })
-
-describe('ARROW_LEN', () => {
-  it('is exported for the renderer to size its marker path', () => {
-    expect(ARROW_LEN).toBe(6)
-  })
-})
 ```
+
+The test file deliberately does not import the constants. Do **not** add a test
+asserting `ARROW_LEN === 6` or similar — it would assert a constant against its
+own literal, testing no behaviour and breaking whenever someone legitimately
+tunes the arrow size. `arrowLen` is passed explicitly in every test above, so
+the geometry is covered regardless of the constant's value.
 
 - [ ] **Step 2: Run test to verify it fails**
 
@@ -150,6 +151,15 @@ export const EDGE_IDLE = '#A5ABB6'
 export const EDGE_HIGHLIGHT = '#6F7784'
 /** Length of the arrowhead triangle, in SVG user units. */
 export const ARROW_LEN = 6
+/** Arrowhead half-width as a fraction of its length; sets the tip's sharpness. */
+export const ARROW_ASPECT = 0.42
+
+/** Approximate advance width of one character at fontSize 9, in SVG user units. */
+export const PILL_CHAR_W = 5.1
+/** Horizontal padding inside the relationship pill. */
+export const PILL_PAD_X = 6
+/** Height of the relationship pill. */
+export const PILL_H = 11
 
 /**
  * Pull the edge's target endpoint back to the target circle's circumference so
@@ -200,7 +210,7 @@ Run from `dashboard/`:
 ```bash
 npm test -- src/lib/graphEdges.test.js
 ```
-Expected: PASS, 11 tests.
+Expected: PASS, 10 tests.
 
 - [ ] **Step 5: Confirm the pre-existing suite still passes**
 
@@ -208,7 +218,7 @@ Run from `dashboard/`:
 ```bash
 npm test
 ```
-Expected: 2 test files passed, 17 tests total (6 from `companyPois.test.js` + 11 new).
+Expected: 2 test files passed, 16 tests total (6 from `companyPois.test.js` + 10 new).
 
 - [ ] **Step 6: Commit**
 
@@ -256,6 +266,10 @@ import {
   EDGE_IDLE,
   EDGE_HIGHLIGHT,
   ARROW_LEN,
+  ARROW_ASPECT,
+  PILL_CHAR_W,
+  PILL_PAD_X,
+  PILL_H,
 } from './lib/graphEdges'
 
 /**
@@ -274,15 +288,15 @@ export default function GraphLink({
   const base = trimEndpoint(x1, y1, x2, y2, targetRadius, ARROW_LEN)
 
   const angleRad = Math.atan2(tip.y - y1, tip.x - x1)
-  const halfW = ARROW_LEN * 0.42
+  const halfW = ARROW_LEN * ARROW_ASPECT
   // Two corners of the arrowhead, perpendicular to the edge at `base`.
   const nx = -Math.sin(angleRad) * halfW
   const ny = Math.cos(angleRad) * halfW
   const head = `${tip.x},${tip.y} ${base.x + nx},${base.y + ny} ${base.x - nx},${base.y - ny}`
 
   const cap = captionTransform(x1, y1, base.x, base.y)
-  const pillW = relType.length * 5.1 + 6
-  const pillH = 11
+  const pillW = relType.length * PILL_CHAR_W + PILL_PAD_X
+  const pillH = PILL_H
 
   return (
     <g>
@@ -484,7 +498,7 @@ Run from `dashboard/`:
 ```bash
 npx vite build 2>&1 | tail -5 && npm test
 ```
-Expected: `✓ built in ...`, then 2 test files passed / 17 tests.
+Expected: `✓ built in ...`, then 2 test files passed / 16 tests.
 
 - [ ] **Step 6: Confirm nothing still references the deleted marker**
 
