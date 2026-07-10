@@ -1,6 +1,7 @@
 import { useEffect, useState, useMemo, useRef } from 'react'
 import { Search, Info, Settings, ZoomIn, ZoomOut, RotateCcw, HelpCircle, Building2, MapPin, Briefcase, Calendar, ShieldCheck, DollarSign, Share2, ToggleLeft, ToggleRight, Pin, PinOff, Database } from 'lucide-react'
 import neo4j from 'neo4j-driver'
+import GraphLink from './GraphLink'
 
 // Curated HSL sector colors for subsidiaries
 const SECTOR_COLORS = {
@@ -158,6 +159,9 @@ export default function HubunganTab() {
   
   // Selected Node Details for Right Sidebar
   const [selectedNode, setSelectedNode] = useState(null)
+
+  // Index of the edge under the cursor; null when none. Drives the pill.
+  const [hoveredLink, setHoveredLink] = useState(null)
   
   // Simulation nodes and links stored in ref for high-frequency physics
   const simNodesRef = useRef([])
@@ -1580,21 +1584,6 @@ export default function HubunganTab() {
                 onMouseDown={handleSVGMouseDown}
                 className="bg-transparent cursor-grab active:cursor-grabbing flex-1 select-none"
               >
-                {/* Arrow markers */}
-                <defs>
-                  <marker
-                    id="arrow"
-                    viewBox="0 0 10 10"
-                    refX="26"
-                    refY="5"
-                    markerWidth="6"
-                    markerHeight="6"
-                    orient="auto-start-reverse"
-                  >
-                    <path d="M 0 0 L 10 5 L 0 10 z" fill="rgba(15, 23, 42, 0.35)" />
-                  </marker>
-                </defs>
-
                 {/* Transform group for Zoom & Panning */}
                 <g transform={`translate(${pan.x}, ${pan.y}) scale(${zoom})`}>
                   
@@ -1605,37 +1594,24 @@ export default function HubunganTab() {
                       const targetNode = simNodesRef.current.find(n => n.id === link.target)
                       if (!sourceNode || !targetNode) return null
 
-                      // Visual coloring based on mode
-                      let glowColor = '#f27a1a'
-                      if (activeMode === 'subsidiaries') {
-                        glowColor = colorMode === 'sector' ? (SECTOR_COLORS[targetNode.category] || '#475569') : '#f27a1a'
-                      } else {
-                        glowColor = '#f27a1a' // Orange color for debt connections
-                      }
+                      const highlighted =
+                        hoveredLink === idx ||
+                        (selectedNode != null &&
+                          (selectedNode.id === link.source || selectedNode.id === link.target))
 
                       return (
-                        <g key={idx}>
-                          {/* Glowing line backdrop */}
-                          <line
-                            x1={sourceNode.x}
-                            y1={sourceNode.y}
-                            x2={targetNode.x}
-                            y2={targetNode.y}
-                            stroke={glowColor}
-                            strokeOpacity={0.08}
-                            strokeWidth={7}
-                          />
-                          {/* Main line connector */}
-                          <line
-                            x1={sourceNode.x}
-                            y1={sourceNode.y}
-                            x2={targetNode.x}
-                            y2={targetNode.y}
-                            stroke="rgba(71, 85, 105, 0.35)"
-                            strokeWidth={activeMode === 'loans' ? Math.max(1, Math.min(5, Math.log10(link.value) - 5)) : 1.5}
-                            markerEnd="url(#arrow)"
-                          />
-                        </g>
+                        <GraphLink
+                          key={idx}
+                          x1={sourceNode.x}
+                          y1={sourceNode.y}
+                          x2={targetNode.x}
+                          y2={targetNode.y}
+                          targetRadius={getNodeRadius(targetNode)}
+                          relType={activeMode === 'subsidiaries' ? 'HAS_SUBSIDIARY' : 'LOANED_TO'}
+                          highlighted={highlighted}
+                          onEnter={() => setHoveredLink(idx)}
+                          onLeave={() => setHoveredLink(null)}
+                        />
                       )
                     })}
                   </g>
