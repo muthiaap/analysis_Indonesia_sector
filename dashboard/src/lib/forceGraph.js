@@ -23,7 +23,8 @@ export function stepSimulation(nodes, links, opts = {}) {
     for (let j = i + 1; j < nodes.length; j++) {
       const a = nodes[i], b = nodes[j]
       let dx = a.x - b.x, dy = a.y - b.y
-      let d2 = dx * dx + dy * dy || 0.01
+      if (dx === 0 && dy === 0) { dx = (i - j) || 1; dy = 1 }  // nudge coincident nodes apart deterministically
+      const d2 = dx * dx + dy * dy
       const d = Math.sqrt(d2)
       const f = (repulsion / Math.max(20, d2)) * alpha
       const fx = (dx / d) * f, fy = (dy / d) * f

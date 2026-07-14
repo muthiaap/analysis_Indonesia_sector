@@ -28,9 +28,16 @@ describe('stepSimulation', () => {
     for (let i = 0; i < 50; i++) stepSimulation(nodes, [], {})
     expect(dist(nodes[0], nodes[1])).toBeGreaterThan(before)
   })
-  it('accepts links whose source/target are node objects', () => {
+  it('applies the spring through object-ref source/target', () => {
     const nodes = [{ id: 'a', x: 0, y: 0, vx: 0, vy: 0 }, { id: 'b', x: 300, y: 0, vx: 0, vy: 0 }]
     const links = [{ source: nodes[0], target: nodes[1] }]
-    expect(() => stepSimulation(nodes, links, {})).not.toThrow()
+    const before = Math.hypot(nodes[0].x - nodes[1].x, nodes[0].y - nodes[1].y)
+    for (let i = 0; i < 100; i++) stepSimulation(nodes, links, { springLength: 90 })
+    expect(Math.hypot(nodes[0].x - nodes[1].x, nodes[0].y - nodes[1].y)).toBeLessThan(before)
+  })
+  it('separates two exactly-coincident nodes', () => {
+    const nodes = [{ id: 'a', x: 50, y: 50, vx: 0, vy: 0 }, { id: 'b', x: 50, y: 50, vx: 0, vy: 0 }]
+    for (let i = 0; i < 20; i++) stepSimulation(nodes, [], {})
+    expect(Math.hypot(nodes[0].x - nodes[1].x, nodes[0].y - nodes[1].y)).toBeGreaterThan(1)
   })
 })
