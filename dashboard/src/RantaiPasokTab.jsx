@@ -1793,7 +1793,7 @@ export default function RantaiPasokTab({ selectedFocus, setSelectedFocus }) {
                             {node.label || node.name.split(' ')[0]}
                           </text>
                           <text x="-32" y="12" textAnchor="end" className="fill-slate-400 text-[9px] select-none">
-                            {node.country || node.type}
+                            {node.country || node.confidence || ''}
                           </text>
                         </g>
                       </g>
@@ -1860,9 +1860,9 @@ export default function RantaiPasokTab({ selectedFocus, setSelectedFocus }) {
                             <text x="30" y="10" textAnchor="start" className="fill-slate-400 text-[8.5px] select-none">
                               {node.share}% Kontribusi
                             </text>
-                          ) : node.sector ? (
+                          ) : node.confidence ? (
                             <text x="30" y="10" textAnchor="start" className="fill-slate-400 text-[8.5px] select-none">
-                              {node.sector.length > 20 ? node.sector.slice(0, 20) + '…' : node.sector}
+                              {node.confidence}
                             </text>
                           ) : null}
                         </g>
