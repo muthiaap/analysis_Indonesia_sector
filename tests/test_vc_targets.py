@@ -26,3 +26,17 @@ def test_load_targets_defaults_to_seed_and_carries_sector():
     assert adro['legal_name']            # non-empty from anak_perusahaan.json
     assert adro['sector']                # non-empty from all_lk.csv
     assert 'ADRO' in adro['aliases']
+
+
+def test_every_seed_ticker_resolves_a_real_name():
+    targets = load_targets()
+    for t in targets:
+        assert t['legal_name'] != t['ticker'], f"{t['ticker']} has no real name"
+
+
+def test_fallback_names_feed_aliases_for_missing_tickers():
+    by_ticker = {t['ticker']: t for t in load_targets()}
+    assert by_ticker['TLKM']['legal_name'] == 'Telkom Indonesia (Persero) Tbk'
+    assert 'Telkom Indonesia' in by_ticker['TLKM']['aliases']
+    assert by_ticker['JPFA']['legal_name'] == 'Japfa Comfeed Indonesia Tbk'
+    assert 'Japfa Comfeed Indonesia' in by_ticker['JPFA']['aliases']

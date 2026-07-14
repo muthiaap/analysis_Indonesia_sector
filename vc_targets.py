@@ -8,6 +8,13 @@ from vc_names import normalize_name
 SEED_TICKERS = ['ADRO', 'UNTR', 'ASII', 'SMGR', 'INTP',
                 'TLKM', 'TAPG', 'PGAS', 'WIKA', 'JPFA']
 
+# Seed tickers absent from anak_perusahaan.json (which is the only company-name
+# source in this repo). Names verified from IDX listings.
+FALLBACK_NAMES = {
+    'TLKM': 'Telkom Indonesia (Persero) Tbk',
+    'JPFA': 'Japfa Comfeed Indonesia Tbk',
+}
+
 
 def build_aliases(legal_name: str, ticker: str) -> list[str]:
     """Name variants used to spot mentions in evidence text: the raw legal
@@ -40,7 +47,7 @@ def load_targets(tickers: list[str] | None = None,
     sectors = _sector_by_ticker(lk_path)
     out = []
     for tk in tickers:
-        legal = anak.get(tk, {}).get('Company Name', tk)
+        legal = anak.get(tk, {}).get('Company Name') or FALLBACK_NAMES.get(tk, tk)
         out.append({
             'ticker': tk,
             'legal_name': legal,
