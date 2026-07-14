@@ -54,6 +54,21 @@ export function buildGraph(doc) {
   return { nodes: [...nodes.values()], links }
 }
 
+// Short, readable node label: the ticker if the counterparty is listed, else the
+// company name with legal-form noise stripped and truncated. (Raw names all start
+// with "PT …", which is why the renderer's name.split(' ')[0] showed "PT" for every
+// supplier — this gives it something meaningful to display instead.)
+export function shortLabel(name, ticker) {
+  if (ticker) return ticker
+  const c = (name || '')
+    .replace(/^PT\s+/i, '')
+    .replace(/\s+Tbk\.?$/i, '')
+    .replace(/\s*\(Persero\)\s*/i, ' ')
+    .replace(/\s+(Ltd|Sdn\.?\s*Bhd|GmbH|Pte\.?\s*Ltd|Limited|Corporation|Corp)\.?$/i, '')
+    .replace(/\s+/g, ' ').trim()
+  return c.length > 16 ? c.slice(0, 16).trim() + '…' : c
+}
+
 export function buildEgoView(doc, ticker) {
   const rec = doc[ticker]
   if (!rec) return null
@@ -62,6 +77,8 @@ export function buildEgoView(doc, ticker) {
     const base = {
       id: (e.counterparty_ticker || ('cp' + i)).toLowerCase(),
       name: e.counterparty,
+      label: shortLabel(e.counterparty, e.counterparty_ticker),
+      ticker: e.counterparty_ticker || null,
       desc: e.evidence_quote,
       logo: (e.counterparty.replace(/^PT\s+/i, '').trim()[0] || '?').toUpperCase(),
       color: confidenceColor(e.confidence),

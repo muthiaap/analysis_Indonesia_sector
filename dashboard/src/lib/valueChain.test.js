@@ -58,6 +58,13 @@ describe('buildEgoView', () => {
   it('returns null for an unknown ticker', () => {
     expect(buildEgoView(DOC, 'ZZZZ')).toBeNull()
   })
+  it('gives each card a short label: ticker if listed, else cleaned name', () => {
+    const v = buildEgoView(DOC, 'SMGR')
+    expect(v.customers.find(c => c.name.includes('Wijaya Karya Beton')).label).toBe('WTON')
+    expect(v.suppliers.find(s => s.name.includes('Bukit Asam')).label).toBe('PTBA')
+    const w = buildEgoView(DOC, 'WTON')   // 'Some Vendor' has no ticker
+    expect(w.suppliers[0].label).toBe('Some Vendor')
+  })
 })
 
 describe('focusOptions', () => {
