@@ -16,7 +16,7 @@ import {
  * pill that appears only while the edge is highlighted.
  */
 export default function GraphLink({
-  x1, y1, x2, y2, targetRadius, relType, highlighted, onEnter, onLeave,
+  x1, y1, x2, y2, targetRadius, relType, highlighted, onEnter, onLeave, onClick,
 }) {
   const stroke = highlighted ? EDGE_HIGHLIGHT : EDGE_IDLE
   const strokeWidth = highlighted ? 1.5 : 1
@@ -44,9 +44,10 @@ export default function GraphLink({
         x1={x1} y1={y1} x2={x2} y2={y2}
         stroke="transparent"
         strokeWidth={10}
-        style={{ pointerEvents: 'stroke' }}
+        style={{ pointerEvents: 'stroke', cursor: onClick ? 'pointer' : undefined }}
         onMouseEnter={onEnter}
         onMouseLeave={onLeave}
+        onClick={onClick}
       />
 
       <line

@@ -6,20 +6,25 @@ import { seedPositions, stepSimulation } from './lib/forceGraph'
 const W = 1000, H = 680              // logical viewBox size
 const RADIUS = { parent: 26, listed: 18, external: 12 }
 const FILL = { parent: '#6366f1', listed: '#10b981', external: '#cbd5e1' }
+const KIND_LABEL = { parent: 'Perusahaan (dilacak)', listed: 'Mitra (terdaftar di bursa)', external: 'Mitra eksternal' }
 const linkKey = (l) => `${l.source}|${l.target}|${l.flow}`
+const endId = (ref) => (typeof ref === 'object' ? ref.id : ref)
 const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v))
 
 export default function ValueChainTab() {
   const [doc, setDoc] = useState(null)
   const [error, setError] = useState(null)
   const [confOn, setConfOn] = useState({ high: true, medium: true, low: true })
-  const [selected, setSelected] = useState(null)   // stable key (linkKey) of the selected edge
+  const [selNode, setSelNode] = useState(null)   // pinned company (node id)
+  const [selEdge, setSelEdge] = useState(null)   // pinned edge (linkKey) -> citation
+  const [hoverKey, setHoverKey] = useState(null) // edge hover, highlight only
   const [, setTick] = useState(0)
-  const [view, setView] = useState({ k: 1, tx: 0, ty: 0 })   // pan/zoom transform
+  const [view, setView] = useState({ k: 1, tx: 0, ty: 0 })
   const nodesRef = useRef([])
   const rafRef = useRef(0)
   const dragRef = useRef(null)
-  const userMovedRef = useRef(false)   // stop auto-fit once the user pans/zooms
+  const movedRef = useRef(false)
+  const userMovedRef = useRef(false)
 
   useEffect(() => {
     let alive = true
@@ -29,7 +34,6 @@ export default function ValueChainTab() {
 
   const graph = useMemo(() => doc ? buildGraph(doc) : { nodes: [], links: [] }, [doc])
 
-  // Centre + scale the settled node bounds into the viewport.
   const fitView = () => {
     const nodes = nodesRef.current
     if (!nodes.length) return
@@ -52,7 +56,7 @@ export default function ValueChainTab() {
       stepSimulation(nodes, graph.links, { alpha })
       alpha *= 0.985; frames++
       setTick(t => t + 1)
-      if (!userMovedRef.current) fitView()   // keep the whole graph framed until the user takes over
+      if (!userMovedRef.current) fitView()
       if (frames < 600 && alpha > 0.01) rafRef.current = requestAnimationFrame(loop)
     }
     rafRef.current = requestAnimationFrame(loop)
@@ -72,14 +76,15 @@ export default function ValueChainTab() {
       return { k, tx: mx - wx * k, ty: my - wy * k }
     })
   }
-  const onDown = (e) => { const p = svgPoint(e); dragRef.current = { sx: p.x, sy: p.y, tx: view.tx, ty: view.ty } }
+  const onDown = (e) => { const p = svgPoint(e); movedRef.current = false; dragRef.current = { sx: p.x, sy: p.y, tx: view.tx, ty: view.ty } }
   const onMove = (e) => {
     if (!dragRef.current) return
-    userMovedRef.current = true
+    userMovedRef.current = true; movedRef.current = true
     const p = svgPoint(e)
     setView(v => ({ ...v, tx: dragRef.current.tx + (p.x - dragRef.current.sx), ty: dragRef.current.ty + (p.y - dragRef.current.sy) }))
   }
   const onUp = () => { dragRef.current = null }
+  const onBgClick = () => { if (movedRef.current) { movedRef.current = false; return } setSelNode(null); setSelEdge(null) }
 
   if (error) return <div className="p-8 text-rose-600">Gagal memuat rantai nilai: {error}</div>
   if (!doc) return <div className="p-8 text-slate-400">Memuat rantai nilai…</div>
@@ -87,8 +92,23 @@ export default function ValueChainTab() {
   const nodes = nodesRef.current
   const byId = Object.fromEntries(nodes.map(n => [n.id, n]))
   const links = graph.links.filter(l => confOn[l.confidence])
-  const sel = selected != null ? (links.find(l => linkKey(l) === selected) || null) : null
+  const sel = selEdge != null ? (links.find(l => linkKey(l) === selEdge) || null) : null
+  const node = selNode != null ? byId[selNode] : null
+  const suppliers = node ? links.filter(l => endId(l.target) === node.id) : []   // flow into node
+  const customers = node ? links.filter(l => endId(l.source) === node.id) : []   // flow out of node
   const btn = 'w-8 h-8 rounded-lg bg-white border border-slate-200 shadow-sm text-slate-600 hover:bg-slate-50 flex items-center justify-center'
+
+  const PartnerRow = ({ l, partnerId }) => {
+    const p = byId[partnerId]
+    const active = selEdge === linkKey(l)
+    return (
+      <button onClick={() => setSelEdge(linkKey(l))}
+        className={`w-full text-left px-2 py-1 rounded ${active ? 'bg-indigo-50 ring-1 ring-indigo-200' : 'hover:bg-slate-50'}`}>
+        <div className="text-xs font-medium text-slate-700 truncate">{p?.label || partnerId}{p?.ticker ? ` (${p.ticker})` : ''}</div>
+        <div className="text-[10px] text-slate-400 truncate">{l.flow} · {l.confidence}</div>
+      </button>
+    )
+  }
 
   return (
     <div className="animate-fade-in flex gap-4 items-start">
@@ -99,7 +119,7 @@ export default function ValueChainTab() {
               <input type="checkbox" checked={confOn[t]} onChange={() => setConfOn(s => ({ ...s, [t]: !s[t] }))} />{t}
             </label>
           ))}
-          <span className="ml-auto text-slate-400">{links.length} edge · {nodes.length} node · seret untuk geser</span>
+          <span className="ml-auto text-slate-400">{links.length} edge · {nodes.length} node · seret untuk geser · klik node/edge</span>
         </div>
         <div className="relative">
           <div className="absolute top-2 right-2 z-10 flex flex-col gap-1">
@@ -109,23 +129,31 @@ export default function ValueChainTab() {
           </div>
           <svg viewBox={`0 0 ${W} ${H}`}
             className="w-full h-[72vh] bg-slate-50/40 rounded-xl cursor-grab active:cursor-grabbing select-none"
-            onMouseDown={onDown} onMouseMove={onMove} onMouseUp={onUp} onMouseLeave={onUp}>
+            onMouseDown={onDown} onMouseMove={onMove} onMouseUp={onUp} onMouseLeave={onUp} onClick={onBgClick}>
             <g transform={`translate(${view.tx} ${view.ty}) scale(${view.k})`}>
               {links.map((l) => {
-                const s = byId[typeof l.source === 'object' ? l.source.id : l.source]
-                const t = byId[typeof l.target === 'object' ? l.target.id : l.target]
+                const s = byId[endId(l.source)]
+                const t = byId[endId(l.target)]
                 if (!s || !t) return null
                 const k = linkKey(l)
+                const touchesNode = selNode && (endId(l.source) === selNode || endId(l.target) === selNode)
                 return (
                   <GraphLink key={k} x1={s.x} y1={s.y} x2={t.x} y2={t.y}
                     targetRadius={RADIUS[t.kind]} relType={l.flow}
-                    highlighted={selected === k}
-                    onEnter={() => setSelected(k)} onLeave={() => {}} />
+                    highlighted={hoverKey === k || selEdge === k || touchesNode}
+                    onEnter={() => setHoverKey(k)} onLeave={() => setHoverKey(null)}
+                    onClick={(e) => { e.stopPropagation(); setSelEdge(k) }} />
                 )
               })}
               {nodes.map(n => (
-                <g key={n.id}>
-                  <circle cx={n.x} cy={n.y} r={RADIUS[n.kind]} fill={FILL[n.kind]} stroke="#fff" strokeWidth="2" />
+                <g key={n.id} style={{ cursor: 'pointer' }}
+                  onClick={(e) => { e.stopPropagation(); setSelNode(n.id); setSelEdge(null) }}>
+                  {selNode === n.id && (
+                    <circle cx={n.x} cy={n.y} r={RADIUS[n.kind] + 5} fill="none" stroke="#6366f1" strokeWidth="2.5" />
+                  )}
+                  <circle cx={n.x} cy={n.y} r={RADIUS[n.kind]} fill={FILL[n.kind]} stroke="#fff" strokeWidth="2">
+                    <title>{n.label}</title>
+                  </circle>
                   <text x={n.x} y={n.y + RADIUS[n.kind] + 10} textAnchor="middle" fontSize="9" className="fill-slate-600 pointer-events-none">
                     {n.ticker || (n.label || '').slice(0, 14)}
                   </text>
@@ -135,9 +163,33 @@ export default function ValueChainTab() {
           </svg>
         </div>
       </div>
+
       <div className="w-80 shrink-0 self-start bg-white rounded-2xl border border-slate-200 p-4 text-sm max-h-[72vh] overflow-auto">
-        {sel ? (
-          <div>
+        {!node && !sel && (
+          <div className="text-slate-400">Klik sebuah <b>node</b> untuk melihat perusahaan &amp; mitranya, atau klik sebuah <b>edge</b> untuk kutipan sumbernya.</div>
+        )}
+
+        {node && (
+          <div className="mb-3">
+            <div className="font-bold text-slate-800 leading-tight">{node.label}</div>
+            <div className="text-[11px] text-slate-500 mb-2">
+              {node.ticker ? <span className="font-semibold text-slate-600">{node.ticker}</span> : null}
+              {node.ticker ? ' · ' : ''}{KIND_LABEL[node.kind]}
+            </div>
+
+            <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wide mt-2 mb-1">Pemasok ({suppliers.length})</div>
+            {suppliers.length ? suppliers.map(l => <PartnerRow key={linkKey(l)} l={l} partnerId={endId(l.source)} />)
+              : <div className="text-[11px] text-slate-400 px-2">— tidak ada dalam data —</div>}
+
+            <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wide mt-3 mb-1">Pelanggan ({customers.length})</div>
+            {customers.length ? customers.map(l => <PartnerRow key={linkKey(l)} l={l} partnerId={endId(l.target)} />)
+              : <div className="text-[11px] text-slate-400 px-2">— tidak ada dalam data —</div>}
+          </div>
+        )}
+
+        {sel && (
+          <div className={node ? 'border-t border-slate-200 pt-3' : ''}>
+            <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wide mb-1">Bukti</div>
             <div className="font-bold text-slate-800 mb-1">{sel.flow}</div>
             <div className="text-xs text-slate-500 mb-2">
               {sel.direction} · {sel.confidence} · {sel.source_type} · {sel.source_date || 'n/a'}
@@ -148,8 +200,6 @@ export default function ValueChainTab() {
             <a href={sel.source_url} target="_blank" rel="noreferrer"
               className="text-xs text-indigo-600 underline break-all">Sumber ↗</a>
           </div>
-        ) : (
-          <div className="text-slate-400">Arahkan kursor ke sebuah edge untuk melihat kutipan bukti &amp; sumbernya.</div>
         )}
       </div>
     </div>
