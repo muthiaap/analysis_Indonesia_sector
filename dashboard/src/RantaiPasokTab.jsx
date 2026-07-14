@@ -1856,9 +1856,11 @@ export default function RantaiPasokTab({ selectedFocus, setSelectedFocus }) {
                           <text x="30" y="-1" textAnchor="start" className="fill-slate-700 font-semibold text-[10px] select-none">
                             {node.id.toUpperCase()}
                           </text>
-                          <text x="30" y="10" textAnchor="start" className="fill-slate-400 text-[8.5px] select-none">
-                            {node.share}% Kontribusi
-                          </text>
+                          {node.share != null && (
+                            <text x="30" y="10" textAnchor="start" className="fill-slate-400 text-[8.5px] select-none">
+                              {node.share}% Kontribusi
+                            </text>
+                          )}
                         </g>
                       </g>
                     )
@@ -2015,9 +2017,11 @@ export default function RantaiPasokTab({ selectedFocus, setSelectedFocus }) {
                       </div>
                       <div>
                         <h4 className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Kontribusi Pendapatan</h4>
-                        <span className="inline-block text-xs font-bold text-slate-700 mt-1">
-                          {activeNodeDetails.share}% dari Total Penjualan
-                        </span>
+                        {activeNodeDetails.share != null && (
+                          <span className="inline-block text-xs font-bold text-slate-700 mt-1">
+                            {activeNodeDetails.share}% dari Total Penjualan
+                          </span>
+                        )}
                       </div>
                       <div>
                         <h4 className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Sifat Hubungan</h4>
@@ -2027,12 +2031,14 @@ export default function RantaiPasokTab({ selectedFocus, setSelectedFocus }) {
                       </div>
                       <div>
                         <h4 className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Volume Transaksi</h4>
-                        <span className={`inline-block text-xs font-bold px-2.5 py-0.5 rounded mt-1.5 ${activeNodeDetails.volume === 'Tinggi' ? 'text-emerald-700 bg-emerald-50 border border-emerald-100' :
-                          activeNodeDetails.volume === 'Medium' ? 'text-blue-700 bg-blue-50 border border-blue-100' :
-                            'text-slate-600 bg-slate-50 border border-slate-150'
-                          }`}>
-                          {activeNodeDetails.volume}
-                        </span>
+                        {activeNodeDetails.volume && (
+                          <span className={`inline-block text-xs font-bold px-2.5 py-0.5 rounded mt-1.5 ${activeNodeDetails.volume === 'Tinggi' ? 'text-emerald-700 bg-emerald-50 border border-emerald-100' :
+                            activeNodeDetails.volume === 'Medium' ? 'text-blue-700 bg-blue-50 border border-blue-100' :
+                              'text-slate-600 bg-slate-50 border border-slate-150'
+                            }`}>
+                            {activeNodeDetails.volume}
+                          </span>
+                        )}
                       </div>
                     </div>
                   )}
