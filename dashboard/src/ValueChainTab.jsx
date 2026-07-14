@@ -49,9 +49,18 @@ export default function ValueChainTab() {
   const links = graph.links.filter(l => confOn[l.confidence])
   const sel = selected != null ? (links.find(l => linkKey(l) === selected) || null) : null
 
+  // Fit the SVG to the actual settled node bounds so nothing is clipped; the
+  // graph then renders at natural size inside a scrollable container.
+  const pad = 60
+  const xs = nodes.map(n => n.x), ys = nodes.map(n => n.y)
+  const minX = nodes.length ? Math.min(...xs) - pad : 0
+  const minY = nodes.length ? Math.min(...ys) - pad : 0
+  const vw = nodes.length ? Math.max(...xs) - Math.min(...xs) + pad * 2 : W
+  const vh = nodes.length ? Math.max(...ys) - Math.min(...ys) + pad * 2 : H
+
   return (
-    <div className="animate-fade-in flex gap-4">
-      <div className="flex-1 bg-white rounded-2xl border border-slate-200 p-3">
+    <div className="animate-fade-in flex gap-4 items-start">
+      <div className="flex-1 min-w-0 bg-white rounded-2xl border border-slate-200 p-3">
         <div className="flex items-center gap-4 mb-2 text-xs">
           {['high', 'medium', 'low'].map(t => (
             <label key={t} className="flex items-center gap-1 cursor-pointer capitalize">
@@ -61,7 +70,8 @@ export default function ValueChainTab() {
           ))}
           <span className="ml-auto text-slate-400">{links.length} edge · {nodes.length} node</span>
         </div>
-        <svg viewBox={`0 0 ${W} ${H}`} className="w-full h-[620px]">
+        <div className="overflow-auto rounded-xl bg-slate-50/40" style={{ maxHeight: '72vh' }}>
+        <svg viewBox={`${minX} ${minY} ${vw} ${vh}`} width={vw} height={vh}>
           {links.map((l, i) => {
             const s = byId[typeof l.source === 'object' ? l.source.id : l.source]
             const t = byId[typeof l.target === 'object' ? l.target.id : l.target]
@@ -83,8 +93,9 @@ export default function ValueChainTab() {
             </g>
           ))}
         </svg>
+        </div>
       </div>
-      <div className="w-80 bg-white rounded-2xl border border-slate-200 p-4 text-sm">
+      <div className="w-80 shrink-0 self-start bg-white rounded-2xl border border-slate-200 p-4 text-sm max-h-[72vh] overflow-auto">
         {sel ? (
           <div>
             <div className="font-bold text-slate-800 mb-1">{sel.flow}</div>
