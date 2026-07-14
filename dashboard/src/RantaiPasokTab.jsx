@@ -1,9 +1,10 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import {
   Building2, Search, Filter, Info, Globe, MapPin, DollarSign, Sparkles,
   ArrowRight, ArrowLeft, Cpu, Truck, Wrench, GraduationCap, HardHat,
   Trees, Layers, Activity, HelpCircle, CheckSquare, Square
 } from 'lucide-react'
+import { loadEdges, buildEgoView, focusOptions } from './lib/valueChain'
 
 // Supply Chain Data
 export const SUPPLY_CHAIN_DATA = {
@@ -938,6 +939,11 @@ export default function RantaiPasokTab({ selectedFocus, setSelectedFocus }) {
   const [filterSectors, setFilterSectors] = useState([])
   const [viewMode, setViewMode] = useState('focus') // 'focus' or 'longChain'
   const [selectedEcosystem, setSelectedEcosystem] = useState('untr_coal')
+  const [vcDoc, setVcDoc] = useState(null)
+
+  useEffect(() => {
+    loadEdges().then(setVcDoc).catch(() => setVcDoc({}))
+  }, [])
 
   const currentEcosystem = useMemo(() => {
     return ECOSYSTEM_DATA[selectedEcosystem]
@@ -945,8 +951,15 @@ export default function RantaiPasokTab({ selectedFocus, setSelectedFocus }) {
 
   const focusData = useMemo(() => {
     const key = selectedFocus === 'ADARO' ? 'ADRO' : selectedFocus
-    return SUPPLY_CHAIN_DATA[key]
-  }, [selectedFocus])
+    const real = vcDoc ? buildEgoView(vcDoc, key) : null
+    // buildEgoView returns {suppliers, customers}; this renderer expects
+    // {upstream, downstream} (the shape of SUPPLY_CHAIN_DATA) — adapt here
+    // rather than in lib/valueChain.js so the tested lib contract is untouched.
+    if (real) {
+      return { ...real, upstream: real.suppliers, downstream: real.customers }
+    }
+    return SUPPLY_CHAIN_DATA[key] || SUPPLY_CHAIN_DATA[Object.keys(SUPPLY_CHAIN_DATA)[0]]
+  }, [selectedFocus, vcDoc])
 
   // Get unique sectors in downstream for filtering
   const downstreamSectors = useMemo(() => {
@@ -1263,6 +1276,11 @@ export default function RantaiPasokTab({ selectedFocus, setSelectedFocus }) {
 
   const isAnyActive = hoveredNode || selectedNode
 
+  // Curated company tickers (exclude any lowercase scenario keys) used as
+  // demo fallback options when a ticker has no real pipeline data yet.
+  const DEMO_KEYS = Object.keys(SUPPLY_CHAIN_DATA).filter(k => /^[A-Z0-9]+$/.test(k))
+  const focusOpts = focusOptions(vcDoc || {}, DEMO_KEYS)
+
   return (
     <div className="bg-transparent min-h-[calc(100vh-140px)] flex flex-col space-y-4">
       {/* Dynamic style tag for line flowing animations */}
@@ -1366,23 +1384,16 @@ export default function RantaiPasokTab({ selectedFocus, setSelectedFocus }) {
               }}
               className="px-3 py-1.5 border border-slate-200 rounded-lg text-sm bg-white font-medium focus:outline-none focus:ring-2 focus:ring-amber-500 text-slate-700"
             >
-              <option value="UNTR">PT United Tractors Tbk (UNTR)</option>
-              <option value="ANTM">PT Aneka Tambang Tbk (ANTM)</option>
-              <option value="ASII">PT Astra International Tbk (ASII)</option>
-              <option value="SMGR">PT Semen Indonesia Tbk (SMGR)</option>
-              <option value="INDF">PT Indofood Sukses Makmur Tbk (INDF)</option>
-              <option value="ICBP">PT Indofood CBP Tbk (ICBP)</option>
-              <option value="TLKM">PT Telkom Indonesia Tbk (TLKM)</option>
-              <option value="UNVR">PT Unilever Indonesia Tbk (UNVR)</option>
-              <option value="PAMA">PT Pamapersada Nusantara (PAMA)</option>
-              <option value="BUMI">PT Bumi Resources Tbk (BUMI)</option>
-              <option value="ADRO">PT Adaro Energy Indonesia Tbk (ADRO)</option>
-              <option value="PTBA">PT Bukit Asam Tbk (PTBA)</option>
-              <option value="PTPP">PT Pembangunan Perumahan Tbk (PTPP)</option>
-              <option value="AALI">PT Astra Agro Lestari Tbk (AALI)</option>
-              <option value="SINARMAS">Grup Pulp & Kertas Sinarmas (INKP)</option>
-              <option value="WIKA">PT Wijaya Karya (Persero) Tbk (WIKA)</option>
-              <option value="BBRI">PT Bank Rakyat Indonesia Tbk (BBRI)</option>
+              <optgroup label="Dari Laporan">
+                {focusOpts.filter(o => o.source === 'filings').map(o => (
+                  <option key={o.ticker} value={o.ticker}>{o.ticker} — {o.label}</option>
+                ))}
+              </optgroup>
+              <optgroup label="Contoh (kurasi)">
+                {focusOpts.filter(o => o.source === 'curated').map(o => (
+                  <option key={o.ticker} value={o.ticker}>{o.ticker}</option>
+                ))}
+              </optgroup>
             </select>
           </div>
 
@@ -1492,6 +1503,9 @@ export default function RantaiPasokTab({ selectedFocus, setSelectedFocus }) {
             <div>
               <h3 className="text-md font-bold text-slate-800">{focusData.name}</h3>
               <p className="text-xs text-slate-400 mt-0.5">{focusData.subSector}</p>
+              {focusData.source === 'filings'
+                ? <span className="mt-1 inline-block text-[10px] px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700">Dari Laporan</span>
+                : <span className="mt-1 inline-block text-[10px] px-2 py-0.5 rounded-full bg-slate-100 text-slate-500">Contoh</span>}
             </div>
             <p className="text-xs text-slate-600 leading-relaxed border-t border-slate-100 pt-2.5">
               {focusData.overview}
@@ -1958,6 +1972,10 @@ export default function RantaiPasokTab({ selectedFocus, setSelectedFocus }) {
                     <p className="text-xs text-slate-600 leading-relaxed mt-1">
                       {activeNodeDetails.desc || activeNodeDetails.overview}
                     </p>
+                    {activeNodeDetails.sourceUrl && (
+                      <a href={activeNodeDetails.sourceUrl} target="_blank" rel="noreferrer"
+                         className="mt-1 inline-block text-[10px] text-indigo-600 underline">Sumber ↗</a>
+                    )}
                   </div>
 
                   {/* Upstream/Supplier Specific details */}
