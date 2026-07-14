@@ -1,0 +1,1072 @@
+{
+ "ADRO": {
+  "company": "Alamtri Resources Indonesia Tbk",
+  "edges": [
+   {
+    "counterparty": "PLN",
+    "counterparty_ticker": null,
+    "direction": "customer",
+    "flow": "electricity offtake under PPA (via JV power plants TPI/BPI)",
+    "confidence": "high",
+    "evidence_quote": "PT Tanjung Power Indonesia (TPI) is a joint venture between PT Alamtri Power Indonesia (formerly Adaro Power/AP) (65%) and PT EWP Indonesia (35%), a subsidiary of Korea East-West Power Co., Ltd. TPI developed and operates a 2x100 MW CFPP located in Tabalong Regency, South Kalimantan, which supplies electricity to PLN under a 25-year Power Purchase Agreement (PPA) commencing from the commercial operation date (COD).",
+    "source_url": "https://www.alamtri.com/files/news/berkas_eng/2327/AR%20AlamTri%202024%20-%20web.pdf",
+    "source_type": "filing",
+    "source_date": "2024-12-31",
+    "retrieved_date": "2026-07-14"
+   },
+   {
+    "counterparty": "TNB Fuel Services Sdn. Bhd.",
+    "counterparty_ticker": null,
+    "direction": "customer",
+    "flow": "thermal coal sales (>10% of consolidated revenue)",
+    "confidence": "high",
+    "evidence_quote": "Pihak ketiga/Third party: TNB Fuel Services Sdn. Bhd. 996,716 1,185,034.",
+    "source_url": "https://www.alamtri.com/files/news/berkas/2241/FS%20Final%20AEI%2031%20December%202023.pdf",
+    "source_type": "filing",
+    "source_date": "2023-12-31",
+    "retrieved_date": "2026-07-14"
+   }
+  ]
+ },
+ "ASII": {
+  "company": "Astra International Tbk",
+  "edges": [
+   {
+    "counterparty": "Toyota Motor Corporation",
+    "counterparty_ticker": null,
+    "direction": "supplier",
+    "flow": "Toyota/Lexus vehicle sole agent, importer and distributor (TAM JV)",
+    "confidence": "medium",
+    "evidence_quote": "PT Toyota-Astra Motor (TAM) is a joint venture company with 50% ownership by both the Company and Toyota Motor Corporation (TMC). TAM serves as sole agent, importer and distributor of cars under the Toyota and Lexus brands in Indonesia.",
+    "source_url": "https://www.astra.co.id/en/business/automotive/toyota",
+    "source_type": "company_site",
+    "source_date": "2026-07-14",
+    "retrieved_date": "2026-07-14"
+   },
+   {
+    "counterparty": "Honda Motor Co.",
+    "counterparty_ticker": null,
+    "direction": "supplier",
+    "flow": "Honda motorcycle production and marketing JV (AHM)",
+    "confidence": "medium",
+    "evidence_quote": "PT Astra Honda Motor (AHM) was established by Astra and Honda Motor Co. as a company that manages the production and marketing activities of Honda motorcycles in Indonesia.",
+    "source_url": "https://www.astra.co.id/en/business/automotive/honda",
+    "source_type": "company_site",
+    "source_date": "2026-07-14",
+    "retrieved_date": "2026-07-14"
+   },
+   {
+    "counterparty": "Daihatsu Motor Co., Ltd.",
+    "counterparty_ticker": null,
+    "direction": "supplier",
+    "flow": "Daihatsu vehicle sole agent (ADM)",
+    "confidence": "medium",
+    "evidence_quote": "PT Astra Daihatsu Motor (ADM) is an associated entity established by Astra, Daihatsu Motor Co., Ltd. and Toyota Tsusho Corporation, as the sole agent of Daihatsu in Indonesia.",
+    "source_url": "https://www.astra.co.id/en/business/automotive/daihatsu",
+    "source_type": "company_site",
+    "source_date": "2026-07-14",
+    "retrieved_date": "2026-07-14"
+   },
+   {
+    "counterparty": "Isuzu Motors Limited",
+    "counterparty_ticker": null,
+    "direction": "supplier",
+    "flow": "Isuzu vehicle sole agent for production and marketing (IAMI)",
+    "confidence": "medium",
+    "evidence_quote": "PT Isuzu Astra Motor Indonesia (IAMI) was established by the Company (through PT Arya Kharisma) and Isuzu Motors Limited (IML) as the sole agent responsible for the production and marketing of Isuzu brand vehicles and components in Indonesia.",
+    "source_url": "https://www.astra.co.id/en/business/automotive/isuzu",
+    "source_type": "company_site",
+    "source_date": "2026-07-14",
+    "retrieved_date": "2026-07-14"
+   },
+   {
+    "counterparty": "BMW AG",
+    "counterparty_ticker": null,
+    "direction": "supplier",
+    "flow": "BMW vehicle licensing, trademark and distributorship agreement",
+    "confidence": "high",
+    "evidence_quote": "The Company and certain subsidiaries have existing licensing, technical assistance, royalty, trademark, dealership, distributorship and after sales service agreements with the following licensors: Automobile Peugeot, France; BMW AG, Germany; Daido Kogyo Co Ltd, Japan; Fuji Technica & Miyazu Inc, Japan; GS Yuasa International Ltd, Japan; Kawasaki Industrial Co Ltd, Japan; Kumi Kasei Co Ltd; Magna International Japan Inc; MAHLE Engine Component Japan Corp, Japan; MetalArt Corp, Japan; Mitsubishi Fuso Truck & Bus Corp, Japan; Naza Automotive Manufacturing; PT Astra Daihatsu Motor; PT Astra Honda Motor; PT BMW Indonesia; PT Isuzu Astra Motor Indonesia; PT Toyota-Astra Motor; PT UD Astra Motor Indonesia; Saitama Kiki Co Ltd, Japan; Sakae Riken Kogyo Co Ltd, Japan; Topy Industries Ltd, Japan; Toyoda Gosei Co Ltd, Japan (Automotive).",
+    "source_url": "https://r2.astra.co.id/financial-reports/Astra%20Account%20December%202024.pdf",
+    "source_type": "filing",
+    "source_date": "2024-12-31",
+    "retrieved_date": "2026-07-14"
+   },
+   {
+    "counterparty": "Automobile Peugeot",
+    "counterparty_ticker": null,
+    "direction": "supplier",
+    "flow": "Peugeot vehicle licensing, trademark and distributorship agreement",
+    "confidence": "high",
+    "evidence_quote": "The Company and certain subsidiaries have existing licensing, technical assistance, royalty, trademark, dealership, distributorship and after sales service agreements with the following licensors: Automobile Peugeot, France; BMW AG, Germany; Daido Kogyo Co Ltd, Japan; Fuji Technica & Miyazu Inc, Japan; GS Yuasa International Ltd, Japan; Kawasaki Industrial Co Ltd, Japan; Kumi Kasei Co Ltd; Magna International Japan Inc; MAHLE Engine Component Japan Corp, Japan; MetalArt Corp, Japan; Mitsubishi Fuso Truck & Bus Corp, Japan; Naza Automotive Manufacturing; PT Astra Daihatsu Motor; PT Astra Honda Motor; PT BMW Indonesia; PT Isuzu Astra Motor Indonesia; PT Toyota-Astra Motor; PT UD Astra Motor Indonesia; Saitama Kiki Co Ltd, Japan; Sakae Riken Kogyo Co Ltd, Japan; Topy Industries Ltd, Japan; Toyoda Gosei Co Ltd, Japan (Automotive).",
+    "source_url": "https://r2.astra.co.id/financial-reports/Astra%20Account%20December%202024.pdf",
+    "source_type": "filing",
+    "source_date": "2024-12-31",
+    "retrieved_date": "2026-07-14"
+   },
+   {
+    "counterparty": "Komatsu Ltd",
+    "counterparty_ticker": null,
+    "direction": "supplier",
+    "flow": "Komatsu heavy equipment licensing and distributorship agreement",
+    "confidence": "high",
+    "evidence_quote": "Heavy equipment and mining: BOMAG GmbH & Co OHG, Germany; Komatsu Ltd, Japan; PT Komatsu Marketing & Support Indonesia; PT UD Astra Motor Indonesia; Scania CV Aktiebolag, Sweden; Tadano Asia Pte Ltd, Singapore.",
+    "source_url": "https://r2.astra.co.id/financial-reports/Astra%20Account%20December%202024.pdf",
+    "source_type": "filing",
+    "source_date": "2024-12-31",
+    "retrieved_date": "2026-07-14"
+   },
+   {
+    "counterparty": "Scania CV Aktiebolag",
+    "counterparty_ticker": null,
+    "direction": "supplier",
+    "flow": "Scania heavy equipment licensing and distributorship agreement",
+    "confidence": "high",
+    "evidence_quote": "Heavy equipment and mining: BOMAG GmbH & Co OHG, Germany; Komatsu Ltd, Japan; PT Komatsu Marketing & Support Indonesia; PT UD Astra Motor Indonesia; Scania CV Aktiebolag, Sweden; Tadano Asia Pte Ltd, Singapore.",
+    "source_url": "https://r2.astra.co.id/financial-reports/Astra%20Account%20December%202024.pdf",
+    "source_type": "filing",
+    "source_date": "2024-12-31",
+    "retrieved_date": "2026-07-14"
+   },
+   {
+    "counterparty": "BOMAG GmbH & Co OHG",
+    "counterparty_ticker": null,
+    "direction": "supplier",
+    "flow": "BOMAG heavy equipment licensing and distributorship agreement",
+    "confidence": "high",
+    "evidence_quote": "Heavy equipment and mining: BOMAG GmbH & Co OHG, Germany; Komatsu Ltd, Japan; PT Komatsu Marketing & Support Indonesia; PT UD Astra Motor Indonesia; Scania CV Aktiebolag, Sweden; Tadano Asia Pte Ltd, Singapore.",
+    "source_url": "https://r2.astra.co.id/financial-reports/Astra%20Account%20December%202024.pdf",
+    "source_type": "filing",
+    "source_date": "2024-12-31",
+    "retrieved_date": "2026-07-14"
+   },
+   {
+    "counterparty": "Tadano Asia Pte Ltd",
+    "counterparty_ticker": null,
+    "direction": "supplier",
+    "flow": "Tadano crane/equipment licensing and distributorship agreement",
+    "confidence": "high",
+    "evidence_quote": "Heavy equipment and mining: BOMAG GmbH & Co OHG, Germany; Komatsu Ltd, Japan; PT Komatsu Marketing & Support Indonesia; PT UD Astra Motor Indonesia; Scania CV Aktiebolag, Sweden; Tadano Asia Pte Ltd, Singapore.",
+    "source_url": "https://r2.astra.co.id/financial-reports/Astra%20Account%20December%202024.pdf",
+    "source_type": "filing",
+    "source_date": "2024-12-31",
+    "retrieved_date": "2026-07-14"
+   }
+  ]
+ },
+ "INTP": {
+  "company": "Indocement Tunggal Prakarsa Tbk",
+  "edges": [
+   {
+    "counterparty": "HM Trading Global APAC Pte. Ltd.",
+    "counterparty_ticker": null,
+    "direction": "customer",
+    "flow": "Export/distribution sale of finished cement goods",
+    "confidence": "high",
+    "evidence_quote": "HM Trading Global APAC Pte. Ltd. Under common control Sale of finished goods and purchase of raw materials",
+    "source_url": "https://www.indocement.co.id/media/post/ar-2025-lowquality-publish-final.pdf",
+    "source_type": "filing",
+    "source_date": "2025-12-31",
+    "retrieved_date": "2026-07-14"
+   },
+   {
+    "counterparty": "HM Trading Global GmbH",
+    "counterparty_ticker": null,
+    "direction": "customer",
+    "flow": "Export sale of finished cement goods",
+    "confidence": "high",
+    "evidence_quote": "HM Trading Global GmbH Under common control Sale of finished goods",
+    "source_url": "https://www.indocement.co.id/media/post/ar-2025-lowquality-publish-final.pdf",
+    "source_type": "filing",
+    "source_date": "2025-12-31",
+    "retrieved_date": "2026-07-14"
+   },
+   {
+    "counterparty": "HC Trading Malta Limited",
+    "counterparty_ticker": null,
+    "direction": "customer",
+    "flow": "Export distribution agreement buyer for cement",
+    "confidence": "high",
+    "evidence_quote": "The Company has an export distribution agreement (“Distribution Agreement”) with HC Trading Malta Limited and HM Trading Global APAC Pte. Ltd., subsidiaries of Heidelberg Materials AG, which is effective until 10 April 2026.",
+    "source_url": "https://www.indocement.co.id/media/post/ar-2025-lowquality-publish-final.pdf",
+    "source_type": "filing",
+    "source_date": "2025-12-31",
+    "retrieved_date": "2026-07-14"
+   },
+   {
+    "counterparty": "Heidelberg Materials AG",
+    "counterparty_ticker": null,
+    "direction": "supplier",
+    "flow": "Professional fees paid to ultimate parent",
+    "confidence": "high",
+    "evidence_quote": "Heidelberg Materials AG Ultimate parent Professional fees",
+    "source_url": "https://www.indocement.co.id/media/post/ar-2025-lowquality-publish-final.pdf",
+    "source_type": "filing",
+    "source_date": "2025-12-31",
+    "retrieved_date": "2026-07-14"
+   },
+   {
+    "counterparty": "Heidelberg Materials Asia Pte. Ltd.",
+    "counterparty_ticker": null,
+    "direction": "supplier",
+    "flow": "Professional/management fees and travel expense reimbursement",
+    "confidence": "high",
+    "evidence_quote": "Heidelberg Materials Asia Pte. Ltd. Under common control Professional fees, management fees, and reimbursement of traveling expenses",
+    "source_url": "https://www.indocement.co.id/media/post/ar-2025-lowquality-publish-final.pdf",
+    "source_type": "filing",
+    "source_date": "2025-12-31",
+    "retrieved_date": "2026-07-14"
+   },
+   {
+    "counterparty": "PT Bhakti Sari Perkasa Bersama",
+    "counterparty_ticker": null,
+    "direction": "supplier",
+    "flow": "Outsourcing services",
+    "confidence": "high",
+    "evidence_quote": "PT Bhakti Sari Perkasa Bersama Associate Outsourcing services",
+    "source_url": "https://www.indocement.co.id/media/post/ar-2025-lowquality-publish-final.pdf",
+    "source_type": "filing",
+    "source_date": "2025-12-31",
+    "retrieved_date": "2026-07-14"
+   },
+   {
+    "counterparty": "PT Jaya Berdikari Cipta",
+    "counterparty_ticker": null,
+    "direction": "supplier",
+    "flow": "Shipping/transportation services",
+    "confidence": "high",
+    "evidence_quote": "PT Jaya Berdikari Cipta Associate Transportation services",
+    "source_url": "https://www.indocement.co.id/media/post/ar-2025-lowquality-publish-final.pdf",
+    "source_type": "filing",
+    "source_date": "2025-12-31",
+    "retrieved_date": "2026-07-14"
+   },
+   {
+    "counterparty": "PT Pama Indo Mining",
+    "counterparty_ticker": null,
+    "direction": "supplier",
+    "flow": "Limestone/clay quarrying and mining service fee",
+    "confidence": "high",
+    "evidence_quote": "PT Pama Indo Mining Associate Mining service fee and management fee",
+    "source_url": "https://www.indocement.co.id/media/post/ar-2025-lowquality-publish-final.pdf",
+    "source_type": "filing",
+    "source_date": "2025-12-31",
+    "retrieved_date": "2026-07-14"
+   },
+   {
+    "counterparty": "PT Kereta Api Indonesia",
+    "counterparty_ticker": null,
+    "direction": "supplier",
+    "flow": "Rail transportation for bagged cement delivery",
+    "confidence": "high",
+    "evidence_quote": "Commenced the cooperation with PT Kereta Api Indonesia in using trains as transportation mode for bagged cement delivery.",
+    "source_url": "https://www.indocement.co.id/media/post/ar-2025-lowquality-publish-final.pdf",
+    "source_type": "filing",
+    "source_date": "2025-12-31",
+    "retrieved_date": "2026-07-14"
+   }
+  ]
+ },
+ "JPFA": {
+  "company": "Japfa Comfeed Indonesia Tbk",
+  "edges": [
+   {
+    "counterparty": "Aviagen",
+    "counterparty_ticker": null,
+    "direction": "supplier",
+    "flow": "Indian River grandparent breeding stock (DOC genetics)",
+    "confidence": "high",
+    "evidence_quote": "The Company also has exclusive rights to sell and distribute the Indian River strain from Aviagen (United States) in Indonesia.",
+    "source_url": "https://d1be5sn7lppxuh.cloudfront.net/assets/files/files/annual reports/2025-annual-report-pt-japfa-tbk.pdf",
+    "source_type": "filing",
+    "source_date": "2025-12-31",
+    "retrieved_date": "2026-07-14"
+   }
+  ]
+ },
+ "PGAS": {
+  "company": "PT Perusahaan Gas Negara (Persero) Tbk",
+  "edges": [
+   {
+    "counterparty": "PetroChina International Jabung Ltd.",
+    "counterparty_ticker": null,
+    "direction": "supplier",
+    "flow": "natural gas supply (GSPA)",
+    "confidence": "medium",
+    "evidence_quote": "PCJL will supply 4,651 billion British thermal units (BBTU) to PGN, in effect from January 1 this year to December 31, 2026.",
+    "source_url": "https://www.petrochina.co.id/blog/company-news-5/petrochina-jabung-signs-gas-sales-purchase-agreement-with-pgn-3697",
+    "source_type": "news",
+    "source_date": "2025-01-14",
+    "retrieved_date": "2026-07-14"
+   },
+   {
+    "counterparty": "PT Donggi-Senoro LNG (DSLNG)",
+    "counterparty_ticker": null,
+    "direction": "supplier",
+    "flow": "LNG supply (PJBG / MSPA umbrella contract)",
+    "confidence": "medium",
+    "evidence_quote": "PT Perusahaan Gas Negara (PGN) Tbk (PGAS) signed a liquefied natural gas (LNG) gas sale and purchase agreement (PJBG) with PT Donggi-Senoro LNG (DSLNG).",
+    "source_url": "https://voi.id/en/economy/407084",
+    "source_type": "news",
+    "source_date": "2024-08-12",
+    "retrieved_date": "2026-07-14"
+   },
+   {
+    "counterparty": "NuEnergy Gas Limited",
+    "counterparty_ticker": null,
+    "direction": "supplier",
+    "flow": "coal bed methane supply (Gas Sales and Purchase Agreement)",
+    "confidence": "medium",
+    "evidence_quote": "NuEnergy Gas Limited has signed a binding Gas Sales and Purchase Agreement with PT Perusahaan Gas Negara Tbk for the sale of coal bed methane from its Tanjung Enim Plan of Development.",
+    "source_url": "https://www.theglobeandmail.com/investing/markets/markets-news/Tipranks/36681893/nuenergy-gas-secures-major-gas-sales-agreement-with-pgn/",
+    "source_type": "news",
+    "source_date": "2025-12-17",
+    "retrieved_date": "2026-07-14"
+   }
+  ]
+ },
+ "SMGR": {
+  "company": "Semen Indonesia (Persero) Tbk",
+  "edges": [
+   {
+    "counterparty": "PT Wijaya Karya Beton Tbk",
+    "counterparty_ticker": "WTON",
+    "direction": "customer",
+    "flow": "cement sales to precast concrete producer",
+    "confidence": "high",
+    "evidence_quote": "Penjualan produk/Sales of goods\nPT Wijaya Karya Beton Tbk 96.220                     90.383",
+    "source_url": "https://sig.id/storage/downloads/informasi-keuangan/2025/smgr-fy-2025-31-dec-2025.pdf",
+    "source_type": "filing",
+    "source_date": "2025-12-31",
+    "retrieved_date": "2026-07-14"
+   },
+   {
+    "counterparty": "PT Pembangunan Perumahan (Persero) Tbk",
+    "counterparty_ticker": null,
+    "direction": "customer",
+    "flow": "cement sales to construction contractor",
+    "confidence": "high",
+    "evidence_quote": "Penjualan produk/Sales of goods\nPT Pembangunan Perumahan (Persero) Tbk 80.890                     152.356",
+    "source_url": "https://sig.id/storage/downloads/informasi-keuangan/2025/smgr-fy-2025-31-dec-2025.pdf",
+    "source_type": "filing",
+    "source_date": "2025-12-31",
+    "retrieved_date": "2026-07-14"
+   },
+   {
+    "counterparty": "PT Adhi Persada Beton",
+    "counterparty_ticker": null,
+    "direction": "customer",
+    "flow": "cement sales to precast concrete producer",
+    "confidence": "high",
+    "evidence_quote": "Penjualan produk/Sales of goods\nPT Adhi Persada Beton 78.819                     125.807",
+    "source_url": "https://sig.id/storage/downloads/informasi-keuangan/2025/smgr-fy-2025-31-dec-2025.pdf",
+    "source_type": "filing",
+    "source_date": "2025-12-31",
+    "retrieved_date": "2026-07-14"
+   },
+   {
+    "counterparty": "PT Karya Logistik Nusantara",
+    "counterparty_ticker": null,
+    "direction": "customer",
+    "flow": "cement sales to precast concrete/construction material trader",
+    "confidence": "high",
+    "evidence_quote": "Penjualan produk/Sales of goods\nPT Karya Logistik Nusantara 70.633                     114.022",
+    "source_url": "https://sig.id/storage/downloads/informasi-keuangan/2025/smgr-fy-2025-31-dec-2025.pdf",
+    "source_type": "filing",
+    "source_date": "2025-12-31",
+    "retrieved_date": "2026-07-14"
+   },
+   {
+    "counterparty": "PT Adhi Karya (Persero) Tbk",
+    "counterparty_ticker": "ADHI",
+    "direction": "customer",
+    "flow": "cement sales to construction contractor",
+    "confidence": "high",
+    "evidence_quote": "Penjualan produk/Sales of goods\nPT Adhi Karya (Persero) Tbk 52.641                     133.370",
+    "source_url": "https://sig.id/storage/downloads/informasi-keuangan/2025/smgr-fy-2025-31-dec-2025.pdf",
+    "source_type": "filing",
+    "source_date": "2025-12-31",
+    "retrieved_date": "2026-07-14"
+   },
+   {
+    "counterparty": "PT Waskita Beton Precast Tbk",
+    "counterparty_ticker": "WSBP",
+    "direction": "customer",
+    "flow": "cement sales to precast concrete producer",
+    "confidence": "high",
+    "evidence_quote": "Penjualan produk/Sales of goods\nPT Waskita Beton Precast Tbk 33.108                     16.145",
+    "source_url": "https://sig.id/storage/downloads/informasi-keuangan/2025/smgr-fy-2025-31-dec-2025.pdf",
+    "source_type": "filing",
+    "source_date": "2025-12-31",
+    "retrieved_date": "2026-07-14"
+   },
+   {
+    "counterparty": "PT Pupuk Indonesia (Persero)",
+    "counterparty_ticker": null,
+    "direction": "customer",
+    "flow": "product sales",
+    "confidence": "high",
+    "evidence_quote": "Penjualan produk/Sales of goods\nPT Pupuk Indonesia (Persero) 21.719                     18.888",
+    "source_url": "https://sig.id/storage/downloads/informasi-keuangan/2025/smgr-fy-2025-31-dec-2025.pdf",
+    "source_type": "filing",
+    "source_date": "2025-12-31",
+    "retrieved_date": "2026-07-14"
+   },
+   {
+    "counterparty": "PT Igasar",
+    "counterparty_ticker": null,
+    "direction": "customer",
+    "flow": "cement distribution",
+    "confidence": "medium",
+    "evidence_quote": "PT Igasar Distributor semen/Cement distributor Padang 12,00% 12,00%",
+    "source_url": "https://sig.id/storage/downloads/informasi-keuangan/2025/smgr-fy-2025-31-dec-2025.pdf",
+    "source_type": "filing",
+    "source_date": "2025-12-31",
+    "retrieved_date": "2026-07-14"
+   },
+   {
+    "counterparty": "PT Mitra Kiara Indonesia",
+    "counterparty_ticker": null,
+    "direction": "customer",
+    "flow": "building material distribution",
+    "confidence": "medium",
+    "evidence_quote": "PT Mitra Kiara Indonesia Distributor bahan bangunan/ Jakarta 20,00% 20,00%\n  Distributor building material",
+    "source_url": "https://sig.id/storage/downloads/informasi-keuangan/2025/smgr-fy-2025-31-dec-2025.pdf",
+    "source_type": "filing",
+    "source_date": "2025-12-31",
+    "retrieved_date": "2026-07-14"
+   },
+   {
+    "counterparty": "PT Pelayaran Tonasa Lines",
+    "counterparty_ticker": null,
+    "direction": "supplier",
+    "flow": "shipping and logistics services",
+    "confidence": "high",
+    "evidence_quote": "Pembelian produk dan jasa/ Purchases of goods and services\nPT Pelayaran Tonasa Lines 384.002                    446.921",
+    "source_url": "https://sig.id/storage/downloads/informasi-keuangan/2025/smgr-fy-2025-31-dec-2025.pdf",
+    "source_type": "filing",
+    "source_date": "2025-12-31",
+    "retrieved_date": "2026-07-14"
+   },
+   {
+    "counterparty": "PT Dahana (Persero)",
+    "counterparty_ticker": null,
+    "direction": "supplier",
+    "flow": "explosives supply for quarry blasting",
+    "confidence": "high",
+    "evidence_quote": "Pembelian produk dan jasa/ Purchases of goods and services\nPT Dahana (Persero) 310.477                    195.753",
+    "source_url": "https://sig.id/storage/downloads/informasi-keuangan/2025/smgr-fy-2025-31-dec-2025.pdf",
+    "source_type": "filing",
+    "source_date": "2025-12-31",
+    "retrieved_date": "2026-07-14"
+   },
+   {
+    "counterparty": "PT Petrokimia Gresik",
+    "counterparty_ticker": null,
+    "direction": "supplier",
+    "flow": "purchases of goods and services",
+    "confidence": "high",
+    "evidence_quote": "Pembelian produk dan jasa/ Purchases of goods and services\nPT Petrokima Gresik 154.548                    122.032",
+    "source_url": "https://sig.id/storage/downloads/informasi-keuangan/2025/smgr-fy-2025-31-dec-2025.pdf",
+    "source_type": "filing",
+    "source_date": "2025-12-31",
+    "retrieved_date": "2026-07-14"
+   },
+   {
+    "counterparty": "PT PBM Biringkasi Raya",
+    "counterparty_ticker": null,
+    "direction": "supplier",
+    "flow": "stevedoring and port handling services",
+    "confidence": "high",
+    "evidence_quote": "Pembelian produk dan jasa/ Purchases of goods and services\nPT PBM Biringkasi Raya 146.441                    142.751",
+    "source_url": "https://sig.id/storage/downloads/informasi-keuangan/2025/smgr-fy-2025-31-dec-2025.pdf",
+    "source_type": "filing",
+    "source_date": "2025-12-31",
+    "retrieved_date": "2026-07-14"
+   },
+   {
+    "counterparty": "PT Kereta Api Indonesia (Persero)",
+    "counterparty_ticker": null,
+    "direction": "supplier",
+    "flow": "rail freight logistics",
+    "confidence": "high",
+    "evidence_quote": "Pembelian produk dan jasa/ Purchases of goods and services\nPT Kereta Api Indonesia (Persero) 118.605                    145.662",
+    "source_url": "https://sig.id/storage/downloads/informasi-keuangan/2025/smgr-fy-2025-31-dec-2025.pdf",
+    "source_type": "filing",
+    "source_date": "2025-12-31",
+    "retrieved_date": "2026-07-14"
+   },
+   {
+    "counterparty": "PT Topabiring Trans Logistik",
+    "counterparty_ticker": null,
+    "direction": "supplier",
+    "flow": "freight forwarding/logistics services",
+    "confidence": "medium",
+    "evidence_quote": "PT Topabiring Trans Logistik (dahulu/ previously PT EMKL Topabiring) 78.871                      65.462",
+    "source_url": "https://sig.id/storage/downloads/informasi-keuangan/2025/smgr-fy-2025-31-dec-2025.pdf",
+    "source_type": "filing",
+    "source_date": "2025-12-31",
+    "retrieved_date": "2026-07-14"
+   },
+   {
+    "counterparty": "PT Kereta Api Logistik",
+    "counterparty_ticker": null,
+    "direction": "supplier",
+    "flow": "rail logistics services",
+    "confidence": "medium",
+    "evidence_quote": "PT Kereta Api Logistik 19.729                      24.116",
+    "source_url": "https://sig.id/storage/downloads/informasi-keuangan/2025/smgr-fy-2025-31-dec-2025.pdf",
+    "source_type": "filing",
+    "source_date": "2025-12-31",
+    "retrieved_date": "2026-07-14"
+   },
+   {
+    "counterparty": "PT Bukit Asam Tbk",
+    "counterparty_ticker": "PTBA",
+    "direction": "supplier",
+    "flow": "coal supply for kiln fuel",
+    "confidence": "high",
+    "evidence_quote": "PT Bukit Asam Tbk -                                88.775",
+    "source_url": "https://sig.id/storage/downloads/informasi-keuangan/2025/smgr-fy-2025-31-dec-2025.pdf",
+    "source_type": "filing",
+    "source_date": "2025-12-31",
+    "retrieved_date": "2026-07-14"
+   },
+   {
+    "counterparty": "PT Krakatau Bandar Samudera",
+    "counterparty_ticker": null,
+    "direction": "supplier",
+    "flow": "port and logistics services",
+    "confidence": "medium",
+    "evidence_quote": "PT Krakatau Bandar Samudera -                                11.050",
+    "source_url": "https://sig.id/storage/downloads/informasi-keuangan/2025/smgr-fy-2025-31-dec-2025.pdf",
+    "source_type": "filing",
+    "source_date": "2025-12-31",
+    "retrieved_date": "2026-07-14"
+   },
+   {
+    "counterparty": "PT Artha Daya Coalindo",
+    "counterparty_ticker": null,
+    "direction": "supplier",
+    "flow": "coal supply for kiln fuel",
+    "confidence": "high",
+    "evidence_quote": "PT Artha Daya Coalindo -                                9.568",
+    "source_url": "https://sig.id/storage/downloads/informasi-keuangan/2025/smgr-fy-2025-31-dec-2025.pdf",
+    "source_type": "filing",
+    "source_date": "2025-12-31",
+    "retrieved_date": "2026-07-14"
+   }
+  ]
+ },
+ "TAPG": {
+  "company": "PT Triputra Agro Persada Tbk.",
+  "edges": [
+   {
+    "counterparty": "PT Sinar Alam Permai",
+    "counterparty_ticker": null,
+    "direction": "customer",
+    "flow": "CPO sales",
+    "confidence": "high",
+    "evidence_quote": "For the year ended December 31, 2024 and 2023 the Group's sales to customers that exceeded 10% of total consolidated sales are from the palm oil product and its derivatives operating segment with details as follows: PT Sinar Alam Permai 2,466,221 2,385,599 25.50% 28.65%; PT Kutai Refinery Nusantara 2,255,624 1,868,363 23.32% 22.44%; PT Sinar Mas Agro Resources and Technology Tbk 1,205,523 807,623 12.46% 9.7%.",
+    "source_url": "https://admin-web.tap-agri.com/storage/files/1/AR/AR_2024.pdf",
+    "source_type": "filing",
+    "source_date": "2024-12-31",
+    "retrieved_date": "2026-07-14"
+   },
+   {
+    "counterparty": "PT Kutai Refinery Nusantara",
+    "counterparty_ticker": null,
+    "direction": "customer",
+    "flow": "CPO sales",
+    "confidence": "high",
+    "evidence_quote": "For the year ended December 31, 2024 and 2023 the Group's sales to customers that exceeded 10% of total consolidated sales are from the palm oil product and its derivatives operating segment with details as follows: PT Sinar Alam Permai 2,466,221 2,385,599 25.50% 28.65%; PT Kutai Refinery Nusantara 2,255,624 1,868,363 23.32% 22.44%; PT Sinar Mas Agro Resources and Technology Tbk 1,205,523 807,623 12.46% 9.7%.",
+    "source_url": "https://admin-web.tap-agri.com/storage/files/1/AR/AR_2024.pdf",
+    "source_type": "filing",
+    "source_date": "2024-12-31",
+    "retrieved_date": "2026-07-14"
+   },
+   {
+    "counterparty": "PT Sinar Mas Agro Resources and Technology Tbk",
+    "counterparty_ticker": "SMAR",
+    "direction": "customer",
+    "flow": "CPO sales",
+    "confidence": "high",
+    "evidence_quote": "For the year ended December 31, 2024 and 2023 the Group's sales to customers that exceeded 10% of total consolidated sales are from the palm oil product and its derivatives operating segment with details as follows: PT Sinar Alam Permai 2,466,221 2,385,599 25.50% 28.65%; PT Kutai Refinery Nusantara 2,255,624 1,868,363 23.32% 22.44%; PT Sinar Mas Agro Resources and Technology Tbk 1,205,523 807,623 12.46% 9.7%.",
+    "source_url": "https://admin-web.tap-agri.com/storage/files/1/AR/AR_2024.pdf",
+    "source_type": "filing",
+    "source_date": "2024-12-31",
+    "retrieved_date": "2026-07-14"
+   },
+   {
+    "counterparty": "PT Energi Unggul Persada",
+    "counterparty_ticker": null,
+    "direction": "customer",
+    "flow": "CPO/palm product sales (trade receivable)",
+    "confidence": "high",
+    "evidence_quote": "The details of trade receivables from third parties based on customers are as follows: PT Kutai Refinery Nusantara 109,967 26,492; PT Energi Unggul Persada 39,948 5,052; PT Sinar Alam Permai 26,555 12,393; PT Sinar Mas Agro Resources and Technology Tbk 20,708 8,380; PT LDC East Indonesia 9,139 6,430; PT Agro Makmur Raya 5,934 1,981; PT Waru Kaltim Plantation 5,090 3,913; PT Wilmar Nabati Indonesia 4,697 7,256.",
+    "source_url": "https://admin-web.tap-agri.com/storage/files/1/AR/AR_2024.pdf",
+    "source_type": "filing",
+    "source_date": "2024-12-31",
+    "retrieved_date": "2026-07-14"
+   },
+   {
+    "counterparty": "PT LDC East Indonesia",
+    "counterparty_ticker": null,
+    "direction": "customer",
+    "flow": "CPO/palm product sales (trade receivable)",
+    "confidence": "high",
+    "evidence_quote": "The details of trade receivables from third parties based on customers are as follows: PT Kutai Refinery Nusantara 109,967 26,492; PT Energi Unggul Persada 39,948 5,052; PT Sinar Alam Permai 26,555 12,393; PT Sinar Mas Agro Resources and Technology Tbk 20,708 8,380; PT LDC East Indonesia 9,139 6,430; PT Agro Makmur Raya 5,934 1,981; PT Waru Kaltim Plantation 5,090 3,913; PT Wilmar Nabati Indonesia 4,697 7,256.",
+    "source_url": "https://admin-web.tap-agri.com/storage/files/1/AR/AR_2024.pdf",
+    "source_type": "filing",
+    "source_date": "2024-12-31",
+    "retrieved_date": "2026-07-14"
+   },
+   {
+    "counterparty": "PT Wilmar Nabati Indonesia",
+    "counterparty_ticker": null,
+    "direction": "customer",
+    "flow": "CPO/palm product sales (trade receivable)",
+    "confidence": "high",
+    "evidence_quote": "The details of trade receivables from third parties based on customers are as follows: PT Kutai Refinery Nusantara 109,967 26,492; PT Energi Unggul Persada 39,948 5,052; PT Sinar Alam Permai 26,555 12,393; PT Sinar Mas Agro Resources and Technology Tbk 20,708 8,380; PT LDC East Indonesia 9,139 6,430; PT Agro Makmur Raya 5,934 1,981; PT Waru Kaltim Plantation 5,090 3,913; PT Wilmar Nabati Indonesia 4,697 7,256.",
+    "source_url": "https://admin-web.tap-agri.com/storage/files/1/AR/AR_2024.pdf",
+    "source_type": "filing",
+    "source_date": "2024-12-31",
+    "retrieved_date": "2026-07-14"
+   },
+   {
+    "counterparty": "PT Sumber Mahardhika Graha",
+    "counterparty_ticker": null,
+    "direction": "supplier",
+    "flow": "FFB/raw material purchase (related party)",
+    "confidence": "high",
+    "evidence_quote": "Sales and purchases from related parties are made at agreed prices depending on the type of product involved regarding market prices. Pembelian - bahan baku / Purchases - raw materials: PT Sumber Mahardhika Graha 73,525 36,547; PT Harapan Hibrida Kalbar 56,605 632; PT Graha Cakramulia 45,954 626.",
+    "source_url": "https://admin-web.tap-agri.com/storage/files/1/AR/AR_2024.pdf",
+    "source_type": "filing",
+    "source_date": "2024-12-31",
+    "retrieved_date": "2026-07-14"
+   },
+   {
+    "counterparty": "PT Harapan Hibrida Kalbar",
+    "counterparty_ticker": null,
+    "direction": "supplier",
+    "flow": "FFB/raw material purchase (related party)",
+    "confidence": "high",
+    "evidence_quote": "Sales and purchases from related parties are made at agreed prices depending on the type of product involved regarding market prices. Pembelian - bahan baku / Purchases - raw materials: PT Sumber Mahardhika Graha 73,525 36,547; PT Harapan Hibrida Kalbar 56,605 632; PT Graha Cakramulia 45,954 626.",
+    "source_url": "https://admin-web.tap-agri.com/storage/files/1/AR/AR_2024.pdf",
+    "source_type": "filing",
+    "source_date": "2024-12-31",
+    "retrieved_date": "2026-07-14"
+   },
+   {
+    "counterparty": "PT Graha Cakramulia",
+    "counterparty_ticker": null,
+    "direction": "supplier",
+    "flow": "FFB/raw material purchase (related party)",
+    "confidence": "high",
+    "evidence_quote": "Sales and purchases from related parties are made at agreed prices depending on the type of product involved regarding market prices. Pembelian - bahan baku / Purchases - raw materials: PT Sumber Mahardhika Graha 73,525 36,547; PT Harapan Hibrida Kalbar 56,605 632; PT Graha Cakramulia 45,954 626.",
+    "source_url": "https://admin-web.tap-agri.com/storage/files/1/AR/AR_2024.pdf",
+    "source_type": "filing",
+    "source_date": "2024-12-31",
+    "retrieved_date": "2026-07-14"
+   },
+   {
+    "counterparty": "PT Wilmar Chemical Indonesia",
+    "counterparty_ticker": null,
+    "direction": "supplier",
+    "flow": "Chemical/materials purchase",
+    "confidence": "high",
+    "evidence_quote": "Details of trade payables to third parties by supplier are as follows: PT Sentana Adidaya Pratama 80,452 60,112; PT Permata Agro Persada 71,826 23,929; PT Goautama Sinarbatuah 23,333 23,024; PT Wilmar Chemical Indonesia 15,489 38; PT Dupan Anugerah Lestari 14,179 9,497; PT Petrofindo Niaga Sukses 10,113 6,071; PT Wejas Imanuel 7,816 4,544; CV Maju Bersama 7,234 4,651; CV Surya Wijaya Mandiri 6,914 5,891; PT Anugerah Alam Persada 5,872 3,822; PT Gemilang Eka Dharma 3,357 10,549; PT Indra Angkola Energy 3,223 6,614; PT Traktor Nusantara 2,053 10,853; PT Indomobil Prima Niaga 706 11,867.",
+    "source_url": "https://admin-web.tap-agri.com/storage/files/1/AR/AR_2024.pdf",
+    "source_type": "filing",
+    "source_date": "2024-12-31",
+    "retrieved_date": "2026-07-14"
+   },
+   {
+    "counterparty": "PT Traktor Nusantara",
+    "counterparty_ticker": null,
+    "direction": "supplier",
+    "flow": "Equipment purchase",
+    "confidence": "high",
+    "evidence_quote": "Details of trade payables to third parties by supplier are as follows: PT Sentana Adidaya Pratama 80,452 60,112; PT Permata Agro Persada 71,826 23,929; PT Goautama Sinarbatuah 23,333 23,024; PT Wilmar Chemical Indonesia 15,489 38; PT Dupan Anugerah Lestari 14,179 9,497; PT Petrofindo Niaga Sukses 10,113 6,071; PT Wejas Imanuel 7,816 4,544; CV Maju Bersama 7,234 4,651; CV Surya Wijaya Mandiri 6,914 5,891; PT Anugerah Alam Persada 5,872 3,822; PT Gemilang Eka Dharma 3,357 10,549; PT Indra Angkola Energy 3,223 6,614; PT Traktor Nusantara 2,053 10,853; PT Indomobil Prima Niaga 706 11,867.",
+    "source_url": "https://admin-web.tap-agri.com/storage/files/1/AR/AR_2024.pdf",
+    "source_type": "filing",
+    "source_date": "2024-12-31",
+    "retrieved_date": "2026-07-14"
+   },
+   {
+    "counterparty": "PT Indomobil Prima Niaga",
+    "counterparty_ticker": null,
+    "direction": "supplier",
+    "flow": "Vehicle/equipment purchase",
+    "confidence": "high",
+    "evidence_quote": "Details of trade payables to third parties by supplier are as follows: PT Sentana Adidaya Pratama 80,452 60,112; PT Permata Agro Persada 71,826 23,929; PT Goautama Sinarbatuah 23,333 23,024; PT Wilmar Chemical Indonesia 15,489 38; PT Dupan Anugerah Lestari 14,179 9,497; PT Petrofindo Niaga Sukses 10,113 6,071; PT Wejas Imanuel 7,816 4,544; CV Maju Bersama 7,234 4,651; CV Surya Wijaya Mandiri 6,914 5,891; PT Anugerah Alam Persada 5,872 3,822; PT Gemilang Eka Dharma 3,357 10,549; PT Indra Angkola Energy 3,223 6,614; PT Traktor Nusantara 2,053 10,853; PT Indomobil Prima Niaga 706 11,867.",
+    "source_url": "https://admin-web.tap-agri.com/storage/files/1/AR/AR_2024.pdf",
+    "source_type": "filing",
+    "source_date": "2024-12-31",
+    "retrieved_date": "2026-07-14"
+   }
+  ]
+ },
+ "TLKM": {
+  "company": "Telkom Indonesia (Persero) Tbk",
+  "edges": [
+   {
+    "counterparty": "PT Huawei Tech Investment",
+    "counterparty_ticker": null,
+    "direction": "supplier",
+    "flow": "5G RAN / radio network equipment procurement (ROA) & technical support",
+    "confidence": "high",
+    "evidence_quote": "Telkomsel, PT Ericsson Indonesia, PT Huawei Tech Investment, and PT ZTE Indonesia February 1, 2021 - January 31, 2027 Procurement Agreement for Radio Ultimate Solution (\"ROA\") and TSA",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1001807/000155837025005643/tmb-20241231x20f.htm",
+    "source_type": "filing",
+    "source_date": "2024-12-31",
+    "retrieved_date": "2026-07-14"
+   },
+   {
+    "counterparty": "PT ZTE Indonesia",
+    "counterparty_ticker": null,
+    "direction": "supplier",
+    "flow": "5G RAN / radio network equipment procurement (ROA) & technical support",
+    "confidence": "high",
+    "evidence_quote": "Telkomsel, PT Ericsson Indonesia, PT Huawei Tech Investment, and PT ZTE Indonesia February 1, 2021 - January 31, 2027 Procurement Agreement for Radio Ultimate Solution (\"ROA\") and TSA",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1001807/000155837025005643/tmb-20241231x20f.htm",
+    "source_type": "filing",
+    "source_date": "2024-12-31",
+    "retrieved_date": "2026-07-14"
+   },
+   {
+    "counterparty": "PT Ericsson Indonesia",
+    "counterparty_ticker": null,
+    "direction": "supplier",
+    "flow": "5G RAN / radio network equipment procurement (ROA) & technical support",
+    "confidence": "high",
+    "evidence_quote": "Telkomsel, PT Ericsson Indonesia, PT Huawei Tech Investment, and PT ZTE Indonesia February 1, 2021 - January 31, 2027 Procurement Agreement for Radio Ultimate Solution (\"ROA\") and TSA",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1001807/000155837025005643/tmb-20241231x20f.htm",
+    "source_type": "filing",
+    "source_date": "2024-12-31",
+    "retrieved_date": "2026-07-14"
+   },
+   {
+    "counterparty": "Thales Alenia Space France (TAS)",
+    "counterparty_ticker": null,
+    "direction": "supplier",
+    "flow": "satellite system procurement & installation (HTS 113BT)",
+    "confidence": "high",
+    "evidence_quote": "Telkomsat and Thales Alenia Space France (\"TAS\") October 28, 2021 - October 27, 2037 Procurement and Installation Agreement of HTS 113BT Satellite System",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1001807/000155837025005643/tmb-20241231x20f.htm",
+    "source_type": "filing",
+    "source_date": "2024-12-31",
+    "retrieved_date": "2026-07-14"
+   },
+   {
+    "counterparty": "Space Exploration Technologies Corporation (SpaceX)",
+    "counterparty_ticker": null,
+    "direction": "supplier",
+    "flow": "satellite launch service (HTS 113BT)",
+    "confidence": "high",
+    "evidence_quote": "Telkomsat and Space Exploration Technologies Corporation (\"SpaceX\") April 19, 2022 - June 30, 2025 Procurement Agreement for Launch Service of HTS 113BT Satellite",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1001807/000155837025005643/tmb-20241231x20f.htm",
+    "source_type": "filing",
+    "source_date": "2024-12-31",
+    "retrieved_date": "2026-07-14"
+   },
+   {
+    "counterparty": "PT Phincon",
+    "counterparty_ticker": null,
+    "direction": "supplier",
+    "flow": "CRM solution system integration",
+    "confidence": "high",
+    "evidence_quote": "Telkomsel and PT Phincon September 12, 2019 - September 12, 2027 Development and Rollout Agreement (\"DRA\") and Technical Support Agreement (\"TSA\") Customer Relationship Management (\"CRM\") Solution System Integrator",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1001807/000155837025005643/tmb-20241231x20f.htm",
+    "source_type": "filing",
+    "source_date": "2024-12-31",
+    "retrieved_date": "2026-07-14"
+   },
+   {
+    "counterparty": "PT Sempurna Global Pratama",
+    "counterparty_ticker": null,
+    "direction": "supplier",
+    "flow": "GGSN / virtualized EPC network equipment procurement",
+    "confidence": "high",
+    "evidence_quote": "Telkomsel and PT Sempurna Global Pratama September 1, 2021 - August 31, 2024* Procurement Agreement of Next Generation of Gateway GPRS Support Node (\"GGSN\") (Virtualized EPC)",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1001807/000155837025005643/tmb-20241231x20f.htm",
+    "source_type": "filing",
+    "source_date": "2024-12-31",
+    "retrieved_date": "2026-07-14"
+   },
+   {
+    "counterparty": "Nokia",
+    "counterparty_ticker": null,
+    "direction": "supplier",
+    "flow": "OTN Metro (OTM) network equipment, Platform Nokia — resold/installed via integrator PT Lintas Teknologi Indonesia",
+    "confidence": "high",
+    "evidence_quote": "The Company and PT Lintas Teknologi Indonesia December 13, 2024 - June 28, 2025 Agreement Procurement and Installation for OTN Metro (OTM) Future State Architecture (FSA) - Platform Nokia",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1001807/000155837025005643/tmb-20241231x20f.htm",
+    "source_type": "filing",
+    "source_date": "2024-12-31",
+    "retrieved_date": "2026-07-14"
+   },
+   {
+    "counterparty": "Cisco",
+    "counterparty_ticker": null,
+    "direction": "supplier",
+    "flow": "IP backbone network equipment, Platform Cisco — resold/installed via integrator PT Master System Infotama",
+    "confidence": "high",
+    "evidence_quote": "The Company and PT Master System Infotama December 9, 2024 - June 6, 2025 Agreement Procurement and Installation for Expand IP Backbone Platform Cisco",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1001807/000155837025005643/tmb-20241231x20f.htm",
+    "source_type": "filing",
+    "source_date": "2024-12-31",
+    "retrieved_date": "2026-07-14"
+   },
+   {
+    "counterparty": "PT Indosat Tbk",
+    "counterparty_ticker": "ISAT",
+    "direction": "customer",
+    "flow": "tower colocation lease-back (10-year tenant, ~983 tower slots) plus future colocation orders",
+    "confidence": "high",
+    "evidence_quote": "based on the Telecommunication Tower Conditional Sale and Purchase Agreement (“CSPA”) between Mitratel and PT Indosat Tbk. (“Indosat”), Mitratel agreed to acquire 997 telecommunication towers belonging to Indosat for Rp 1,648 billion. Mitratel and Indosat also agreed to lease back 983 slots of Indosat’s telecommunications towers for 10 years lease period. In addition, Indosat have also agreed to deliver order for colocations for the next 3 years which will be compensated by Mitratel amounting to Rp 473 billion as commitment.",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1001807/000155837025005643/tmb-20241231x20f.htm",
+    "source_type": "filing",
+    "source_date": "2024-12-31",
+    "retrieved_date": "2026-07-14"
+   },
+   {
+    "counterparty": "PT GoTo Gojek Tokopedia Tbk",
+    "counterparty_ticker": "GOTO",
+    "direction": "customer",
+    "flow": "connectivity, digital platform & services partnership within the GoTo ecosystem",
+    "confidence": "high",
+    "evidence_quote": "Telkomsel’s US$450.0 million (Rp6.4 trillion) investment in PT GoTo Gojek Tokopedia Tbk (“ GoTo ”) from 2020 to 2022. This partnership, which saw Telkom gradually invest in GoTo from 2020 to 2022, has consistently generated synergistic value through enhanced connectivity, digital platforms, and services. In 2024, we continued to work with GoTo to expand services in the GoTo ecosystem.",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1001807/000155837025005643/tmb-20241231x20f.htm",
+    "source_type": "filing",
+    "source_date": "2024-12-31",
+    "retrieved_date": "2026-07-14"
+   }
+  ]
+ },
+ "UNTR": {
+  "company": "United Tractors Tbk",
+  "edges": [
+   {
+    "counterparty": "Komatsu Ltd.",
+    "counterparty_ticker": null,
+    "direction": "supplier",
+    "flow": "Komatsu heavy equipment supply",
+    "confidence": "high",
+    "evidence_quote": "As at 31 December 2024, trade payables of the Company to Komatsu Group (Komatsu Ltd., PT Komatsu Marketing & Support Indonesia (“KMSI”) and PT Komatsu Undercarriage Indonesia) amounting to Rp 15,225.8 billion and USD 82.1 million or equivalent to a total of Rp 16,552.4 billion (2023: Rp 15,746.0 billion and USD 38.5 million or equivalent to a total of Rp 16,340.1 billion), have been secured by letter of credit.",
+    "source_url": "https://www.unitedtractors.com/wp-content/uploads/2024/01/FS-UNTR-1224.pdf",
+    "source_type": "filing",
+    "source_date": "2024-12-31",
+    "retrieved_date": "2026-07-14"
+   },
+   {
+    "counterparty": "PT Komatsu Marketing & Support Indonesia (KMSI)",
+    "counterparty_ticker": null,
+    "direction": "supplier",
+    "flow": "Komatsu spare parts supply (exclusive)",
+    "confidence": "high",
+    "evidence_quote": "Komatsu as a heavy equipment supplier appoints KMSI as a spare parts supplier to the Company exclusively. The Company has the exclusive right to sell spare parts of Komatsu in Indonesia.",
+    "source_url": "https://www.unitedtractors.com/wp-content/uploads/2024/01/FS-UNTR-1224.pdf",
+    "source_type": "filing",
+    "source_date": "2024-12-31",
+    "retrieved_date": "2026-07-14"
+   },
+   {
+    "counterparty": "PT Komatsu Undercarriage Indonesia",
+    "counterparty_ticker": null,
+    "direction": "supplier",
+    "flow": "Komatsu undercarriage parts supply",
+    "confidence": "high",
+    "evidence_quote": "As at 31 December 2024, trade payables of the Company to Komatsu Group (Komatsu Ltd., PT Komatsu Marketing & Support Indonesia (“KMSI”) and PT Komatsu Undercarriage Indonesia) amounting to Rp 15,225.8 billion and USD 82.1 million or equivalent to a total of Rp 16,552.4 billion (2023: Rp 15,746.0 billion and USD 38.5 million or equivalent to a total of Rp 16,340.1 billion), have been secured by letter of credit.",
+    "source_url": "https://www.unitedtractors.com/wp-content/uploads/2024/01/FS-UNTR-1224.pdf",
+    "source_type": "filing",
+    "source_date": "2024-12-31",
+    "retrieved_date": "2026-07-14"
+   },
+   {
+    "counterparty": "Tadano Asia Pte. Ltd.",
+    "counterparty_ticker": null,
+    "direction": "supplier",
+    "flow": "Tadano crane equipment distributorship (exclusive)",
+    "confidence": "high",
+    "evidence_quote": "The Group also has distributorship agreements with Tadano Asia Pte. Ltd. (Singapore), BOMAG GmbH & Co. OHG. (Germany), PT UD Astra Motor Indonesia and Scania CV Aktiebolag (Sweden) whereby the Group has the exclusive right to sell the products of those companies in Indonesia.",
+    "source_url": "https://www.unitedtractors.com/wp-content/uploads/2024/01/FS-UNTR-1224.pdf",
+    "source_type": "filing",
+    "source_date": "2024-12-31",
+    "retrieved_date": "2026-07-14"
+   },
+   {
+    "counterparty": "BOMAG GmbH & Co. OHG.",
+    "counterparty_ticker": null,
+    "direction": "supplier",
+    "flow": "BOMAG compaction equipment distributorship (exclusive)",
+    "confidence": "high",
+    "evidence_quote": "The Group also has distributorship agreements with Tadano Asia Pte. Ltd. (Singapore), BOMAG GmbH & Co. OHG. (Germany), PT UD Astra Motor Indonesia and Scania CV Aktiebolag (Sweden) whereby the Group has the exclusive right to sell the products of those companies in Indonesia.",
+    "source_url": "https://www.unitedtractors.com/wp-content/uploads/2024/01/FS-UNTR-1224.pdf",
+    "source_type": "filing",
+    "source_date": "2024-12-31",
+    "retrieved_date": "2026-07-14"
+   },
+   {
+    "counterparty": "PT UD Astra Motor Indonesia",
+    "counterparty_ticker": null,
+    "direction": "supplier",
+    "flow": "Vehicle/equipment distributorship (exclusive)",
+    "confidence": "high",
+    "evidence_quote": "The Group also has distributorship agreements with Tadano Asia Pte. Ltd. (Singapore), BOMAG GmbH & Co. OHG. (Germany), PT UD Astra Motor Indonesia and Scania CV Aktiebolag (Sweden) whereby the Group has the exclusive right to sell the products of those companies in Indonesia.",
+    "source_url": "https://www.unitedtractors.com/wp-content/uploads/2024/01/FS-UNTR-1224.pdf",
+    "source_type": "filing",
+    "source_date": "2024-12-31",
+    "retrieved_date": "2026-07-14"
+   },
+   {
+    "counterparty": "Scania CV Aktiebolag",
+    "counterparty_ticker": null,
+    "direction": "supplier",
+    "flow": "Scania truck equipment distributorship (exclusive)",
+    "confidence": "high",
+    "evidence_quote": "The Group also has distributorship agreements with Tadano Asia Pte. Ltd. (Singapore), BOMAG GmbH & Co. OHG. (Germany), PT UD Astra Motor Indonesia and Scania CV Aktiebolag (Sweden) whereby the Group has the exclusive right to sell the products of those companies in Indonesia.",
+    "source_url": "https://www.unitedtractors.com/wp-content/uploads/2024/01/FS-UNTR-1224.pdf",
+    "source_type": "filing",
+    "source_date": "2024-12-31",
+    "retrieved_date": "2026-07-14"
+   },
+   {
+    "counterparty": "PT Astra International Tbk",
+    "counterparty_ticker": "ASII",
+    "direction": "customer",
+    "flow": "Sales of goods, spare parts, services and electricity",
+    "confidence": "high",
+    "evidence_quote": "PT Astra International Tbk  Pemegang saham utama Perseroan/  Penjualan barang, suku cadang, jasa dan listrik/Sales of goods, spare parts, services and electricity",
+    "source_url": "https://www.unitedtractors.com/wp-content/uploads/2024/01/FS-UNTR-1224.pdf",
+    "source_type": "filing",
+    "source_date": "2024-12-31",
+    "retrieved_date": "2026-07-14"
+   },
+   {
+    "counterparty": "Aegis Energy Trading Pte. Ltd.",
+    "counterparty_ticker": null,
+    "direction": "customer",
+    "flow": "Coal sales (major customer)",
+    "confidence": "high",
+    "evidence_quote": "Aegis Energy Trading Pte. Ltd. 5,248,508   3.9%       9,033,596  7.0% Aegis Energy Trading Pte. Ltd.",
+    "source_url": "https://www.unitedtractors.com/wp-content/uploads/2024/01/FS-UNTR-1224.pdf",
+    "source_type": "filing",
+    "source_date": "2024-12-31",
+    "retrieved_date": "2026-07-14"
+   },
+   {
+    "counterparty": "Cipta Commodity Trading Pte. Ltd.",
+    "counterparty_ticker": null,
+    "direction": "customer",
+    "flow": "Coal sales (major customer)",
+    "confidence": "high",
+    "evidence_quote": "Cipta Commodity Trading Pte. Ltd.         Cipta Commodity Trading Pte. Ltd.  (dahulu Cipta Coal Trading Pte. Ltd.) 2,475,084   1.8%    3,290,440    2.6% (formerly Cipta Coal Trading Pte. Ltd.)",
+    "source_url": "https://www.unitedtractors.com/wp-content/uploads/2024/01/FS-UNTR-1224.pdf",
+    "source_type": "filing",
+    "source_date": "2024-12-31",
+    "retrieved_date": "2026-07-14"
+   },
+   {
+    "counterparty": "PT Bukit Asam Tbk",
+    "counterparty_ticker": "PTBA",
+    "direction": "customer",
+    "flow": "Coal mining contracting services (PAMA)",
+    "confidence": "low",
+    "evidence_quote": "PAMA is capable on maintaining a significant market share and strong business relationships with some of Indonesia's largest coal producers, including PT Bukit Asam Tbk, PT Indominco Mandiri, PT Kideco Jaya Agung, PT Kaltim Prima Coal, and PT Jembayan Muarabara.",
+    "source_url": "https://www.unitedtractors.com/en/business/mining-contracting/",
+    "source_type": "company_site",
+    "source_date": null,
+    "retrieved_date": "2026-07-14"
+   },
+   {
+    "counterparty": "PT Indominco Mandiri",
+    "counterparty_ticker": null,
+    "direction": "customer",
+    "flow": "Coal mining contracting services (PAMA)",
+    "confidence": "low",
+    "evidence_quote": "PAMA is capable on maintaining a significant market share and strong business relationships with some of Indonesia's largest coal producers, including PT Bukit Asam Tbk, PT Indominco Mandiri, PT Kideco Jaya Agung, PT Kaltim Prima Coal, and PT Jembayan Muarabara.",
+    "source_url": "https://www.unitedtractors.com/en/business/mining-contracting/",
+    "source_type": "company_site",
+    "source_date": null,
+    "retrieved_date": "2026-07-14"
+   },
+   {
+    "counterparty": "PT Kideco Jaya Agung",
+    "counterparty_ticker": null,
+    "direction": "customer",
+    "flow": "Coal mining contracting services (PAMA)",
+    "confidence": "low",
+    "evidence_quote": "PAMA is capable on maintaining a significant market share and strong business relationships with some of Indonesia's largest coal producers, including PT Bukit Asam Tbk, PT Indominco Mandiri, PT Kideco Jaya Agung, PT Kaltim Prima Coal, and PT Jembayan Muarabara.",
+    "source_url": "https://www.unitedtractors.com/en/business/mining-contracting/",
+    "source_type": "company_site",
+    "source_date": null,
+    "retrieved_date": "2026-07-14"
+   },
+   {
+    "counterparty": "PT Kaltim Prima Coal",
+    "counterparty_ticker": null,
+    "direction": "customer",
+    "flow": "Coal mining contracting services (PAMA)",
+    "confidence": "low",
+    "evidence_quote": "PAMA is capable on maintaining a significant market share and strong business relationships with some of Indonesia's largest coal producers, including PT Bukit Asam Tbk, PT Indominco Mandiri, PT Kideco Jaya Agung, PT Kaltim Prima Coal, and PT Jembayan Muarabara.",
+    "source_url": "https://www.unitedtractors.com/en/business/mining-contracting/",
+    "source_type": "company_site",
+    "source_date": null,
+    "retrieved_date": "2026-07-14"
+   },
+   {
+    "counterparty": "PT Jembayan Muarabara",
+    "counterparty_ticker": null,
+    "direction": "customer",
+    "flow": "Coal mining contracting services (PAMA)",
+    "confidence": "low",
+    "evidence_quote": "PAMA is capable on maintaining a significant market share and strong business relationships with some of Indonesia's largest coal producers, including PT Bukit Asam Tbk, PT Indominco Mandiri, PT Kideco Jaya Agung, PT Kaltim Prima Coal, and PT Jembayan Muarabara.",
+    "source_url": "https://www.unitedtractors.com/en/business/mining-contracting/",
+    "source_type": "company_site",
+    "source_date": null,
+    "retrieved_date": "2026-07-14"
+   }
+  ]
+ },
+ "WIKA": {
+  "company": "PT Wijaya Karya (Persero) Tbk",
+  "edges": [
+   {
+    "counterparty": "PT Kereta Cepat Indonesia China (KCIC)",
+    "counterparty_ticker": null,
+    "direction": "customer",
+    "flow": "high-speed railway (Jakarta-Bandung) construction contract",
+    "confidence": "medium",
+    "evidence_quote": "Saldo PDPK atas proyek High Speed Railway Jakarta Bandung milik PT Kereta Cepat Indonesia China (pihak berelasi) sebesar Rp 5.019.142.049",
+    "source_url": "https://finance.detik.com/bursa-dan-valas/d-8206914/wika-tagih-utang-proyek-kereta-cepat-ke-kcic-rp-5-t",
+    "source_type": "news",
+    "source_date": "2025-11-12",
+    "retrieved_date": "2026-07-14"
+   },
+   {
+    "counterparty": "Kementerian PUPR (Ditjen Bina Marga / BBPJN Jawa Tengah-DIY)",
+    "counterparty_ticker": null,
+    "direction": "customer",
+    "flow": "toll-road construction contract (Tol Semarang-Demak Seksi 1B)",
+    "confidence": "medium",
+    "evidence_quote": "Tol Semarang-Demak Seksi 1B dikerjakan oleh Balai Besar Pelaksanaan Jalan Nasional (BBPJN) Jawa Tengah - DI Yogyakarta bekerja sama dengan CRBC-WIKA-PP JO sebagai penyedia jasa konstruksi.",
+    "source_url": "https://binamarga.pu.go.id/balai-jateng-diy/berita/kunjungi-proyek-tol-semarang-demak-seksi-i-dirjen-bina-marga-pastikan-proses-kontruksi-sesuai-dengan-standar",
+    "source_type": "news",
+    "source_date": "2024-07-18",
+    "retrieved_date": "2026-07-14"
+   },
+   {
+    "counterparty": "PT Angkasa Pura Indonesia",
+    "counterparty_ticker": null,
+    "direction": "customer",
+    "flow": "irrigation project construction contract (Proyek Irigasi Belimbing)",
+    "confidence": "medium",
+    "evidence_quote": "PT Wijaya Karya (Persero) Tbk (WIKA) meraih kontrak baru yang berasal dari Proyek Irigasi Belimbing milik PT Angkasa Pura Indonesia.",
+    "source_url": "https://www.wika.co.id/id/media-dan-informasi/siaran-pers/working-on-angkasa-puras-belimbing-irrigation-project-wika-supports-water-and-food-security-for-the-people-of-tangerang",
+    "source_type": "company_site",
+    "source_date": "2025-08-19",
+    "retrieved_date": "2026-07-14"
+   }
+  ]
+ }
+}

@@ -1,0 +1,78 @@
+{
+  "ticker": "ASII",
+  "collected_date": "2026-07-14",
+  "snippets": [
+    {
+      "source_url": "https://r2.astra.co.id/financial-reports/Astra%20Account%20December%202024.pdf",
+      "source_type": "filing",
+      "source_date": "2024-12-31",
+      "text": "The Company and certain subsidiaries have existing licensing, technical assistance, royalty, trademark, dealership, distributorship and after sales service agreements with the following licensors: Automobile Peugeot, France; BMW AG, Germany; Daido Kogyo Co Ltd, Japan; Fuji Technica & Miyazu Inc, Japan; GS Yuasa International Ltd, Japan; Kawasaki Industrial Co Ltd, Japan; Kumi Kasei Co Ltd; Magna International Japan Inc; MAHLE Engine Component Japan Corp, Japan; MetalArt Corp, Japan; Mitsubishi Fuso Truck & Bus Corp, Japan; Naza Automotive Manufacturing; PT Astra Daihatsu Motor; PT Astra Honda Motor; PT BMW Indonesia; PT Isuzu Astra Motor Indonesia; PT Toyota-Astra Motor; PT UD Astra Motor Indonesia; Saitama Kiki Co Ltd, Japan; Sakae Riken Kogyo Co Ltd, Japan; Topy Industries Ltd, Japan; Toyoda Gosei Co Ltd, Japan (Automotive)."
+    },
+    {
+      "source_url": "https://r2.astra.co.id/financial-reports/Astra%20Account%20December%202024.pdf",
+      "source_type": "filing",
+      "source_date": "2024-12-31",
+      "text": "Heavy equipment and mining: BOMAG GmbH & Co OHG, Germany; Komatsu Ltd, Japan; PT Komatsu Marketing & Support Indonesia; PT UD Astra Motor Indonesia; Scania CV Aktiebolag, Sweden; Tadano Asia Pte Ltd, Singapore."
+    },
+    {
+      "source_url": "https://r2.astra.co.id/financial-reports/Astra%20Account%20December%202024.pdf",
+      "source_type": "filing",
+      "source_date": "2024-12-31",
+      "text": "The material joint venture of the Group is PT Astra Honda Motor (\"AHM\") with effective ownership of 50.00%. AHM is conducting business activities in the manufacturing of Honda motorcycles in Indonesia."
+    },
+    {
+      "source_url": "https://r2.astra.co.id/financial-reports/Astra%20Account%20December%202024.pdf",
+      "source_type": "filing",
+      "source_date": "2024-12-31",
+      "text": "The material associate of the Group is PT Astra Daihatsu Motor (\"ADM\") with effective ownership of 31.87%. ADM is involved in the manufacturing of Daihatsu and other brand names car motor vehicles in Indonesia."
+    },
+    {
+      "source_url": "https://www.astra.co.id/en/business/automotive",
+      "source_type": "company_site",
+      "source_date": "2026-07-14",
+      "text": "Astra manufactures, assembles, distributes, and operates dealer networks for Toyota, Daihatsu, Isuzu, UD Trucks, and Honda motorcycles."
+    },
+    {
+      "source_url": "https://www.astra.co.id/en/business/automotive",
+      "source_type": "company_site",
+      "source_date": "2026-07-14",
+      "text": "Astra also acts as a distributor and manages sales operations for BMW and Lexus."
+    },
+    {
+      "source_url": "https://www.astra.co.id/en/business/automotive/toyota",
+      "source_type": "company_site",
+      "source_date": "2026-07-14",
+      "text": "PT Toyota-Astra Motor (TAM) is a joint venture company with 50% ownership by both the Company and Toyota Motor Corporation (TMC). TAM serves as sole agent, importer and distributor of cars under the Toyota and Lexus brands in Indonesia."
+    },
+    {
+      "source_url": "https://www.astra.co.id/en/business/automotive/honda",
+      "source_type": "company_site",
+      "source_date": "2026-07-14",
+      "text": "PT Astra Honda Motor (AHM) was established by Astra and Honda Motor Co. as a company that manages the production and marketing activities of Honda motorcycles in Indonesia."
+    },
+    {
+      "source_url": "https://www.astra.co.id/en/business/automotive/daihatsu",
+      "source_type": "company_site",
+      "source_date": "2026-07-14",
+      "text": "PT Astra Daihatsu Motor (ADM) is an associated entity established by Astra, Daihatsu Motor Co., Ltd. and Toyota Tsusho Corporation, as the sole agent of Daihatsu in Indonesia."
+    },
+    {
+      "source_url": "https://www.astra.co.id/en/business/automotive/isuzu",
+      "source_type": "company_site",
+      "source_date": "2026-07-14",
+      "text": "PT Isuzu Astra Motor Indonesia (IAMI) was established by the Company (through PT Arya Kharisma) and Isuzu Motors Limited (IML) as the sole agent responsible for the production and marketing of Isuzu brand vehicles and components in Indonesia."
+    },
+    {
+      "source_url": "https://www.astra.co.id/en/business/automotive/bmw",
+      "source_type": "company_site",
+      "source_date": "2026-07-14",
+      "text": "BMW Astra operates under BMW Sales Operation (BSO) as one of the BMW dealers that supports the brand's sole distributor PT BMW Indonesia in marketing activities, sales of BMW cars and aftersales services in Indonesia."
+    },
+    {
+      "source_url": "https://global.toyota/en/detail/221029",
+      "source_type": "news",
+      "source_date": "2003-02-20",
+      "text": "P.T. ASTRA INTERNATIONAL Tbk (AI) and TOYOTA MOTOR CORPORATION (TMC), the parent companies of Indonesia-based P.T. Toyota-Astra Motor (TAM), announced today that they have reached a basic agreement on the reorganization of TAM into separate manufacturing and distribution entities."
+    }
+  ]
+}

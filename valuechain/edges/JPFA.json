@@ -1,0 +1,42 @@
+{
+  "ticker": "JPFA",
+  "company": "Japfa Comfeed Indonesia Tbk",
+  "edges": [
+    {
+      "counterparty": "Aviagen",
+      "counterparty_ticker": null,
+      "direction": "supplier",
+      "flow": "Indian River grandparent breeding stock (DOC genetics)",
+      "confidence": "high",
+      "evidence_quote": "The Company also has exclusive rights to sell and distribute the Indian River strain from Aviagen (United States) in Indonesia.",
+      "source_url": "https://d1be5sn7lppxuh.cloudfront.net/assets/files/files/annual reports/2025-annual-report-pt-japfa-tbk.pdf",
+      "source_type": "filing",
+      "source_date": "2025-12-31",
+      "retrieved_date": "2026-07-14"
+    },
+    {
+      "counterparty": "Cargill",
+      "counterparty_ticker": null,
+      "direction": "customer",
+      "flow": "60-40 joint venture (Cargill/So Good Food) to produce and supply fully-cooked poultry products",
+      "confidence": "high",
+      "evidence_quote": "Cargill and So Good Food, a wholly-owned Indonesian subsidiary of leading agri-food company Japfa, have entered into a 60-40 joint venture to produce and supply fully-cooked poultry products in Indonesia.",
+      "source_url": "https://www.foodingredientsfirst.com/news/cargill-enters-jv-with-japfa-to-boost-poultry-business-in-indonesia.html",
+      "source_type": "news",
+      "source_date": "2016-09-21",
+      "retrieved_date": "2026-07-14"
+    },
+    {
+      "counterparty": "So Good Food",
+      "counterparty_ticker": null,
+      "direction": "customer",
+      "flow": "pre-acquisition live poultry supply arrangement",
+      "confidence": "low",
+      "evidence_quote": "Japfa Comfeed and So Good already had an established live poultry supply arrangements which would",
+      "source_url": "https://jakartaglobe.id/business/japfa-comfeed-gains-after-unveiling-83m-plan-to-acquire-chicken-nugget-maker/",
+      "source_type": "news",
+      "source_date": "2020-08-31",
+      "retrieved_date": "2026-07-14"
+    }
+  ]
+}

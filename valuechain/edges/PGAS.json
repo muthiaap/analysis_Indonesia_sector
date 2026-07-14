@@ -1,0 +1,102 @@
+{
+  "ticker": "PGAS",
+  "company": "PT Perusahaan Gas Negara (Persero) Tbk",
+  "edges": [
+    {
+      "counterparty": "PLN",
+      "counterparty_ticker": null,
+      "direction": "customer",
+      "flow": "natural gas supply (SPA, Tambak Lorok power plant)",
+      "confidence": "low",
+      "evidence_quote": "To support natural gas channeling to Tambak Lorok, it will be done under the sale and purchase agreement between PGN and PLN.",
+      "source_url": "https://en.antaranews.com/news/159073/pgn-ready-to-channel-gas-to-tambak-lorok-power-plant",
+      "source_type": "news",
+      "source_date": "2020-10-15",
+      "retrieved_date": "2026-07-14"
+    },
+    {
+      "counterparty": "PT Pertamina Hulu Energi Jambi Merang",
+      "counterparty_ticker": null,
+      "direction": "supplier",
+      "flow": "natural gas supply (gas sales agreement)",
+      "confidence": "low",
+      "evidence_quote": "PGN signed one gas sales agreement with state oil company subsidiary PT Pertamina Hulu Energi Jambi Merang.",
+      "source_url": "https://finance.yahoo.com/news/indonesias-pgn-signs-sales-deals-051302481.html",
+      "source_type": "news",
+      "source_date": "2021-12-01",
+      "retrieved_date": "2026-07-14"
+    },
+    {
+      "counterparty": "ConocoPhillips Grissik Limited",
+      "counterparty_ticker": null,
+      "direction": "supplier",
+      "flow": "natural gas supply (letters of agreement, price adjustment)",
+      "confidence": "low",
+      "evidence_quote": "PGN also signed five letters of agreement (LOA) with ConocoPhillips Grissik Limited (CPGL) to lower gas prices for 417.2 BBUTD worth of gas, as mandated by the government.",
+      "source_url": "https://finance.yahoo.com/news/indonesias-pgn-signs-sales-deals-051302481.html",
+      "source_type": "news",
+      "source_date": "2021-12-01",
+      "retrieved_date": "2026-07-14"
+    },
+    {
+      "counterparty": "Medco Energi",
+      "counterparty_ticker": null,
+      "direction": "supplier",
+      "flow": "natural gas supply (letters of agreement, price adjustment)",
+      "confidence": "low",
+      "evidence_quote": "It also signed two similar LOAs with Medco Energi for gas worth 24.67 BBUTD.",
+      "source_url": "https://finance.yahoo.com/news/indonesias-pgn-signs-sales-deals-051302481.html",
+      "source_type": "news",
+      "source_date": "2021-12-01",
+      "retrieved_date": "2026-07-14"
+    },
+    {
+      "counterparty": "PetroChina International Jabung Ltd.",
+      "counterparty_ticker": null,
+      "direction": "supplier",
+      "flow": "natural gas supply (GSPA)",
+      "confidence": "medium",
+      "evidence_quote": "PCJL will supply 4,651 billion British thermal units (BBTU) to PGN, in effect from January 1 this year to December 31, 2026.",
+      "source_url": "https://www.petrochina.co.id/blog/company-news-5/petrochina-jabung-signs-gas-sales-purchase-agreement-with-pgn-3697",
+      "source_type": "news",
+      "source_date": "2025-01-14",
+      "retrieved_date": "2026-07-14"
+    },
+    {
+      "counterparty": "PT Donggi-Senoro LNG (DSLNG)",
+      "counterparty_ticker": null,
+      "direction": "supplier",
+      "flow": "LNG supply (PJBG / MSPA umbrella contract)",
+      "confidence": "medium",
+      "evidence_quote": "PT Perusahaan Gas Negara (PGN) Tbk (PGAS) signed a liquefied natural gas (LNG) gas sale and purchase agreement (PJBG) with PT Donggi-Senoro LNG (DSLNG).",
+      "source_url": "https://voi.id/en/economy/407084",
+      "source_type": "news",
+      "source_date": "2024-08-12",
+      "retrieved_date": "2026-07-14"
+    },
+    {
+      "counterparty": "NuEnergy Gas Limited",
+      "counterparty_ticker": null,
+      "direction": "supplier",
+      "flow": "coal bed methane supply (Gas Sales and Purchase Agreement)",
+      "confidence": "medium",
+      "evidence_quote": "NuEnergy Gas Limited has signed a binding Gas Sales and Purchase Agreement with PT Perusahaan Gas Negara Tbk for the sale of coal bed methane from its Tanjung Enim Plan of Development.",
+      "source_url": "https://www.theglobeandmail.com/investing/markets/markets-news/Tipranks/36681893/nuenergy-gas-secures-major-gas-sales-agreement-with-pgn/",
+      "source_type": "news",
+      "source_date": "2025-12-17",
+      "retrieved_date": "2026-07-14"
+    },
+    {
+      "counterparty": "PT Krakatau Steel (Persero) Tbk",
+      "counterparty_ticker": null,
+      "direction": "customer",
+      "flow": "natural gas supply (PJBG)",
+      "confidence": "low",
+      "evidence_quote": "PT Krakatau Steel (Persero) Tbk yang beberapa waktu lalu telah menandatangani Perjanjian Jual Beli Gas dengan PGN.",
+      "source_url": "https://www.dunia-energi.com/harga-sudah-us6-per-mmbtu-pgn-berharap-krakatau-steel-maksimalkan-penyerapan-gas/",
+      "source_type": "news",
+      "source_date": "2020-08-13",
+      "retrieved_date": "2026-07-14"
+    }
+  ]
+}
