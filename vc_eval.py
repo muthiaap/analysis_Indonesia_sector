@@ -50,13 +50,21 @@ def main():
         return
 
     labels = json.loads(LABELS_PATH.read_text())
-    labeled = []
+    labeled, problems = [], []
     for p, e in _flatten(doc):
-        v = labels.get(edge_id(p, e['counterparty'], e['direction']))
+        eid = edge_id(p, e['counterparty'], e['direction'])
+        v = labels.get(eid)
         if v is None:
-            print(f'ERROR: unlabeled edge {edge_id(p, e["counterparty"], e["direction"])}')
-            sys.exit(1)
-        labeled.append({'confidence': e['confidence'], 'correct': bool(v)})
+            problems.append(f'unlabeled: {eid}')
+        elif not isinstance(v, bool):
+            problems.append(f'non-boolean label ({v!r}, use true/false): {eid}')
+        else:
+            labeled.append({'confidence': e['confidence'], 'correct': v})
+    if problems:
+        print(f'{len(problems)} label problem(s) — fix them in {LABELS_PATH}:')
+        for pr in problems:
+            print(f'  {pr}')
+        sys.exit(1)
 
     tiers = precision_by_tier(labeled)
     print('=== precision by confidence tier ===')
