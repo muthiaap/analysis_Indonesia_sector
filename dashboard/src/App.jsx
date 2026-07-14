@@ -3,12 +3,13 @@ import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer,
   AreaChart, Area, PieChart, Pie, Cell, ReferenceLine, LineChart, Line
 } from 'recharts'
-import { TrendingUp, TrendingDown, BarChart3, PieChart as PieIcon, Activity, ArrowUpRight, X, Map, Share2, Layers, LogOut, Bell, Info, Search, ChevronDown, Compass } from 'lucide-react'
+import { TrendingUp, TrendingDown, BarChart3, PieChart as PieIcon, Activity, ArrowUpRight, X, Map, Share2, Layers, LogOut, Bell, Info, Search, ChevronDown, Compass, Network } from 'lucide-react'
 import MapTab from './MapTab'
 import PdbTab from './PdbTab'
 import HubunganTab from './HubunganTab'
 import RantaiPasokTab from './RantaiPasokTab'
 import DeepDiveTab from './DeepDiveTab'
+import ValueChainTab from './ValueChainTab'
 
 
 const COLORS = [
@@ -356,6 +357,18 @@ export default function App() {
 
             <button
               type="button"
+              onClick={() => setActiveTab('nilai')}
+              className={`w-12 group-hover/sidebar:w-52 h-12 rounded-2xl flex items-center justify-center group-hover/sidebar:justify-start group-hover/sidebar:px-4 transition-all duration-300 relative cursor-pointer overflow-hidden ${activeTab === 'nilai'
+                ? 'bg-white text-[#f27a1a] shadow-lg border border-white/20'
+                : 'text-white/80 hover:text-white hover:bg-white/10'
+                }`}
+            >
+              <Network size={20} className="flex-shrink-0" />
+              <span className="ml-3 text-xs font-semibold whitespace-nowrap opacity-0 group-hover/sidebar:opacity-100 transition-opacity duration-200 hidden group-hover/sidebar:inline">Rantai Nilai</span>
+            </button>
+
+            <button
+              type="button"
               onClick={() => setActiveTab('deep-dive')}
               className={`w-12 group-hover/sidebar:w-52 h-12 rounded-2xl flex items-center justify-center group-hover/sidebar:justify-start group-hover/sidebar:px-4 transition-all duration-300 relative cursor-pointer overflow-hidden ${activeTab === 'deep-dive'
                 ? 'bg-white text-[#f27a1a] shadow-lg border border-white/20'
@@ -401,6 +414,7 @@ export default function App() {
                   {activeTab === 'pdb' && 'PDB Sector Analysis - Macro GDP & Best Sectors'}
                   {activeTab === 'hubungan' && 'Group and Credit Graph - Affiliates & Debt Network'}
                   {activeTab === 'rantai-pasok' && 'Supply Chain - B2B Value Chain Analysis'}
+                  {activeTab === 'nilai' && 'Rantai Nilai - External Value Chain (from filings)'}
                   {activeTab === 'deep-dive' && 'Sectoral Deep Dive - IDX Sector to PDRB Mapping'}
                 </p>
               </div>
@@ -455,6 +469,7 @@ export default function App() {
             />
           )}
           {activeTab === 'deep-dive' && <DeepDiveTab />}
+          {activeTab === 'nilai' && <ValueChainTab />}
 
           {activeTab === 'laporan' && (
             <div className="space-y-6 animate-fade-in">
