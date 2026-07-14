@@ -17,15 +17,24 @@ DST_DIR = Path('valuechain/evidence')
 _RP_KW = ('berelasi', 'related part')
 _CONC = re.compile(r'konsentrasi', re.I)
 _CONC_CTX = ('pelanggan', 'customer', '10%')
-# A counterparty row: a PT/CV name followed later on the line by an amount-like number.
-_ROW = re.compile(r'\b(?:PT|CV)\s+[A-Z][\w().,&/\- ]{2,}?[\d.,]{2,}')
+# A counterparty row = a line naming an entity (Indonesian PT/CV or a corporate
+# suffix like Tbk/Ltd/Corporation/AG/GmbH/Bhd/Pte/Co.) that also carries an amount.
+_NAME = re.compile(
+    r'\b(?:PT|CV)\s+[A-Z]'
+    r'|\b(?:Tbk|Ltd|Limited|Corporation|Corp|Inc|AG|GmbH|Bhd|Sdn|Pte|N\.?V\.?|Co\.)\b'
+)
+_AMOUNT = re.compile(r'\d[\d.,]{1,}')
+
+
+def _is_row(line: str) -> bool:
+    return bool(_NAME.search(line) and _AMOUNT.search(line))
 
 
 def _row_count(text: str) -> int:
-    return sum(1 for ln in text.split('\n') if _ROW.search(ln))
+    return sum(1 for ln in text.split('\n') if _is_row(ln))
 
 
-def select_note_pages(pages) -> list:
+def select_note_pages(pages: list[str]) -> list[int]:
     sel = set()
     for i, t in enumerate(pages):
         low = t.lower()
@@ -46,6 +55,15 @@ def select_note_pages(pages) -> list:
     return sorted(sel)
 
 
+def build_bundle(ticker, pages, source_url, run_date='2026-03-31',
+                 collected_date='2026-07-14'):
+    """Pure: page texts -> evidence bundle (no I/O)."""
+    snippets = [{'source_url': source_url, 'source_type': 'filing',
+                 'source_date': run_date, 'text': pages[i].strip()}
+                for i in select_note_pages(pages) if pages[i].strip()]
+    return {'ticker': ticker, 'collected_date': collected_date, 'snippets': snippets}
+
+
 def extract_bundle(ticker, fs_dir=FS_DIR, run_date='2026-03-31',
                    collected_date='2026-07-14'):
     path = Path(fs_dir) / f'FinancialStatement-2026-I-{ticker}.pdf'
@@ -55,11 +73,9 @@ def extract_bundle(ticker, fs_dir=FS_DIR, run_date='2026-03-31',
     with pdfplumber.open(path) as pdf:
         pages = [(p.extract_text() or '') for p in pdf.pages]
     url = f'https://www.idx.co.id/en/listed-companies/company-profiles/{ticker}'
-    snippets = [{'source_url': url, 'source_type': 'filing', 'source_date': run_date,
-                 'text': pages[i].strip()}
-                for i in select_note_pages(pages) if pages[i].strip()]
-    return {'ticker': ticker, 'collected_date': collected_date,
-            'source_file': path.name, 'snippets': snippets}
+    bundle = build_bundle(ticker, pages, url, run_date, collected_date)
+    bundle['source_file'] = path.name
+    return bundle
 
 
 def all_tickers(fs_dir=FS_DIR):

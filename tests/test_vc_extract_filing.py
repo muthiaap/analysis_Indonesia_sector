@@ -39,3 +39,30 @@ def test_empty_and_no_matches():
 def test_fallback_keeps_related_party_pages_when_no_rows_detected():
     pages = ["Pengungkapan pihak berelasi tanpa tabel terstruktur di halaman ini."]
     assert select_note_pages(pages) == [0]
+
+
+def test_selects_foreign_named_related_party_table():
+    pages = [
+        ("Transaksi pihak berelasi\n"
+         "Related party 1 TNB Fuel Services Sdn. Bhd. 996,716\n"
+         "Related party 2 Toyota Motor Corporation 1,234"),
+    ]
+    assert select_note_pages(pages) == [0]
+
+
+def test_build_bundle_produces_schema_valid_bundle():
+    import vc_schema as s
+    from vc_extract_filing import build_bundle
+    pages = ["intro",
+             ("Transaksi pihak berelasi\n"
+              "Related party 1 PT Alpha 10,000\nRelated party 2 PT Beta 5,000")]
+    b = build_bundle('SMGR', pages, 'http://x')
+    assert s.validate_bundle(b) == []
+    assert b['snippets'][0]['source_type'] == 'filing'
+    assert b['snippets'][0]['source_date'] == '2026-03-31'
+
+
+def test_build_bundle_empty_when_no_note_pages():
+    from vc_extract_filing import build_bundle
+    b = build_bundle('ZZZZ', ['nothing here', 'still nothing'], 'http://x')
+    assert b['snippets'] == []
