@@ -6,17 +6,22 @@ import { seedPositions, stepSimulation } from './lib/forceGraph'
 const W = 900, H = 620
 const RADIUS = { parent: 26, listed: 18, external: 12 }
 const FILL = { parent: '#6366f1', listed: '#10b981', external: '#cbd5e1' }
+const linkKey = (l) => `${l.source}|${l.target}|${l.flow}`
 
 export default function ValueChainTab() {
   const [doc, setDoc] = useState(null)
   const [error, setError] = useState(null)
   const [confOn, setConfOn] = useState({ high: true, medium: true, low: true })
-  const [selected, setSelected] = useState(null)   // index into filtered links
+  const [selected, setSelected] = useState(null)   // stable key (linkKey) of the hovered/selected edge
   const [, setTick] = useState(0)
   const nodesRef = useRef([])
   const rafRef = useRef(0)
 
-  useEffect(() => { loadEdges().then(setDoc).catch(e => setError(e.message)) }, [])
+  useEffect(() => {
+    let alive = true
+    loadEdges().then(d => { if (alive) setDoc(d) }).catch(e => { if (alive) setError(e.message) })
+    return () => { alive = false }
+  }, [])
 
   const graph = useMemo(() => doc ? buildGraph(doc) : { nodes: [], links: [] }, [doc])
 
@@ -42,7 +47,7 @@ export default function ValueChainTab() {
   const nodes = nodesRef.current
   const byId = Object.fromEntries(nodes.map(n => [n.id, n]))
   const links = graph.links.filter(l => confOn[l.confidence])
-  const sel = selected != null ? links[selected] : null
+  const sel = selected != null ? (links.find(l => linkKey(l) === selected) || null) : null
 
   return (
     <div className="animate-fade-in flex gap-4">
@@ -61,11 +66,12 @@ export default function ValueChainTab() {
             const s = byId[typeof l.source === 'object' ? l.source.id : l.source]
             const t = byId[typeof l.target === 'object' ? l.target.id : l.target]
             if (!s || !t) return null
+            const k = linkKey(l)
             return (
-              <GraphLink key={i} x1={s.x} y1={s.y} x2={t.x} y2={t.y}
+              <GraphLink key={k} x1={s.x} y1={s.y} x2={t.x} y2={t.y}
                 targetRadius={RADIUS[t.kind]} relType={l.flow}
-                highlighted={selected === i}
-                onEnter={() => setSelected(i)} onLeave={() => {}} />
+                highlighted={selected === k}
+                onEnter={() => setSelected(k)} onLeave={() => {}} />
             )
           })}
           {nodes.map(n => (
