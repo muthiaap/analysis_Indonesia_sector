@@ -37,6 +37,9 @@ def validate_bundle(bundle: dict) -> list[str]:
         errors.append('no snippets')
         return errors
     for i, s in enumerate(snippets):
+        if not isinstance(s, dict):
+            errors.append(f'snippet {i} is not an object')
+            continue
         if not s.get('source_url'):
             errors.append(f'snippet {i} missing source_url')
         if s.get('source_type') not in SOURCE_TYPES:

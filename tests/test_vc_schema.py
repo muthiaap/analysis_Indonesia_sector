@@ -48,3 +48,10 @@ def test_good_bundle_has_no_errors():
 def test_bundle_without_snippets_is_flagged():
     b = _good_bundle(); b['snippets'] = []
     assert any('snippet' in x.lower() for x in validate_bundle(b))
+
+
+def test_bundle_with_non_dict_snippet_is_flagged_not_raised():
+    b = _good_bundle()
+    b['snippets'] = ['not a dict', None]
+    errs = validate_bundle(b)   # must not raise
+    assert any('not an object' in e for e in errs)
