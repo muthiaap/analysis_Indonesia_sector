@@ -59,7 +59,8 @@ def main():
         elif not isinstance(v, bool):
             problems.append(f'non-boolean label ({v!r}, use true/false): {eid}')
         else:
-            labeled.append({'confidence': e['confidence'], 'correct': v})
+            labeled.append({'confidence': e['confidence'], 'correct': v,
+                            'source_type': e['source_type']})
     if problems:
         print(f'{len(problems)} label problem(s) — fix them in {LABELS_PATH}:')
         for pr in problems:
@@ -72,6 +73,14 @@ def main():
         d = tiers.get(t)
         if d:
             print(f'  {t:6s} {d["correct"]:3d}/{d["n"]:<3d}  {d["precision"]*100:5.1f}%')
+    from collections import Counter
+    comp = {}
+    for row in labeled:
+        comp.setdefault(row['confidence'], Counter())[row['source_type']] += 1
+    print('\n=== source_type composition by tier ===')
+    for t in ('high', 'medium', 'low'):
+        if t in comp:
+            print(f'  {t:6s} ' + ', '.join(f'{k}:{v}' for k, v in comp[t].most_common()))
     passed = gate(tiers)
     print(f'\nGATE (high precision >= {GATE_THRESHOLD:.0%}): '
           f'{"PASS -> proceed to batch" if passed else "FAIL -> iterate"}')
