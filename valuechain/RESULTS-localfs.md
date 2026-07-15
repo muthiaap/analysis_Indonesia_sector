@@ -67,3 +67,14 @@ Formal per-edge labeling of all 364 edges was **not** run this round — the del
 3. Then decide the **batch synthesis engine** (subagents don't scale to 738 economically; a batch LLM API does).
 
 Notes: PGAS/INTP edge files retained some prior (news/annual) edges the local pass didn't overwrite; treat their counts as mixed. The M1 web edges are archived in `valuechain/edges_m1/`.
+
+## Addendum — header/rows bridge fix (b162fb2)
+
+The final review flagged that `select_note_pages` could drop a table when the
+related-party heading and its numeric rows are paginated apart (the INTP symptom).
+Fixed: keyword pages now anchor continuation. Re-extracting the 7 empties after the
+fix still yields **0 named lines** for all of them (ADRO, WIKA, ANTM, PTPP, CPIN,
+MEDC, UNVR, and INTP) — confirming these issuers are **genuinely anonymized** in the
+interim FS, not a selector miss. The fix prevents the split-layout failure for other
+issuers going forward, but these specific companies definitively require the **annual
+(Tahunan) FS** (or reciprocity) for their counterparties.
