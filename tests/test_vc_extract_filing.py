@@ -66,3 +66,13 @@ def test_build_bundle_empty_when_no_note_pages():
     from vc_extract_filing import build_bundle
     b = build_bundle('ZZZZ', ['nothing here', 'still nothing'], 'http://x')
     assert b['snippets'] == []
+
+
+def test_bridges_header_and_spilled_rows_pages():
+    pages = [
+        "Transaksi pihak berelasi / Related party transactions",   # keyword header, no rows
+        "PT Alpha 10,000\nPT Beta 5,000\nPT Gamma 3,000",          # rows spilled here, no keyword
+        "unrelated page",
+    ]
+    sel = select_note_pages(pages)
+    assert 1 in sel   # the spilled-rows page is bridged in via the header anchor

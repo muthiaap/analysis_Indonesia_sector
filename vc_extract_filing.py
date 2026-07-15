@@ -35,23 +35,23 @@ def _row_count(text: str) -> int:
 
 
 def select_note_pages(pages: list[str]) -> list[int]:
+    anchors = {i for i, t in enumerate(pages) if any(k in t.lower() for k in _RP_KW)}
     sel = set()
     for i, t in enumerate(pages):
         low = t.lower()
-        is_rp = any(k in low for k in _RP_KW)
+        is_rp = i in anchors
         is_conc = _CONC.search(t) and any(c in low for c in _CONC_CTX)
         if (is_rp and _row_count(t) >= 2) or is_conc:
             sel.add(i)
-    # continuation pages: a rows-heavy page adjacent to an already-selected page
+    # continuation: a rows-heavy page adjacent to a selected page OR to a
+    # related-party keyword (header) page whose numeric rows spilled onto it
     for i, t in enumerate(pages):
-        if i not in sel and _row_count(t) >= 2 and ((i - 1) in sel or (i + 1) in sel):
+        if i not in sel and _row_count(t) >= 2 and (
+                (i - 1) in sel or (i + 1) in sel
+                or (i - 1) in anchors or (i + 1) in anchors):
             sel.add(i)
-    # fallback: related-party mentioned but no table matched -> keep those pages so
-    # nothing is silently dropped (synthesis can still read narrative names).
     if not sel:
-        for i, t in enumerate(pages):
-            if any(k in t.lower() for k in _RP_KW):
-                sel.add(i)
+        sel = set(anchors)
     return sorted(sel)
 
 
