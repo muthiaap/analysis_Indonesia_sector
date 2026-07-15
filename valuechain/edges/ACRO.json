@@ -1,0 +1,138 @@
+{
+ "ticker": "ACRO",
+ "company": "PT Samcro Hyosung Adilestari Tbk.",
+ "edges": [
+  {
+   "counterparty": "PT Sri Rejeki Isman Tbk",
+   "counterparty_ticker": null,
+   "direction": "customer",
+   "flow": "yarn/thread product sales (trade receivables)",
+   "confidence": "high",
+   "evidence_quote": "Pihak 1 PT Sri Rejeki Isman Tbk 1,485,838,350 Third party Rank 1, counterparty",
+   "source_url": "https://www.idx.co.id/en/listed-companies/company-profiles/ACRO",
+   "source_type": "filing",
+   "source_date": "2026-03-31",
+   "retrieved_date": "2026-07-15"
+  },
+  {
+   "counterparty": "PT Parkland World Indonesia",
+   "counterparty_ticker": null,
+   "direction": "customer",
+   "flow": "yarn/thread product sales (trade receivables)",
+   "confidence": "high",
+   "evidence_quote": "Pihak 2 PT Parkland World Indonesia 1,431,269,242 Rank 2, counterparty",
+   "source_url": "https://www.idx.co.id/en/listed-companies/company-profiles/ACRO",
+   "source_type": "filing",
+   "source_date": "2026-03-31",
+   "retrieved_date": "2026-07-15"
+  },
+  {
+   "counterparty": "PT Ridho Agung Mitra Abadi",
+   "counterparty_ticker": null,
+   "direction": "customer",
+   "flow": "yarn/thread product sales (trade receivables)",
+   "confidence": "high",
+   "evidence_quote": "Pihak 3 PT Ridho Agung Mitra Abadi 1,273,389,281 Rank 3, counterparty",
+   "source_url": "https://www.idx.co.id/en/listed-companies/company-profiles/ACRO",
+   "source_type": "filing",
+   "source_date": "2026-03-31",
+   "retrieved_date": "2026-07-15"
+  },
+  {
+   "counterparty": "PT Howard Jeon Glove Indonesia",
+   "counterparty_ticker": null,
+   "direction": "customer",
+   "flow": "yarn/thread product sales (trade receivables)",
+   "confidence": "high",
+   "evidence_quote": "Pihak 4 PT Howard Jeon Glove Indonesia 717,843,771 Rank 4, counterparty",
+   "source_url": "https://www.idx.co.id/en/listed-companies/company-profiles/ACRO",
+   "source_type": "filing",
+   "source_date": "2026-03-31",
+   "retrieved_date": "2026-07-15"
+  },
+  {
+   "counterparty": "CV. SHARK GLOBALINDO JAYA",
+   "counterparty_ticker": null,
+   "direction": "customer",
+   "flow": "yarn/thread product sales (trade receivables)",
+   "confidence": "high",
+   "evidence_quote": "Pihak 5 CV. SHARK GLOBALINDO JAYA 629,452,900 Rank 5, counterparty",
+   "source_url": "https://www.idx.co.id/en/listed-companies/company-profiles/ACRO",
+   "source_type": "filing",
+   "source_date": "2026-03-31",
+   "retrieved_date": "2026-07-15"
+  },
+  {
+   "counterparty": "PT. Mercindo Global Manufaktur",
+   "counterparty_ticker": null,
+   "direction": "customer",
+   "flow": "yarn/thread product sales (trade receivables)",
+   "confidence": "high",
+   "evidence_quote": "Pihak 6 PT. Mercindo Global Manufaktur 544,013,385 Rank 6, counterparty",
+   "source_url": "https://www.idx.co.id/en/listed-companies/company-profiles/ACRO",
+   "source_type": "filing",
+   "source_date": "2026-03-31",
+   "retrieved_date": "2026-07-15"
+  },
+  {
+   "counterparty": "RUBA FERMUAR VE PRES DOKUM",
+   "counterparty_ticker": null,
+   "direction": "customer",
+   "flow": "yarn/thread product sales (trade receivables)",
+   "confidence": "high",
+   "evidence_quote": "Pihak 7 RUBA FERMUAR VE PRES DOKUM 402,230,428 Rank 7, counterparty",
+   "source_url": "https://www.idx.co.id/en/listed-companies/company-profiles/ACRO",
+   "source_type": "filing",
+   "source_date": "2026-03-31",
+   "retrieved_date": "2026-07-15"
+  },
+  {
+   "counterparty": "PT. Adira Semesta Industry",
+   "counterparty_ticker": null,
+   "direction": "customer",
+   "flow": "yarn/thread product sales (trade receivables)",
+   "confidence": "high",
+   "evidence_quote": "Pihak 8 PT. Adira Semesta Industry 396,369,163 Rank 8, counterparty",
+   "source_url": "https://www.idx.co.id/en/listed-companies/company-profiles/ACRO",
+   "source_type": "filing",
+   "source_date": "2026-03-31",
+   "retrieved_date": "2026-07-15"
+  },
+  {
+   "counterparty": "PT. WONEEL MIDAS LEATHERS",
+   "counterparty_ticker": null,
+   "direction": "customer",
+   "flow": "yarn/thread product sales (trade receivables)",
+   "confidence": "high",
+   "evidence_quote": "Pihak 9 PT. WONEEL MIDAS LEATHERS 335,343,252 Rank 9, counterparty",
+   "source_url": "https://www.idx.co.id/en/listed-companies/company-profiles/ACRO",
+   "source_type": "filing",
+   "source_date": "2026-03-31",
+   "retrieved_date": "2026-07-15"
+  },
+  {
+   "counterparty": "PT. INTIDRAGON SURYATAMA",
+   "counterparty_ticker": null,
+   "direction": "customer",
+   "flow": "yarn/thread product sales (trade receivables)",
+   "confidence": "high",
+   "evidence_quote": "Pihak 10 PT. INTIDRAGON SURYATAMA 231,684,750 Rank 10, counterparty",
+   "source_url": "https://www.idx.co.id/en/listed-companies/company-profiles/ACRO",
+   "source_type": "filing",
+   "source_date": "2026-03-31",
+   "retrieved_date": "2026-07-15"
+  },
+  {
+   "counterparty": "Hyosung Dong Nai Nylon Co., Ltd",
+   "counterparty_ticker": null,
+   "direction": "supplier",
+   "flow": "raw material procurement (trade payables)",
+   "confidence": "high",
+   "evidence_quote": "Pihak 1 Hyosung Dong Nai Nylon 668,028,816 Third Rank 1,",
+   "source_url": "https://www.idx.co.id/en/listed-companies/company-profiles/ACRO",
+   "source_type": "filing",
+   "source_date": "2026-03-31",
+   "retrieved_date": "2026-07-15"
+  }
+ ]
+}

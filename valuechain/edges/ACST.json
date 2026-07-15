@@ -1,0 +1,78 @@
+{
+ "ticker": "ACST",
+ "company": "PT Acset Indonusa Tbk.",
+ "edges": [
+  {
+   "counterparty": "PT Samadista Karya",
+   "counterparty_ticker": null,
+   "direction": "customer",
+   "flow": "construction services (revenue)",
+   "confidence": "high",
+   "evidence_quote": "Pihak berelasi 1 PT Samadista Karya 10,551 Related party 1",
+   "source_url": "https://www.idx.co.id/en/listed-companies/company-profiles/ACST",
+   "source_type": "filing",
+   "source_date": "2026-03-31",
+   "retrieved_date": "2026-07-15"
+  },
+  {
+   "counterparty": "PT Lintas Marga Sedaya",
+   "counterparty_ticker": null,
+   "direction": "customer",
+   "flow": "construction services (revenue)",
+   "confidence": "high",
+   "evidence_quote": "Pihak berelasi 3 PT Lintas Marga Sedaya 1,233 Related party 3",
+   "source_url": "https://www.idx.co.id/en/listed-companies/company-profiles/ACST",
+   "source_type": "filing",
+   "source_date": "2026-03-31",
+   "retrieved_date": "2026-07-15"
+  },
+  {
+   "counterparty": "PT Asya Mandira Land",
+   "counterparty_ticker": null,
+   "direction": "customer",
+   "flow": "construction services (revenue)",
+   "confidence": "high",
+   "evidence_quote": "Pihak berelasi 5 PT Asya Mandira Land ( 705 ) Related party 5",
+   "source_url": "https://www.idx.co.id/en/listed-companies/company-profiles/ACST",
+   "source_type": "filing",
+   "source_date": "2026-03-31",
+   "retrieved_date": "2026-07-15"
+  },
+  {
+   "counterparty": "PT Toyota Astra Motor",
+   "counterparty_ticker": null,
+   "direction": "customer",
+   "flow": "construction services (revenue)",
+   "confidence": "high",
+   "evidence_quote": "Pihak berelasi 6 PT Toyota Astra Motor 40,471 Related party 6",
+   "source_url": "https://www.idx.co.id/en/listed-companies/company-profiles/ACST",
+   "source_type": "filing",
+   "source_date": "2026-03-31",
+   "retrieved_date": "2026-07-15"
+  },
+  {
+   "counterparty": "PT Paramount Land",
+   "counterparty_ticker": null,
+   "direction": "customer",
+   "flow": "construction services (revenue)",
+   "confidence": "high",
+   "evidence_quote": "Pihak ketiga 1 PT Paramount Land 13,603 Third party 1",
+   "source_url": "https://www.idx.co.id/en/listed-companies/company-profiles/ACST",
+   "source_type": "filing",
+   "source_date": "2026-03-31",
+   "retrieved_date": "2026-07-15"
+  },
+  {
+   "counterparty": "GDS IDC Service",
+   "counterparty_ticker": null,
+   "direction": "customer",
+   "flow": "construction services (revenue)",
+   "confidence": "high",
+   "evidence_quote": "Pihak ketiga 2 GDS IDC Service 15,496 Third party 2",
+   "source_url": "https://www.idx.co.id/en/listed-companies/company-profiles/ACST",
+   "source_type": "filing",
+   "source_date": "2026-03-31",
+   "retrieved_date": "2026-07-15"
+  }
+ ]
+}
