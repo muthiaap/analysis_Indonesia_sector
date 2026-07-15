@@ -12,7 +12,7 @@
       "source_url": "https://d1be5sn7lppxuh.cloudfront.net/assets/files/files/annual reports/2025-annual-report-pt-japfa-tbk.pdf",
       "source_type": "filing",
       "source_date": "2025-12-31",
-      "retrieved_date": "2026-07-14"
+      "retrieved_date": "2026-07-15"
     },
     {
       "counterparty": "Cargill",
@@ -24,19 +24,7 @@
       "source_url": "https://www.foodingredientsfirst.com/news/cargill-enters-jv-with-japfa-to-boost-poultry-business-in-indonesia.html",
       "source_type": "news",
       "source_date": "2016-09-21",
-      "retrieved_date": "2026-07-14"
-    },
-    {
-      "counterparty": "So Good Food",
-      "counterparty_ticker": null,
-      "direction": "customer",
-      "flow": "pre-acquisition live poultry supply arrangement",
-      "confidence": "low",
-      "evidence_quote": "Japfa Comfeed and So Good already had an established live poultry supply arrangements which would",
-      "source_url": "https://jakartaglobe.id/business/japfa-comfeed-gains-after-unveiling-83m-plan-to-acquire-chicken-nugget-maker/",
-      "source_type": "news",
-      "source_date": "2020-08-31",
-      "retrieved_date": "2026-07-14"
+      "retrieved_date": "2026-07-15"
     }
   ]
 }

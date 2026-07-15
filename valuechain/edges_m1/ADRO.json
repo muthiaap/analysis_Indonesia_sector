@@ -1,0 +1,30 @@
+{
+  "ticker": "ADRO",
+  "company": "Alamtri Resources Indonesia Tbk",
+  "edges": [
+    {
+      "counterparty": "PLN",
+      "counterparty_ticker": null,
+      "direction": "customer",
+      "flow": "electricity offtake under PPA (via JV power plants TPI/BPI)",
+      "confidence": "high",
+      "evidence_quote": "PT Tanjung Power Indonesia (TPI) is a joint venture between PT Alamtri Power Indonesia (formerly Adaro Power/AP) (65%) and PT EWP Indonesia (35%), a subsidiary of Korea East-West Power Co., Ltd. TPI developed and operates a 2x100 MW CFPP located in Tabalong Regency, South Kalimantan, which supplies electricity to PLN under a 25-year Power Purchase Agreement (PPA) commencing from the commercial operation date (COD).",
+      "source_url": "https://www.alamtri.com/files/news/berkas_eng/2327/AR%20AlamTri%202024%20-%20web.pdf",
+      "source_type": "filing",
+      "source_date": "2024-12-31",
+      "retrieved_date": "2026-07-14"
+    },
+    {
+      "counterparty": "TNB Fuel Services Sdn. Bhd.",
+      "counterparty_ticker": null,
+      "direction": "customer",
+      "flow": "thermal coal sales (>10% of consolidated revenue)",
+      "confidence": "high",
+      "evidence_quote": "Pihak ketiga/Third party: TNB Fuel Services Sdn. Bhd. 996,716 1,185,034.",
+      "source_url": "https://www.alamtri.com/files/news/berkas/2241/FS%20Final%20AEI%2031%20December%202023.pdf",
+      "source_type": "filing",
+      "source_date": "2023-12-31",
+      "retrieved_date": "2026-07-14"
+    }
+  ]
+}

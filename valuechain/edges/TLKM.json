@@ -3,28 +3,16 @@
   "company": "Telkom Indonesia (Persero) Tbk",
   "edges": [
     {
-      "counterparty": "PT Huawei Tech Investment",
+      "counterparty": "PT Phincon",
       "counterparty_ticker": null,
       "direction": "supplier",
-      "flow": "5G RAN / radio network equipment procurement (ROA) & technical support",
+      "flow": "CRM solution development, rollout & technical support (DRA/TSA)",
       "confidence": "high",
-      "evidence_quote": "Telkomsel, PT Ericsson Indonesia, PT Huawei Tech Investment, and PT ZTE Indonesia February 1, 2021 - January 31, 2027 Procurement Agreement for Radio Ultimate Solution (\"ROA\") and TSA",
+      "evidence_quote": "Telkomsel and PT Phincon September 12, 2019 - September 12, 2027 Development and Rollout Agreement (\"DRA\") and Technical Support Agreement (\"TSA\") Customer Relationship Management (\"CRM\") Solution System Integrator",
       "source_url": "https://www.sec.gov/Archives/edgar/data/1001807/000155837025005643/tmb-20241231x20f.htm",
       "source_type": "filing",
       "source_date": "2024-12-31",
-      "retrieved_date": "2026-07-14"
-    },
-    {
-      "counterparty": "PT ZTE Indonesia",
-      "counterparty_ticker": null,
-      "direction": "supplier",
-      "flow": "5G RAN / radio network equipment procurement (ROA) & technical support",
-      "confidence": "high",
-      "evidence_quote": "Telkomsel, PT Ericsson Indonesia, PT Huawei Tech Investment, and PT ZTE Indonesia February 1, 2021 - January 31, 2027 Procurement Agreement for Radio Ultimate Solution (\"ROA\") and TSA",
-      "source_url": "https://www.sec.gov/Archives/edgar/data/1001807/000155837025005643/tmb-20241231x20f.htm",
-      "source_type": "filing",
-      "source_date": "2024-12-31",
-      "retrieved_date": "2026-07-14"
+      "retrieved_date": "2026-07-15"
     },
     {
       "counterparty": "PT Ericsson Indonesia",
@@ -36,7 +24,31 @@
       "source_url": "https://www.sec.gov/Archives/edgar/data/1001807/000155837025005643/tmb-20241231x20f.htm",
       "source_type": "filing",
       "source_date": "2024-12-31",
-      "retrieved_date": "2026-07-14"
+      "retrieved_date": "2026-07-15"
+    },
+    {
+      "counterparty": "PT Huawei Tech Investment",
+      "counterparty_ticker": null,
+      "direction": "supplier",
+      "flow": "5G RAN / radio network equipment procurement (ROA) & technical support",
+      "confidence": "high",
+      "evidence_quote": "Telkomsel, PT Ericsson Indonesia, PT Huawei Tech Investment, and PT ZTE Indonesia February 1, 2021 - January 31, 2027 Procurement Agreement for Radio Ultimate Solution (\"ROA\") and TSA",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1001807/000155837025005643/tmb-20241231x20f.htm",
+      "source_type": "filing",
+      "source_date": "2024-12-31",
+      "retrieved_date": "2026-07-15"
+    },
+    {
+      "counterparty": "PT ZTE Indonesia",
+      "counterparty_ticker": null,
+      "direction": "supplier",
+      "flow": "5G RAN / radio network equipment procurement (ROA) & technical support",
+      "confidence": "high",
+      "evidence_quote": "Telkomsel, PT Ericsson Indonesia, PT Huawei Tech Investment, and PT ZTE Indonesia February 1, 2021 - January 31, 2027 Procurement Agreement for Radio Ultimate Solution (\"ROA\") and TSA",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1001807/000155837025005643/tmb-20241231x20f.htm",
+      "source_type": "filing",
+      "source_date": "2024-12-31",
+      "retrieved_date": "2026-07-15"
     },
     {
       "counterparty": "Thales Alenia Space France (TAS)",
@@ -48,31 +60,7 @@
       "source_url": "https://www.sec.gov/Archives/edgar/data/1001807/000155837025005643/tmb-20241231x20f.htm",
       "source_type": "filing",
       "source_date": "2024-12-31",
-      "retrieved_date": "2026-07-14"
-    },
-    {
-      "counterparty": "Space Exploration Technologies Corporation (SpaceX)",
-      "counterparty_ticker": null,
-      "direction": "supplier",
-      "flow": "satellite launch service (HTS 113BT)",
-      "confidence": "high",
-      "evidence_quote": "Telkomsat and Space Exploration Technologies Corporation (\"SpaceX\") April 19, 2022 - June 30, 2025 Procurement Agreement for Launch Service of HTS 113BT Satellite",
-      "source_url": "https://www.sec.gov/Archives/edgar/data/1001807/000155837025005643/tmb-20241231x20f.htm",
-      "source_type": "filing",
-      "source_date": "2024-12-31",
-      "retrieved_date": "2026-07-14"
-    },
-    {
-      "counterparty": "PT Phincon",
-      "counterparty_ticker": null,
-      "direction": "supplier",
-      "flow": "CRM solution system integration",
-      "confidence": "high",
-      "evidence_quote": "Telkomsel and PT Phincon September 12, 2019 - September 12, 2027 Development and Rollout Agreement (\"DRA\") and Technical Support Agreement (\"TSA\") Customer Relationship Management (\"CRM\") Solution System Integrator",
-      "source_url": "https://www.sec.gov/Archives/edgar/data/1001807/000155837025005643/tmb-20241231x20f.htm",
-      "source_type": "filing",
-      "source_date": "2024-12-31",
-      "retrieved_date": "2026-07-14"
+      "retrieved_date": "2026-07-15"
     },
     {
       "counterparty": "PT Sempurna Global Pratama",
@@ -84,43 +72,67 @@
       "source_url": "https://www.sec.gov/Archives/edgar/data/1001807/000155837025005643/tmb-20241231x20f.htm",
       "source_type": "filing",
       "source_date": "2024-12-31",
-      "retrieved_date": "2026-07-14"
+      "retrieved_date": "2026-07-15"
     },
     {
-      "counterparty": "Nokia",
+      "counterparty": "PT Lintas Teknologi Indonesia",
       "counterparty_ticker": null,
       "direction": "supplier",
-      "flow": "OTN Metro (OTM) network equipment, Platform Nokia — resold/installed via integrator PT Lintas Teknologi Indonesia",
+      "flow": "OTN Metro (OTM) Future State Architecture procurement & installation, Nokia platform",
       "confidence": "high",
       "evidence_quote": "The Company and PT Lintas Teknologi Indonesia December 13, 2024 - June 28, 2025 Agreement Procurement and Installation for OTN Metro (OTM) Future State Architecture (FSA) - Platform Nokia",
       "source_url": "https://www.sec.gov/Archives/edgar/data/1001807/000155837025005643/tmb-20241231x20f.htm",
       "source_type": "filing",
       "source_date": "2024-12-31",
-      "retrieved_date": "2026-07-14"
+      "retrieved_date": "2026-07-15"
     },
     {
-      "counterparty": "Cisco",
+      "counterparty": "PT Packet Systems Indonesia",
       "counterparty_ticker": null,
       "direction": "supplier",
-      "flow": "IP backbone network equipment, Platform Cisco — resold/installed via integrator PT Master System Infotama",
+      "flow": "OTN Metro (OTM) Future State Architecture procurement & installation, Huawei platform",
+      "confidence": "high",
+      "evidence_quote": "The Company and PT Packet Systems Indonesia December 18, 2024 - July 28, 2025 Agreement Procurement and Installation for OTN Metro (OTM) Future State Architecture (FSA) - Platform Huawei",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1001807/000155837025005643/tmb-20241231x20f.htm",
+      "source_type": "filing",
+      "source_date": "2024-12-31",
+      "retrieved_date": "2026-07-15"
+    },
+    {
+      "counterparty": "PT Master System Infotama",
+      "counterparty_ticker": null,
+      "direction": "supplier",
+      "flow": "IP Backbone expansion procurement & installation, Cisco platform",
       "confidence": "high",
       "evidence_quote": "The Company and PT Master System Infotama December 9, 2024 - June 6, 2025 Agreement Procurement and Installation for Expand IP Backbone Platform Cisco",
       "source_url": "https://www.sec.gov/Archives/edgar/data/1001807/000155837025005643/tmb-20241231x20f.htm",
       "source_type": "filing",
       "source_date": "2024-12-31",
-      "retrieved_date": "2026-07-14"
+      "retrieved_date": "2026-07-15"
+    },
+    {
+      "counterparty": "Space Exploration Technologies Corporation (SpaceX)",
+      "counterparty_ticker": null,
+      "direction": "supplier",
+      "flow": "satellite launch service (HTS 113BT)",
+      "confidence": "high",
+      "evidence_quote": "Telkomsat and Space Exploration Technologies Corporation (\"SpaceX\") April 19, 2022 - June 30, 2025 Procurement Agreement for Launch Service of HTS 113BT Satellite",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1001807/000155837025005643/tmb-20241231x20f.htm",
+      "source_type": "filing",
+      "source_date": "2024-12-31",
+      "retrieved_date": "2026-07-15"
     },
     {
       "counterparty": "PT Indosat Tbk",
       "counterparty_ticker": null,
       "direction": "customer",
-      "flow": "tower colocation lease-back (10-year tenant, ~983 tower slots) plus future colocation orders",
+      "flow": "tower colocation lease-back (~983 slots, 10-year term) plus committed future colocation orders",
       "confidence": "high",
       "evidence_quote": "based on the Telecommunication Tower Conditional Sale and Purchase Agreement (“CSPA”) between Mitratel and PT Indosat Tbk. (“Indosat”), Mitratel agreed to acquire 997 telecommunication towers belonging to Indosat for Rp 1,648 billion. Mitratel and Indosat also agreed to lease back 983 slots of Indosat’s telecommunications towers for 10 years lease period. In addition, Indosat have also agreed to deliver order for colocations for the next 3 years which will be compensated by Mitratel amounting to Rp 473 billion as commitment.",
       "source_url": "https://www.sec.gov/Archives/edgar/data/1001807/000155837025005643/tmb-20241231x20f.htm",
       "source_type": "filing",
       "source_date": "2024-12-31",
-      "retrieved_date": "2026-07-14"
+      "retrieved_date": "2026-07-15"
     },
     {
       "counterparty": "PT GoTo Gojek Tokopedia Tbk",
@@ -132,7 +144,7 @@
       "source_url": "https://www.sec.gov/Archives/edgar/data/1001807/000155837025005643/tmb-20241231x20f.htm",
       "source_type": "filing",
       "source_date": "2024-12-31",
-      "retrieved_date": "2026-07-14"
+      "retrieved_date": "2026-07-15"
     }
   ]
 }

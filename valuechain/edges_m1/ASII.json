@@ -1,0 +1,126 @@
+{
+  "ticker": "ASII",
+  "company": "Astra International Tbk",
+  "edges": [
+    {
+      "counterparty": "Toyota Motor Corporation",
+      "counterparty_ticker": null,
+      "direction": "supplier",
+      "flow": "Toyota/Lexus vehicle sole agent, importer and distributor (TAM JV)",
+      "confidence": "medium",
+      "evidence_quote": "PT Toyota-Astra Motor (TAM) is a joint venture company with 50% ownership by both the Company and Toyota Motor Corporation (TMC). TAM serves as sole agent, importer and distributor of cars under the Toyota and Lexus brands in Indonesia.",
+      "source_url": "https://www.astra.co.id/en/business/automotive/toyota",
+      "source_type": "company_site",
+      "source_date": "2026-07-14",
+      "retrieved_date": "2026-07-14"
+    },
+    {
+      "counterparty": "Honda Motor Co.",
+      "counterparty_ticker": null,
+      "direction": "supplier",
+      "flow": "Honda motorcycle production and marketing JV (AHM)",
+      "confidence": "medium",
+      "evidence_quote": "PT Astra Honda Motor (AHM) was established by Astra and Honda Motor Co. as a company that manages the production and marketing activities of Honda motorcycles in Indonesia.",
+      "source_url": "https://www.astra.co.id/en/business/automotive/honda",
+      "source_type": "company_site",
+      "source_date": "2026-07-14",
+      "retrieved_date": "2026-07-14"
+    },
+    {
+      "counterparty": "Daihatsu Motor Co., Ltd.",
+      "counterparty_ticker": null,
+      "direction": "supplier",
+      "flow": "Daihatsu vehicle sole agent (ADM)",
+      "confidence": "medium",
+      "evidence_quote": "PT Astra Daihatsu Motor (ADM) is an associated entity established by Astra, Daihatsu Motor Co., Ltd. and Toyota Tsusho Corporation, as the sole agent of Daihatsu in Indonesia.",
+      "source_url": "https://www.astra.co.id/en/business/automotive/daihatsu",
+      "source_type": "company_site",
+      "source_date": "2026-07-14",
+      "retrieved_date": "2026-07-14"
+    },
+    {
+      "counterparty": "Isuzu Motors Limited",
+      "counterparty_ticker": null,
+      "direction": "supplier",
+      "flow": "Isuzu vehicle sole agent for production and marketing (IAMI)",
+      "confidence": "medium",
+      "evidence_quote": "PT Isuzu Astra Motor Indonesia (IAMI) was established by the Company (through PT Arya Kharisma) and Isuzu Motors Limited (IML) as the sole agent responsible for the production and marketing of Isuzu brand vehicles and components in Indonesia.",
+      "source_url": "https://www.astra.co.id/en/business/automotive/isuzu",
+      "source_type": "company_site",
+      "source_date": "2026-07-14",
+      "retrieved_date": "2026-07-14"
+    },
+    {
+      "counterparty": "BMW AG",
+      "counterparty_ticker": null,
+      "direction": "supplier",
+      "flow": "BMW vehicle licensing, trademark and distributorship agreement",
+      "confidence": "high",
+      "evidence_quote": "The Company and certain subsidiaries have existing licensing, technical assistance, royalty, trademark, dealership, distributorship and after sales service agreements with the following licensors: Automobile Peugeot, France; BMW AG, Germany; Daido Kogyo Co Ltd, Japan; Fuji Technica & Miyazu Inc, Japan; GS Yuasa International Ltd, Japan; Kawasaki Industrial Co Ltd, Japan; Kumi Kasei Co Ltd; Magna International Japan Inc; MAHLE Engine Component Japan Corp, Japan; MetalArt Corp, Japan; Mitsubishi Fuso Truck & Bus Corp, Japan; Naza Automotive Manufacturing; PT Astra Daihatsu Motor; PT Astra Honda Motor; PT BMW Indonesia; PT Isuzu Astra Motor Indonesia; PT Toyota-Astra Motor; PT UD Astra Motor Indonesia; Saitama Kiki Co Ltd, Japan; Sakae Riken Kogyo Co Ltd, Japan; Topy Industries Ltd, Japan; Toyoda Gosei Co Ltd, Japan (Automotive).",
+      "source_url": "https://r2.astra.co.id/financial-reports/Astra%20Account%20December%202024.pdf",
+      "source_type": "filing",
+      "source_date": "2024-12-31",
+      "retrieved_date": "2026-07-14"
+    },
+    {
+      "counterparty": "Automobile Peugeot",
+      "counterparty_ticker": null,
+      "direction": "supplier",
+      "flow": "Peugeot vehicle licensing, trademark and distributorship agreement",
+      "confidence": "high",
+      "evidence_quote": "The Company and certain subsidiaries have existing licensing, technical assistance, royalty, trademark, dealership, distributorship and after sales service agreements with the following licensors: Automobile Peugeot, France; BMW AG, Germany; Daido Kogyo Co Ltd, Japan; Fuji Technica & Miyazu Inc, Japan; GS Yuasa International Ltd, Japan; Kawasaki Industrial Co Ltd, Japan; Kumi Kasei Co Ltd; Magna International Japan Inc; MAHLE Engine Component Japan Corp, Japan; MetalArt Corp, Japan; Mitsubishi Fuso Truck & Bus Corp, Japan; Naza Automotive Manufacturing; PT Astra Daihatsu Motor; PT Astra Honda Motor; PT BMW Indonesia; PT Isuzu Astra Motor Indonesia; PT Toyota-Astra Motor; PT UD Astra Motor Indonesia; Saitama Kiki Co Ltd, Japan; Sakae Riken Kogyo Co Ltd, Japan; Topy Industries Ltd, Japan; Toyoda Gosei Co Ltd, Japan (Automotive).",
+      "source_url": "https://r2.astra.co.id/financial-reports/Astra%20Account%20December%202024.pdf",
+      "source_type": "filing",
+      "source_date": "2024-12-31",
+      "retrieved_date": "2026-07-14"
+    },
+    {
+      "counterparty": "Komatsu Ltd",
+      "counterparty_ticker": null,
+      "direction": "supplier",
+      "flow": "Komatsu heavy equipment licensing and distributorship agreement",
+      "confidence": "high",
+      "evidence_quote": "Heavy equipment and mining: BOMAG GmbH & Co OHG, Germany; Komatsu Ltd, Japan; PT Komatsu Marketing & Support Indonesia; PT UD Astra Motor Indonesia; Scania CV Aktiebolag, Sweden; Tadano Asia Pte Ltd, Singapore.",
+      "source_url": "https://r2.astra.co.id/financial-reports/Astra%20Account%20December%202024.pdf",
+      "source_type": "filing",
+      "source_date": "2024-12-31",
+      "retrieved_date": "2026-07-14"
+    },
+    {
+      "counterparty": "Scania CV Aktiebolag",
+      "counterparty_ticker": null,
+      "direction": "supplier",
+      "flow": "Scania heavy equipment licensing and distributorship agreement",
+      "confidence": "high",
+      "evidence_quote": "Heavy equipment and mining: BOMAG GmbH & Co OHG, Germany; Komatsu Ltd, Japan; PT Komatsu Marketing & Support Indonesia; PT UD Astra Motor Indonesia; Scania CV Aktiebolag, Sweden; Tadano Asia Pte Ltd, Singapore.",
+      "source_url": "https://r2.astra.co.id/financial-reports/Astra%20Account%20December%202024.pdf",
+      "source_type": "filing",
+      "source_date": "2024-12-31",
+      "retrieved_date": "2026-07-14"
+    },
+    {
+      "counterparty": "BOMAG GmbH & Co OHG",
+      "counterparty_ticker": null,
+      "direction": "supplier",
+      "flow": "BOMAG heavy equipment licensing and distributorship agreement",
+      "confidence": "high",
+      "evidence_quote": "Heavy equipment and mining: BOMAG GmbH & Co OHG, Germany; Komatsu Ltd, Japan; PT Komatsu Marketing & Support Indonesia; PT UD Astra Motor Indonesia; Scania CV Aktiebolag, Sweden; Tadano Asia Pte Ltd, Singapore.",
+      "source_url": "https://r2.astra.co.id/financial-reports/Astra%20Account%20December%202024.pdf",
+      "source_type": "filing",
+      "source_date": "2024-12-31",
+      "retrieved_date": "2026-07-14"
+    },
+    {
+      "counterparty": "Tadano Asia Pte Ltd",
+      "counterparty_ticker": null,
+      "direction": "supplier",
+      "flow": "Tadano crane/equipment licensing and distributorship agreement",
+      "confidence": "high",
+      "evidence_quote": "Heavy equipment and mining: BOMAG GmbH & Co OHG, Germany; Komatsu Ltd, Japan; PT Komatsu Marketing & Support Indonesia; PT UD Astra Motor Indonesia; Scania CV Aktiebolag, Sweden; Tadano Asia Pte Ltd, Singapore.",
+      "source_url": "https://r2.astra.co.id/financial-reports/Astra%20Account%20December%202024.pdf",
+      "source_type": "filing",
+      "source_date": "2024-12-31",
+      "retrieved_date": "2026-07-14"
+    }
+  ]
+}

@@ -1,0 +1,114 @@
+{
+  "ticker": "INTP",
+  "company": "Indocement Tunggal Prakarsa Tbk",
+  "edges": [
+    {
+      "counterparty": "HM Trading Global APAC Pte. Ltd.",
+      "counterparty_ticker": null,
+      "direction": "customer",
+      "flow": "Export/distribution sale of finished cement goods",
+      "confidence": "high",
+      "evidence_quote": "HM Trading Global APAC Pte. Ltd. Under common control Sale of finished goods and purchase of raw materials",
+      "source_url": "https://www.indocement.co.id/media/post/ar-2025-lowquality-publish-final.pdf",
+      "source_type": "filing",
+      "source_date": "2025-12-31",
+      "retrieved_date": "2026-07-14"
+    },
+    {
+      "counterparty": "HM Trading Global GmbH",
+      "counterparty_ticker": null,
+      "direction": "customer",
+      "flow": "Export sale of finished cement goods",
+      "confidence": "high",
+      "evidence_quote": "HM Trading Global GmbH Under common control Sale of finished goods",
+      "source_url": "https://www.indocement.co.id/media/post/ar-2025-lowquality-publish-final.pdf",
+      "source_type": "filing",
+      "source_date": "2025-12-31",
+      "retrieved_date": "2026-07-14"
+    },
+    {
+      "counterparty": "HC Trading Malta Limited",
+      "counterparty_ticker": null,
+      "direction": "customer",
+      "flow": "Export distribution agreement buyer for cement",
+      "confidence": "high",
+      "evidence_quote": "The Company has an export distribution agreement (“Distribution Agreement”) with HC Trading Malta Limited and HM Trading Global APAC Pte. Ltd., subsidiaries of Heidelberg Materials AG, which is effective until 10 April 2026.",
+      "source_url": "https://www.indocement.co.id/media/post/ar-2025-lowquality-publish-final.pdf",
+      "source_type": "filing",
+      "source_date": "2025-12-31",
+      "retrieved_date": "2026-07-14"
+    },
+    {
+      "counterparty": "Heidelberg Materials AG",
+      "counterparty_ticker": null,
+      "direction": "supplier",
+      "flow": "Professional fees paid to ultimate parent",
+      "confidence": "high",
+      "evidence_quote": "Heidelberg Materials AG Ultimate parent Professional fees",
+      "source_url": "https://www.indocement.co.id/media/post/ar-2025-lowquality-publish-final.pdf",
+      "source_type": "filing",
+      "source_date": "2025-12-31",
+      "retrieved_date": "2026-07-14"
+    },
+    {
+      "counterparty": "Heidelberg Materials Asia Pte. Ltd.",
+      "counterparty_ticker": null,
+      "direction": "supplier",
+      "flow": "Professional/management fees and travel expense reimbursement",
+      "confidence": "high",
+      "evidence_quote": "Heidelberg Materials Asia Pte. Ltd. Under common control Professional fees, management fees, and reimbursement of traveling expenses",
+      "source_url": "https://www.indocement.co.id/media/post/ar-2025-lowquality-publish-final.pdf",
+      "source_type": "filing",
+      "source_date": "2025-12-31",
+      "retrieved_date": "2026-07-14"
+    },
+    {
+      "counterparty": "PT Bhakti Sari Perkasa Bersama",
+      "counterparty_ticker": null,
+      "direction": "supplier",
+      "flow": "Outsourcing services",
+      "confidence": "high",
+      "evidence_quote": "PT Bhakti Sari Perkasa Bersama Associate Outsourcing services",
+      "source_url": "https://www.indocement.co.id/media/post/ar-2025-lowquality-publish-final.pdf",
+      "source_type": "filing",
+      "source_date": "2025-12-31",
+      "retrieved_date": "2026-07-14"
+    },
+    {
+      "counterparty": "PT Jaya Berdikari Cipta",
+      "counterparty_ticker": null,
+      "direction": "supplier",
+      "flow": "Shipping/transportation services",
+      "confidence": "high",
+      "evidence_quote": "PT Jaya Berdikari Cipta Associate Transportation services",
+      "source_url": "https://www.indocement.co.id/media/post/ar-2025-lowquality-publish-final.pdf",
+      "source_type": "filing",
+      "source_date": "2025-12-31",
+      "retrieved_date": "2026-07-14"
+    },
+    {
+      "counterparty": "PT Pama Indo Mining",
+      "counterparty_ticker": null,
+      "direction": "supplier",
+      "flow": "Limestone/clay quarrying and mining service fee",
+      "confidence": "high",
+      "evidence_quote": "PT Pama Indo Mining Associate Mining service fee and management fee",
+      "source_url": "https://www.indocement.co.id/media/post/ar-2025-lowquality-publish-final.pdf",
+      "source_type": "filing",
+      "source_date": "2025-12-31",
+      "retrieved_date": "2026-07-14"
+    },
+    {
+      "counterparty": "PT Kereta Api Indonesia",
+      "counterparty_ticker": null,
+      "direction": "supplier",
+      "flow": "Rail transportation for bagged cement delivery",
+      "confidence": "high",
+      "evidence_quote": "Commenced the cooperation with PT Kereta Api Indonesia in using trains as transportation mode for bagged cement delivery.",
+      "source_url": "https://www.indocement.co.id/media/post/ar-2025-lowquality-publish-final.pdf",
+      "source_type": "filing",
+      "source_date": "2025-12-31",
+      "retrieved_date": "2026-07-14"
+    }
+  ]
+}

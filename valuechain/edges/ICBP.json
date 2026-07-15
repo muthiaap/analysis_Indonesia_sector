@@ -1,0 +1,126 @@
+{
+ "ticker": "ICBP",
+ "company": "Indofood CBP Sukses Makmur Tbk",
+ "edges": [
+  {
+   "counterparty": "PT. Indomarco Adi Prima (IAP)",
+   "direction": "customer",
+   "flow": "packaged food sales/distribution",
+   "evidence_quote": "Pihak berelasi 1 PT. Indomarco Adi Prima (IAP) 11,272,995 Related party 1 Pihak berelasi 1 PT. Indomarco Adi Prima (IAP) 10,655,674 Related party 1",
+   "source_url": "https://www.idx.co.id/en/listed-companies/company-profiles/ICBP",
+   "source_type": "filing",
+   "source_date": "2026-03-31",
+   "confidence": "high",
+   "counterparty_ticker": null,
+   "retrieved_date": "2026-07-15"
+  },
+  {
+   "counterparty": "PT. Putri Daya Usahatama (PDU)",
+   "direction": "customer",
+   "flow": "packaged food sales",
+   "evidence_quote": "Pihak berelasi 2 PT. Putri Daya Usahatama (PDU) 960,687 Related party 2 Pihak berelasi 2 PT. Putri Daya Usahatama (PDU) 963,916 Related party 2",
+   "source_url": "https://www.idx.co.id/en/listed-companies/company-profiles/ICBP",
+   "source_type": "filing",
+   "source_date": "2026-03-31",
+   "confidence": "high",
+   "counterparty_ticker": null,
+   "retrieved_date": "2026-07-15"
+  },
+  {
+   "counterparty": "Dufil Prima Foods Plc dan Entitas Anak",
+   "direction": "customer",
+   "flow": "packaged food sales",
+   "evidence_quote": "Pihak berelasi 3 Dufil Prima Foods Plc dan Entitas Anak 185,241 Related party 3 Pihak berelasi 3 Dufil Prima Foods Plc dan Entitas Anak 151,467 Related party 3",
+   "source_url": "https://www.idx.co.id/en/listed-companies/company-profiles/ICBP",
+   "source_type": "filing",
+   "source_date": "2026-03-31",
+   "confidence": "high",
+   "counterparty_ticker": null,
+   "retrieved_date": "2026-07-15"
+  },
+  {
+   "counterparty": "PT. Indofood Sukses Makmur Tbk (ISM)",
+   "direction": "customer",
+   "flow": "packaged food sales",
+   "evidence_quote": "Pihak berelasi 4 PT. Indofood Sukses Makmur Tbk (ISM) 60,782 Related party 4 Pihak berelasi 4 PT. Indofood Sukses Makmur Tbk (ISM) 66,851 Related party 4",
+   "source_url": "https://www.idx.co.id/en/listed-companies/company-profiles/ICBP",
+   "source_type": "filing",
+   "source_date": "2026-03-31",
+   "confidence": "high",
+   "counterparty_ticker": null,
+   "retrieved_date": "2026-07-15"
+  },
+  {
+   "counterparty": "Salim Wazaran Brinjikji (SAWAB)",
+   "direction": "customer",
+   "flow": "packaged food sales",
+   "evidence_quote": "Pihak berelasi 5 Salim Wazaran Brinjikji (SAWAB) 91,011 Related party 5 Pihak berelasi 5 Salim Wazaran Brinjikji (SAWAB) 8,295 Related party 5",
+   "source_url": "https://www.idx.co.id/en/listed-companies/company-profiles/ICBP",
+   "source_type": "filing",
+   "source_date": "2026-03-31",
+   "confidence": "high",
+   "counterparty_ticker": null,
+   "retrieved_date": "2026-07-15"
+  },
+  {
+   "counterparty": "Shanghai Resource International Trading Co., Ltd. (SRI)",
+   "direction": "customer",
+   "flow": "packaged food sales",
+   "evidence_quote": "Pihak berelasi 6 Shanghai Resource International Trading 127,964 Related party 6 Pihak berelasi 6 Shanghai Resource International Trading 59,815 Related party 6\nCo., Ltd. (SRI) Co., Ltd. (SRI)",
+   "source_url": "https://www.idx.co.id/en/listed-companies/company-profiles/ICBP",
+   "source_type": "filing",
+   "source_date": "2026-03-31",
+   "confidence": "high",
+   "counterparty_ticker": null,
+   "retrieved_date": "2026-07-15"
+  },
+  {
+   "counterparty": "PT. Salim Ivomas Pratama Tbk (SIMP)",
+   "direction": "customer",
+   "flow": "packaged food sales",
+   "evidence_quote": "Pihak berelasi 7 PT. Salim Ivomas Pratama Tbk (SIMP) 35,855 Related party 7 Pihak berelasi 7 PT. Salim Ivomas Pratama Tbk (SIMP) 29,567 Related party 7",
+   "source_url": "https://www.idx.co.id/en/listed-companies/company-profiles/ICBP",
+   "source_type": "filing",
+   "source_date": "2026-03-31",
+   "confidence": "high",
+   "counterparty_ticker": null,
+   "retrieved_date": "2026-07-15"
+  },
+  {
+   "counterparty": "Indomarco Prismatama (IPT)",
+   "direction": "customer",
+   "flow": "packaged food sales/retail distribution",
+   "evidence_quote": "Pihak berelasi 8 Indomarco Prismatama (IPT) 7,924 Related party 8 Pihak berelasi 8 Indomarco Prismatama (IPT) 7,763 Related party 8",
+   "source_url": "https://www.idx.co.id/en/listed-companies/company-profiles/ICBP",
+   "source_type": "filing",
+   "source_date": "2026-03-31",
+   "confidence": "high",
+   "counterparty_ticker": null,
+   "retrieved_date": "2026-07-15"
+  },
+  {
+   "counterparty": "PT. Oji Indo Makmur Perkasa (OIMP)",
+   "direction": "customer",
+   "flow": "packaged food sales",
+   "evidence_quote": "Pihak berelasi 9 PT. Oji Indo Makmur Perkasa (OIMP) 4,438 Related party 9 Pihak berelasi 9 PT. Oji Indo Makmur Perkasa (OIMP) 1,894 Related party 9",
+   "source_url": "https://www.idx.co.id/en/listed-companies/company-profiles/ICBP",
+   "source_type": "filing",
+   "source_date": "2026-03-31",
+   "confidence": "high",
+   "counterparty_ticker": null,
+   "retrieved_date": "2026-07-15"
+  },
+  {
+   "counterparty": "Salim Wazaran Yahya Food (SAWAYA)",
+   "direction": "customer",
+   "flow": "packaged food sales",
+   "evidence_quote": "Pihak berelasi Salim Wazaran Yahya Food (SAWAYA) 4,263 Related party Pihak berelasi Salim Wazaran Yahya Food (SAWAYA) 3,707 Related party",
+   "source_url": "https://www.idx.co.id/en/listed-companies/company-profiles/ICBP",
+   "source_type": "filing",
+   "source_date": "2026-03-31",
+   "confidence": "high",
+   "counterparty_ticker": null,
+   "retrieved_date": "2026-07-15"
+  }
+ ]
+}

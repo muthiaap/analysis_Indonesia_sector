@@ -3,18 +3,6 @@
   "company": "PT Perusahaan Gas Negara (Persero) Tbk",
   "edges": [
     {
-      "counterparty": "PLN",
-      "counterparty_ticker": null,
-      "direction": "customer",
-      "flow": "natural gas supply (SPA, Tambak Lorok power plant)",
-      "confidence": "low",
-      "evidence_quote": "To support natural gas channeling to Tambak Lorok, it will be done under the sale and purchase agreement between PGN and PLN.",
-      "source_url": "https://en.antaranews.com/news/159073/pgn-ready-to-channel-gas-to-tambak-lorok-power-plant",
-      "source_type": "news",
-      "source_date": "2020-10-15",
-      "retrieved_date": "2026-07-14"
-    },
-    {
       "counterparty": "PT Pertamina Hulu Energi Jambi Merang",
       "counterparty_ticker": null,
       "direction": "supplier",
@@ -33,18 +21,6 @@
       "flow": "natural gas supply (letters of agreement, price adjustment)",
       "confidence": "low",
       "evidence_quote": "PGN also signed five letters of agreement (LOA) with ConocoPhillips Grissik Limited (CPGL) to lower gas prices for 417.2 BBUTD worth of gas, as mandated by the government.",
-      "source_url": "https://finance.yahoo.com/news/indonesias-pgn-signs-sales-deals-051302481.html",
-      "source_type": "news",
-      "source_date": "2021-12-01",
-      "retrieved_date": "2026-07-14"
-    },
-    {
-      "counterparty": "Medco Energi",
-      "counterparty_ticker": null,
-      "direction": "supplier",
-      "flow": "natural gas supply (letters of agreement, price adjustment)",
-      "confidence": "low",
-      "evidence_quote": "It also signed two similar LOAs with Medco Energi for gas worth 24.67 BBUTD.",
       "source_url": "https://finance.yahoo.com/news/indonesias-pgn-signs-sales-deals-051302481.html",
       "source_type": "news",
       "source_date": "2021-12-01",
@@ -97,6 +73,90 @@
       "source_type": "news",
       "source_date": "2020-08-13",
       "retrieved_date": "2026-07-14"
+    },
+    {
+      "counterparty": "PLN",
+      "counterparty_ticker": null,
+      "direction": "customer",
+      "flow": "gas sales revenue",
+      "confidence": "high",
+      "evidence_quote": "Pendapatan dari pelanggan yang melebihi 10% dari jumlah pendapatan konsolidasian adalah pendapatan dari PLN dan entitas anaknya (pihak berelasi) masing-masing sebesar USD148.005.197 atau 15,92% dan USD179.056.666 atau 18,53% dari jumlah pendapatan konsolidasian untuk periode tiga bulan yang berakhir pada tanggal 31 Maret 2026 dan 2025.",
+      "source_url": "https://www.idx.co.id/en/listed-companies/company-profiles/PGAS",
+      "source_type": "filing",
+      "source_date": "2026-03-31",
+      "retrieved_date": "2026-07-15"
+    },
+    {
+      "counterparty": "PLN",
+      "counterparty_ticker": null,
+      "direction": "supplier",
+      "flow": "trade payables to related party",
+      "confidence": "high",
+      "evidence_quote": "Pihak 2 PLN 0 Rank 2, Pihak 2 PLN 23,391,146 Rank 2,\ncounterparty counterparty",
+      "source_url": "https://www.idx.co.id/en/listed-companies/company-profiles/PGAS",
+      "source_type": "filing",
+      "source_date": "2026-03-31",
+      "retrieved_date": "2026-07-15"
+    },
+    {
+      "counterparty": "Pertamina",
+      "counterparty_ticker": null,
+      "direction": "supplier",
+      "flow": "gas purchases (cost of goods sold)",
+      "confidence": "high",
+      "evidence_quote": "Pembelian neto dari pihak berelasi yang melebihi 10% dari jumlah pendapatan konsolidasian adalah pembelian dari Pertamina dan entitas anaknya, masing-masing sebesar USD183.223.759 atau 19,71% dan USD204.625.320 atau 21,17% dari jumlah pendapatan konsolidasian untuk periode tiga bulan yang berakhir 31 Maret 2026 dan 2025.",
+      "source_url": "https://www.idx.co.id/en/listed-companies/company-profiles/PGAS",
+      "source_type": "filing",
+      "source_date": "2026-03-31",
+      "retrieved_date": "2026-07-15"
+    },
+    {
+      "counterparty": "PT Medco Energi Internasional Tbk",
+      "counterparty_ticker": null,
+      "direction": "supplier",
+      "flow": "gas purchases (cost of goods sold)",
+      "confidence": "high",
+      "evidence_quote": "pembelian neto dari pihak ketiga yang melebihi 10% jumlah pendapatan konsolidasian adalah pembelian dari PT Medco Energi Internasional Tbk., masing-masing sebesar USD151.460.826 atau 16,29% dan USD167.786.192 atau 17,36% dari jumlah pendapatan konsolidasian untuk periode tiga bulan yang berakhir 31 Maret 2026 dan 2025.",
+      "source_url": "https://www.idx.co.id/en/listed-companies/company-profiles/PGAS",
+      "source_type": "filing",
+      "source_date": "2026-03-31",
+      "retrieved_date": "2026-07-15"
+    },
+    {
+      "counterparty": "China National Technical IMP EXP Corp",
+      "counterparty_ticker": null,
+      "direction": "customer",
+      "flow": "LNG trading sales",
+      "confidence": "high",
+      "evidence_quote": "LNG Trading merupakan transaksi jual beli LNG antara Perusahaan dengan China National Technical IMP EXP Corp",
+      "source_url": "https://www.idx.co.id/en/listed-companies/company-profiles/PGAS",
+      "source_type": "filing",
+      "source_date": "2026-03-31",
+      "retrieved_date": "2026-07-15"
+    },
+    {
+      "counterparty": "PEP",
+      "counterparty_ticker": null,
+      "direction": "supplier",
+      "flow": "trade payables to related party",
+      "confidence": "high",
+      "evidence_quote": "Pihak Pihak 1 PEP 67,438,298 Related Rank 1, Pihak Pihak 1 PEP 66,348,694 Related Rank 1,\nberelasi party counterparty berelasi party counterparty",
+      "source_url": "https://www.idx.co.id/en/listed-companies/company-profiles/PGAS",
+      "source_type": "filing",
+      "source_date": "2026-03-31",
+      "retrieved_date": "2026-07-15"
+    },
+    {
+      "counterparty": "PHE",
+      "counterparty_ticker": null,
+      "direction": "supplier",
+      "flow": "trade payables to related party",
+      "confidence": "high",
+      "evidence_quote": "Pihak 4 PHE 13,641,471 Rank 4, Pihak 4 PHE 15,053,794 Rank 4,",
+      "source_url": "https://www.idx.co.id/en/listed-companies/company-profiles/PGAS",
+      "source_type": "filing",
+      "source_date": "2026-03-31",
+      "retrieved_date": "2026-07-15"
     }
   ]
 }

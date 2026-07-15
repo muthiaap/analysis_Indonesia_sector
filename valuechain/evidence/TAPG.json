@@ -1,42 +1,25 @@
 {
-  "ticker": "TAPG",
-  "collected_date": "2026-07-14",
-  "snippets": [
-    {
-      "source_url": "https://admin-web.tap-agri.com/storage/files/1/AR/AR_2024.pdf",
-      "source_type": "filing",
-      "source_date": "2024-12-31",
-      "text": "For the year ended December 31, 2024 and 2023 the Group's sales to customers that exceeded 10% of total consolidated sales are from the palm oil product and its derivatives operating segment with details as follows: PT Sinar Alam Permai 2,466,221 2,385,599 25.50% 28.65%; PT Kutai Refinery Nusantara 2,255,624 1,868,363 23.32% 22.44%; PT Sinar Mas Agro Resources and Technology Tbk 1,205,523 807,623 12.46% 9.7%."
-    },
-    {
-      "source_url": "https://admin-web.tap-agri.com/storage/files/1/AR/AR_2024.pdf",
-      "source_type": "filing",
-      "source_date": "2024-12-31",
-      "text": "The details of trade receivables from third parties based on customers are as follows: PT Kutai Refinery Nusantara 109,967 26,492; PT Energi Unggul Persada 39,948 5,052; PT Sinar Alam Permai 26,555 12,393; PT Sinar Mas Agro Resources and Technology Tbk 20,708 8,380; PT LDC East Indonesia 9,139 6,430; PT Agro Makmur Raya 5,934 1,981; PT Waru Kaltim Plantation 5,090 3,913; PT Wilmar Nabati Indonesia 4,697 7,256."
-    },
-    {
-      "source_url": "https://admin-web.tap-agri.com/storage/files/1/AR/AR_2024.pdf",
-      "source_type": "filing",
-      "source_date": "2024-12-31",
-      "text": "Details of trade payables to third parties by supplier are as follows: PT Sentana Adidaya Pratama 80,452 60,112; PT Permata Agro Persada 71,826 23,929; PT Goautama Sinarbatuah 23,333 23,024; PT Wilmar Chemical Indonesia 15,489 38; PT Dupan Anugerah Lestari 14,179 9,497; PT Petrofindo Niaga Sukses 10,113 6,071; PT Wejas Imanuel 7,816 4,544; CV Maju Bersama 7,234 4,651; CV Surya Wijaya Mandiri 6,914 5,891; PT Anugerah Alam Persada 5,872 3,822; PT Gemilang Eka Dharma 3,357 10,549; PT Indra Angkola Energy 3,223 6,614; PT Traktor Nusantara 2,053 10,853; PT Indomobil Prima Niaga 706 11,867."
-    },
-    {
-      "source_url": "https://admin-web.tap-agri.com/storage/files/1/AR/AR_2023.pdf",
-      "source_type": "filing",
-      "source_date": "2023-12-31",
-      "text": "Utang usaha pembelian TBS merupakan utang atas pembelian TBS dari para petani plasma dan mitra, sedangkan utang usaha pada pemasok terutama merupakan utang atas pembelian bahan perawatan, termasuk pupuk dan suku cadang yang umumnya memiliki jangka waktu pembayaran sampai dengan 45 hari. Purchase of FFB trade payables represent payables for purchases of FFB from plasma and partnership farmers, while trade payables to suppliers mainly represent payables for purchases of upkeep materials, including fertilizer and spare parts."
-    },
-    {
-      "source_url": "https://admin-web.tap-agri.com/storage/files/1/AR/AR_2024.pdf",
-      "source_type": "filing",
-      "source_date": "2024-12-31",
-      "text": "Sales and purchases from related parties are made at agreed prices depending on the type of product involved regarding market prices. Pembelian - bahan baku / Purchases - raw materials: PT Sumber Mahardhika Graha 73,525 36,547; PT Harapan Hibrida Kalbar 56,605 632; PT Graha Cakramulia 45,954 626."
-    },
-    {
-      "source_url": "https://www.theeconopost.com/prospek-saham-triputra-agro-bidang-usaha/",
-      "source_type": "news",
-      "source_date": "2021-04-12",
-      "text": "Produksi CPO dari Triputra Agro sebagian besar diserap oleh Wilmar Group (54,26 persen), Apical Group (12,14 persen) dan LDC (11,88 persen)."
-    }
-  ]
+ "ticker": "TAPG",
+ "collected_date": "2026-07-14",
+ "snippets": [
+  {
+   "source_url": "https://www.idx.co.id/en/listed-companies/company-profiles/TAPG",
+   "source_type": "filing",
+   "source_date": "2026-03-31",
+   "text": "[1616000_BD] Notes to the financial statements - Revenue By Parties (breakdown) - General Industry\n31 March 2026 31 March 2025\nCatatan untuk pendapatan berdasarkan Notes for revenue by parties Catatan untuk pendapatan berdasarkan Notes for revenue by parties\npihak pihak\nPenjualan dan pendapatan Penjualan dan pendapatan\nNama pihak Nama pihak\nusaha usaha\nParty name Sales and revenue Party name Sales and revenue\nPihak berelasi 1 Related party 1 Pihak berelasi 1 Related party 1\nPihak berelasi 2 Related party 2 Pihak berelasi 2 Related party 2\nPihak berelasi 3 Related party 3 Pihak berelasi 3 Related party 3\nPihak berelasi 4 Related party 4 Pihak berelasi 4 Related party 4\nPihak berelasi 5 Related party 5 Pihak berelasi 5 Related party 5\nPihak berelasi 6 Related party 6 Pihak berelasi 6 Related party 6\nPihak berelasi 7 Related party 7 Pihak berelasi 7 Related party 7\nPihak berelasi 8 Related party 8 Pihak berelasi 8 Related party 8\nPihak berelasi 9 Related party 9 Pihak berelasi 9 Related party 9\nPihak berelasi 10 Related party 10 Pihak berelasi 10 Related party 10\nPihak berelasi Other related Pihak berelasi Other related\nlainnya parties lainnya parties\nPihak berelasi Related parties Pihak berelasi Related parties\nPihak ketiga 1 PT Kutai Refinery Nusantara 444,078 Third party 1 Pihak ketiga 1 PT Kutai Refinery Nusantara 611,808 Third party 1\nPihak ketiga 2 PT Multimas Nabati Asahan 311,722 Third party 2 Pihak ketiga 2 PT Multimas Nabati Asahan 0 Third party 2\nPihak ketiga 3 PT Sinar Alam Permai 311,094 Third party 3 Pihak ketiga 3 PT Sinar Alam Permai 712,095 Third party 3\nPihak ketiga 4 PT Energi Unggul Persada 249,664 Third party 4 Pihak ketiga 4 PT Energi Unggul Persada 143,411 Third party 4\nPihak ketiga 5 PT LDC East Indonesia 178,590 Third party 5 Pihak ketiga 5 PT LDC East Indonesia 308,328 Third party 5\nPihak ketiga 6 Lain-lain (masing-masing dibawah 997,049 Third party 6 Pihak ketiga 6 Lain-lain (masing-masing dibawah 844,418 Third party 6\n10%) 10%)\nPihak ketiga 7 Third party 7 Pihak ketiga 7 Third party 7\nPihak ketiga 8 Third party 8 Pihak ketiga 8 Third party 8\nPihak ketiga 9 Third party 9 Pihak ketiga 9 Third party 9\nPihak ketiga 10 Third party 10 Pihak ketiga 10 Third party 10\nPihak ketiga Other third Pihak ketiga Other third\nlainnya parties lainnya parties\nPihak ketiga 2,492,197 Third parties Pihak ketiga 2,620,060 Third parties"
+  },
+  {
+   "source_url": "https://www.idx.co.id/en/listed-companies/company-profiles/TAPG",
+   "source_type": "filing",
+   "source_date": "2026-03-31",
+   "text": "[1620300_BD] Notes to the financial statements - Trade receivables, by list of counterparty (breakdown) - General Industry\nRincian piutang usaha berdasarkan rincian pihak Trade receivables by list of counterparty Rincian piutang usaha berdasarkan rincian pihak Trade receivables by list of counterparty\nPiutang usaha [baris komponen] Piutang usaha [baris komponen]\nNama pihak, piutang usaha Piutang usaha, kotor Nama pihak, piutang usaha Piutang usaha, kotor\nPihak ketiga Pihak 1 PT Multimas Nabati Asahan 42,674 Third party Rank 1, counterparty Pihak ketiga Pihak 1 PT Multimas Nabati Asahan 0 Third party Rank 1, counterparty\nPihak 2 PT Kutai Refinery Nusantara 28,285 Rank 2, counterparty Pihak 2 PT Kutai Refinery Nusantara 38,958 Rank 2, counterparty\nPihak 3 PT Hanusentra Agro Lestari 12,497 Rank 3, counterparty Pihak 3 PT Hanusentra Agro Lestari 0 Rank 3, counterparty\nPihak 4 PT Tapian Nadenggan 11,899 Rank 4, counterparty Pihak 4 PT Tapian Nadenggan 8,992 Rank 4, counterparty\nPihak 5 PT Sinar Mas Agro Resources and Technology Tbk 9,595 Rank 5, counterparty Pihak 5 PT Sinar Mas Agro Resources and Technology Tbk 17,278 Rank 5, counterparty\nPihak 6 PT Energi Unggul Persada 4,997 Rank 6, counterparty Pihak 6 PT Energi Unggul Persada 5,566 Rank 6, counterparty\nPihak 7 PT Sari Dumai Sejati 0 Rank 7, counterparty Pihak 7 PT Sari Dumai Sejati 26,849 Rank 7, counterparty\nPihak 8 PT Tritunggal Sentra Buana 0 Rank 8, counterparty Pihak 8 PT Tritunggal Sentra Buana 11,314 Rank 8, counterparty\nPihak 9 PT Multi Nabati Sulawesi 0 Rank 9, counterparty Pihak 9 PT Multi Nabati Sulawesi 5,038 Rank 9, counterparty\nPihak 10 Lain-lain (masing-masing dibawah Rp5.000) 10,642 Rank 10, counterparty Pihak 10 Lain-lain (masing-masing dibawah Rp5.000) 18,962 Rank 10, counterparty\nPihak lainnya Others, counterparty Pihak lainnya Others, counterparty\nRincian pihak 120,589 List of counterparty Rincian pihak 132,957 List of counterparty\nPihak berelasiPihak 1 Related party Rank 1, counterparty Pihak berelasiPihak 1 Related party Rank 1, counterparty\nPihak 2 Rank 2, counterparty Pihak 2 Rank 2, counterparty\nPihak 3 Rank 3, counterparty Pihak 3 Rank 3, counterparty\nPihak 4 Rank 4, counterparty Pihak 4 Rank 4, counterparty\nPihak 5 Rank 5, counterparty Pihak 5 Rank 5, counterparty\nPihak 6 Rank 6, counterparty Pihak 6 Rank 6, counterparty\nPihak 7 Rank 7, counterparty Pihak 7 Rank 7, counterparty\nPihak 8 Rank 8, counterparty Pihak 8 Rank 8, counterparty\nPihak 9 Rank 9, counterparty Pihak 9 Rank 9, counterparty\nPihak 10 Rank 10, counterparty Pihak 10 Rank 10, counterparty\nPihak lainnya Others, counterparty Pihak lainnya Others, counterparty\nRincian pihak List of counterparty Rincian pihak List of counterparty\nRincian piutang usaha berdasarkan rincian pihak Trade receivables by list of counterparty Rincian piutang usaha berdasarkan rincian pihak Trade receivables by list of counterparty\nPiutang usaha [baris komponen] Piutang usaha [baris komponen]\nPiutang usaha, kotor Penyisihan penurunan nilai piutang usaha Piutang usaha Piutang usaha, kotor Penyisihan penurunan nilai piutang usaha Piutang usaha\nPihak ketiga Rincian pihak 120,589 ( 0 ) 120,589 Third partyList of counterparty Pihak ketiga Rincian pihak 132,957 ( 0 ) 132,957 Third partyList of counterparty\nRincian piutang usaha berdasarkan rincian pihak Trade receivables by list of counterparty Rincian piutang usaha berdasarkan rincian pihak Trade receivables by list of counterparty\nPiutang usaha [baris komponen] Piutang usaha [baris komponen]\nPiutang usaha, kotor Penyisihan penurunan nilai piutang usaha Piutang usaha Piutang usaha, kotor Penyisihan penurunan nilai piutang usaha Piutang usaha\nPihak berelasi Rincian pihak Related partyList of counterparty Pihak berelasi Rincian pihak Related partyList of counterparty"
+  },
+  {
+   "source_url": "https://www.idx.co.id/en/listed-companies/company-profiles/TAPG",
+   "source_type": "filing",
+   "source_date": "2026-03-31",
+   "text": "[1640300] Notes to the financial statements - Trade Payable, by list of counterparty - General Industry\nRincian utang usaha berdasarkan Trade payables by list of Rincian utang usaha berdasarkan Trade payables by list of\nrincian pihak counterparty rincian pihak counterparty\nUtang usaha [baris komponen] Utang usaha [baris komponen]\nUtang Utang\nNama pihak, utang usaha Nama pihak, utang usaha\nusaha usaha\nPihak ketiga Pihak 1 PT Sentana Adidaya 33,750 Third partyRank 1, counterparty Pihak ketiga Pihak 1 PT Sentana Adidaya 27,806 Third partyRank 1, counterparty\nPratama Pratama\nPihak 2 PT Abadi Agrosindo 24,711 Rank 2, counterparty Pihak 2 PT Abadi Agrosindo 18,471 Rank 2, counterparty\nPersada Persada\nPihak 3 PT Permata Agro Persada 14,974 Rank 3, counterparty Pihak 3 PT Permata Agro Persada 77,218 Rank 3, counterparty\nPihak 4 PT Rowo Jombor 14,015 Rank 4, counterparty Pihak 4 PT Rowo Jombor 7,951 Rank 4, counterparty\nPihak 5 PT Indra Angkola Energy 11,201 Rank 5, counterparty Pihak 5 PT Indra Angkola Energy 199 Rank 5, counterparty\nPihak 6 PT Dharma Intisawit Lestari 11,128 Rank 6, counterparty Pihak 6 PT Dharma Intisawit Lestari 0 Rank 6, counterparty\nPihak 7 PT Goautama Sinarbatuah 10,515 Rank 7, counterparty Pihak 7 PT Goautama Sinarbatuah 37,131 Rank 7, counterparty\nPihak 8 PT Petrofindo Niaga Sukses 6,007 Rank 8, counterparty Pihak 8 PT Petrofindo Niaga Sukses 17,136 Rank 8, counterparty\nPihak 9 PT Dupan Anugerah Lestari 4,543 Rank 9, counterparty Pihak 9 PT Dupan Anugerah Lestari 34,735 Rank 9, counterparty\nPihak 10 Lain-lain 172,540 Rank 10, Pihak 10 Lain-lain 181,754 Rank 10,\ncounterparty counterparty\nPihak Others, counterparty Pihak Others, counterparty\nlainnya lainnya\nRincian 303,384 List of counterparty Rincian 402,401 List of counterparty\npihak pihak\nPihak Pihak 1 PT Sumber Mahardika 10,167 RelatedRank 1, counterparty Pihak Pihak 1 PT Sumber Mahardika 6,419 RelatedRank 1, counterparty\nberelasi Graha party berelasi Graha party\nPihak 2 PT Graha Cakramulia 3,968 Rank 2, counterparty Pihak 2 PT Graha Cakramulia 6,381 Rank 2, counterparty\nPihak 3 PT Harapan Hibrida Kalbar 4,173 Rank 3, counterparty Pihak 3 PT Harapan Hibrida Kalbar 4,252 Rank 3, counterparty\nPihak 4 Rank 4, counterparty Pihak 4 Rank 4, counterparty\nPihak 5 Rank 5, counterparty Pihak 5 Rank 5, counterparty\nPihak 6 Rank 6, counterparty Pihak 6 Rank 6, counterparty\nPihak 7 Rank 7, counterparty Pihak 7 Rank 7, counterparty\nPihak 8 Rank 8, counterparty Pihak 8 Rank 8, counterparty\nPihak 9 Rank 9, counterparty Pihak 9 Rank 9, counterparty\nPihak 10 Rank 10, Pihak 10 Rank 10,\ncounterparty counterparty"
+  }
+ ],
+ "source_file": "FinancialStatement-2026-I-TAPG.pdf"
 }

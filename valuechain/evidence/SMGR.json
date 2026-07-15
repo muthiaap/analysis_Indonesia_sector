@@ -1,126 +1,13 @@
 {
-  "ticker": "SMGR",
-  "collected_date": "2026-07-14",
-  "snippets": [
-    {
-      "source_url": "https://sig.id/storage/downloads/informasi-keuangan/2025/smgr-fy-2025-31-dec-2025.pdf",
-      "source_type": "filing",
-      "source_date": "2025-12-31",
-      "text": "Penjualan produk/Sales of goods\nPT Wijaya Karya Beton Tbk 96.220                     90.383"
-    },
-    {
-      "source_url": "https://sig.id/storage/downloads/informasi-keuangan/2025/smgr-fy-2025-31-dec-2025.pdf",
-      "source_type": "filing",
-      "source_date": "2025-12-31",
-      "text": "Penjualan produk/Sales of goods\nPT Pembangunan Perumahan (Persero) Tbk 80.890                     152.356"
-    },
-    {
-      "source_url": "https://sig.id/storage/downloads/informasi-keuangan/2025/smgr-fy-2025-31-dec-2025.pdf",
-      "source_type": "filing",
-      "source_date": "2025-12-31",
-      "text": "Penjualan produk/Sales of goods\nPT Adhi Persada Beton 78.819                     125.807"
-    },
-    {
-      "source_url": "https://sig.id/storage/downloads/informasi-keuangan/2025/smgr-fy-2025-31-dec-2025.pdf",
-      "source_type": "filing",
-      "source_date": "2025-12-31",
-      "text": "Penjualan produk/Sales of goods\nPT Karya Logistik Nusantara 70.633                     114.022"
-    },
-    {
-      "source_url": "https://sig.id/storage/downloads/informasi-keuangan/2025/smgr-fy-2025-31-dec-2025.pdf",
-      "source_type": "filing",
-      "source_date": "2025-12-31",
-      "text": "PT Karya Logistik Nusantara Beton pracetak dan perdagangan material konstruksi/\nPrecast concrete and construction material trading Jakarta 20,93% 20,93%"
-    },
-    {
-      "source_url": "https://sig.id/storage/downloads/informasi-keuangan/2025/smgr-fy-2025-31-dec-2025.pdf",
-      "source_type": "filing",
-      "source_date": "2025-12-31",
-      "text": "Penjualan produk/Sales of goods\nPT Adhi Karya (Persero) Tbk 52.641                     133.370"
-    },
-    {
-      "source_url": "https://sig.id/storage/downloads/informasi-keuangan/2025/smgr-fy-2025-31-dec-2025.pdf",
-      "source_type": "filing",
-      "source_date": "2025-12-31",
-      "text": "Penjualan produk/Sales of goods\nPT Waskita Beton Precast Tbk 33.108                     16.145"
-    },
-    {
-      "source_url": "https://sig.id/storage/downloads/informasi-keuangan/2025/smgr-fy-2025-31-dec-2025.pdf",
-      "source_type": "filing",
-      "source_date": "2025-12-31",
-      "text": "Penjualan produk/Sales of goods\nPT Pupuk Indonesia (Persero) 21.719                     18.888"
-    },
-    {
-      "source_url": "https://sig.id/storage/downloads/informasi-keuangan/2025/smgr-fy-2025-31-dec-2025.pdf",
-      "source_type": "filing",
-      "source_date": "2025-12-31",
-      "text": "PT Igasar Distributor semen/Cement distributor Padang 12,00% 12,00%"
-    },
-    {
-      "source_url": "https://sig.id/storage/downloads/informasi-keuangan/2025/smgr-fy-2025-31-dec-2025.pdf",
-      "source_type": "filing",
-      "source_date": "2025-12-31",
-      "text": "PT Mitra Kiara Indonesia Distributor bahan bangunan/ Jakarta 20,00% 20,00%\n  Distributor building material"
-    },
-    {
-      "source_url": "https://sig.id/storage/downloads/informasi-keuangan/2025/smgr-fy-2025-31-dec-2025.pdf",
-      "source_type": "filing",
-      "source_date": "2025-12-31",
-      "text": "Pembelian produk dan jasa/ Purchases of goods and services\nPT Pelayaran Tonasa Lines 384.002                    446.921"
-    },
-    {
-      "source_url": "https://sig.id/storage/downloads/informasi-keuangan/2025/smgr-fy-2025-31-dec-2025.pdf",
-      "source_type": "filing",
-      "source_date": "2025-12-31",
-      "text": "Pembelian produk dan jasa/ Purchases of goods and services\nPT Dahana (Persero) 310.477                    195.753"
-    },
-    {
-      "source_url": "https://sig.id/storage/downloads/informasi-keuangan/2025/smgr-fy-2025-31-dec-2025.pdf",
-      "source_type": "filing",
-      "source_date": "2025-12-31",
-      "text": "Pembelian produk dan jasa/ Purchases of goods and services\nPT Petrokima Gresik 154.548                    122.032"
-    },
-    {
-      "source_url": "https://sig.id/storage/downloads/informasi-keuangan/2025/smgr-fy-2025-31-dec-2025.pdf",
-      "source_type": "filing",
-      "source_date": "2025-12-31",
-      "text": "Pembelian produk dan jasa/ Purchases of goods and services\nPT PBM Biringkasi Raya 146.441                    142.751"
-    },
-    {
-      "source_url": "https://sig.id/storage/downloads/informasi-keuangan/2025/smgr-fy-2025-31-dec-2025.pdf",
-      "source_type": "filing",
-      "source_date": "2025-12-31",
-      "text": "Pembelian produk dan jasa/ Purchases of goods and services\nPT Kereta Api Indonesia (Persero) 118.605                    145.662"
-    },
-    {
-      "source_url": "https://sig.id/storage/downloads/informasi-keuangan/2025/smgr-fy-2025-31-dec-2025.pdf",
-      "source_type": "filing",
-      "source_date": "2025-12-31",
-      "text": "PT Topabiring Trans Logistik (dahulu/ previously PT EMKL Topabiring) 78.871                      65.462"
-    },
-    {
-      "source_url": "https://sig.id/storage/downloads/informasi-keuangan/2025/smgr-fy-2025-31-dec-2025.pdf",
-      "source_type": "filing",
-      "source_date": "2025-12-31",
-      "text": "PT Kereta Api Logistik 19.729                      24.116"
-    },
-    {
-      "source_url": "https://sig.id/storage/downloads/informasi-keuangan/2025/smgr-fy-2025-31-dec-2025.pdf",
-      "source_type": "filing",
-      "source_date": "2025-12-31",
-      "text": "PT Bukit Asam Tbk -                                88.775"
-    },
-    {
-      "source_url": "https://sig.id/storage/downloads/informasi-keuangan/2025/smgr-fy-2025-31-dec-2025.pdf",
-      "source_type": "filing",
-      "source_date": "2025-12-31",
-      "text": "PT Krakatau Bandar Samudera -                                11.050"
-    },
-    {
-      "source_url": "https://sig.id/storage/downloads/informasi-keuangan/2025/smgr-fy-2025-31-dec-2025.pdf",
-      "source_type": "filing",
-      "source_date": "2025-12-31",
-      "text": "PT Artha Daya Coalindo -                                9.568"
-    }
-  ]
+ "ticker": "SMGR",
+ "collected_date": "2026-07-14",
+ "snippets": [
+  {
+   "source_url": "https://www.idx.co.id/en/listed-companies/company-profiles/SMGR",
+   "source_type": "filing",
+   "source_date": "2026-03-31",
+   "text": "[1616000_BD] Notes to the financial statements - Revenue By Parties (breakdown) - General Industry\n31 March 2026 31 March 2025\nCatatan untuk pendapatan berdasarkan Notes for revenue by parties Catatan untuk pendapatan berdasarkan Notes for revenue by parties\npihak pihak\nPenjualan dan pendapatan Penjualan dan pendapatan\nNama pihak Nama pihak\nusaha usaha\nParty name Sales and revenue Party name Sales and revenue\nPihak berelasi 1 Semen Indonesia Cooperative 348,464 Related party 1 Pihak berelasi 1 Semen Indonesia Cooperative 294,731 Related party 1\nPihak berelasi 2 PT Hutama Karya (Persero) 0 Related party 2 Pihak berelasi 2 PT Hutama Karya (Persero) 4,414 Related party 2\nPihak berelasi 3 PT Pembangunan Perumahan 2,255 Related party 3 Pihak berelasi 3 PT Pembangunan Perumahan 35,079 Related party 3\n(Persero) Tbk (Persero) Tbk\nPihak berelasi 4 Koperasi Keluarga Besar Semen 15 Related party 4 Pihak berelasi 4 Koperasi Keluarga Besar Semen 3,390 Related party 4\nPadang Padang\nPihak berelasi 5 PT Wijaya Karya Beton Tbk 17,983 Related party 5 Pihak berelasi 5 PT Wijaya Karya Beton Tbk 11,411 Related party 5\nPihak berelasi 6 PT Adhi Karya (Persero) Tbk 22,284 Related party 6 Pihak berelasi 6 PT Adhi Karya (Persero) Tbk 8,967 Related party 6\nPihak berelasi 7 PT Adhi Persada Beton 20,147 Related party 7 Pihak berelasi 7 PT Adhi Persada Beton 26,648 Related party 7\nPihak berelasi 8 PT Wijaya Karya (Persero) Tbk 2,200 Related party 8 Pihak berelasi 8 PT Wijaya Karya (Persero) Tbk 2,040 Related party 8\nPihak berelasi 9 PT Pupuk Indonesia (Persero) 6,268 Related party 9 Pihak berelasi 9 PT Pupuk Indonesia (Persero) 6,426 Related party 9\nPihak berelasi 10 PT Prima Karya Manunggal 0 Related party 10 Pihak berelasi 10 PT Prima Karya Manunggal 9,183 Related party 10\nPihak berelasi Lain-lain 33,503 Other related Pihak berelasi Lain-lain 49,093 Other related\nlainnya parties lainnya parties\nPihak berelasi 453,119 Related parties Pihak berelasi 451,382 Related parties\nPihak ketiga 1 Third party 1 Pihak ketiga 1 Third party 1\nPihak ketiga 2 Third party 2 Pihak ketiga 2 Third party 2\nPihak ketiga 3 Third party 3 Pihak ketiga 3 Third party 3\nPihak ketiga 4 Third party 4 Pihak ketiga 4 Third party 4\nPihak ketiga 5 Third party 5 Pihak ketiga 5 Third party 5\nPihak ketiga 6 Third party 6 Pihak ketiga 6 Third party 6\nPihak ketiga 7 Third party 7 Pihak ketiga 7 Third party 7\nPihak ketiga 8 Third party 8 Pihak ketiga 8 Third party 8\nPihak ketiga 9 Third party 9 Pihak ketiga 9 Third party 9\nPihak ketiga 10 Third party 10 Pihak ketiga 10 Third party 10\nPihak ketiga 7,835,367 Other third Pihak ketiga 7,203,367 Other third\nlainnya parties lainnya parties"
+  }
+ ],
+ "source_file": "FinancialStatement-2026-I-SMGR.pdf"
 }
