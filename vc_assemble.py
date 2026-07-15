@@ -34,6 +34,9 @@ def add_reciprocity(out, names):
     counterparties are skipped."""
     real = {(p, normalize_name(e['counterparty']), e['direction'])
             for p, rec in out.items() for e in rec['edges'] if not e.get('derived')}
+    real_tk = {(p, e['counterparty_ticker'], e['direction'])
+               for p, rec in out.items() for e in rec['edges']
+               if not e.get('derived') and e.get('counterparty_ticker')}
     seen, additions = set(), []
     for parent, rec in out.items():
         pname = rec.get('company') or parent
@@ -43,9 +46,11 @@ def add_reciprocity(out, names):
             b = e.get('counterparty_ticker')
             if not b:
                 continue
+            if b == parent:                       # never derive a self-loop
+                continue
             rev = 'supplier' if e['direction'] == 'customer' else 'customer'
             key = (b, normalize_name(pname), rev)
-            if key in real or key in seen:
+            if key in real or key in seen or (b, parent, rev) in real_tk:
                 continue
             seen.add(key)
             additions.append((b, {

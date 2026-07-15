@@ -86,3 +86,25 @@ def test_no_reciprocity_for_unlisted_counterparty():
     out = {'ADRO': {'company': 'Alamtri', 'edges': [_cust_edge('TNB Fuel Services', None)]}}
     add_reciprocity(out, {})
     assert list(out.keys()) == ['ADRO']
+
+
+def test_reciprocity_ticker_dedup_survives_name_drift():
+    out = {
+        'SMGR': {'company': 'Semen Indonesia (Persero) Tbk',
+                 'edges': [_cust_edge('PT Wijaya Karya Beton Tbk', 'WTON')]},
+        'WTON': {'company': 'Wijaya Karya Beton Tbk', 'edges': [
+            {'counterparty': 'PT Semen Gresik', 'counterparty_ticker': 'SMGR', 'direction': 'supplier',
+             'flow': 'cement', 'confidence': 'high', 'evidence_quote': 'buys', 'source_url': 'u',
+             'source_type': 'filing', 'source_date': '2026-03-31', 'retrieved_date': '2026-07-14'}]},
+    }
+    add_reciprocity(out, {'WTON': 'Wijaya Karya Beton Tbk', 'SMGR': 'Semen Indonesia (Persero) Tbk'})
+    assert [e for e in out['WTON']['edges'] if e.get('derived')] == []   # ticker dedup despite name drift
+
+
+def test_reciprocity_skips_self_loop():
+    out = {'AALI': {'company': 'Astra Agro Lestari Tbk', 'edges': [
+        {'counterparty': 'PT Astra Agro Lestari Tbk', 'counterparty_ticker': 'AALI', 'direction': 'customer',
+         'flow': 'x', 'confidence': 'high', 'evidence_quote': 'q', 'source_url': 'u',
+         'source_type': 'filing', 'source_date': '2026-03-31', 'retrieved_date': '2026-07-14'}]}}
+    add_reciprocity(out, {'AALI': 'Astra Agro Lestari Tbk'})
+    assert [e for e in out['AALI']['edges'] if e.get('derived')] == []
