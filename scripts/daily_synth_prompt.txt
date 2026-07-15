@@ -1,0 +1,13 @@
+Unattended daily value-chain synthesis. The current working directory is the repo /Users/67620/scrap_sector/analysis_Indonesia_sector. Work ONLY on these tickers this run: __TICKERS__
+
+For EACH ticker T in that list:
+1. Read valuechain/evidence/T.json — extracted related-party note pages from T's interim financial statement (bilingual ID/EN tables).
+2. Follow valuechain/prompts/synthesize.md EXACTLY. Emit an edge ONLY if a verbatim quote in the evidence supports it (no quote -> no edge). Direction: rows under Penjualan/Sales/Pendapatan/Piutang(receivable) => the named party is a "customer"; rows under Pembelian/Purchases/Beban/Utang(payable) => the named party is a "supplier". Exclude T's own consolidated subsidiaries; keep external related parties.
+3. Write valuechain/edges/T.json = {"ticker":"T","company":<T's Company Name from dashboard/public/anak_perusahaan.json, else "T">,"edges":[ {counterparty, counterparty_ticker:null, direction, flow, confidence:"high", evidence_quote, source_url, source_type, source_date (copied from the snippet), retrieved_date:<today's date YYYY-MM-DD>} ]}. If T has no nameable counterparties, write an empty edges list.
+4. Validate: run  python3 -c "import json,vc_schema as s;d=json.load(open('valuechain/edges/T.json'));print([e for x in d['edges'] for e in [s.validate_edge(x)] if e])"  — it must print []. Fix if not.
+
+After all tickers are done:
+5. Run: python3 vc_assemble.py
+6. Commit locally, DO NOT push:  git add valuechain/edges valuechain/evidence dashboard/public/value_chain_edges.json && git commit -m "chore(valuechain): daily synth batch __TICKERS__"
+
+Stay strictly within those tickers. Do not touch anything else.
