@@ -2,6 +2,21 @@ import { useEffect, useState, useMemo, useRef } from 'react'
 import { Search, Info, Settings, ZoomIn, ZoomOut, RotateCcw, HelpCircle, Building2, MapPin, Briefcase, Calendar, ShieldCheck, DollarSign, Share2, ToggleLeft, ToggleRight, Pin, PinOff, Database } from 'lucide-react'
 import neo4j from 'neo4j-driver'
 import GraphLink from './GraphLink'
+import { stepSimulation } from './lib/forceGraph'
+
+const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v))
+
+// Normalize a subsidiary name so the SAME subsidiary owned by multiple parents collapses
+// into one shared node: drop PT/Tbk, trailing (ABBR), punctuation, and collapse whitespace.
+const normSubName = (name) => {
+  if (!name) return ''
+  let s = name.toLowerCase().trim()
+  s = s.replace(/\s*\([^)]*\)\s*$/, '')   // trailing (ABBR)
+  s = s.replace(/\btbk\.?\b/g, '')
+  s = s.replace(/\bpt\.?\b/g, '')
+  s = s.replace(/[^a-z0-9 ]/g, ' ')
+  return s.replace(/\s+/g, ' ').trim()
+}
 
 // Curated HSL sector colors for subsidiaries
 const SECTOR_COLORS = {
@@ -145,17 +160,13 @@ export default function HubunganTab() {
   const sizeByPercentRef = useRef(sizeByPercent)
   useEffect(() => {
     sizeByPercentRef.current = sizeByPercent
-    alphaRef.current = 0.5
   }, [sizeByPercent])
   const [colorMode, setColorMode] = useState('sector') // 'sector' or 'uniform'
-  const [springLength, setSpringLength] = useState(100)
-  const [repulsionStrength, setRepulsionStrength] = useState(500)
+  const [springLength, setSpringLength] = useState(140)
+  const [repulsionStrength, setRepulsionStrength] = useState(750)
   
-  // Zoom & Pan state
-  const [zoom, setZoom] = useState(1)
-  const [pan, setPan] = useState({ x: 0, y: 0 })
-  const [isPanning, setIsPanning] = useState(false)
-  const [panStart, setPanStart] = useState({ x: 0, y: 0 })
+  // View transform (pan + zoom) — same model as Rantai Nilai
+  const [view, setView] = useState({ k: 1, tx: 0, ty: 0 })
   
   // Selected Node Details for Right Sidebar
   const [selectedNode, setSelectedNode] = useState(null)
@@ -170,10 +181,17 @@ export default function HubunganTab() {
   
   const svgRef = useRef(null)
   const animFrameRef = useRef(null)
-  const draggingNodeRef = useRef(null)
-  const hasMovedRef = useRef(false)
-  const alphaRef = useRef(1.0)
-  
+  const nodeDragRef = useRef(null)     // { id, dx, dy, neighbors } while dragging a node
+  const nodeMovedRef = useRef(false)   // distinguishes a node drag from a node click
+  const bgDragRef = useRef(null)       // { sx, sy, tx, ty } while panning the background
+  const movedRef = useRef(false)       // distinguishes a pan from a background click
+  const userMovedRef = useRef(false)   // once true, stop auto-fitting during warmup
+  // live copies of the force sliders, read inside the warmup loop without restarting it
+  const springRef = useRef(springLength)
+  const repulRef = useRef(repulsionStrength)
+  useEffect(() => { springRef.current = springLength }, [springLength])
+  useEffect(() => { repulRef.current = repulsionStrength }, [repulsionStrength])
+
   const width = 800
   const height = 550
 
@@ -361,27 +379,39 @@ export default function HubunganTab() {
           if (subSearch && !subName.toLowerCase().includes(subSearch.toLowerCase())) return
 
           const category = getActivityCategory(sub['Business Activity'])
-          const subId = `${parentCode}_${subName}`
-          const varRadius = 7 + (pctVal / 100) * 11
+          const subId = `sub:${normSubName(subName)}`   // shared across parents by normalized name
+          const existing = nodesMap[subId]
 
-          nodesMap[subId] = {
-            id: subId,
-            label: subName,
-            fullName: subName,
-            isParent: false,
-            percentage: pctVal,
-            percentageStr: pctStr,
-            activity: sub['Business Activity'],
-            category: category,
-            location: sub['Location'],
-            year: sub['Commercial Year'],
-            status: sub['Operating Status'],
-            assets: sub['Total Assets'],
-            unit: sub['Unit'],
-            currency: sub['Currency'],
-            parentCode: parentCode,
-            radius: varRadius,
-            radiusFixed: 12
+          if (existing) {
+            if (existing.owners.some(o => o.code === parentCode)) return   // same parent listed it twice
+            existing.owners.push({ code: parentCode, pct: pctVal, pctStr })
+            if (pctVal > existing.percentage) {          // size + primary owner by highest stake
+              existing.percentage = pctVal
+              existing.percentageStr = pctStr
+              existing.parentCode = parentCode
+              existing.radius = 7 + (pctVal / 100) * 11
+            }
+          } else {
+            nodesMap[subId] = {
+              id: subId,
+              label: subName,
+              fullName: subName,
+              isParent: false,
+              percentage: pctVal,
+              percentageStr: pctStr,
+              activity: sub['Business Activity'],
+              category: category,
+              location: sub['Location'],
+              year: sub['Commercial Year'],
+              status: sub['Operating Status'],
+              assets: sub['Total Assets'],
+              unit: sub['Unit'],
+              currency: sub['Currency'],
+              parentCode: parentCode,
+              owners: [{ code: parentCode, pct: pctVal, pctStr }],
+              radius: 7 + (pctVal / 100) * 11,
+              radiusFixed: 12
+            }
           }
 
           links.push({
@@ -394,8 +424,9 @@ export default function HubunganTab() {
 
       const nodes = Object.values(nodesMap)
       const parentsCount = selectedParents.length
-      
+
       nodes.forEach(node => {
+        if (!node.isParent) node.shared = (node.owners?.length || 0) > 1   // owned by 2+ selected parents
         if (node.isParent) {
           const parentIdx = selectedParents.indexOf(node.id)
           const angle = (parentIdx / Math.max(1, parentsCount)) * Math.PI * 2
@@ -529,14 +560,61 @@ export default function HubunganTab() {
     }
   }, [activeMode, subsData, debtsData, selectedParents, selectedBanks, minPercentage, subSearch, useNeo4j, dbStatus, rawNeo4jGraph])
 
-  // Sync simulation refs with memoized source Graph nodes/links
+  // Fit the whole graph into the viewport (same math as Rantai Nilai)
+  const fitView = () => {
+    const nodes = simNodesRef.current
+    if (!nodes.length) return
+    const xs = nodes.map(n => n.x), ys = nodes.map(n => n.y)
+    const minX = Math.min(...xs), maxX = Math.max(...xs)
+    const minY = Math.min(...ys), maxY = Math.max(...ys)
+    const gw = Math.max(maxX - minX, 1), gh = Math.max(maxY - minY, 1)
+    const k = clamp(Math.min(width / (gw + 140), height / (gh + 140)), 0.15, 2)
+    setView({ k, tx: (width - (minX + maxX) * k) / 2, ty: (height - (minY + maxY) * k) / 2 })
+  }
+
+  // Run the shared force engine for a fixed warmup, then STOP (no perpetual physics)
+  const startWarmup = () => {
+    cancelAnimationFrame(animFrameRef.current)
+    const nodes = simNodesRef.current, links = simLinksRef.current
+    if (!nodes.length) { setTick(t => t + 1); return }
+    let alpha = 1, frames = 0
+    const loop = () => {
+      stepSimulation(nodes, links, { alpha, repulsion: repulRef.current, springLength: springRef.current, hubRepulsion: 8 })
+      alpha *= 0.985; frames++
+      setTick(t => t + 1)
+      if (!userMovedRef.current) fitView()
+      if (frames < 600 && alpha > 0.01) animFrameRef.current = requestAnimationFrame(loop)
+    }
+    animFrameRef.current = requestAnimationFrame(loop)
+  }
+
+  // Data changed → reseed positions from the model and warm up fresh
   useEffect(() => {
-    simNodesRef.current = sourceGraph.nodes.map(n => ({ ...n }))
+    // hub: true → banks/parents repel each other hard so multi-hub layouts split into islands
+    // r → rendered radius so the engine's collision pass keeps sized circles from overlapping
+    simNodesRef.current = sourceGraph.nodes.map(n => ({ ...n, hub: !!n.isParent, r: getNodeRadius(n) }))
     simLinksRef.current = sourceGraph.links.map(l => ({ ...l }))
     setSelectedNode(null)
-    alphaRef.current = 1.0
-    setTick(t => t + 1) // Trigger initial redraw
+    userMovedRef.current = false
+    startWarmup()
+    return () => cancelAnimationFrame(animFrameRef.current)
   }, [sourceGraph])
+
+  // Force sliders changed → re-relax from current positions (keep layout & selection)
+  useEffect(() => {
+    if (!simNodesRef.current.length) return
+    startWarmup()
+    return () => cancelAnimationFrame(animFrameRef.current)
+  }, [springLength, repulsionStrength])
+
+  // Size mode toggled → recompute each node's collision radius, then re-space
+  useEffect(() => {
+    const nodes = simNodesRef.current
+    if (!nodes.length) return
+    nodes.forEach(n => { n.r = getNodeRadius(n) })
+    startWarmup()
+    return () => cancelAnimationFrame(animFrameRef.current)
+  }, [sizeByPercent])
 
   // Neo4j dynamic live database query and graph mapping
   const fetchNeo4jData = async () => {
@@ -592,26 +670,39 @@ export default function HubunganTab() {
               }
             }
             
-            const subId = `${parentCode}_${subName}`
+            const subId = `sub:${normSubName(subName)}`   // shared across parents by normalized name
             const subActivity = sNode.properties.activity || ''
             const category = getActivityCategory(subActivity)
-            const varRadius = 7 + (pctVal / 100) * 11
-            
-            nodesMap[subId] = {
-              id: subId,
-              label: subName,
-              fullName: subName,
-              isParent: false,
-              percentage: pctVal,
-              percentageStr: pctVal.toString(),
-              activity: subActivity,
-              category: category,
-              location: sNode.properties.location || '-',
-              parentCode: parentCode,
-              radius: varRadius,
-              radiusFixed: 12
+            const pctStr = pctVal.toString()
+            const existing = nodesMap[subId]
+
+            if (existing && !existing.isParent) {
+              if (existing.owners.some(o => o.code === parentCode)) return
+              existing.owners.push({ code: parentCode, pct: pctVal, pctStr })
+              if (pctVal > existing.percentage) {
+                existing.percentage = pctVal
+                existing.percentageStr = pctStr
+                existing.parentCode = parentCode
+                existing.radius = 7 + (pctVal / 100) * 11
+              }
+            } else {
+              nodesMap[subId] = {
+                id: subId,
+                label: subName,
+                fullName: subName,
+                isParent: false,
+                percentage: pctVal,
+                percentageStr: pctStr,
+                activity: subActivity,
+                category: category,
+                location: sNode.properties.location || '-',
+                parentCode: parentCode,
+                owners: [{ code: parentCode, pct: pctVal, pctStr }],
+                radius: 7 + (pctVal / 100) * 11,
+                radiusFixed: 12
+              }
             }
-            
+
             links.push({
               source: parentCode,
               target: subId,
@@ -621,8 +712,9 @@ export default function HubunganTab() {
           
           const nodes = Object.values(nodesMap)
           const parentsCount = selectedParents.length
-          
+
           nodes.forEach(node => {
+            if (!node.isParent) node.shared = (node.owners?.length || 0) > 1
             if (node.isParent) {
               const parentIdx = selectedParents.indexOf(node.id)
               const angle = (parentIdx / Math.max(1, parentsCount)) * Math.PI * 2
@@ -781,312 +873,87 @@ export default function HubunganTab() {
     }
   }, [useNeo4j, activeMode, selectedParents, selectedBanks, neo4jUri, neo4jUser, neo4jPassword])
 
-  // 4. Force-directed Simulation physics loop (separate from state!)
-  useEffect(() => {
-    let active = true
-    alphaRef.current = 0.8 // Warm up when parameters change
 
-    const runPhysicsTick = () => {
-      if (!active) return
+  // 5. Node & background interaction (same model as Rantai Nilai)
+  // measure against the SVG itself, not e.currentTarget (which is the node <g> during a node drag)
+  const svgPoint = (e) => {
+    const r = (svgRef.current || e.currentTarget).getBoundingClientRect()
+    return { x: (e.clientX - r.left) * (width / r.width), y: (e.clientY - r.top) * (height / r.height) }
+  }
+  const worldPoint = (e) => {
+    const p = svgPoint(e)
+    return { x: (p.x - view.tx) / view.k, y: (p.y - view.ty) / view.k }
+  }
+  const zoomAround = (mx, my, factor) => {
+    userMovedRef.current = true
+    setView(v => {
+      const k = clamp(v.k * factor, 0.15, 5)
+      const wx = (mx - v.tx) / v.k, wy = (my - v.ty) / v.k
+      return { k, tx: mx - wx * k, ty: my - wy * k }
+    })
+  }
 
-      const nodes = simNodesRef.current
-      const links = simLinksRef.current
-
-      if (nodes.length === 0) {
-        animFrameRef.current = requestAnimationFrame(runPhysicsTick)
-        return
-      }
-
-      // If alpha is extremely small, skip calculations to freeze simulation
-      if (alphaRef.current <= 0.005) {
-        alphaRef.current = 0
-        animFrameRef.current = requestAnimationFrame(runPhysicsTick)
-        return
-      }
-
-      const nodesMap = {}
-      nodes.forEach(n => {
-        nodesMap[n.id] = n
-      })
-
-      // Repulsion (Coulomb repulsion force) - scaled by alphaRef.current
-      for (let i = 0; i < nodes.length; i++) {
-        for (let j = i + 1; j < nodes.length; j++) {
-          const u = nodes[i]
-          const v = nodes[j]
-          let dx = v.x - u.x
-          let dy = v.y - u.y
-          if (dx === 0) dx = 0.1
-          const distSq = dx * dx + dy * dy
-          const dist = Math.sqrt(distSq)
-          // Heavily repel parent nodes from each other to space out separate islands
-          let strength = repulsionStrength
-          if (u.isParent && v.isParent) {
-            strength = repulsionStrength * 4.5
-          }
-          const force = (strength / Math.max(20, distSq)) * alphaRef.current
-          
-          const fx = (dx / (dist || 1)) * force
-          const fy = (dy / (dist || 1)) * force
-
-          if (!u.isDragging && !u.isPinned) {
-            u.vx -= fx
-            u.vy -= fy
-          }
-          if (!v.isDragging && !v.isPinned) {
-            v.vx += fx
-            v.vy += fy
-          }
-        }
-      }
-
-      // Spring attraction force along connections - scaled by alphaRef.current
-      links.forEach(link => {
-        const u = nodesMap[link.source]
-        const v = nodesMap[link.target]
-        if (!u || !v) return
-
-        let dx = v.x - u.x
-        let dy = v.y - u.y
-        if (dx === 0) dx = 0.1
-        const dist = Math.sqrt(dx * dx + dy * dy)
-        
-        const desiredLength = springLength
-        const k = 0.04 * alphaRef.current
-        const force = k * (dist - desiredLength)
-
-        const fx = (dx / (dist || 1)) * force
-        const fy = (dy / (dist || 1)) * force
-
-        if (!u.isDragging && !u.isPinned) {
-          // Scale down drag on parents to make them heavy anchors
-          const factor = u.isParent ? 0.20 : 1.0
-          u.vx += fx * factor
-          u.vy += fy * factor
-        }
-        if (!v.isDragging && !v.isPinned) {
-          const factor = v.isParent ? 0.20 : 1.0
-          v.vx -= fx * factor
-          v.vy -= fy * factor
-        }
-      })
-
-      // Gravitational center force & Friction update - scaled by alphaRef.current
-      const centerX = width / 2
-      const centerY = height / 2
-      const gravity = 0.008
-
-      nodes.forEach(node => {
-        if (node.isDragging) return
-
-        if (node.isPinned) {
-          node.vx = 0
-          node.vy = 0
-          return
-        }
-
-        const isParentNode = node.isParent
-
-        if (isParentNode) {
-          // Parent node: NO global center gravity pull (allows complete separation!).
-          // Instead, we just apply a soft boundary force at the edges to prevent drifting completely off-screen.
-          const margin = 80
-          const boundForce = 0.12 * alphaRef.current
-          if (node.x < margin) node.vx += boundForce
-          if (node.x > width - margin) node.vx -= boundForce
-          if (node.y < margin) node.vy += boundForce
-          if (node.y > height - margin) node.vy -= boundForce
-        } else {
-          // Child node: pull towards local cluster center
-          let targetX = centerX
-          let targetY = centerY
-          let parentCount = 0
-          let sumX = 0
-          let sumY = 0
-          
-          if (node.parentCode) {
-            const pNode = nodesMap[node.parentCode]
-            if (pNode) {
-              sumX = pNode.x
-              sumY = pNode.y
-              parentCount = 1
-            }
-          } else if (node.loansList) {
-            node.loansList.forEach(l => {
-              const bNode = nodesMap[l.bank]
-              if (bNode) {
-                sumX += bNode.x
-                sumY += bNode.y
-                parentCount++
-              }
-            })
-          }
-          
-          if (parentCount > 0) {
-            targetX = sumX / parentCount
-            targetY = sumY / parentCount
-          }
-
-          // Strong local grouping pull to its bank/emiten constellation center
-          const localGravity = 0.024 * alphaRef.current
-          node.vx += (targetX - node.x) * localGravity
-          node.vy += (targetY - node.y) * localGravity
-        }
-
-        // Apply velocities and damping
-        node.x += node.vx
-        node.y += node.vy
-        
-        // Damping/friction factor
-        node.vx *= 0.75
-        node.vy *= 0.75
-
-        // Static friction threshold (freeze extremely slow movements to prevent perpetual orbital rotation)
-        const speed = Math.sqrt(node.vx * node.vx + node.vy * node.vy)
-        if (speed < 0.10) {
-          node.vx = 0
-          node.vy = 0
-        }
-      })
-
-      // Geometric Collision Resolution (Avoid overlap)
-      for (let i = 0; i < nodes.length; i++) {
-        for (let j = i + 1; j < nodes.length; j++) {
-          const u = nodes[i]
-          const v = nodes[j]
-          
-          const ru = sizeByPercentRef.current ? (u.radius || 12) : (u.radiusFixed || 12)
-          const rv = sizeByPercentRef.current ? (v.radius || 12) : (v.radiusFixed || 12)
-          const padding = 7 // elegant gap padding to avoid collision
-          const minDist = ru + rv + padding
-          
-          let dx = v.x - u.x
-          let dy = v.y - u.y
-          if (dx === 0) dx = 0.1
-          const distSq = dx * dx + dy * dy
-          
-          if (distSq < minDist * minDist) {
-            const dist = Math.sqrt(distSq) || 0.1
-            const overlap = minDist - dist
-            const nx = dx / dist
-            const ny = dy / dist
-            
-            // Push apart (scale collision push by alpha to make it smooth as it cools down)
-            const pushFactor = Math.min(1.0, alphaRef.current * 2.0)
-            const pushX = nx * overlap * 0.5 * pushFactor
-            const pushY = ny * overlap * 0.5 * pushFactor
-            
-            if (!u.isDragging && !u.isPinned) {
-              u.x -= pushX
-              u.y -= pushY
-            }
-            if (!v.isDragging && !v.isPinned) {
-              v.x += pushX
-              v.y += pushY
-            }
-          }
-        }
-      }
-
-      // Cooling alpha decay
-      alphaRef.current *= 0.985
-
-      // Redraw SVG elements
-      setTick(t => t + 1)
-
-      animFrameRef.current = requestAnimationFrame(runPhysicsTick)
+  const onNodeDown = (node, e) => {
+    e.stopPropagation()                       // don't start a background pan
+    cancelAnimationFrame(animFrameRef.current) // freeze auto-layout so peers stay put
+    userMovedRef.current = true
+    nodeMovedRef.current = false
+    const w = worldPoint(e)
+    // directly-connected neighbours SMALLER than the dragged node travel rigidly with it,
+    // deduped so a partner joined by >1 edge moves once, not N times
+    const nmap = new Map(simNodesRef.current.map(m => [m.id, m]))
+    const rNode = getNodeRadius(node)
+    const seen = new Set()
+    const neighbors = []
+    const consider = (id) => {
+      if (id === node.id || seen.has(id) || !nmap.has(id)) return
+      const m = nmap.get(id)
+      if (getNodeRadius(m) < rNode) { seen.add(id); neighbors.push(m) }
     }
-
-    animFrameRef.current = requestAnimationFrame(runPhysicsTick)
-
-    return () => {
-      active = false
-      if (animFrameRef.current) {
-        cancelAnimationFrame(animFrameRef.current)
-      }
+    for (const l of simLinksRef.current) {
+      if (l.source === node.id) consider(l.target)
+      else if (l.target === node.id) consider(l.source)
     }
-  }, [springLength, repulsionStrength])
+    nodeDragRef.current = { id: node.id, dx: node.x - w.x, dy: node.y - w.y, neighbors }
+  }
 
-  // 5. Node Event Handlers (Click, Drag, Drop)
-  const handleNodeMouseDown = (node, e) => {
+  const onBgDown = (e) => {
+    const p = svgPoint(e)
+    movedRef.current = false
+    bgDragRef.current = { sx: p.x, sy: p.y, tx: view.tx, ty: view.ty }
+  }
+
+  const onMove = (e) => {
+    const nd = nodeDragRef.current
+    if (nd) {                                 // dragging a node — it plus its neighbours move together
+      const w = worldPoint(e)
+      const n = simNodesRef.current.find(m => m.id === nd.id)
+      if (n) {
+        const nx = w.x + nd.dx, ny = w.y + nd.dy
+        const ddx = nx - n.x, ddy = ny - n.y
+        n.x = nx; n.y = ny
+        for (const m of nd.neighbors) { m.x += ddx; m.y += ddy }
+        nodeMovedRef.current = true; setTick(t => t + 1)
+      }
+      return
+    }
+    if (!bgDragRef.current) return
+    userMovedRef.current = true; movedRef.current = true
+    const p = svgPoint(e)
+    setView(v => ({ ...v, tx: bgDragRef.current.tx + (p.x - bgDragRef.current.sx), ty: bgDragRef.current.ty + (p.y - bgDragRef.current.sy) }))
+  }
+
+  const onUp = () => { bgDragRef.current = null; nodeDragRef.current = null }
+
+  const onNodeClick = (node, e) => {
     e.stopPropagation()
-    draggingNodeRef.current = node
-    node.isDragging = true
-    hasMovedRef.current = false
-    
-    // Set clicked node details
+    if (nodeMovedRef.current) { nodeMovedRef.current = false; return }
     setSelectedNode(node)
   }
 
-  const handleSVGMouseMove = (e) => {
-    if (draggingNodeRef.current) {
-      const svg = svgRef.current
-      if (!svg) return
-      
-      const rect = svg.getBoundingClientRect()
-      
-      const mouseX = (e.clientX - rect.left - pan.x) / zoom
-      const mouseY = (e.clientY - rect.top - pan.y) / zoom
-      
-      const node = draggingNodeRef.current
-      node.x = mouseX
-      node.y = mouseY
-      node.vx = 0
-      node.vy = 0
-      hasMovedRef.current = true
-      
-      // Inject slight energy so connected nodes follow smoothly
-      alphaRef.current = Math.max(alphaRef.current, 0.15)
-      
-      setTick(t => t + 1)
-    } else if (isPanning) {
-      const dx = e.clientX - panStart.x
-      const dy = e.clientY - panStart.y
-      setPan({ x: pan.x + dx, y: pan.y + dy })
-      setPanStart({ x: e.clientX, y: e.clientY })
-    }
-  }
-
-  const handleSVGMouseUp = () => {
-    if (draggingNodeRef.current) {
-      draggingNodeRef.current.isDragging = false
-      if (hasMovedRef.current) {
-        draggingNodeRef.current.isPinned = true
-      }
-      draggingNodeRef.current = null
-    }
-    setIsPanning(false)
-  }
-
-  const handleNodeDoubleClick = (node, e) => {
-    e.stopPropagation()
-    node.isPinned = false
-    node.vx = 0
-    node.vy = 0
-    alphaRef.current = 0.5
-    setTick(t => t + 1)
-  }
-
-  const handleUnpinAll = () => {
-    simNodesRef.current.forEach(n => {
-      n.isPinned = false
-    })
-    alphaRef.current = 0.8
-    setTick(t => t + 1)
-  }
-
-  const handleSVGMouseDown = (e) => {
-    setIsPanning(true)
-    setPanStart({ x: e.clientX, y: e.clientY })
-  }
-
-  const handleZoom = (factor) => {
-    if (factor === 'in') setZoom(z => Math.min(3, z + 0.15))
-    if (factor === 'out') setZoom(z => Math.max(0.4, z - 0.15))
-    if (factor === 'reset') {
-      setZoom(1)
-      setPan({ x: 0, y: 0 })
-    }
+  const onBgClick = () => {
+    if (movedRef.current) { movedRef.current = false; return }
+    setSelectedNode(null)
   }
 
   const handleSelectAllParents = () => {
@@ -1532,32 +1399,25 @@ export default function HubunganTab() {
               {/* Top controls toolbar */}
               <div className="absolute top-3 left-3 z-10 flex gap-1 bg-white/90 backdrop-blur border border-slate-200 rounded-lg shadow-sm p-1">
                 <button
-                  onClick={() => handleZoom('in')}
+                  onClick={() => zoomAround(width / 2, height / 2, 1.25)}
                   title="Perbesar"
                   className="p-1.5 hover:bg-slate-100 rounded text-slate-600"
                 >
                   <ZoomIn size={15} />
                 </button>
                 <button
-                  onClick={() => handleZoom('out')}
+                  onClick={() => zoomAround(width / 2, height / 2, 0.8)}
                   title="Perkecil"
                   className="p-1.5 hover:bg-slate-100 rounded text-slate-600"
                 >
                   <ZoomOut size={15} />
                 </button>
                 <button
-                  onClick={() => handleZoom('reset')}
-                  title="Reset Posisi & Zoom"
+                  onClick={() => { userMovedRef.current = true; fitView() }}
+                  title="Pas ke layar"
                   className="p-1.5 hover:bg-slate-100 rounded text-slate-600"
                 >
                   <RotateCcw size={15} />
-                </button>
-                <button
-                  onClick={handleUnpinAll}
-                  title="Lepas Semua Sematan Pin"
-                  className="p-1.5 hover:bg-slate-100 rounded text-slate-600"
-                >
-                  <PinOff size={15} />
                 </button>
               </div>
 
@@ -1569,7 +1429,7 @@ export default function HubunganTab() {
               {/* Help tip */}
               <div className="absolute bottom-3 left-3 z-10 text-[10px] text-slate-400 pointer-events-none flex items-center gap-1 bg-white/85 backdrop-blur px-2 py-1 rounded border border-slate-100 shadow-sm">
                 <HelpCircle size={10} />
-                <span>Geser bg untuk geser peta | Seret untuk menyematkan (pin) | Klik 2x node untuk lepas pin</span>
+                <span>Seret latar untuk geser · seret node untuk memindah (node kecil terhubung ikut) · klik node untuk detail</span>
               </div>
 
               {/* Interactive SVG canvas */}
@@ -1578,14 +1438,15 @@ export default function HubunganTab() {
                 width="100%"
                 height="100%"
                 viewBox={`0 0 ${width} ${height}`}
-                onMouseMove={handleSVGMouseMove}
-                onMouseUp={handleSVGMouseUp}
-                onMouseLeave={handleSVGMouseUp}
-                onMouseDown={handleSVGMouseDown}
+                onMouseMove={onMove}
+                onMouseUp={onUp}
+                onMouseLeave={onUp}
+                onMouseDown={onBgDown}
+                onClick={onBgClick}
                 className="bg-transparent cursor-grab active:cursor-grabbing flex-1 select-none"
               >
                 {/* Transform group for Zoom & Panning */}
-                <g transform={`translate(${pan.x}, ${pan.y}) scale(${zoom})`}>
+                <g transform={`translate(${view.tx}, ${view.ty}) scale(${view.k})`}>
                   
                   {/* LINKS / EDGES */}
                   <g className="links">
@@ -1636,9 +1497,9 @@ export default function HubunganTab() {
                         <g
                           key={node.id}
                           transform={`translate(${node.x}, ${node.y})`}
-                          onMouseDown={(e) => handleNodeMouseDown(node, e)}
-                          onDoubleClick={(e) => handleNodeDoubleClick(node, e)}
-                          className="cursor-pointer group"
+                          onMouseDown={(e) => onNodeDown(node, e)}
+                          onClick={(e) => onNodeClick(node, e)}
+                          className="cursor-grab active:cursor-grabbing group"
                         >
                           {/* Hover highlight circle */}
                           <circle
@@ -1658,14 +1519,13 @@ export default function HubunganTab() {
                             />
                           )}
 
-                          {/* Pinned ring border */}
-                          {node.isPinned && (
+                          {/* Shared-subsidiary ring — owned by 2+ selected parents (a bridge node) */}
+                          {node.shared && (
                             <circle
                               r={radius + 3}
                               fill="none"
-                              stroke="#f43f5e"
-                              strokeWidth={1.5}
-                              strokeDasharray="2 2"
+                              stroke="#f59e0b"
+                              strokeWidth={2.5}
                             />
                           )}
 
@@ -1673,7 +1533,7 @@ export default function HubunganTab() {
                           <circle
                             r={radius}
                             fill={fillCol}
-                            stroke={node.isParent ? '#ffffff' : '#0f172a'}
+                            stroke={node.isParent ? '#ffffff' : (node.shared ? '#f59e0b' : '#0f172a')}
                             strokeWidth={node.isParent ? 2.5 : 1.5}
                             className="transition-all duration-300"
                           />
@@ -1707,7 +1567,7 @@ export default function HubunganTab() {
                               textAnchor="middle"
                               y={radius + 12}
                               fill="#000000"
-                              fontSize={zoom > 0.85 ? 7.5 : 0}
+                              fontSize={view.k > 0.85 ? 7.5 : 0}
                               className="pointer-events-none group-hover:fill-[#f27a1a] font-bold drop-shadow"
                             >
                               {node.label.length > 15 ? `${node.label.substring(0, 13)}...` : node.label}
@@ -1795,21 +1655,13 @@ export default function HubunganTab() {
                     <p className="text-[10px] text-slate-500 mt-1">
                       {selectedNode.isParent 
                         ? (selectedNode.isBank ? 'Institusi Perbankan Kreditur' : 'Perusahaan Emiten Tercatat')
-                        : (activeMode === 'subsidiaries' ? `Anak Perusahaan dari ${selectedNode.parentCode}` : 'Penerima Pinjaman Kredit')
+                        : (activeMode === 'subsidiaries'
+                            ? (selectedNode.shared
+                                ? `Anak perusahaan bersama ${selectedNode.owners.length} induk`
+                                : `Anak Perusahaan dari ${selectedNode.parentCode}`)
+                            : 'Penerima Pinjaman Kredit')
                       }
                     </p>
-                    {selectedNode.isPinned && (
-                      <div 
-                        onClick={() => {
-                          selectedNode.isPinned = false;
-                          setTick(t => t + 1);
-                        }}
-                        className="mt-2 flex items-center justify-center gap-1.5 text-[9px] text-rose-600 bg-rose-50 border border-rose-100 rounded-md py-1 px-2.5 font-bold w-fit mx-auto cursor-pointer hover:bg-rose-100 hover:text-rose-700 transition-colors shadow-sm select-none"
-                      >
-                        <PinOff size={10} />
-                        <span>Tersemat (Klik untuk lepas)</span>
-                      </div>
-                    )}
                   </div>
 
                   {/* Column 2: Rincian Operasional & Finansial */}
@@ -1857,11 +1709,23 @@ export default function HubunganTab() {
                     /* TYPE 3: Subsidiary Node details */
                     activeMode === 'subsidiaries' ? (
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-3 max-h-[160px] overflow-y-auto pr-1">
-                        <div className="flex gap-2.5">
+                        <div className={`flex gap-2.5 ${selectedNode.shared ? 'md:col-span-2' : ''}`}>
                           <ShieldCheck className="text-blue-500 shrink-0 mt-0.5" size={16} />
-                          <div>
-                            <span className="text-[9px] text-slate-400 block font-semibold uppercase">Kepemilikan Saham</span>
-                            <span className="font-bold text-slate-800 text-xs">{selectedNode.percentageStr || '0'}%</span>
+                          <div className="min-w-0">
+                            <span className="text-[9px] text-slate-400 block font-semibold uppercase">
+                              {selectedNode.shared ? `Kepemilikan Saham (${selectedNode.owners.length} induk)` : 'Kepemilikan Saham'}
+                            </span>
+                            {selectedNode.shared ? (
+                              <div className="flex flex-wrap gap-1 mt-0.5">
+                                {[...selectedNode.owners].sort((a, b) => b.pct - a.pct).map(o => (
+                                  <span key={o.code} className="text-[10px] font-semibold bg-amber-50 text-amber-800 border border-amber-200 rounded px-1.5 py-0.5">
+                                    {o.code} {o.pctStr}%
+                                  </span>
+                                ))}
+                              </div>
+                            ) : (
+                              <span className="font-bold text-slate-800 text-xs">{selectedNode.percentageStr || '0'}%</span>
+                            )}
                           </div>
                         </div>
                         <div className="flex gap-2.5">
@@ -1950,6 +1814,10 @@ export default function HubunganTab() {
                             </div>
                           ))}
                         </div>
+                        <div className="flex items-center gap-1.5 text-[9px] mt-1.5 border-t border-slate-200 pt-1.5">
+                          <div className="w-2.5 h-2.5 rounded-full shrink-0 border-2 border-amber-500 bg-transparent" />
+                          <span className="text-slate-600">Cincin oranye = anak perusahaan bersama (dimiliki 2+ induk terpilih)</span>
+                        </div>
                       </div>
                     ) : (
                       <div>
@@ -1996,6 +1864,10 @@ export default function HubunganTab() {
                               <span className="text-slate-600 truncate">{name}</span>
                             </div>
                           ))}
+                        </div>
+                        <div className="flex items-center gap-1.5 text-[9px] mt-1.5 border-t border-slate-200 pt-1.5">
+                          <div className="w-2.5 h-2.5 rounded-full shrink-0 border-2 border-amber-500 bg-transparent" />
+                          <span className="text-slate-600">Cincin oranye = anak perusahaan bersama (dimiliki 2+ induk terpilih)</span>
                         </div>
                       </div>
                     ) : (

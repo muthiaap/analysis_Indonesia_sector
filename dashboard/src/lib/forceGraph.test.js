@@ -35,6 +35,36 @@ describe('stepSimulation', () => {
     for (let i = 0; i < 100; i++) stepSimulation(nodes, links, { springLength: 90 })
     expect(Math.hypot(nodes[0].x - nodes[1].x, nodes[0].y - nodes[1].y)).toBeLessThan(before)
   })
+  it('pushes two hub nodes apart harder with hubRepulsion', () => {
+    const mk = () => [{ id: 'a', x: 50, y: 0, vx: 0, vy: 0, hub: true }, { id: 'b', x: 90, y: 0, vx: 0, vy: 0, hub: true }]
+    const plain = mk(), boosted = mk()
+    for (let i = 0; i < 30; i++) {
+      stepSimulation(plain, [], { hubRepulsion: 1 })
+      stepSimulation(boosted, [], { hubRepulsion: 8 })
+    }
+    expect(dist(boosted[0], boosted[1])).toBeGreaterThan(dist(plain[0], plain[1]))
+  })
+  it('leaves non-hub nodes unaffected by hubRepulsion', () => {
+    const mk = () => [{ id: 'a', x: 50, y: 0, vx: 0, vy: 0 }, { id: 'b', x: 90, y: 0, vx: 0, vy: 0 }]
+    const plain = mk(), boosted = mk()
+    for (let i = 0; i < 30; i++) {
+      stepSimulation(plain, [], { hubRepulsion: 1 })
+      stepSimulation(boosted, [], { hubRepulsion: 8 })
+    }
+    expect(dist(boosted[0], boosted[1])).toBeCloseTo(dist(plain[0], plain[1]), 6)
+  })
+  it('resolves overlap between sized nodes so circles do not collide', () => {
+    const nodes = [{ id: 'a', x: 100, y: 100, vx: 0, vy: 0, r: 20 }, { id: 'b', x: 110, y: 100, vx: 0, vy: 0, r: 20 }]
+    for (let i = 0; i < 60; i++) stepSimulation(nodes, [], { collidePadding: 4 })
+    expect(dist(nodes[0], nodes[1])).toBeGreaterThanOrEqual(20 + 20 + 4 - 1) // ~sum of radii + padding
+  })
+  it('ignores collision for nodes without a radius', () => {
+    // 30px apart: if these had r=20 each, collision would snap them to ~44px.
+    // Without r, only weak long-range repulsion acts, so they barely move.
+    const a = [{ id: 'a', x: 100, y: 100, vx: 0, vy: 0 }, { id: 'b', x: 130, y: 100, vx: 0, vy: 0 }]
+    for (let i = 0; i < 5; i++) stepSimulation(a, [], {})
+    expect(dist(a[0], a[1])).toBeLessThan(44)   // never snapped up to the sum-of-radii collision floor
+  })
   it('separates two exactly-coincident nodes', () => {
     const nodes = [{ id: 'a', x: 50, y: 50, vx: 0, vy: 0 }, { id: 'b', x: 50, y: 50, vx: 0, vy: 0 }]
     for (let i = 0; i < 20; i++) stepSimulation(nodes, [], {})

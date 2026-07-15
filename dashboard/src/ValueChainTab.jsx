@@ -21,10 +21,13 @@ export default function ValueChainTab() {
   const [, setTick] = useState(0)
   const [view, setView] = useState({ k: 1, tx: 0, ty: 0 })
   const nodesRef = useRef([])
+  const svgRef = useRef(null)
   const rafRef = useRef(0)
   const dragRef = useRef(null)
   const movedRef = useRef(false)
   const userMovedRef = useRef(false)
+  const nodeDragRef = useRef(null)     // node being dragged: { id, dx, dy }
+  const nodeMovedRef = useRef(false)   // distinguishes a node drag from a node click
 
   useEffect(() => {
     let alive = true
@@ -64,9 +67,39 @@ export default function ValueChainTab() {
   }, [graph])
 
   // ----- pan / zoom -----
+  // measure against the SVG itself, not e.currentTarget (which is the node <g> during a node drag)
   const svgPoint = (e) => {
-    const r = e.currentTarget.getBoundingClientRect()
+    const r = (svgRef.current || e.currentTarget).getBoundingClientRect()
     return { x: (e.clientX - r.left) * (W / r.width), y: (e.clientY - r.top) * (H / r.height) }
+  }
+  // screen → world (undo the pan/zoom transform) so a dragged node tracks the cursor
+  const worldPoint = (e) => {
+    const p = svgPoint(e)
+    return { x: (p.x - view.tx) / view.k, y: (p.y - view.ty) / view.k }
+  }
+  const onNodeDown = (e, n) => {
+    e.stopPropagation()                       // don't start a background pan
+    cancelAnimationFrame(rafRef.current)      // freeze auto-layout so peers stay put
+    userMovedRef.current = true
+    nodeMovedRef.current = false
+    const w = worldPoint(e)
+    // directly-connected neighbours travel rigidly — but only ones SMALLER than the dragged node,
+    // so grabbing a hub pulls its little satellites without yanking other hubs around
+    const nmap = new Map(nodesRef.current.map(m => [m.id, m]))
+    const smaller = (m) => RADIUS[m.kind] < RADIUS[n.kind]
+    const seen = new Set()                    // dedupe: a partner joined by >1 edge must move once, not N times
+    const neighbors = []
+    const consider = (id) => {
+      if (id === n.id || seen.has(id) || !nmap.has(id)) return
+      const m = nmap.get(id)
+      if (smaller(m)) { seen.add(id); neighbors.push(m) }
+    }
+    for (const l of graph.links) {
+      const s = endId(l.source), t = endId(l.target)
+      if (s === n.id) consider(t)
+      else if (t === n.id) consider(s)
+    }
+    nodeDragRef.current = { id: n.id, dx: n.x - w.x, dy: n.y - w.y, neighbors }
   }
   const zoomAround = (mx, my, factor) => {
     userMovedRef.current = true
@@ -78,12 +111,25 @@ export default function ValueChainTab() {
   }
   const onDown = (e) => { const p = svgPoint(e); movedRef.current = false; dragRef.current = { sx: p.x, sy: p.y, tx: view.tx, ty: view.ty } }
   const onMove = (e) => {
+    const nd = nodeDragRef.current
+    if (nd) {                                 // dragging a node — it plus its neighbours move together
+      const w = worldPoint(e)
+      const n = nodesRef.current.find(m => m.id === nd.id)
+      if (n) {
+        const nx = w.x + nd.dx, ny = w.y + nd.dy
+        const ddx = nx - n.x, ddy = ny - n.y  // this frame's movement, applied to neighbours too
+        n.x = nx; n.y = ny
+        for (const m of nd.neighbors) { m.x += ddx; m.y += ddy }
+        nodeMovedRef.current = true; setTick(t => t + 1)
+      }
+      return
+    }
     if (!dragRef.current) return
     userMovedRef.current = true; movedRef.current = true
     const p = svgPoint(e)
     setView(v => ({ ...v, tx: dragRef.current.tx + (p.x - dragRef.current.sx), ty: dragRef.current.ty + (p.y - dragRef.current.sy) }))
   }
-  const onUp = () => { dragRef.current = null }
+  const onUp = () => { dragRef.current = null; nodeDragRef.current = null }
   const onBgClick = () => { if (movedRef.current) { movedRef.current = false; return } setSelNode(null); setSelEdge(null) }
 
   if (error) return <div className="p-8 text-rose-600">Gagal memuat rantai nilai: {error}</div>
@@ -127,7 +173,7 @@ export default function ValueChainTab() {
             <button className={btn} title="Perkecil" onClick={() => zoomAround(W / 2, H / 2, 0.8)}><span className="text-lg leading-none">−</span></button>
             <button className={btn + ' text-[10px]'} title="Pas ke layar" onClick={() => { userMovedRef.current = true; fitView() }}>Fit</button>
           </div>
-          <svg viewBox={`0 0 ${W} ${H}`}
+          <svg ref={svgRef} viewBox={`0 0 ${W} ${H}`}
             className="w-full h-[72vh] bg-slate-50/40 rounded-xl cursor-grab active:cursor-grabbing select-none"
             onMouseDown={onDown} onMouseMove={onMove} onMouseUp={onUp} onMouseLeave={onUp} onClick={onBgClick}>
             <g transform={`translate(${view.tx} ${view.ty}) scale(${view.k})`}>
@@ -146,8 +192,9 @@ export default function ValueChainTab() {
                 )
               })}
               {nodes.map(n => (
-                <g key={n.id} style={{ cursor: 'pointer' }}
-                  onClick={(e) => { e.stopPropagation(); setSelNode(n.id); setSelEdge(null) }}>
+                <g key={n.id} style={{ cursor: 'grab' }}
+                  onMouseDown={(e) => onNodeDown(e, n)}
+                  onClick={(e) => { e.stopPropagation(); if (nodeMovedRef.current) { nodeMovedRef.current = false; return } setSelNode(n.id); setSelEdge(null) }}>
                   {selNode === n.id && (
                     <circle cx={n.x} cy={n.y} r={RADIUS[n.kind] + 5} fill="none" stroke="#6366f1" strokeWidth="2.5" />
                   )}
