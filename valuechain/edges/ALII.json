@@ -1,0 +1,66 @@
+{
+ "ticker": "ALII",
+ "company": "PT Ancara Logistics Indonesia Tbk",
+ "edges": [
+  {
+   "counterparty": "PT Ade Putra Tanrajeng",
+   "counterparty_ticker": null,
+   "direction": "customer",
+   "flow": "related-party sales (revenue)",
+   "confidence": "high",
+   "evidence_quote": "Pihak berelasi 1 PT Ade Putra Tanrajeng 181,611,365 Related party 1",
+   "source_url": "https://www.idx.co.id/en/listed-companies/company-profiles/ALII",
+   "source_type": "filing",
+   "source_date": "2026-03-31",
+   "retrieved_date": "2026-07-16"
+  },
+  {
+   "counterparty": "PT Guruh Putra Bersama",
+   "counterparty_ticker": null,
+   "direction": "customer",
+   "flow": "related-party sales (revenue)",
+   "confidence": "high",
+   "evidence_quote": "Pihak berelasi 2 PT Guruh Putra Bersama 31,952,692 Related party 2",
+   "source_url": "https://www.idx.co.id/en/listed-companies/company-profiles/ALII",
+   "source_type": "filing",
+   "source_date": "2026-03-31",
+   "retrieved_date": "2026-07-16"
+  },
+  {
+   "counterparty": "PT Borneo Petrol Jaya",
+   "counterparty_ticker": null,
+   "direction": "supplier",
+   "flow": "related-party purchases (trade payable)",
+   "confidence": "high",
+   "evidence_quote": "Pihak 1 PT Borneo Petrol Jaya 13,164,573 Related Rank 1,",
+   "source_url": "https://www.idx.co.id/en/listed-companies/company-profiles/ALII",
+   "source_type": "filing",
+   "source_date": "2026-03-31",
+   "retrieved_date": "2026-07-16"
+  },
+  {
+   "counterparty": "PT Cakrawala Langit Sejahtera",
+   "counterparty_ticker": null,
+   "direction": "supplier",
+   "flow": "related-party purchases (trade payable)",
+   "confidence": "high",
+   "evidence_quote": "Pihak 2 PT Cakrawala Langit 4,456,119 Rank 2,",
+   "source_url": "https://www.idx.co.id/en/listed-companies/company-profiles/ALII",
+   "source_type": "filing",
+   "source_date": "2026-03-31",
+   "retrieved_date": "2026-07-16"
+  },
+  {
+   "counterparty": "PT Elitser IT Solutions Indonesia",
+   "counterparty_ticker": null,
+   "direction": "supplier",
+   "flow": "related-party purchases (trade payable)",
+   "confidence": "high",
+   "evidence_quote": "Pihak 3 PT Elitser IT Solutions 39,894 Rank 3,",
+   "source_url": "https://www.idx.co.id/en/listed-companies/company-profiles/ALII",
+   "source_type": "filing",
+   "source_date": "2026-03-31",
+   "retrieved_date": "2026-07-16"
+  }
+ ]
+}

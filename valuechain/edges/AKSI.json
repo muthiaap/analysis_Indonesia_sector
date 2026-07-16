@@ -1,0 +1,162 @@
+{
+ "ticker": "AKSI",
+ "company": "PT Mineral Sumberdaya Mandiri Tbk",
+ "edges": [
+  {
+   "counterparty": "PT Krida Cipta Satya",
+   "counterparty_ticker": null,
+   "direction": "customer",
+   "flow": "related-party sales (revenue)",
+   "confidence": "high",
+   "evidence_quote": "Pihak berelasi 1 PT Krida Cipta Satya 2,190,000,000 Related party 1",
+   "source_url": "https://www.idx.co.id/en/listed-companies/company-profiles/AKSI",
+   "source_type": "filing",
+   "source_date": "2026-03-31",
+   "retrieved_date": "2026-07-16"
+  },
+  {
+   "counterparty": "PT Toudano Mandiri Abadi",
+   "counterparty_ticker": null,
+   "direction": "customer",
+   "flow": "related-party sales (revenue)",
+   "confidence": "high",
+   "evidence_quote": "Pihak berelasi 2 PT Toudano Mandiri Abadi 402,500,000 Related party 2",
+   "source_url": "https://www.idx.co.id/en/listed-companies/company-profiles/AKSI",
+   "source_type": "filing",
+   "source_date": "2026-03-31",
+   "retrieved_date": "2026-07-16"
+  },
+  {
+   "counterparty": "PT Tambang Mineral Maju",
+   "counterparty_ticker": null,
+   "direction": "customer",
+   "flow": "related-party sales (revenue)",
+   "confidence": "high",
+   "evidence_quote": "Pihak berelasi 3 PT Tambang Mineral Maju 254,495,000 Related party 3",
+   "source_url": "https://www.idx.co.id/en/listed-companies/company-profiles/AKSI",
+   "source_type": "filing",
+   "source_date": "2026-03-31",
+   "retrieved_date": "2026-07-16"
+  },
+  {
+   "counterparty": "PT Bina Batulicin Usaha",
+   "counterparty_ticker": null,
+   "direction": "customer",
+   "flow": "related-party sales (revenue)",
+   "confidence": "high",
+   "evidence_quote": "Pihak berelasi 4 PT Bina Batulicin usaha 150,000,000 Related party 4",
+   "source_url": "https://www.idx.co.id/en/listed-companies/company-profiles/AKSI",
+   "source_type": "filing",
+   "source_date": "2026-03-31",
+   "retrieved_date": "2026-07-16"
+  },
+  {
+   "counterparty": "PT Bina Indo Raya",
+   "counterparty_ticker": null,
+   "direction": "customer",
+   "flow": "related-party sales (revenue)",
+   "confidence": "high",
+   "evidence_quote": "Pihak berelasi 5 PT Bina Indo Raya 23,271,889 Related party 5",
+   "source_url": "https://www.idx.co.id/en/listed-companies/company-profiles/AKSI",
+   "source_type": "filing",
+   "source_date": "2026-03-31",
+   "retrieved_date": "2026-07-16"
+  },
+  {
+   "counterparty": "PT Indoberkah Jaya Mandiri",
+   "counterparty_ticker": null,
+   "direction": "customer",
+   "flow": "related-party sales (revenue)",
+   "confidence": "high",
+   "evidence_quote": "Pihak berelasi 6 PT Indoberkah Jaya Mandiri 14,840,000 Related party 6",
+   "source_url": "https://www.idx.co.id/en/listed-companies/company-profiles/AKSI",
+   "source_type": "filing",
+   "source_date": "2026-03-31",
+   "retrieved_date": "2026-07-16"
+  },
+  {
+   "counterparty": "PT Bina Sewangi Raya",
+   "counterparty_ticker": null,
+   "direction": "customer",
+   "flow": "related-party sales (trade receivable)",
+   "confidence": "high",
+   "evidence_quote": "Pihak 1 PT Bina Sewangi Raya 21,074,350,844 Related party Rank 1, counterparty",
+   "source_url": "https://www.idx.co.id/en/listed-companies/company-profiles/AKSI",
+   "source_type": "filing",
+   "source_date": "2026-03-31",
+   "retrieved_date": "2026-07-16"
+  },
+  {
+   "counterparty": "PT Batulicin Bumi Bersujud",
+   "counterparty_ticker": null,
+   "direction": "customer",
+   "flow": "related-party sales (trade receivable)",
+   "confidence": "high",
+   "evidence_quote": "Pihak 2 PT Batulicin Bumi Bersujud 7,600,228,000 Rank 2, counterparty",
+   "source_url": "https://www.idx.co.id/en/listed-companies/company-profiles/AKSI",
+   "source_type": "filing",
+   "source_date": "2026-03-31",
+   "retrieved_date": "2026-07-16"
+  },
+  {
+   "counterparty": "PT Bina Muara Raya",
+   "counterparty_ticker": null,
+   "direction": "customer",
+   "flow": "related-party sales (trade receivable)",
+   "confidence": "high",
+   "evidence_quote": "Pihak 4 PT Bina Muara Raya 555,335,000 Rank 4, counterparty",
+   "source_url": "https://www.idx.co.id/en/listed-companies/company-profiles/AKSI",
+   "source_type": "filing",
+   "source_date": "2026-03-31",
+   "retrieved_date": "2026-07-16"
+  },
+  {
+   "counterparty": "PT Daya Beton Indonesia",
+   "counterparty_ticker": null,
+   "direction": "customer",
+   "flow": "related-party sales (trade receivable)",
+   "confidence": "high",
+   "evidence_quote": "Pihak 6 PT Daya Beton Indonesia 142,722,000 Rank 6, counterparty",
+   "source_url": "https://www.idx.co.id/en/listed-companies/company-profiles/AKSI",
+   "source_type": "filing",
+   "source_date": "2026-03-31",
+   "retrieved_date": "2026-07-16"
+  },
+  {
+   "counterparty": "PT Bina Batulicin Usaha",
+   "counterparty_ticker": null,
+   "direction": "supplier",
+   "flow": "related-party purchases (trade payable)",
+   "confidence": "high",
+   "evidence_quote": "Pihak 1 PT Bina Batulicin Usaha 1,065,082,553 Related Rank 1,",
+   "source_url": "https://www.idx.co.id/en/listed-companies/company-profiles/AKSI",
+   "source_type": "filing",
+   "source_date": "2026-03-31",
+   "retrieved_date": "2026-07-16"
+  },
+  {
+   "counterparty": "PT Bina Sewangi Raya",
+   "counterparty_ticker": null,
+   "direction": "supplier",
+   "flow": "related-party purchases (trade payable)",
+   "confidence": "high",
+   "evidence_quote": "Pihak 2 PT Bina Sewangi Raya 504,250,960 Rank 2,",
+   "source_url": "https://www.idx.co.id/en/listed-companies/company-profiles/AKSI",
+   "source_type": "filing",
+   "source_date": "2026-03-31",
+   "retrieved_date": "2026-07-16"
+  },
+  {
+   "counterparty": "PT Tata Buana Karya",
+   "counterparty_ticker": null,
+   "direction": "supplier",
+   "flow": "related-party purchases (trade payable)",
+   "confidence": "high",
+   "evidence_quote": "Pihak 3 PT Tata Buana Karya 176,639,950 Rank 3,",
+   "source_url": "https://www.idx.co.id/en/listed-companies/company-profiles/AKSI",
+   "source_type": "filing",
+   "source_date": "2026-03-31",
+   "retrieved_date": "2026-07-16"
+  }
+ ]
+}
