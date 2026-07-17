@@ -1,0 +1,66 @@
+{
+ "ticker": "ASSA",
+ "company": "Adi Sarana Armada Tbk",
+ "edges": [
+  {
+   "counterparty": "PT Rantai Dingin Indonesia",
+   "counterparty_ticker": null,
+   "direction": "customer",
+   "flow": "logistics/services revenue (related party)",
+   "confidence": "high",
+   "evidence_quote": "Pihak berelasi 1 PT Rantai Dingin Indonesia 1,828,491,605 Related party 1",
+   "source_url": "https://www.idx.co.id/en/listed-companies/company-profiles/ASSA",
+   "source_type": "filing",
+   "source_date": "2026-03-31",
+   "retrieved_date": "2026-07-17"
+  },
+  {
+   "counterparty": "PT Puninar Jaya",
+   "counterparty_ticker": null,
+   "direction": "customer",
+   "flow": "logistics/services revenue (related party)",
+   "confidence": "high",
+   "evidence_quote": "Pihak berelasi 2 PT Puninar Jaya 1,312,000,675 Related party 2",
+   "source_url": "https://www.idx.co.id/en/listed-companies/company-profiles/ASSA",
+   "source_type": "filing",
+   "source_date": "2026-03-31",
+   "retrieved_date": "2026-07-17"
+  },
+  {
+   "counterparty": "PT Dharma Polimetal Tbk",
+   "counterparty_ticker": null,
+   "direction": "customer",
+   "flow": "logistics/services revenue (related party)",
+   "confidence": "high",
+   "evidence_quote": "Pihak berelasi 3 PT Dharma Polimetal Tbk 153,060,000 Related party 3",
+   "source_url": "https://www.idx.co.id/en/listed-companies/company-profiles/ASSA",
+   "source_type": "filing",
+   "source_date": "2026-03-31",
+   "retrieved_date": "2026-07-17"
+  },
+  {
+   "counterparty": "PT Triputra Energi Megatara",
+   "counterparty_ticker": null,
+   "direction": "customer",
+   "flow": "logistics/services revenue (related party)",
+   "confidence": "high",
+   "evidence_quote": "Pihak berelasi 4 PT Triputra Energi Megatara 72,150,000 Related party 4",
+   "source_url": "https://www.idx.co.id/en/listed-companies/company-profiles/ASSA",
+   "source_type": "filing",
+   "source_date": "2026-03-31",
+   "retrieved_date": "2026-07-17"
+  },
+  {
+   "counterparty": "PT Adi Sarana Logistik",
+   "counterparty_ticker": null,
+   "direction": "customer",
+   "flow": "logistics/services revenue (related party)",
+   "confidence": "high",
+   "evidence_quote": "Pihak berelasi 5 PT Adi Sarana Logistik 2,323,514,626 Related party 5",
+   "source_url": "https://www.idx.co.id/en/listed-companies/company-profiles/ASSA",
+   "source_type": "filing",
+   "source_date": "2026-03-31",
+   "retrieved_date": "2026-07-17"
+  }
+ ]
+}

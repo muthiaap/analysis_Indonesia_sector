@@ -1,0 +1,90 @@
+{
+ "ticker": "APII",
+ "company": "PT Arita Prima Indonesia Tbk.",
+ "edges": [
+  {
+   "counterparty": "UNIMECH ENGINEERING (M) SDN BHD",
+   "counterparty_ticker": null,
+   "direction": "customer",
+   "flow": "related-party trade receivable (customer)",
+   "confidence": "high",
+   "evidence_quote": "Pihak berelasiPihak 1 UNIMECH ENGINEERING (M) SDN BHD 0 Related party Rank 1, counterparty",
+   "source_url": "https://www.idx.co.id/en/listed-companies/company-profiles/APII",
+   "source_type": "filing",
+   "source_date": "2026-03-31",
+   "retrieved_date": "2026-07-17"
+  },
+  {
+   "counterparty": "PT AIRA SUKSES INTERNATIONAL",
+   "counterparty_ticker": null,
+   "direction": "customer",
+   "flow": "related-party trade receivable (customer)",
+   "confidence": "high",
+   "evidence_quote": "Pihak 2 PT AIRA SUKSES INTERNATIONAL 1,728,793,503 Rank 2, counterparty",
+   "source_url": "https://www.idx.co.id/en/listed-companies/company-profiles/APII",
+   "source_type": "filing",
+   "source_date": "2026-03-31",
+   "retrieved_date": "2026-07-17"
+  },
+  {
+   "counterparty": "PT INOVATIF SINERGI MANDIRI",
+   "counterparty_ticker": null,
+   "direction": "customer",
+   "flow": "related-party trade receivable (customer)",
+   "confidence": "high",
+   "evidence_quote": "Pihak 3 PT INOVATIF SINERGI MANDIRI 0 Rank 3, counterparty",
+   "source_url": "https://www.idx.co.id/en/listed-companies/company-profiles/APII",
+   "source_type": "filing",
+   "source_date": "2026-03-31",
+   "retrieved_date": "2026-07-17"
+  },
+  {
+   "counterparty": "PT GARUDA REKSA TEKNOLOGI",
+   "counterparty_ticker": null,
+   "direction": "customer",
+   "flow": "related-party trade receivable (customer)",
+   "confidence": "high",
+   "evidence_quote": "Pihak 4 PT GARUDA REKSA TEKNOLOGI 0 Rank 4, counterparty",
+   "source_url": "https://www.idx.co.id/en/listed-companies/company-profiles/APII",
+   "source_type": "filing",
+   "source_date": "2026-03-31",
+   "retrieved_date": "2026-07-17"
+  },
+  {
+   "counterparty": "PT. BONT TECHNOLOGIES NUSANTARA",
+   "counterparty_ticker": null,
+   "direction": "customer",
+   "flow": "related-party trade receivable (customer)",
+   "confidence": "high",
+   "evidence_quote": "Pihak 5 PT. BONT TECHNOLOGIES NUSANTARA 5,256,484 Rank 5, counterparty",
+   "source_url": "https://www.idx.co.id/en/listed-companies/company-profiles/APII",
+   "source_type": "filing",
+   "source_date": "2026-03-31",
+   "retrieved_date": "2026-07-17"
+  },
+  {
+   "counterparty": "PT WATERINDO TECHNOLOGIES PARTNERS",
+   "counterparty_ticker": null,
+   "direction": "customer",
+   "flow": "related-party trade receivable (customer)",
+   "confidence": "high",
+   "evidence_quote": "Pihak 6 PT WATERINDO TECHNOLOGIES PARTNERS 63,915,574 Rank 6, counterparty",
+   "source_url": "https://www.idx.co.id/en/listed-companies/company-profiles/APII",
+   "source_type": "filing",
+   "source_date": "2026-03-31",
+   "retrieved_date": "2026-07-17"
+  },
+  {
+   "counterparty": "PT ARTHA MAKMUR PERSADA",
+   "counterparty_ticker": null,
+   "direction": "customer",
+   "flow": "related-party trade receivable (customer)",
+   "confidence": "high",
+   "evidence_quote": "Pihak 7 PT ARTHA MAKMUR PERSADA 0 Rank 7, counterparty",
+   "source_url": "https://www.idx.co.id/en/listed-companies/company-profiles/APII",
+   "source_type": "filing",
+   "source_date": "2026-03-31",
+   "retrieved_date": "2026-07-17"
+  }
+ ]
+}

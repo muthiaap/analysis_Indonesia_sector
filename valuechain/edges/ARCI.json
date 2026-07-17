@@ -1,0 +1,42 @@
+{
+ "ticker": "ARCI",
+ "company": "PT Archi Indonesia Tbk",
+ "edges": [
+  {
+   "counterparty": "PT Suka Jadi Logam",
+   "counterparty_ticker": null,
+   "direction": "customer",
+   "flow": "product sales/revenue (third party)",
+   "confidence": "high",
+   "evidence_quote": "Pihak ketiga 1 PT Suka Jadi Logam 55,451,293 Third party 1",
+   "source_url": "https://www.idx.co.id/en/listed-companies/company-profiles/ARCI",
+   "source_type": "filing",
+   "source_date": "2026-03-31",
+   "retrieved_date": "2026-07-17"
+  },
+  {
+   "counterparty": "PT Indo Prosperity International",
+   "counterparty_ticker": null,
+   "direction": "customer",
+   "flow": "product sales/revenue (third party)",
+   "confidence": "high",
+   "evidence_quote": "Pihak ketiga 2 PT Indo Prosperity International 36,134,146 Third party 2",
+   "source_url": "https://www.idx.co.id/en/listed-companies/company-profiles/ARCI",
+   "source_type": "filing",
+   "source_date": "2026-03-31",
+   "retrieved_date": "2026-07-17"
+  },
+  {
+   "counterparty": "PT Swarnim Murni Mulia",
+   "counterparty_ticker": null,
+   "direction": "customer",
+   "flow": "product sales/revenue (third party)",
+   "confidence": "high",
+   "evidence_quote": "Pihak ketiga 3 PT Swarnim Murni Mulia 17,779,210 Third party 3",
+   "source_url": "https://www.idx.co.id/en/listed-companies/company-profiles/ARCI",
+   "source_type": "filing",
+   "source_date": "2026-03-31",
+   "retrieved_date": "2026-07-17"
+  }
+ ]
+}
